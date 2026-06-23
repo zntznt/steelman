@@ -291,6 +291,88 @@
         "made of",
         "therefore the team"
       ]
+    },
+    {
+      "id": "formal_conditional",
+      "name": "Conditional slips",
+      "prompt": "It draws the wrong move from an if-then",
+      "bucket": "logic",
+      "cues": [
+        "if ",
+        "then ",
+        "must have",
+        "so it must",
+        "only if",
+        "unless"
+      ]
+    },
+    {
+      "id": "statistical",
+      "name": "Misreads the numbers",
+      "prompt": "It draws a shaky conclusion from statistics or probability",
+      "bucket": "logic",
+      "cues": [
+        "probability",
+        "chance",
+        "odds",
+        "due for",
+        "average",
+        "percent",
+        "most ",
+        "rate of"
+      ]
+    },
+    {
+      "id": "relevance_extra",
+      "name": "Other ways to miss the point",
+      "prompt": "It answers something adjacent to, but not, the actual claim",
+      "bucket": "relevance",
+      "cues": [
+        "if that were true",
+        "you only say that",
+        "they did it too",
+        "that would mean"
+      ]
+    },
+    {
+      "id": "presumption_extra",
+      "name": "Other things taken for granted",
+      "prompt": "It smuggles in an assumption the argument needed to earn",
+      "bucket": "presumption",
+      "cues": [
+        "real ",
+        "true ",
+        "any real",
+        "have you stopped",
+        "why is it that you"
+      ]
+    },
+    {
+      "id": "appeal_extra",
+      "name": "Other misplaced appeals",
+      "prompt": "It rests on a source of pull that does not bear on truth",
+      "bucket": "appeals",
+      "cues": [
+        "or else",
+        "smart people like you",
+        "rich ",
+        "successful people",
+        "common sense",
+        "you know better"
+      ]
+    },
+    {
+      "id": "language_extra",
+      "name": "Other word games",
+      "prompt": "Vague, loaded, or weasel wording does the work",
+      "bucket": "language",
+      "cues": [
+        "some say",
+        "many believe",
+        "arguably",
+        "where do you draw the line",
+        "at what point"
+      ]
     }
   ],
   "tells": {
@@ -839,6 +921,226 @@
         "qid": "q_individual_level_evidence",
         "text": "Backs claims about the person with individual-level evidence, not just the group rate"
       }
+    ],
+    "affirming_the_consequent": [
+      {
+        "qid": "q_result_confirms_condition",
+        "text": "Allows the predicted result could arrive without the stated condition being true"
+      },
+      {
+        "qid": "q_other_paths_to_result_checked",
+        "text": "Checks and rules out other routes to the same result before affirming the condition"
+      }
+    ],
+    "denying_the_antecedent": [
+      {
+        "qid": "q_missing_condition_rules_out",
+        "text": "Allows the result could still arrive another way even with the stated condition absent"
+      },
+      {
+        "qid": "q_condition_is_only_route",
+        "text": "Shows the stated condition really is the only path before ruling the result out"
+      }
+    ],
+    "base_rate_neglect": [
+      {
+        "qid": "q_base_rate_ignored",
+        "text": "Weighs how common the thing is, not just the test result or sign on its own"
+      },
+      {
+        "qid": "q_rarity_factored_in",
+        "text": "Folds the rarity of the condition into the odds rather than reading a positive as near-certain"
+      }
+    ],
+    "gamblers_fallacy": [
+      {
+        "qid": "q_streak_shifts_next_odds",
+        "text": "Keeps each independent trial at the same odds, not swayed by a recent streak"
+      },
+      {
+        "qid": "q_due_for_reversal",
+        "text": "Doesn't treat the opposite outcome as 'due' just because a run went one way"
+      }
+    ],
+    "regression_fallacy": [
+      {
+        "qid": "q_extreme_case_selected",
+        "text": "Notices when a case was singled out at an extreme, where a swing back toward normal is expected"
+      },
+      {
+        "qid": "q_drift_credited_to_cause",
+        "text": "Rules out plain drift back to average before crediting the action for the change"
+      }
+    ],
+    "survivorship_bias": [
+      {
+        "qid": "q_only_survivors_counted",
+        "text": "Counts the cases that failed or dropped out, not only the survivors still in view"
+      },
+      {
+        "qid": "q_dropouts_would_change_it",
+        "text": "Checks whether the missing failures shared the same trait before crediting it for success"
+      }
+    ],
+    "texas_sharpshooter": [
+      {
+        "qid": "q_pattern_drawn_after_data",
+        "text": "Names the pattern in advance instead of drawing the target around a cluster after seeing it"
+      },
+      {
+        "qid": "q_cluster_picked_rest_ignored",
+        "text": "Weighs all the cases together rather than spotlighting one cluster and ignoring the misses"
+      }
+    ],
+    "appeal_to_consequences": [
+      {
+        "qid": "q_consequences_decide_truth",
+        "text": "Ties the verdict to evidence the claim is true, not to how pleasant believing it would be"
+      },
+      {
+        "qid": "q_unwelcome_so_rejected",
+        "text": "Rejects a claim only when something shows it false, not because its implication is unwelcome"
+      }
+    ],
+    "appeal_to_motive": [
+      {
+        "qid": "q_motive_dismisses_claim",
+        "text": "Weighs the claim on the evidence, not on what the speaker stands to gain"
+      },
+      {
+        "qid": "q_stake_replaces_check",
+        "text": "Treats a hidden motive as a cue to check the point, not as a reason it must be false"
+      }
+    ],
+    "two_wrongs": [
+      {
+        "qid": "q_other_wrong_justifies",
+        "text": "Defends the act on its own merits, not by pointing to a similar wrong elsewhere"
+      },
+      {
+        "qid": "q_precedent_cancels_fault",
+        "text": "Judges the act on its own, treating 'others did it' as no excuse for it"
+      }
+    ],
+    "ad_hominem_circumstantial": [
+      {
+        "qid": "q_circumstance_predisposes_dismissal",
+        "text": "Addresses the view itself, not whether the speaker's situation makes it expected"
+      },
+      {
+        "qid": "q_position_explains_away_view",
+        "text": "Treats the speaker's situation as a bias to check, not as proof the view is wrong"
+      }
+    ],
+    "complex_question": [
+      {
+        "qid": "q_cq_two_questions_as_one",
+        "text": "Asks about one matter at a time, not several fused into a single demand"
+      },
+      {
+        "qid": "q_cq_single_answer_covers_both",
+        "text": "Lets each part be answered separately rather than forcing one answer to settle both"
+      }
+    ],
+    "no_true_scotsman": [
+      {
+        "qid": "q_nts_counterexample_redefined_out",
+        "text": "Lets a counterexample count against the claim rather than relabeling it away"
+      },
+      {
+        "qid": "q_nts_standard_invented_after",
+        "text": "Holds to membership terms set out beforehand, not ones added once the example appeared"
+      }
+    ],
+    "suppressed_correlative": [
+      {
+        "qid": "q_sc_one_term_swallows_other",
+        "text": "Keeps both sides of the pair meaningful rather than stretching one to swallow the other"
+      },
+      {
+        "qid": "q_sc_contrast_emptied_out",
+        "text": "Preserves a real line between the options instead of emptying one category out"
+      }
+    ],
+    "appeal_to_force": [
+      {
+        "qid": "q_threat_swaps_for_reason",
+        "text": "Rests on reasons the claim is true, not on a cost threatened for disagreeing"
+      },
+      {
+        "qid": "q_comply_or_pay_consequence",
+        "text": "Leaves you free to disagree on the merits, without penalty attached for doing so"
+      }
+    ],
+    "appeal_to_flattery": [
+      {
+        "qid": "q_praise_softens_into_agreement",
+        "text": "Persuades with reasons a stranger could weigh, not by complimenting the listener"
+      },
+      {
+        "qid": "q_compliment_carries_the_claim",
+        "text": "Still stands once any praise is set aside, because real reasons support it"
+      }
+    ],
+    "appeal_to_wealth": [
+      {
+        "qid": "q_price_proves_quality",
+        "text": "Shows quality by how the thing performs, not by how much it costs"
+      },
+      {
+        "qid": "q_wealth_makes_it_right",
+        "text": "Weighs the claim on its reasons, not on how rich the person making it is"
+      }
+    ],
+    "appeal_to_common_sense": [
+      {
+        "qid": "q_obvious_excuses_support",
+        "text": "Offers actual reasons for the claim rather than declaring it obvious or common sense"
+      },
+      {
+        "qid": "q_dissent_cast_as_senseless",
+        "text": "Answers doubts on their merits instead of casting the doubter as lacking sense"
+      }
+    ],
+    "loaded_language": [
+      {
+        "qid": "q_charged_words_carry_verdict",
+        "text": "Backs the judgment with stated reasons, not just with words that pre-decide it"
+      },
+      {
+        "qid": "q_neutral_wording_survives",
+        "text": "Still holds up when the charged terms are replaced with plain neutral ones"
+      }
+    ],
+    "weasel_words": [
+      {
+        "qid": "q_attribution_unnamed_vague",
+        "text": "Names a specific source one could look up, not a vague 'some say'"
+      },
+      {
+        "qid": "q_qualifier_hides_no_support",
+        "text": "Puts real evidence behind the claim rather than a softening qualifier"
+      }
+    ],
+    "continuum_fallacy": [
+      {
+        "qid": "q_no_sharp_line_erases_difference",
+        "text": "Grants the real gap between clear cases even without a precise cutoff"
+      },
+      {
+        "qid": "q_small_steps_collapse_distinction",
+        "text": "Accepts that many small steps can add up to a genuine difference"
+      }
+    ],
+    "reification": [
+      {
+        "qid": "q_abstraction_acts_as_agent",
+        "text": "Uses 'society' or 'the market' as shorthand, not as a thing with a will of its own"
+      },
+      {
+        "qid": "q_concept_treated_as_concrete",
+        "text": "Rests the conclusion on the concrete people and facts behind the abstraction"
+      }
     ]
   },
   "buckets": [
@@ -866,6 +1168,11 @@
       "id": "language",
       "name": "It plays on words",
       "prompt": "The wording itself seems to be doing something slippery"
+    },
+    {
+      "id": "logic",
+      "name": "It mishandles the logic",
+      "prompt": "The reasoning structure or the numbers themselves seem to go wrong"
     }
   ]
 }

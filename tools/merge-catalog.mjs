@@ -33,6 +33,13 @@ const taxByFam = Object.fromEntries(taxonomy.families.map((f) => [f.id, f]));
 let addedF = 0, addedQ = 0, addedT = 0, skipped = 0;
 const problems = [];
 
+// Sync the bucket list from taxonomy → families.json so any new bucket (e.g. "logic") gets its
+// display metadata embedded. Without this, a new family's bucket would have no name/prompt and the
+// 2-level picker couldn't render it. (This is the gap that bit batch 2.)
+if (Array.isArray(taxonomy.buckets)) {
+  families.buckets = taxonomy.buckets.map((b) => ({ id: b.id, name: b.name, prompt: b.prompt }));
+}
+
 for (const famGroup of result.families || []) {
   const famId = famGroup.fam;
   // ensure the family exists in families.json (metadata + cues from taxonomy)

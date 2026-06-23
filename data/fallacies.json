@@ -459,6 +459,204 @@
       "short": "Drawing a conclusion about an individual from a statistic or average about the group they belong to.",
       "teaching": "The ecological fallacy reads a fact about a group's average or rate as if it told you about any particular member, even though individuals can differ sharply from the group pattern. It is NOT this fallacy when the claim stays at the group level, or when individual-level data actually backs the claim about the person.",
       "confirm_check": "Is a group-level statistic or average being used to settle what's true of a specific individual, without individual-level evidence?"
+    },
+    {
+      "id": "affirming_the_consequent",
+      "name": "Affirming the Consequent",
+      "base_rate": 1,
+      "family": "formal_conditional",
+      "short": "Seeing the predicted result show up and concluding the stated condition must therefore be true.",
+      "teaching": "This treats 'if X, then Y' as if Y could only come from X, so when Y shows up it claims X must be true. But the same result can arrive other ways, so seeing the result does not confirm that one condition. It is not this fallacy when the stated condition really is the only thing that could produce that result, or when the other possible explanations have already been checked and ruled out.",
+      "confirm_check": "Does it take the predicted result being present as proof that the stated condition is true?"
+    },
+    {
+      "id": "denying_the_antecedent",
+      "name": "Denying the Antecedent",
+      "base_rate": 1,
+      "family": "formal_conditional",
+      "short": "Because the stated condition did not happen, concluding the result is ruled out.",
+      "teaching": "This takes 'if X, then Y' and reasons that since X did not happen, Y will not happen either. But X may be only one of several ways to reach Y, so its absence does not rule the result out. It is not this fallacy when the stated condition truly is the only way the result could occur, so removing it genuinely removes the result.",
+      "confirm_check": "Does it treat the stated condition not happening as enough to rule the result out?"
+    },
+    {
+      "id": "base_rate_neglect",
+      "name": "Base Rate Neglect",
+      "base_rate": 1,
+      "family": "statistical",
+      "short": "Judging from a test result or vivid detail alone, ignoring how rare or common the thing is.",
+      "teaching": "Base rate neglect reads a result, symptom, or sign on its own and forgets to ask how common the underlying thing actually is, so a rare condition with a good-but-imperfect test still gets treated as a near-certainty. It is not a fallacy when the underlying rate really is high, or when the result is so decisive that the starting odds barely matter.",
+      "confirm_check": "Is the conclusion drawn from the result alone, without weighing how rare or common the thing being concluded actually is?"
+    },
+    {
+      "id": "gamblers_fallacy",
+      "name": "Gambler's Fallacy",
+      "base_rate": 1,
+      "family": "statistical",
+      "short": "Expecting independent chance events to even out, as if a streak makes the next one 'due'.",
+      "teaching": "The gambler's fallacy treats independent random events as if past results change the next one's odds, so a run of one outcome is felt to make the opposite 'due'. It is not a fallacy when the events genuinely aren't independent (drawing without replacing cards, a worn machine) or when 'due' just means the long-run average will assert itself, not the very next trial.",
+      "confirm_check": "Is a run of past chance outcomes being used to predict the next independent one, as if the odds had shifted to balance things out?"
+    },
+    {
+      "id": "regression_fallacy",
+      "name": "Regression Fallacy",
+      "base_rate": 1,
+      "family": "statistical",
+      "short": "Crediting a cause for an improvement that was just an extreme case drifting back to normal.",
+      "teaching": "The regression fallacy credits a treatment or action for a change that was really just an unusually high or low case settling back toward its average on its own. It is not a fallacy when there's a controlled comparison, or evidence the change is bigger or more lasting than ordinary drift back to normal would produce.",
+      "confirm_check": "Was the case singled out at an extreme high or low, so its move back toward normal could have happened on its own without the credited cause?"
+    },
+    {
+      "id": "survivorship_bias",
+      "name": "Survivorship Bias",
+      "base_rate": 1,
+      "family": "statistical",
+      "short": "Drawing lessons only from the cases that made it, ignoring the ones that dropped out of view.",
+      "teaching": "Survivorship bias studies only the winners or survivors that are still visible and forgets the failures that disappeared, so traits common to survivors look like the recipe for success when the failures may have shared them too. It is not a fallacy when the dropped-out cases really were counted, or when the conclusion is explicitly only about the survivors themselves.",
+      "confirm_check": "Is the conclusion built only from the cases that made it through, with the ones that failed or dropped out left uncounted?"
+    },
+    {
+      "id": "texas_sharpshooter",
+      "name": "Texas Sharpshooter",
+      "base_rate": 1,
+      "family": "statistical",
+      "short": "Drawing the target around a cluster after the fact, so random noise looks like a real pattern.",
+      "teaching": "The Texas sharpshooter finds a cluster or pattern after looking at the data, then treats that after-the-fact grouping as if it were a prediction, ignoring all the places where nothing lined up. It is not a fallacy when the pattern was specified in advance, or when the cluster is tested against fresh data rather than the same data it was spotted in.",
+      "confirm_check": "Was the pattern or grouping chosen after seeing the data, with the non-matching cases set aside so a chance cluster looks meaningful?"
+    },
+    {
+      "id": "appeal_to_consequences",
+      "name": "Appeal to Consequences",
+      "base_rate": 1.1,
+      "family": "relevance_extra",
+      "short": "Judging a claim true or false by whether its consequences are pleasant or unwelcome.",
+      "teaching": "An appeal to consequences treats a claim as true because believing it leads to good outcomes, or false because the outcome would be bad. But whether something is true and whether we like the result are separate questions; a hard truth stays true even if it is unwelcome. It is not this fallacy when the argument is actually about what to DO (weighing outcomes of a decision) rather than about what is TRUE.",
+      "confirm_check": "Is a claim being judged true or false because of how good or bad the outcome of believing it would be, rather than by evidence?"
+    },
+    {
+      "id": "appeal_to_motive",
+      "name": "Appeal to Motive",
+      "base_rate": 1.1,
+      "family": "relevance_extra",
+      "short": "Setting aside a claim by pointing to the speaker's motive or stake rather than answering it.",
+      "teaching": "An appeal to motive sets a claim aside by suggesting the speaker only says it because they have something to gain. A hidden motive may be real, yet it does not by itself make the claim wrong; the point still has to be checked on its own. It is not this fallacy when motive is offered as a reason to scrutinize the evidence, not as a substitute for examining it.",
+      "confirm_check": "Is the speaker's motive or stake being used as the reason to reject the claim, rather than as a cue to check the evidence?"
+    },
+    {
+      "id": "two_wrongs",
+      "name": "Two Wrongs Make a Right",
+      "base_rate": 1,
+      "family": "relevance_extra",
+      "short": "Defending a wrong act by pointing to a similar wrong done by others or in the past.",
+      "teaching": "Two wrongs make a right justifies a bad act by noting that someone else did the same, or that it has been done before, as if that cancels the fault. But another wrong does not make this one acceptable; each act stands or falls on its own. It is not this fallacy when the other case is raised to expose an unfair double standard, not to excuse the act itself.",
+      "confirm_check": "Is a wrong being excused because someone else did the same or it was done before, rather than defended on its own merits?"
+    },
+    {
+      "id": "ad_hominem_circumstantial",
+      "name": "Circumstantial Ad Hominem",
+      "base_rate": 1,
+      "family": "relevance_extra",
+      "short": "Setting aside a claim because the speaker's situation predisposes them to hold it.",
+      "teaching": "A circumstantial ad hominem sets aside a claim by saying the speaker would naturally hold it given their job, group, or interests, as if that explains it away. Being predisposed to a view does not make the view wrong; the reasons still have to be weighed. It is not this fallacy when the speaker's situation is raised to flag a possible bias to check, not to settle that the claim is false.",
+      "confirm_check": "Is the claim being explained away by the speaker's situation or affiliation, rather than answered on its merits?"
+    },
+    {
+      "id": "complex_question",
+      "name": "Complex Question",
+      "base_rate": 1,
+      "family": "presumption_extra",
+      "short": "Fuses two separate questions into one, so a single answer is forced to settle both at once.",
+      "teaching": "A complex question packs more than one issue into a single demand, so any one answer quietly settles a point that was never agreed (the classic 'Should we cut waste and raise taxes?' as one yes-or-no). It is not this fallacy when the parts genuinely belong together and answering one really does answer the other, or when the bundled point is already settled.",
+      "confirm_check": "Does the question bundle two separate matters so a single answer is made to settle both at once?"
+    },
+    {
+      "id": "no_true_scotsman",
+      "name": "No True Scotsman",
+      "base_rate": 1,
+      "family": "presumption_extra",
+      "short": "Saves a sweeping claim from a counterexample by redefining the group to exclude that case.",
+      "teaching": "No True Scotsman protects a universal claim ('no member of this group ever does that') by relabeling any counterexample as 'not a real member,' instead of letting the example count against the claim. It is not this fallacy when the excluded case genuinely fails a standard that was set out beforehand, rather than one invented on the spot once the example came up.",
+      "confirm_check": "Is a counterexample being dismissed by relabeling it as 'not a real member' rather than letting it count against the claim?"
+    },
+    {
+      "id": "suppressed_correlative",
+      "name": "Suppressed Correlative",
+      "base_rate": 1,
+      "family": "presumption_extra",
+      "short": "Stretches one of a paired set of options so wide that its opposite is left with nothing to cover.",
+      "teaching": "A suppressed correlative redefines one side of a contrasting pair so broadly that the other side is emptied out and can no longer apply ('everyone is selfish, since even kindness is really just doing what you want'). It is not this fallacy when the broader meaning is genuinely justified and the contrast still leaves real cases on the other side.",
+      "confirm_check": "Is one option stretched so wide that its opposite is left with no real cases to cover?"
+    },
+    {
+      "id": "appeal_to_force",
+      "name": "Appeal to Force",
+      "base_rate": 1,
+      "family": "appeal_extra",
+      "short": "Backing a claim or demand with a threat of harm or penalty instead of with reasons.",
+      "teaching": "An appeal to force (the 'or else' move) gets you to agree or comply by warning that disagreement will cost you - your job, safety, standing - rather than by giving reasons the claim is true. A threat can never make a claim correct, only riskier to dispute. It is not this fallacy to simply describe a real consequence as part of an honest decision ('if we miss the deadline, the contract is void'); the line is crossed when the penalty is offered as the reason to believe or accept the point.",
+      "confirm_check": "Is acceptance being pressed by a threat of harm or penalty, rather than by reasons the claim is actually true or right?"
+    },
+    {
+      "id": "appeal_to_flattery",
+      "name": "Appeal to Flattery",
+      "base_rate": 1,
+      "family": "appeal_extra",
+      "short": "Praising the listener so they'll accept the claim, instead of giving reasons for it.",
+      "teaching": "An appeal to flattery (sometimes 'apple polishing') warms you up with compliments - how smart, fair, or discerning you are - so you'll go along with the point, when the praise has nothing to do with whether the point is true. A sincere compliment is fine on its own; this only goes wrong when the flattery is doing the persuading in place of evidence. It is not this fallacy to note someone's genuine, relevant qualification when that qualification actually bears on the matter.",
+      "confirm_check": "Is the listener being won over by praise of themselves, rather than by reasons the claim holds?"
+    },
+    {
+      "id": "appeal_to_wealth",
+      "name": "Appeal to Wealth",
+      "base_rate": 1,
+      "family": "appeal_extra",
+      "short": "Treating high price, cost, or riches as proof a thing is better, true, or right.",
+      "teaching": "An appeal to wealth (argumentum ad crumenam) takes how expensive or rich something is as evidence of its quality, correctness, or worth - 'it costs more, so it must be better' or 'they're rich, so they must be right.' Price and wealth can track quality sometimes, but they don't establish it; cost alone can come from branding, scarcity, or luck. It is not this fallacy to cite price as a clue alongside actual evidence of performance, or to discuss cost when affordability is the real question.",
+      "confirm_check": "Is the cost, price, or wealth itself being offered as the reason the thing is better, true, or right?"
+    },
+    {
+      "id": "appeal_to_common_sense",
+      "name": "Appeal to Common Sense",
+      "base_rate": 1,
+      "family": "appeal_extra",
+      "short": "Calling a claim 'just common sense' or 'obvious' so it needs no reasons given for it.",
+      "teaching": "An appeal to common sense waves a claim through by labeling it obvious or plain common sense, so no actual reasons are given - and often paints anyone who questions it as foolish. Calling something obvious doesn't make it true; plenty of 'obvious' things turn out wrong on a closer look. It is not this fallacy to note a genuinely uncontested, well-established fact in passing; the trouble starts when 'it's just common sense' stands in for support on a point that's actually in dispute.",
+      "confirm_check": "Is the claim being passed off as obvious or common sense in place of giving reasons for it?"
+    },
+    {
+      "id": "loaded_language",
+      "name": "Loaded Language",
+      "base_rate": 1.3,
+      "family": "language_extra",
+      "short": "Settling a point with emotionally charged or prejudicial word choices instead of stated reasons.",
+      "teaching": "Loaded language slips a verdict into the words themselves, calling a plan a 'scheme', a payment a 'bribe', or a critic a 'fanatic', so the judgment rides in on the label rather than on evidence. The wording does the persuading: swap in neutral terms and the case feels different. It is not a fallacy to use a strong word that the facts have actually earned, or to describe something vividly while still giving real reasons.",
+      "confirm_check": "Is a charged or slanted word carrying the judgment, so that replacing it with a neutral term would leave the point unsupported?"
+    },
+    {
+      "id": "weasel_words",
+      "name": "Weasel Words",
+      "base_rate": 1.3,
+      "family": "language_extra",
+      "short": "Implying backing with vague phrases like 'some say' or 'studies show' that name no actual source.",
+      "teaching": "Weasel words borrow the sound of support without supplying any, leaning on phrases like 'some say', 'many believe', 'studies show', 'arguably', or 'it is widely held' that point to no nameable source you could check. The vague attribution creates an impression of authority while staying conveniently unverifiable. It is not a fallacy to summarize a genuine body of evidence in brief, as long as the source could be named and checked if asked.",
+      "confirm_check": "Is the support a vague unnamed attribution ('some say', 'studies show') that points to no source anyone could actually check?"
+    },
+    {
+      "id": "continuum_fallacy",
+      "name": "Continuum Fallacy",
+      "base_rate": 1,
+      "family": "language_extra",
+      "short": "Denying a real difference because no exact line can be drawn between the extremes.",
+      "teaching": "The continuum fallacy argues that because there is no precise cutoff along a gradual scale, the two ends must be the same, like saying no one is bald since removing one hair never makes the difference. The absence of a sharp boundary does not erase the obvious gap between clear cases at each end. It is not a fallacy to point out genuine vagueness, or to ask for a workable threshold, as long as you still grant that the clear extremes really do differ.",
+      "confirm_check": "Is a real difference between clear cases being denied just because no exact dividing line can be pinpointed?"
+    },
+    {
+      "id": "reification",
+      "name": "Reification",
+      "base_rate": 1,
+      "family": "language_extra",
+      "short": "Treating an abstract idea like 'society', 'the market', or an average as if it were a concrete acting thing.",
+      "teaching": "Reification turns an abstraction into a literal actor, saying 'society wants this', 'the market punished them', or 'evolution decided', as if the idea had a will, a body, or could do things on its own. The argument then leans on that pretend agent to carry a conclusion that the underlying people, forces, or numbers do not actually support. It is not a fallacy to use such phrases as plain shorthand, as long as the reasoning still rests on the concrete things behind the abstraction.",
+      "confirm_check": "Is an abstraction (society, the market, nature, an average) treated as a real acting agent whose 'doing' carries the conclusion?"
     }
   ]
 }

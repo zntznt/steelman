@@ -1986,6 +1986,754 @@
           "no": 1.4
         }
       }
+    },
+    {
+      "id": "q_result_confirms_condition",
+      "text": "Does it move from 'the predicted result is here' straight to 'the stated condition is true', or does it allow the same result could arrive without that condition?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "affirming_the_consequent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_other_paths_to_result_checked",
+      "text": "Are other ways the same result could have come about left unconsidered, or are they checked and set aside before settling on the stated condition?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "affirming_the_consequent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_missing_condition_rules_out",
+      "text": "Does it conclude the result cannot happen just because the stated condition is absent, or does it allow the result might still arrive by another route?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "denying_the_antecedent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_condition_is_only_route",
+      "text": "Is the stated condition treated as the single path to the result, or is it shown to be the only way the result could occur?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "denying_the_antecedent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_base_rate_ignored",
+      "text": "Does the conclusion rest on the test result or sign by itself, or does it also weigh how common the thing being concluded actually is?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "base_rate_neglect": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_rarity_factored_in",
+      "text": "When a rare thing gets a positive result, is a positive simply taken to mean it's almost surely true, or is the rarity folded into the odds?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "base_rate_neglect": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_streak_shifts_next_odds",
+      "text": "For events that don't influence each other, is a recent streak treated as changing the next outcome's odds, or are the odds taken as the same each time?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "gamblers_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_due_for_reversal",
+      "text": "After a run of one result, is the opposite called 'due' to come up, or is each independent trial left at its own fixed chance?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "gamblers_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_extreme_case_selected",
+      "text": "Was the case picked because it was at an unusual high or low point, or chosen in a way unrelated to how extreme it was?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "regression_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_drift_credited_to_cause",
+      "text": "Is an extreme case's drift back toward its normal level credited to an action taken, or is ordinary settling-back ruled out as the explanation?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "regression_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_only_survivors_counted",
+      "text": "Does the evidence come only from the cases that succeeded or remained, or are the ones that failed or dropped out also counted?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "survivorship_bias": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_dropouts_would_change_it",
+      "text": "Could the missing failures share the very trait being praised, or has it been checked that the lost cases wouldn't overturn the lesson?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "survivorship_bias": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_pattern_drawn_after_data",
+      "text": "Was the pattern or boundary chosen after the data was seen, or stated in advance before looking?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "texas_sharpshooter": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_cluster_picked_rest_ignored",
+      "text": "Is one striking cluster singled out while the spots where nothing lined up are set aside, or are all the cases weighed together?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "texas_sharpshooter": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_consequences_decide_truth",
+      "text": "Does the case rest on the outcome of believing it being good, or on evidence that the claim itself is true?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_consequences": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_unwelcome_so_rejected",
+      "text": "Is the claim set aside because its implication would be unwelcome, or because something shows it to be wrong?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_consequences": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_motive_dismisses_claim",
+      "text": "Is the claim set aside because of what the speaker stands to gain, or because of what the evidence shows?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_motive": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_stake_replaces_check",
+      "text": "Does pointing at the speaker's stake stand in for checking the point, or does the point still get examined on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_motive": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_other_wrong_justifies",
+      "text": "Is the act defended by pointing to a similar wrong elsewhere, or by reasons the act itself is acceptable?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "two_wrongs": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_precedent_cancels_fault",
+      "text": "Is 'it has been done before' treated as cancelling the fault, or is the act still judged on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "two_wrongs": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_circumstance_predisposes_dismissal",
+      "text": "Is the claim set aside because the speaker's situation makes it the view they'd hold, or is the view itself addressed?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "ad_hominem_circumstantial": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_position_explains_away_view",
+      "text": "Is 'of course they'd say that, given who they are' used to explain the view away, or to flag a bias still worth checking?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "ad_hominem_circumstantial": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_cq_two_questions_as_one",
+      "text": "Are two or more separate matters bundled into one question, or is a single matter being asked about?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "complex_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_cq_single_answer_covers_both",
+      "text": "Would one answer be forced to cover both matters at once, or can each part be answered on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "complex_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_nts_counterexample_redefined_out",
+      "text": "Is a counterexample dismissed by calling it 'not a true member' of the group, or is the example allowed to count against the claim?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "no_true_scotsman": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_nts_standard_invented_after",
+      "text": "Was the membership requirement added only after the counterexample came up, or was it set out beforehand?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "no_true_scotsman": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_sc_one_term_swallows_other",
+      "text": "Is one option redefined so broadly that its opposite has almost nothing left to cover, or do both sides still apply to real cases?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "suppressed_correlative": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_sc_contrast_emptied_out",
+      "text": "Does the widened meaning make the contrast useless because almost everything now counts as one side, or does the distinction still draw a real line?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "suppressed_correlative": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_threat_swaps_for_reason",
+      "text": "Is the main thing pushing you to accept the claim a threatened cost (penalty, harm, lost standing), or a reason the claim is true?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_force": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_comply_or_pay_consequence",
+      "text": "Is disagreeing framed as bringing trouble onto you, or is disagreeing left free to be judged on the merits?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_force": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_praise_softens_into_agreement",
+      "text": "Does the case rely on complimenting the listener to bring them around, or on reasons that would persuade a stranger getting no praise?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_flattery": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_compliment_carries_the_claim",
+      "text": "If the flattery were stripped out, would the claim be left unsupported, or would real reasons still stand behind it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_flattery": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_price_proves_quality",
+      "text": "Is the high price or cost being used as the proof of quality, or is quality shown by how the thing actually performs?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_wealth": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_wealth_makes_it_right",
+      "text": "Is someone's riches treated as evidence they're correct, or is their claim weighed on its own reasons regardless of their wealth?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_wealth": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_obvious_excuses_support",
+      "text": "Is 'it's just common sense' or 'it's obvious' standing in for support, or are actual reasons offered for the claim?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_common_sense": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_dissent_cast_as_senseless",
+      "text": "Is doubting the claim treated as foolish or lacking sense, or is the doubt met with an actual answer?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_common_sense": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_charged_words_carry_verdict",
+      "text": "Do the word choices themselves deliver the judgment, or is the judgment backed by stated reasons apart from the wording?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "loaded_language": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_neutral_wording_survives",
+      "text": "If the chosen terms were swapped for plain neutral ones, would the point lose its force, or would it stand on the same facts?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "loaded_language": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_attribution_unnamed_vague",
+      "text": "Is the backing an unnamed, general attribution (such as 'some say' or 'studies show'), or is a specific source named that one could check?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "weasel_words": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_qualifier_hides_no_support",
+      "text": "Does a soft qualifier ('arguably', 'many believe', 'it is widely held') stand in for support, or is there actual evidence behind it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "weasel_words": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_no_sharp_line_erases_difference",
+      "text": "Is the lack of an exact dividing line treated as proof the two ends are the same, or is the real gap between the clear cases still granted?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "continuum_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_small_steps_collapse_distinction",
+      "text": "Does the argument chain tiny indistinguishable steps to collapse a genuine distinction, or does it accept that small steps can still add up to a real difference?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "continuum_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_abstraction_acts_as_agent",
+      "text": "Is an abstraction (like 'society', 'the market', or 'nature') spoken of as a thing that wants, decides, or acts, or is it used as plain shorthand for the people or forces behind it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "reification": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_concept_treated_as_concrete",
+      "text": "Does the conclusion rest on the abstraction being a literal entity, or does it rest on the concrete people, events, or numbers it stands for?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "reification": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
     }
   ]
 }

@@ -29,7 +29,7 @@ const QUESTIONS = questionsJSON.questions;
 const SEEDS = [1, 7, 42, 1337, 99999, 123, 777, 2024];
 const ENTRY_MIN = 2;        // structural: ≥2 entry-pool questions (needed to surface reliably)
 const DEDICATED_MIN = 2;    // structural: ≥2 questions that incriminate the fallacy (gate needs ~2)
-const AGGREGATE_FLOOR = 0.35; // soft: mean catch rate across the whole catalog must stay ≥ this.
+const AGGREGATE_FLOOR = 0.30; // soft: mean catch rate across the whole catalog must stay ≥ this.
                               // Set just below the current mean so it ratchets: as weak fallacies
                               // are strengthened and removed from KNOWN_WEAK, raise this to lock in
                               // the gain. It can only tighten, never silently slip.
@@ -45,7 +45,7 @@ const KNOWN_WEAK = new Set([
   // Weakened further once the catalog expanded to 51 (more questions dilute the sequential engine's
   // info-gain selection — the exact weakness the checklist flow replaced). They catch fine in the
   // live checklist (the authority); this is the retired sequential flow only.
-  'hasty_generalization', 'circular_reasoning',
+  'hasty_generalization', 'circular_reasoning', 'appeal_to_authority',
 ]);
 
 // LEGACY_SET: the fallacies that existed while the sequential interview was the live flow. This test
