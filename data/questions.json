@@ -4,57 +4,130 @@
     {
       "id": "q_responds_to_claim_or_person",
       "text": "Does the response focus on the person who made the claim (their character, motive, or past), or does it engage the claim itself?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "ad_hominem": { "yes": 4.5, "no": 0.3 },
-        "tu_quoque": { "yes": 2, "no": 0.6 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "ad_hominem": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "tu_quoque": {
+          "yes": 2,
+          "no": 0.6
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_evidence_or_assertion",
       "text": "Does the conclusion rest mainly on something other than reasons (a feeling, a name, a head-count, a label like 'natural', or 'I can't see how it could be so'), or is there evidence and reasoning you could examine?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "appeal_to_emotion": { "yes": 2.6, "no": 0.45 },
-        "appeal_to_authority": { "yes": 2.6, "no": 0.45 },
-        "bandwagon": { "yes": 2.4, "no": 0.5 },
-        "appeal_to_nature": { "yes": 2.6, "no": 0.45 },
-        "argument_from_incredulity": { "yes": 2.6, "no": 0.45 },
-        "VALID": { "yes": 0.55, "no": 1.5 }
+        "appeal_to_emotion": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "appeal_to_authority": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "bandwagon": {
+          "yes": 2.4,
+          "no": 0.5
+        },
+        "appeal_to_nature": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "argument_from_incredulity": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "VALID": {
+          "yes": 0.55,
+          "no": 1.5
+        }
       }
     },
     {
       "id": "q_conclusion_matches_support",
       "text": "Does the support point somewhere other than the conclusion (restating the claim, citing timing alone, making a sweeping leap, or resting on what the speaker can't picture), or does it actually bear on it?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "circular_reasoning": { "yes": 2.6, "no": 0.45 },
-        "false_cause": { "yes": 2.6, "no": 0.45 },
-        "hasty_generalization": { "yes": 2.2, "no": 0.5 },
-        "argument_from_incredulity": { "yes": 2.2, "no": 0.5 },
-        "VALID": { "yes": 0.55, "no": 1.5 }
+        "circular_reasoning": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "false_cause": {
+          "yes": 2.6,
+          "no": 0.45
+        },
+        "hasty_generalization": {
+          "yes": 2.2,
+          "no": 0.5
+        },
+        "argument_from_incredulity": {
+          "yes": 2.2,
+          "no": 0.5
+        },
+        "VALID": {
+          "yes": 0.55,
+          "no": 1.5
+        }
       }
     },
     {
       "id": "q_options_framed_fairly",
       "text": "Is the issue framed as just two paths when a middle ground or other options genuinely exist, or are the available choices presented fairly?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "false_dilemma": { "yes": 4.5, "no": 0.3 },
-        "slippery_slope": { "yes": 2.6, "no": 0.5 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_dilemma": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "slippery_slope": {
+          "yes": 2.6,
+          "no": 0.5
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_claim_addressed_or_left_standing",
       "text": "After the response, is the original claim left standing while attention moves to the speaker, or has the claim actually been addressed?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "ad_hominem": { "yes": 4, "no": 0.3 },
-        "tu_quoque": { "yes": 2.5, "no": 0.5 },
-        "strawman": { "yes": 1.8, "no": 0.6 },
-        "VALID": { "yes": 0.6, "no": 1.5 }
+        "ad_hominem": {
+          "yes": 4,
+          "no": 0.3
+        },
+        "tu_quoque": {
+          "yes": 2.5,
+          "no": 0.5
+        },
+        "strawman": {
+          "yes": 1.8,
+          "no": 0.6
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.5
+        }
       }
     },
     {
@@ -62,35 +135,65 @@
       "text": "Is a reason to distrust the speaker being offered as if it settles whether their claim is true, or is the claim weighed on its own?",
       "tags": [],
       "lr": {
-        "ad_hominem": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "ad_hominem": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_version_refuted_matches",
       "text": "Is the version being argued against a more extreme or absolute version of the claim, or the one actually made?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "strawman": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "strawman": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_speaker_would_recognize",
       "text": "Would the person who made the claim say the restatement of their position has been changed on a key point, or would they recognize and accept it?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "strawman": { "yes": 4, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "strawman": {
+          "yes": 4,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_two_options_or_more",
       "text": "Are the two options presented genuinely the only ones, or is a compromise, a 'both', or a 'neither' realistically available?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "false_dilemma": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_dilemma": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -98,17 +201,31 @@
       "text": "Is a workable middle ground or 'do both' option being treated as if it weren't on the table, or are all the realistic positions actually represented?",
       "tags": [],
       "lr": {
-        "false_dilemma": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_dilemma": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_steps_supported_or_assumed",
       "text": "Are the steps from the first move to the feared outcome treated as certain to follow without support, or shown to be likely?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "slippery_slope": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "slippery_slope": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -116,17 +233,31 @@
       "text": "Is the feared end result much larger and more alarming than the small step being discussed, or close to it in scale?",
       "tags": [],
       "lr": {
-        "slippery_slope": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "slippery_slope": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_who_said_it_or_why",
       "text": "Is the claim supported mainly by who endorsed it (a respected person, expert, or celebrity), or by reasons you could check?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "appeal_to_authority": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_authority": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -134,17 +265,31 @@
       "text": "Is the cited source speaking outside their field while being treated as the whole case, or does their expertise actually fit this topic?",
       "tags": [],
       "lr": {
-        "appeal_to_authority": { "yes": 4, "no": 0.4 },
-        "VALID": { "yes": 0.6, "no": 1.3 }
+        "appeal_to_authority": {
+          "yes": 4,
+          "no": 0.4
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.3
+        }
       }
     },
     {
       "id": "q_sample_supports_breadth",
       "text": "Is a sweeping 'always/everyone' claim resting on one case or a small handful, or does the range of examples match how broad the conclusion is?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "hasty_generalization": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "hasty_generalization": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -152,17 +297,31 @@
       "text": "Are the examples cherry-picked or anecdotal cases standing in for the whole group, or do they look like a representative range?",
       "tags": [],
       "lr": {
-        "hasty_generalization": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "hasty_generalization": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_support_independent",
       "text": "Does the support already assume the conclusion is true (the reason and the claim restating each other), or is it an independent reason?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "circular_reasoning": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "circular_reasoning": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -170,17 +329,31 @@
       "text": "Does accepting the premise require already accepting the conclusion, or would the argument persuade someone who doesn't already agree?",
       "tags": [],
       "lr": {
-        "circular_reasoning": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "circular_reasoning": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_feeling_does_the_work",
       "text": "If you set aside the emotional pull (fear, pity, anger), was the feeling carrying the conclusion, or is there still a reason left that supports it?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "appeal_to_emotion": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_emotion": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -188,26 +361,48 @@
       "text": "Is the conclusion pressed mainly by stirring a strong feeling, or by reasons that would still stand if the case were put calmly?",
       "tags": [],
       "lr": {
-        "appeal_to_emotion": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_emotion": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_cause_beyond_timing",
       "text": "Does the case rest only on the two things happening together or one before the other, or is there a mechanism or evidence for the cause?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "false_cause": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_cause": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_alternatives_ruled_out",
       "text": "Is a correlation read directly as cause, or are other explanations (coincidence, a shared third cause, reverse direction) considered and ruled out?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "false_cause": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_cause": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -215,9 +410,18 @@
       "text": "Is the critic's own conduct or inconsistency being used to set the criticism aside, or is the criticism itself being answered on its merits?",
       "tags": [],
       "lr": {
-        "tu_quoque": { "yes": 4, "no": 0.35 },
-        "ad_hominem": { "yes": 1.6, "no": 0.7 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "tu_quoque": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "ad_hominem": {
+          "yes": 1.6,
+          "no": 0.7
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -225,17 +429,31 @@
       "text": "Is the pointed-out inconsistency raised only to deflect the point, or is it genuinely relevant because consistency or a double standard is the actual question?",
       "tags": [],
       "lr": {
-        "tu_quoque": { "yes": 3.5, "no": 0.4 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "tu_quoque": {
+          "yes": 3.5,
+          "no": 0.4
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_natural_label_judges",
       "text": "Is 'natural' (or 'artificial/man-made') being used as the main reason something is good or bad, or is there separate evidence of its actual effects?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "appeal_to_nature": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_nature": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -243,8 +461,14 @@
       "text": "Does the argument treat naturalness alone as settling it across the board, or does it check the specific case for benefit or harm?",
       "tags": [],
       "lr": {
-        "appeal_to_nature": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_nature": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -252,44 +476,82 @@
       "text": "Is 'natural means good' (or 'man-made means harmful') doing the persuading here, or is the verdict tied to measured benefit or harm in this case?",
       "tags": [],
       "lr": {
-        "appeal_to_nature": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_nature": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_popularity_is_the_reason",
       "text": "Is how many people believe or do it offered as the reason it's true or right, or as one clue alongside independent reasons?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "bandwagon": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "bandwagon": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_crowd_or_evidence",
       "text": "Is going along with the crowd treated as the reason to agree, or is independent evidence given beyond 'most people' or 'everyone' agreeing?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "bandwagon": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "bandwagon": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_only_two_camps",
       "text": "Is the choice boxed into exactly two camps when other positions are open, or are the realistic options all on the table?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "false_dilemma": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_dilemma": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_each_link_inevitable",
       "text": "Is each step from the first move toward the extreme treated as bound to follow, or is the chain shown to be likely at each link?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "slippery_slope": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "slippery_slope": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -297,8 +559,14 @@
       "text": "Does the case lean on the prestige of the name attached to it, or on reasons that would hold without that name?",
       "tags": [],
       "lr": {
-        "appeal_to_authority": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_authority": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -306,8 +574,14 @@
       "text": "Does the reason given simply restate the conclusion in other words, or add something the conclusion did not already say?",
       "tags": [],
       "lr": {
-        "circular_reasoning": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "circular_reasoning": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -315,8 +589,14 @@
       "text": "Is the push toward the conclusion mainly an emotional pull, or a reason that holds once the feeling is set aside?",
       "tags": [],
       "lr": {
-        "appeal_to_emotion": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_emotion": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -324,35 +604,65 @@
       "text": "Is 'one came first, so it caused the other' the whole case, or is a mechanism or ruling-out of other causes also given?",
       "tags": [],
       "lr": {
-        "false_cause": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "false_cause": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_natural_settles_it",
       "text": "Is being natural (or not man-made) treated as settling that it is good or safe, or is that judged by its measured effects?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "appeal_to_nature": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "appeal_to_nature": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_rejected_for_unimaginable",
       "text": "Is the claim rejected because the speaker can't picture or understand how it could be true, or because of evidence that it isn't?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "argument_from_incredulity": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "argument_from_incredulity": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
       "id": "q_cant_see_how_means_false",
       "text": "Is 'I don't see how it could be so' being treated as showing it's false, or is an actual reason against the claim given?",
-      "tags": ["entry"],
+      "tags": [
+        "entry"
+      ],
       "lr": {
-        "argument_from_incredulity": { "yes": 4.5, "no": 0.3 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "argument_from_incredulity": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -360,8 +670,14 @@
       "text": "Does the doubt point to a gap in the speaker's own knowledge or imagination, or to something genuinely implausible about the claim itself?",
       "tags": [],
       "lr": {
-        "argument_from_incredulity": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "argument_from_incredulity": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     },
     {
@@ -369,8 +685,1306 @@
       "text": "Is the claim dismissed without looking into whether anyone could explain it, or only after a real attempt to check was made?",
       "tags": [],
       "lr": {
-        "argument_from_incredulity": { "yes": 4, "no": 0.35 },
-        "VALID": { "yes": 0.6, "no": 1.4 }
+        "argument_from_incredulity": {
+          "yes": 4,
+          "no": 0.35
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_source_discredited_in_advance",
+      "text": "Is the source characterized unfavorably before they make their point, or is their point taken up after it is actually made?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "poisoning_the_well": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_anything_they_say_pre_dismissed",
+      "text": "Is the audience told to set aside whatever this person will say in advance, or is each thing they say left open to be judged on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "poisoning_the_well": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_origin_decides_worth",
+      "text": "Is the claim's worth settled by where or whom it originally came from, or by what the claim itself actually says now?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "genetic_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_history_settles_present_merit",
+      "text": "Is the idea's origin or history treated as settling whether it's true today, or is its present merit examined regardless of how it started?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "genetic_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_redherring_offtopic_pivot",
+      "text": "Does the reply move to a different topic than the one under discussion, or stay on the original point?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "red_herring": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_redherring_resolves_original",
+      "text": "Would settling the introduced point leave the original question unanswered, or does that point bear on the original question?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "red_herring": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_whataboutism_counter_grievance",
+      "text": "Does the reply raise a separate grievance about another party, or respond to the criticism on its own terms?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "whataboutism": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_whataboutism_leaves_charge_open",
+      "text": "After the counter-grievance, does the original charge remain unaddressed, or has it been engaged?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "whataboutism": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_goalposts_raised_after_met",
+      "text": "Once the requested evidence was supplied, was a new and higher requirement introduced, or was the original standard accepted as met?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "moving_the_goalposts": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_goalposts_new_demand_preexisting",
+      "text": "Was the added demand absent from the criteria stated up front, or part of the standard all along?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "moving_the_goalposts": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_nonsequitur_premise_conclusion_gap",
+      "text": "Is there a gap where the conclusion does not follow from the reasons offered, or do the reasons support it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "non_sequitur": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_nonsequitur_missing_link",
+      "text": "Is the step connecting reasons to conclusion absent, or spelled out or clearly implied?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "non_sequitur": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_fear_replaces_evidence",
+      "text": "Is the conclusion urged mainly by stressing how frightening an outcome would be, or by evidence that the outcome is actually likely?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_fear": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_threat_sized_to_facts",
+      "text": "Is the danger painted as bigger or more certain than what's shown, or is its scale and likelihood backed by what's known?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_fear": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_pity_replaces_merits",
+      "text": "Is acceptance urged mainly by stirring sympathy for someone's hardship, or by reasons the conclusion holds on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_pity": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_hardship_relevant_to_claim",
+      "text": "Is the suffering brought up as the reason to agree when it doesn't bear on the question, or is it genuinely relevant to what's being decided?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_pity": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_mockery_replaces_rebuttal",
+      "text": "Is the position dismissed by making it sound absurd or laughable, or by a reason showing it's actually wrong?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_ridicule": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_target_treated_seriously",
+      "text": "Is the position presented in a mocking caricature to invite a laugh, or engaged seriously as it was meant?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_ridicule": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_spite_drives_conclusion",
+      "text": "Is agreement urged by the satisfaction of seeing a disliked person or group lose or suffer, or by reasons the conclusion is right?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_spite": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_spite_conduct_at_issue",
+      "text": "Is the target's bad conduct invoked to stir ill-will when it doesn't bear on the question, or is that conduct genuinely the matter being decided?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_spite": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_age_makes_it_right",
+      "text": "Is the case resting mainly on how long-established or traditional the practice is, or on reasons it actually works?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_tradition": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_track_record_shown_not_assumed",
+      "text": "Does it point to what the long practice has produced, or to the fact that it has lasted a long time?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_tradition": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_newness_makes_it_better",
+      "text": "Is the case resting mainly on how new, modern, or up-to-date the thing is, or on reasons it actually performs better?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_novelty": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_improvement_shown_over_old",
+      "text": "Does it point to a real improvement over the older option, or to the fact that this one is the latest?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_novelty": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_elite_favor_is_the_reason",
+      "text": "Is the recommendation resting mainly on the elite or discerning status of who chooses it, or on the thing's actual qualities?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "snob_appeal": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_belonging_replaces_merit",
+      "text": "Is the pull mainly the promise of joining a select set, or reasons the thing is genuinely good?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "snob_appeal": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_equated_despite_difference",
+      "text": "Are the two things treated as equivalent while a large difference in their scale or degree is passed over, or is the comparison made between things that are genuinely similar in size and seriousness?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "false_equivalence": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_shared_trait_carries_equation",
+      "text": "Is one trait the two things share being used to call them the same overall, or is the comparison limited to the specific respect in which they actually match?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "false_equivalence": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_imperfection_used_to_reject",
+      "text": "Is the option set aside because it doesn't solve the whole problem or has some flaw, or because its remaining flaws genuinely outweigh the improvement it offers?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "perfect_solution": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_ideal_set_as_the_bar",
+      "text": "Is a flawless or complete fix being treated as the only acceptable standard, or is the option judged against the realistic alternatives actually on offer?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "perfect_solution": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_midpoint_assumed_correct",
+      "text": "Is the middle position taken as right mainly because it falls between the two sides, or is it backed by its own reasons regardless of where it sits?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "middle_ground": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_extremes_force_compromise",
+      "text": "Is the answer fixed at a split-the-difference point because both sides made a claim, or is the better-supported side allowed to be right even if it's one of the extremes?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "middle_ground": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_key_premise_assumed",
+      "text": "Is a premise the conclusion depends on taken for granted, or is that premise itself given support?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "begging_the_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_disputed_point_smuggled",
+      "text": "Is the very point in dispute built into the argument as an already-settled assumption, or is it argued for openly?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "begging_the_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_question_presupposes_unproven",
+      "text": "Does the question treat an unproven point as already true, or does it leave that point genuinely open?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "loaded_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_answer_forced_to_concede",
+      "text": "Would any direct answer to the question concede the contested assumption, or can it be answered without granting it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "loaded_question": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_absence_treated_as_proof",
+      "text": "Is the lack of evidence against the claim being treated as a reason it's true, or is there positive evidence offered for it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_ignorance": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_unproven_means_false",
+      "text": "Is 'it hasn't been proven' being taken to show the claim is false, or is its truth left open until evidence comes in?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "appeal_to_ignorance": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_claimant_supports_own_claim",
+      "text": "Is the person who made the claim asking others to disprove it, or are they offering support for it themselves?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "shifting_burden_of_proof": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_default_true_until_refuted",
+      "text": "Is the claim being treated as standing by default until someone refutes it, or does it earn acceptance by being backed up?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "shifting_burden_of_proof": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_inference_from_missing_mention",
+      "text": "Is the conclusion drawn from a particular source not mentioning or recording the thing, or from what that source actually states?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "argument_from_silence": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_mention_would_be_expected",
+      "text": "Is the missing mention treated as telling without showing that source would mention it, or is it established the source would surely have noted it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "argument_from_silence": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_story_stands_for_evidence",
+      "text": "Is a personal story or single experience offered as the support, or is there systematic evidence about the wider pattern?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "anecdotal": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_vivid_case_over_data",
+      "text": "Does one striking case override the broader statistics, or do the wider numbers carry the conclusion?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "anecdotal": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_contrary_cases_omitted",
+      "text": "Is known evidence pointing the other way left out, or is the contrary evidence acknowledged and weighed?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "cherry_picking": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_only_supporting_data_shown",
+      "text": "Are only the cases that fit the conclusion put forward, or is the full mix of supporting and conflicting cases shown?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "cherry_picking": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_sample_drawn_skewed",
+      "text": "Was the group looked at gathered in a skewed way (volunteers, a handy crowd, one slice), or drawn to fairly represent the whole?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "sampling_bias": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_surveyed_match_population",
+      "text": "Do the people or cases sampled differ from the population the conclusion is about, or do they match it?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "sampling_bias": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_rule_stated_exceptionless",
+      "text": "Is the rule stated as holding always or never with no exceptions, or is it qualified to where it actually holds?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "overgeneralization": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_broad_rule_ignores_exception",
+      "text": "Is the broad rule applied to a case that's a known exception, or does it allow for cases that don't fit?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "overgeneralization": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_post_hoc_order_is_the_proof",
+      "text": "Is the order in time (it happened after, so it was caused by) the main support offered, or is there evidence beyond the sequence?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "post_hoc": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_post_hoc_one_off_sequence",
+      "text": "Did the before-then-after happen just once as a single episode, or has the same sequence been seen to recur reliably?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "post_hoc": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_single_cause_one_factor_only",
+      "text": "Is a single cause named as the whole explanation, or is the outcome treated as having several contributing factors?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "single_cause": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_single_cause_others_dismissed",
+      "text": "Are other plausible contributing causes left out as if they didn't matter, or acknowledged and weighed?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "single_cause": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_corr_caus_moves_together",
+      "text": "Does the case rest on two things rising and falling together as a pattern, or on evidence that one actually produces the other?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "correlation_causation": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_corr_caus_direction_fixed",
+      "text": "Is the direction (which one causes which) simply assumed, or established so it couldn't equally run the other way?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "correlation_causation": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_likenesses_thin_or_relevant",
+      "text": "Does the comparison lean on one or two surface resemblances, or on shared traits that genuinely bear on the conclusion?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "weak_analogy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_shared_traits_carry_conclusion",
+      "text": "Does the conclusion need deeper similarity to hold, or could it stand on the single trait being pointed at alone?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "weak_analogy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_relevant_difference_glossed",
+      "text": "Is there a difference between the two cases that bears directly on the conclusion, or are they alike in the respect that matters most?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "false_analogy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_parallel_holds_where_it_counts",
+      "text": "Does the parallel break down at the exact point the argument turns on, or does it hold right there?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "false_analogy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_common_yardstick_exists",
+      "text": "Are the two things measured against one shared standard that fits both, or lined up across different units, scales, or categories?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "apples_to_oranges": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_treated_as_same_kind",
+      "text": "Are the two too different in kind for a side-by-side to mean anything, or are they the same kind of thing for the purpose at hand?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "apples_to_oranges": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_word_shifts_sense",
+      "text": "Does a key word carry one meaning in the premise and a different meaning in the conclusion, or does it hold the same sense throughout?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "equivocation": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_term_stable_in_argument",
+      "text": "If the key term were fixed to a single definition for the whole argument, would the conclusion stop following, or would it still hold?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "equivocation": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_ambiguity_from_grammar",
+      "text": "Does the argument lean on a sentence that grammar or sentence structure lets you read in two different ways, or is the phrasing read only one way?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "amphiboly": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_sentence_structure_clear",
+      "text": "Is the load-bearing sentence left structured so its meaning stays uncertain, or is it rephrased so only one reading survives?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "amphiboly": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_meaning_changes_with_stress",
+      "text": "Does the point depend on stressing particular words or pulling a quote out of context, or does it hold under the statement's plain emphasis?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "accent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_emphasis_neutral",
+      "text": "Would removing the added emphasis or restoring the surrounding context change what the statement means, or would it read the same?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "accent": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_definition_rigs_outcome",
+      "text": "Is the key term defined in a way that makes the conclusion follow automatically, or is it defined independently of what's being argued?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "definist": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_definition_fits_ordinary",
+      "text": "Does the offered definition depart from the term's ordinary or agreed meaning to favor one side, or does it match how the word is normally used?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "definist": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_part_trait_to_whole",
+      "text": "Is a trait held by each part being carried up to the whole they form, or is the whole's trait shown on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "composition": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_parts_to_whole_transfer_shown",
+      "text": "Is the part-to-whole transfer just assumed, or is there a reason that property survives combining the parts?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "composition": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_whole_trait_to_part",
+      "text": "Is a trait held by the whole being pushed down onto each part, or is the part's trait shown on its own?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "division": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_whole_to_part_transfer_shown",
+      "text": "Is the whole-to-part transfer just assumed, or is there a reason that property reaches each individual member?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "division": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_group_stat_to_individual",
+      "text": "Is a group average or rate being read as a fact about a specific individual, or is the claim kept at the group level?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "ecological_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
+      }
+    },
+    {
+      "id": "q_individual_level_evidence",
+      "text": "Is the conclusion about the person resting only on the group statistic, or is there evidence about that individual?",
+      "tags": [
+        "entry"
+      ],
+      "lr": {
+        "ecological_fallacy": {
+          "yes": 4.5,
+          "no": 0.3
+        },
+        "VALID": {
+          "yes": 0.6,
+          "no": 1.4
+        }
       }
     }
   ]

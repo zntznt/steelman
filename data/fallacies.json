@@ -117,6 +117,348 @@
       "short": "Concluding a claim is false because one personally can't imagine how it could be true.",
       "teaching": "An argument from incredulity treats \"I can't see how this could be true\" as if it settled that it isn't. But the limit being reached is the speaker's own knowledge or imagination, not the claim's plausibility. It is reasonable to ask for an explanation; this only goes wrong when not understanding how is taken as proof of not so.",
       "confirm_check": "Is the claim being rejected because no one could show it's true, or just because the speaker personally can't see or imagine how it could be?"
+    },
+    {
+      "id": "poisoning_the_well",
+      "name": "Poisoning the Well",
+      "base_rate": 1,
+      "family": "against_the_person",
+      "short": "Discrediting a source ahead of time so the audience dismisses whatever they go on to say.",
+      "teaching": "Poisoning the well places an unfavorable label or warning about a person before they speak, so listeners are set to reject anything they say in advance. The adverse information may be true, yet it doesn't settle whether their coming point is right. It is not this fallacy to share genuinely relevant background that listeners can still weigh against what the person actually argues.",
+      "confirm_check": "Is the source being discredited in advance so their coming point is set aside before it's heard, rather than that point being weighed once it's made?"
+    },
+    {
+      "id": "genetic_fallacy",
+      "name": "Genetic Fallacy",
+      "base_rate": 1,
+      "family": "against_the_person",
+      "short": "Judging a claim true or false by where it came from rather than by what it actually says.",
+      "teaching": "The genetic fallacy rates an idea by its origin or history (who or what it came from) instead of its current merits. Where a claim came from can be a clue worth noting, but a good idea from a poor source is still good, and a weak one from a respected source is still weak. It is not this fallacy when the origin genuinely bears on reliability and is weighed alongside the claim itself.",
+      "confirm_check": "Is the claim being judged by its origin or history (where or who it came from) rather than by what it actually says now?"
+    },
+    {
+      "id": "red_herring",
+      "name": "Red Herring",
+      "base_rate": 1.3,
+      "family": "deflection",
+      "short": "Diverts attention to a different, irrelevant topic instead of addressing the point at hand.",
+      "teaching": "A red herring drops in a tangent that pulls focus away from the actual question being discussed. It is NOT a red herring if the new point is genuinely relevant background or context that helps settle the original question.",
+      "confirm_check": "Does the response engage the topic that was on the table, rather than swapping in a different one?"
+    },
+    {
+      "id": "whataboutism",
+      "name": "Whataboutism",
+      "base_rate": 1.3,
+      "family": "deflection",
+      "short": "Deflects a criticism by raising a separate grievance instead of answering it.",
+      "teaching": "Whataboutism meets a charge with a counter-charge (\"but what about...\") rather than responding to the original criticism. It is NOT this when the comparison is offered to expose an inconsistent standard being applied and the original criticism is still addressed.",
+      "confirm_check": "Is the original criticism answered, rather than parried by pointing at someone else's faults?"
+    },
+    {
+      "id": "moving_the_goalposts",
+      "name": "Moving the Goalposts",
+      "base_rate": 1,
+      "family": "deflection",
+      "short": "Raises the standard of proof once the originally demanded evidence has been provided.",
+      "teaching": "Moving the goalposts means changing the criterion for being convinced after that criterion has already been met. It is NOT this when the new demand was always part of the original standard, or when genuinely new information fairly reopens the question.",
+      "confirm_check": "Does the standard of evidence stay fixed once it has been satisfied, rather than being raised to a new one?"
+    },
+    {
+      "id": "non_sequitur",
+      "name": "Non Sequitur",
+      "base_rate": 1,
+      "family": "deflection",
+      "short": "Draws a conclusion that simply does not follow from the reasons given.",
+      "teaching": "A non sequitur is a leap where the stated reasons provide no logical support for the conclusion drawn. It is NOT this when there is a real inferential link, even an implicit or probabilistic one, connecting the reasons to the conclusion.",
+      "confirm_check": "Do the reasons given actually lead to the conclusion drawn?"
+    },
+    {
+      "id": "appeal_to_fear",
+      "name": "Appeal to Fear",
+      "base_rate": 1.2,
+      "family": "emotional_appeal",
+      "short": "Pressing a conclusion by raising alarm about a scary outcome instead of showing it's likely or true.",
+      "teaching": "An appeal to fear drives you toward a conclusion by stressing how frightening some outcome would be, rather than showing the outcome is actually likely or that the claim is true. Warning about a real, well-supported danger is perfectly legitimate; it only goes wrong when the scare is offered in place of evidence that the threat is real and sized to the facts.",
+      "confirm_check": "Set the frightening prospect aside: is there evidence the threat is real and likely, or was the alarm itself doing the persuading?"
+    },
+    {
+      "id": "appeal_to_pity",
+      "name": "Appeal to Pity",
+      "base_rate": 1.1,
+      "family": "emotional_appeal",
+      "short": "Urging a conclusion by stirring sympathy for someone's hardship rather than showing the claim is right.",
+      "teaching": "An appeal to pity asks you to accept a conclusion because of the sympathy you feel for someone's suffering or hardship, rather than because the hardship bears on whether the claim is true or the decision is right. When the hardship is genuinely relevant - say, deciding what help someone needs - compassion is the point and no fallacy occurs; it only goes wrong when sympathy stands in for reasons the conclusion actually follows.",
+      "confirm_check": "Set the sympathy aside: does the person's hardship actually bear on the conclusion, or was pity carrying it?"
+    },
+    {
+      "id": "appeal_to_ridicule",
+      "name": "Appeal to Ridicule",
+      "base_rate": 1.1,
+      "family": "emotional_appeal",
+      "short": "Treating a position as refuted by mocking it or making it look absurd, instead of answering it.",
+      "teaching": "An appeal to ridicule (the 'horse laugh') tries to defeat a position by mocking it or painting it as laughably absurd, rather than giving a reason it's wrong. A claim can be made to sound ridiculous and still be true. Humor that illustrates a real, separately-stated flaw is fine; it only goes wrong when the laugh is offered in place of an actual rebuttal.",
+      "confirm_check": "Strip out the mockery: is there an actual reason the position is wrong, or was making it look absurd the whole reply?"
+    },
+    {
+      "id": "appeal_to_spite",
+      "name": "Appeal to Spite",
+      "base_rate": 1,
+      "family": "emotional_appeal",
+      "short": "Winning agreement by stirring resentment or a wish to see someone get their comeuppance.",
+      "teaching": "An appeal to spite exploits ill-will - the satisfaction of seeing a disliked person or group lose, suffer, or be denied - as the reason to back a conclusion, rather than reasons the conclusion is right. Noting that someone has behaved badly can be fair when their conduct is genuinely the matter at issue; it only goes wrong when the pull of resentment, not evidence, is what carries the claim.",
+      "confirm_check": "Set the resentment aside: is there a reason the conclusion is right, or was the wish to see someone lose carrying it?"
+    },
+    {
+      "id": "appeal_to_tradition",
+      "name": "Appeal to Tradition",
+      "base_rate": 1.1,
+      "family": "appeal_to_standing",
+      "short": "Treating something as right or true mainly because it is long-established or 'how it's always been done'.",
+      "teaching": "An appeal to tradition treats the age or long use of a practice as the reason it must be good, correct, or worth keeping. How long something has been done does not by itself show it works or is right. It is not this fallacy when the long track record is offered as real evidence, for example that the practice has been tested over time and shown to hold up.",
+      "confirm_check": "Is the practice's age or long history being used as the main reason it is right, rather than evidence that it actually works?"
+    },
+    {
+      "id": "appeal_to_novelty",
+      "name": "Appeal to Novelty",
+      "base_rate": 1,
+      "family": "appeal_to_standing",
+      "short": "Treating something as better or true mainly because it is new, modern, or the latest thing.",
+      "teaching": "An appeal to novelty treats newness or being up-to-date as the reason something must be better, correct, or worth adopting. That a thing is new says nothing on its own about whether it works or is true. It is not this fallacy when the case gives actual reasons the newer option is an improvement, such as a measured benefit over the older one.",
+      "confirm_check": "Is the newness or modernity of the thing being used as the main reason it is better, rather than evidence that it actually is?"
+    },
+    {
+      "id": "snob_appeal",
+      "name": "Snob Appeal",
+      "base_rate": 1,
+      "family": "appeal_to_standing",
+      "short": "Treating something as good or true because elite, refined, or discerning people favor it.",
+      "teaching": "Snob appeal urges a conclusion by tying it to an exclusive, classy, or discerning kind of person, so accepting it makes you one of them. The taste of a select few does not by itself show the thing is good or the claim true. It is not this fallacy when the appeal points to real qualities the thing has, rather than just the status of who chooses it.",
+      "confirm_check": "Is the thing being recommended mainly because select or elite people favor it, rather than for qualities it actually has?"
+    },
+    {
+      "id": "false_equivalence",
+      "name": "False Equivalence",
+      "base_rate": 1.2,
+      "family": "false_choices",
+      "short": "Treating two things as equal or the same when they differ greatly in scale, degree, or kind.",
+      "teaching": "A false equivalence puts two things side by side as if they were the same or equally bad, while ignoring a large difference in scale, degree, or kind that actually matters. The comparison can be perfectly fair when the two things really are alike in the respect being discussed; it only goes wrong when an important difference between them is set aside.",
+      "confirm_check": "Are two things being treated as the same or equally bad while a real difference in their scale, degree, or kind is set aside?"
+    },
+    {
+      "id": "perfect_solution",
+      "name": "Perfect Solution",
+      "base_rate": 1,
+      "family": "false_choices",
+      "short": "Rejecting a workable option because it isn't a flawless fix that solves the whole problem.",
+      "teaching": "The perfect-solution (or nirvana) fallacy dismisses a real improvement just because it falls short of a flawless ideal, as if anything less than total success were worthless. Holding out for a perfect fix is reasonable when the imperfect option's leftover flaws actually make it worse than doing nothing or than another choice; it is a fallacy only when a genuine improvement is rejected merely for not being perfect.",
+      "confirm_check": "Is a workable option being rejected mainly because it isn't a perfect or complete fix, rather than because its flaws make it worse than the alternative?"
+    },
+    {
+      "id": "middle_ground",
+      "name": "Middle Ground",
+      "base_rate": 1,
+      "family": "false_choices",
+      "short": "Assuming the truth must sit halfway between two positions just because it's the compromise.",
+      "teaching": "The middle-ground (or argument-to-moderation) fallacy treats the compromise between two views as automatically correct simply because it sits in the middle, regardless of the evidence on either side. A compromise can absolutely be the right answer when there are real reasons for it; it is a fallacy only when the midpoint is assumed true just for being the midpoint, even when one side is better supported.",
+      "confirm_check": "Is the compromise being treated as correct mainly because it's in the middle, rather than because there's evidence supporting that position?"
+    },
+    {
+      "id": "begging_the_question",
+      "name": "Begging the Question",
+      "base_rate": 1,
+      "family": "assumed_conclusion",
+      "short": "A key premise the argument needs is taken for granted instead of being supported.",
+      "teaching": "Begging the question slips a contested point in as an unstated assumption, treating the very thing in doubt as already settled so the conclusion follows for free. It is not this fallacy when the assumed premise is genuinely uncontroversial or is backed up in its own right elsewhere in the case.",
+      "confirm_check": "Does a premise the argument depends on assume the disputed point is already settled, instead of giving support for it?"
+    },
+    {
+      "id": "loaded_question",
+      "name": "Loaded Question",
+      "base_rate": 1,
+      "family": "assumed_conclusion",
+      "short": "A question that builds in an unproven assumption, so any direct answer concedes it.",
+      "teaching": "A loaded question hides a contested claim inside the question itself, so whichever way you answer you have already granted the unproven part (the classic 'Have you stopped doing it yet?'). It is not this fallacy when the built-in assumption is genuinely established or already agreed, since then the question presumes nothing in dispute.",
+      "confirm_check": "Does the question take an unproven point as already true, so any direct answer would concede it?"
+    },
+    {
+      "id": "appeal_to_ignorance",
+      "name": "Appeal to Ignorance",
+      "base_rate": 1.1,
+      "family": "burden_and_ignorance",
+      "short": "Treating a claim as true because it hasn't been disproven, or false because it hasn't been proven.",
+      "teaching": "An appeal to ignorance takes a lack of evidence as if it were evidence: 'no one has shown it's false, so it must be true' (or the reverse). Not knowing something is so is not the same as knowing it isn't. It is not this fallacy when an absence of evidence is genuinely expected after a careful search, so the gap really does count as a finding.",
+      "confirm_check": "Is the conclusion resting on the claim simply not having been disproven (or not having been proven), rather than on positive evidence either way?"
+    },
+    {
+      "id": "shifting_burden_of_proof",
+      "name": "Shifting the Burden of Proof",
+      "base_rate": 1,
+      "family": "burden_and_ignorance",
+      "short": "Making the doubter disprove a claim instead of the claimant supporting it ('prove me wrong').",
+      "teaching": "Shifting the burden of proof asks the other side to disprove a claim rather than backing it up, as if a claim stands until someone knocks it down. Normally whoever makes a positive claim is the one who owes the support for it. It is not this fallacy to ask for evidence against a claim that has already been well supported, since the burden has fairly moved.",
+      "confirm_check": "Is the person making the claim asking others to disprove it, rather than offering support for the claim themselves?"
+    },
+    {
+      "id": "argument_from_silence",
+      "name": "Argument from Silence",
+      "base_rate": 1,
+      "family": "burden_and_ignorance",
+      "short": "Concluding something from a particular source's failure to mention or record it where it might appear.",
+      "teaching": "An argument from silence draws a conclusion from what a particular source did not say or record, as if a missing mention settled the matter. A source can stay silent for many reasons, so a gap is weak unless that source would really be expected to mention the thing. It is not this fallacy when the source would almost certainly have noted it, making its absence genuinely telling.",
+      "confirm_check": "Is the conclusion drawn from something NOT being mentioned or recorded by a source, rather than from what the source actually says?"
+    },
+    {
+      "id": "anecdotal",
+      "name": "Anecdotal Evidence",
+      "base_rate": 1.3,
+      "family": "hasty_conclusions",
+      "short": "Using a personal story or single vivid case in place of systematic evidence.",
+      "teaching": "Anecdotal reasoning leans on one memorable story or personal experience as if it settled what is true in general, even when broader data points the other way. A single case can be a fine illustration or a prompt to look closer; it is only a fallacy when the story is treated as the proof rather than as one example among many.",
+      "confirm_check": "Is a personal story or single vivid case being offered as the proof, rather than systematic evidence about the broader pattern?"
+    },
+    {
+      "id": "cherry_picking",
+      "name": "Cherry Picking",
+      "base_rate": 1.3,
+      "family": "hasty_conclusions",
+      "short": "Citing only the cases that support a claim while leaving out the ones that count against it.",
+      "teaching": "Cherry picking presents the data points that fit a conclusion and quietly sets aside the ones that don't, so a one-sided picture looks like the whole story. Highlighting your strongest supporting evidence is normal; it only becomes a fallacy when contrary evidence that's known to exist is left out rather than weighed.",
+      "confirm_check": "Is contrary evidence that's known to exist being left out, so only the supporting cases are shown?"
+    },
+    {
+      "id": "sampling_bias",
+      "name": "Sampling Bias",
+      "base_rate": 1,
+      "family": "hasty_conclusions",
+      "short": "Drawing a conclusion from a group that was selected in a way that doesn't represent the whole.",
+      "teaching": "Sampling bias happens when the people or cases looked at were gathered in a skewed way, such as volunteers, a convenient crowd, or one slice of a group, so they can't speak for the larger population the conclusion is about. A sample drawn casually can still be honest, so this is only a fallacy when how it was collected makes it unrepresentative of the group being claimed about.",
+      "confirm_check": "Was the sample gathered in a skewed way (self-selected, convenient, one-sided) that doesn't represent the group the conclusion is about?"
+    },
+    {
+      "id": "overgeneralization",
+      "name": "Overgeneralization",
+      "base_rate": 1.2,
+      "family": "hasty_conclusions",
+      "short": "Treating a rule that holds in many cases as if it held in every case, with no exceptions.",
+      "teaching": "Overgeneralization takes a pattern that's true often and states it as an exceptionless 'always/never/all' rule, then applies it even to cases it doesn't fit. Broad rules are useful and many do hold widely; it only becomes a fallacy when the sweeping form is asserted without qualification or pressed onto a case that's a known exception.",
+      "confirm_check": "Is a rule that holds in many cases being stated as exceptionless, or pressed onto a case it doesn't actually fit?"
+    },
+    {
+      "id": "post_hoc",
+      "name": "Post Hoc (After This, Therefore Because of This)",
+      "base_rate": 1.2,
+      "family": "causal",
+      "short": "Concluding that because one thing happened after another, the first must have caused the second.",
+      "teaching": "Post hoc reasoning treats the order of events as proof of cause: B came right after A, so A caused B. But one thing following another can be pure coincidence, and a single before-then-after sequence shows nothing on its own. It is not this fallacy when the sequence has been seen to repeat reliably or a mechanism connects the two, beyond their bare order in time.",
+      "confirm_check": "Is the only support for the causal claim that one event came before the other, with no repeat or mechanism shown?"
+    },
+    {
+      "id": "single_cause",
+      "name": "Single Cause (Causal Oversimplification)",
+      "base_rate": 1.1,
+      "family": "causal",
+      "short": "Blaming an outcome on one cause when it plausibly arose from several contributing factors.",
+      "teaching": "Causal oversimplification pins a complex outcome on a single cause, as if nothing else contributed. Real events usually have several factors working together, so naming just one and ignoring the rest distorts the picture. It is not this fallacy when one cause genuinely is the main driver and the others have been weighed and found minor, rather than simply left out.",
+      "confirm_check": "Is one cause being treated as the whole explanation for an outcome that plausibly had several contributing factors?"
+    },
+    {
+      "id": "correlation_causation",
+      "name": "Correlation Implies Causation",
+      "base_rate": 1.2,
+      "family": "causal",
+      "short": "Treating two things that move together as proof that one of them causes the other.",
+      "teaching": "This error reads a correlation, two things rising and falling together, as if it settled that one causes the other. But the link can run the opposite way, or a third factor can be driving both, so tracking together is not the same as causing. It is not this fallacy when the causal direction has been established or other drivers tested, rather than the connection simply being assumed from the matching pattern.",
+      "confirm_check": "Is a causal claim resting on two things tracking together, with the direction assumed rather than established?"
+    },
+    {
+      "id": "weak_analogy",
+      "name": "Weak Analogy",
+      "base_rate": 1.1,
+      "family": "comparison",
+      "short": "Drawing a conclusion from a comparison resting on too few or only surface-level shared traits.",
+      "teaching": "A weak analogy argues that because two things are alike in some way, what is true of one must be true of the other, but the likenesses it points to are too few or too shallow to carry that weight. Analogies are a fair and useful way to reason. It is not this fallacy when the cases line up in the ways that actually matter and the shared traits are substantial.",
+      "confirm_check": "Are the similarities the comparison rests on substantial and relevant to the conclusion, rather than few or surface-level?"
+    },
+    {
+      "id": "false_analogy",
+      "name": "False Analogy",
+      "base_rate": 1,
+      "family": "comparison",
+      "short": "A comparison that breaks down because the two things differ in the respect the conclusion depends on.",
+      "teaching": "A false analogy treats two cases as parallel while ignoring a difference between them that is decisive for the point being made. The comparison can be apt in other ways and still fail here, because the one respect that matters is where they part. It is not this fallacy when the cases really are alike in the relevant respect, or when the difference raised has no bearing on the conclusion.",
+      "confirm_check": "Are the two things alike in the one respect the conclusion actually depends on, with no decisive difference being glossed over?"
+    },
+    {
+      "id": "apples_to_oranges",
+      "name": "Apples to Oranges",
+      "base_rate": 1,
+      "family": "comparison",
+      "short": "Comparing two things as if on a common measure when they share no yardstick or category.",
+      "teaching": "An apples-to-oranges comparison lines up two things as equivalent when they belong to different categories or are measured by different yardsticks, so the comparison has no common footing. The point is not that the things are merely different, since all comparisons involve different things, but that there is no shared standard on which putting them side by side makes sense. It is fine when a genuine common measure such as cost, risk, or effect actually does apply to both.",
+      "confirm_check": "Are the two things measured on a single shared standard that genuinely applies to both, rather than lined up across different categories?"
+    },
+    {
+      "id": "equivocation",
+      "name": "Equivocation",
+      "base_rate": 1,
+      "family": "ambiguity",
+      "short": "A single key word is used in two different senses across the argument, so the conclusion only seems to follow.",
+      "teaching": "Equivocation lets one word carry one meaning in a premise and a different meaning in the conclusion, so the pieces appear to connect when they actually don't. It is not this fallacy when a word keeps the same sense throughout, or when a writer is openly using wordplay for humor rather than to prove a point.",
+      "confirm_check": "Does a key word keep one consistent meaning from premise to conclusion, rather than switching senses?"
+    },
+    {
+      "id": "amphiboly",
+      "name": "Amphiboly",
+      "base_rate": 1,
+      "family": "ambiguity",
+      "short": "The argument trades on a sentence whose grammar or structure makes it mean two different things.",
+      "teaching": "Amphiboly arises when the wording or sentence structure, not a single word, can be read two ways, and the argument leans on the reading that helps it. It is not this fallacy when the phrasing has only one natural reading, or when an ambiguous line is flagged and the intended meaning is made clear before any conclusion is drawn.",
+      "confirm_check": "Is the sentence the argument relies on structured so it can only be read one way, rather than two?"
+    },
+    {
+      "id": "accent",
+      "name": "Accent",
+      "base_rate": 1,
+      "family": "ambiguity",
+      "short": "The meaning is changed by where the stress, emphasis, or selective quoting falls, not by the words themselves.",
+      "teaching": "The fallacy of accent shifts what a statement means by stressing certain words, or by quoting a fragment out of context, so a different message is read than was meant. It is not this fallacy when the emphasis matches the speaker's plain intent, or when a quote is given in enough context that its original sense is preserved.",
+      "confirm_check": "Does the emphasis or quoting preserve the statement's original meaning, rather than tilting it toward a different one?"
+    },
+    {
+      "id": "definist",
+      "name": "Definist Fallacy",
+      "base_rate": 1,
+      "family": "ambiguity",
+      "short": "A term is defined in a slanted, self-serving way so the conclusion is built into the wording.",
+      "teaching": "The definist fallacy defines a key term in a loaded or non-standard way that quietly settles the dispute, so disagreeing seems to mean misusing the word. It is not this fallacy when a definition is stipulated openly and fairly for clarity, or when the chosen meaning genuinely matches how the term is ordinarily understood.",
+      "confirm_check": "Is the key term defined in a fair, ordinary way, rather than one crafted to make the conclusion automatic?"
+    },
+    {
+      "id": "composition",
+      "name": "Fallacy of Composition",
+      "base_rate": 1,
+      "family": "composition_division",
+      "short": "Assuming the whole must have a trait just because each of its parts has that trait.",
+      "teaching": "The fallacy of composition takes something true of each part and concludes it must be true of the whole they make up, even though a group can behave differently from its members. It is NOT this fallacy when the trait genuinely does carry over and the argument shows why parts and whole share it (for example, an all-steel structure being made of steel).",
+      "confirm_check": "Is a trait of each individual part being treated as proof the whole made of them must share that trait, with no reason the trait carries over?"
+    },
+    {
+      "id": "division",
+      "name": "Fallacy of Division",
+      "base_rate": 1,
+      "family": "composition_division",
+      "short": "Assuming a part must have a trait just because the whole it belongs to has that trait.",
+      "teaching": "The fallacy of division takes something true of a whole and concludes it must be true of each part or member, even though a group can have features none of its members do. It is NOT this fallacy when the trait really does distribute down and the argument shows why (for example, a box of all-red marbles meaning each marble is red).",
+      "confirm_check": "Is a trait of the whole being treated as proof each individual part must share it, with no reason the trait distributes down?"
+    },
+    {
+      "id": "ecological_fallacy",
+      "name": "Ecological Fallacy",
+      "base_rate": 1,
+      "family": "composition_division",
+      "short": "Drawing a conclusion about an individual from a statistic or average about the group they belong to.",
+      "teaching": "The ecological fallacy reads a fact about a group's average or rate as if it told you about any particular member, even though individuals can differ sharply from the group pattern. It is NOT this fallacy when the claim stays at the group level, or when individual-level data actually backs the claim about the person.",
+      "confirm_check": "Is a group-level statistic or average being used to settle what's true of a specific individual, without individual-level evidence?"
     }
   ]
 }

@@ -6,10 +6,23 @@
       "name": "Against the person",
       "prompt": "It seems to answer the person or a reworded version of their point, more than the point itself",
       "cues": [
-        "you're just", "you are just", "she's a", "he's a", "they're just",
-        "hypocrite", "hypocritical", "paid shill", "shill", "biased",
-        "what about you", "you do it too", "look who's talking", "coming from someone",
-        "so-called", "typical of", "of course you'd say"
+        "you're just",
+        "you are just",
+        "she's a",
+        "he's a",
+        "they're just",
+        "hypocrite",
+        "hypocritical",
+        "paid shill",
+        "shill",
+        "biased",
+        "what about you",
+        "you do it too",
+        "look who's talking",
+        "coming from someone",
+        "so-called",
+        "typical of",
+        "of course you'd say"
       ]
     },
     {
@@ -17,10 +30,25 @@
       "name": "Leans on something beside the evidence",
       "prompt": "It seems to lean on a feeling, a name, naturalness, or popularity more than on reasons",
       "cues": [
-        "natural", "all-natural", "chemical", "man-made", "artificial",
-        "everyone knows", "everybody", "most people", "we all", "popular",
-        "experts say", "scientists agree", "doctors recommend", "celebrity",
-        "think of the", "imagine how", "for the children", "heartless", "how can you"
+        "natural",
+        "all-natural",
+        "chemical",
+        "man-made",
+        "artificial",
+        "everyone knows",
+        "everybody",
+        "most people",
+        "we all",
+        "popular",
+        "experts say",
+        "scientists agree",
+        "doctors recommend",
+        "celebrity",
+        "think of the",
+        "imagine how",
+        "for the children",
+        "heartless",
+        "how can you"
       ]
     },
     {
@@ -28,10 +56,24 @@
       "name": "Leaps past the evidence",
       "prompt": "The conclusion seems to reach further than the evidence given carries it",
       "cues": [
-        "always", "never", "everyone i", "every time", "all of them",
-        "ever since", "after that", "right after", "led to", "caused by",
-        "will end up", "next thing", "slippery slope", "before you know it",
-        "in my experience", "i once", "this one time", "proves that"
+        "always",
+        "never",
+        "everyone i",
+        "every time",
+        "all of them",
+        "ever since",
+        "after that",
+        "right after",
+        "led to",
+        "caused by",
+        "will end up",
+        "next thing",
+        "slippery slope",
+        "before you know it",
+        "in my experience",
+        "i once",
+        "this one time",
+        "proves that"
       ]
     },
     {
@@ -39,74 +81,760 @@
       "name": "Assumes what it should establish",
       "prompt": "It seems to take its starting point for granted instead of supporting it",
       "cues": [
-        "either", "or else", "only two", "the only option", "no other",
-        "by definition", "obviously true", "of course it's true", "everyone agrees it's",
-        "can't imagine", "cannot imagine", "no way that", "makes no sense that",
-        "must be false", "has to be", "it's just true", "begs the question"
+        "either",
+        "or else",
+        "only two",
+        "the only option",
+        "no other",
+        "by definition",
+        "obviously true",
+        "of course it's true",
+        "everyone agrees it's",
+        "can't imagine",
+        "cannot imagine",
+        "no way that",
+        "makes no sense that",
+        "must be false",
+        "has to be",
+        "it's just true",
+        "begs the question"
+      ]
+    },
+    {
+      "id": "deflection",
+      "name": "Changes the subject",
+      "prompt": "It seems to dodge the point rather than answer it",
+      "bucket": "relevance",
+      "cues": [
+        "what about",
+        "let's talk about",
+        "the real issue is",
+        "speaking of",
+        "anyway",
+        "that's not the point",
+        "but you still haven't",
+        "changing the subject"
+      ]
+    },
+    {
+      "id": "emotional_appeal",
+      "name": "Plays on feelings",
+      "prompt": "It seems to move you by emotion rather than by reasons",
+      "bucket": "appeals",
+      "cues": [
+        "think of the",
+        "imagine how",
+        "for the children",
+        "heartless",
+        "how can you",
+        "terrifying",
+        "devastating",
+        "you should be ashamed",
+        "scary",
+        "disaster"
+      ]
+    },
+    {
+      "id": "appeal_to_standing",
+      "name": "Leans on who or how many",
+      "prompt": "It seems to rest on authority, popularity, or novelty rather than evidence",
+      "bucket": "appeals",
+      "cues": [
+        "experts say",
+        "scientists agree",
+        "doctors recommend",
+        "celebrity",
+        "everyone knows",
+        "everybody",
+        "most people",
+        "natural",
+        "all-natural",
+        "the way it's always",
+        "tradition",
+        "brand new",
+        "latest",
+        "old-fashioned"
+      ]
+    },
+    {
+      "id": "false_choices",
+      "name": "Forces a narrow choice",
+      "prompt": "It frames the options more narrowly than reality allows",
+      "bucket": "presumption",
+      "cues": [
+        "either",
+        "or else",
+        "only two",
+        "the only option",
+        "no other choice",
+        "you can't have it both",
+        "same thing as",
+        "just as bad as",
+        "unless it's perfect",
+        "somewhere in between must be"
+      ]
+    },
+    {
+      "id": "assumed_conclusion",
+      "name": "Assumes what it's proving",
+      "prompt": "Its support seems to already take the conclusion for granted",
+      "bucket": "presumption",
+      "cues": [
+        "by definition",
+        "obviously true",
+        "of course it's true",
+        "everyone agrees it's",
+        "it's just true",
+        "begs the question",
+        "can't imagine",
+        "cannot imagine",
+        "no way that",
+        "makes no sense that",
+        "must be false",
+        "have you stopped"
+      ]
+    },
+    {
+      "id": "burden_and_ignorance",
+      "name": "Shifts the burden of proof",
+      "prompt": "It treats 'not disproven' as 'proven', or vice versa",
+      "bucket": "presumption",
+      "cues": [
+        "no evidence that",
+        "can't prove it isn't",
+        "prove me wrong",
+        "nobody has shown",
+        "until you can show",
+        "hasn't been disproven",
+        "no one has denied"
+      ]
+    },
+    {
+      "id": "hasty_conclusions",
+      "name": "Jumps from too little",
+      "prompt": "It draws a broad conclusion from thin or one-sided evidence",
+      "bucket": "induction",
+      "cues": [
+        "always",
+        "never",
+        "everyone i",
+        "every time",
+        "in my experience",
+        "i once",
+        "this one time",
+        "all of them",
+        "they all",
+        "just look at"
+      ]
+    },
+    {
+      "id": "causal",
+      "name": "Mistakes the cause",
+      "prompt": "It reads a cause into things that may just be linked or sequential",
+      "bucket": "induction",
+      "cues": [
+        "ever since",
+        "after that",
+        "right after",
+        "led to",
+        "caused by",
+        "will end up",
+        "next thing",
+        "slippery slope",
+        "before you know it",
+        "because right before",
+        " once we allow"
+      ]
+    },
+    {
+      "id": "comparison",
+      "name": "Compares unlike things",
+      "prompt": "It leans on an analogy or comparison that may not hold",
+      "bucket": "induction",
+      "cues": [
+        "just like",
+        "same as",
+        "no different from",
+        "it's basically",
+        "comparable to",
+        "like comparing"
+      ]
+    },
+    {
+      "id": "ambiguity",
+      "name": "Slides between meanings",
+      "prompt": "A key word seems to shift meaning, or the phrasing is doing the work",
+      "bucket": "language",
+      "cues": [
+        "depends what you mean",
+        "in a sense",
+        "technically",
+        "real ",
+        "true ",
+        "by 'free' i mean"
+      ]
+    },
+    {
+      "id": "composition_division",
+      "name": "Confuses parts and wholes",
+      "prompt": "It assumes the parts and the whole must share a trait",
+      "bucket": "language",
+      "cues": [
+        "each part",
+        "every member",
+        "the whole team",
+        "so the group",
+        "made of",
+        "therefore the team"
       ]
     }
   ],
   "tells": {
     "ad_hominem": [
-      { "qid": "q_responds_to_claim_or_person", "text": "Engages the claim itself, not the character or motives of who made it" },
-      { "qid": "q_distrust_speaker_settles_truth", "text": "Weighs the claim on its own merits, not on reasons to distrust the speaker" },
-      { "qid": "q_claim_addressed_or_left_standing", "text": "Actually addresses the original point rather than shifting focus to the speaker" }
+      {
+        "qid": "q_responds_to_claim_or_person",
+        "text": "Engages the claim itself, not the character or motives of who made it"
+      },
+      {
+        "qid": "q_distrust_speaker_settles_truth",
+        "text": "Weighs the claim on its own merits, not on reasons to distrust the speaker"
+      },
+      {
+        "qid": "q_claim_addressed_or_left_standing",
+        "text": "Actually addresses the original point rather than shifting focus to the speaker"
+      }
     ],
     "strawman": [
-      { "qid": "q_version_refuted_matches", "text": "Argues against the claim as actually made, not an exaggerated or absolute version" },
-      { "qid": "q_speaker_would_recognize", "text": "Restates the other side's position in a way they would recognize and accept" }
+      {
+        "qid": "q_version_refuted_matches",
+        "text": "Argues against the claim as actually made, not an exaggerated or absolute version"
+      },
+      {
+        "qid": "q_speaker_would_recognize",
+        "text": "Restates the other side's position in a way they would recognize and accept"
+      }
     ],
     "tu_quoque": [
-      { "qid": "q_hypocrisy_dismisses_point", "text": "Answers the criticism on its merits, not by pointing at the critic's own conduct" },
-      { "qid": "q_double_standard_is_the_topic", "text": "Any inconsistency it raises is genuinely the issue, not just a way to deflect" }
+      {
+        "qid": "q_hypocrisy_dismisses_point",
+        "text": "Answers the criticism on its merits, not by pointing at the critic's own conduct"
+      },
+      {
+        "qid": "q_double_standard_is_the_topic",
+        "text": "Any inconsistency it raises is genuinely the issue, not just a way to deflect"
+      }
     ],
     "appeal_to_authority": [
-      { "qid": "q_who_said_it_or_why", "text": "Rests on reasons you could check, not mainly on who endorsed it" },
-      { "qid": "q_expertise_fits_topic", "text": "Any cited expert actually fits the topic and isn't treated as the whole case" },
-      { "qid": "q_prestige_carries_it", "text": "The case would hold without the prestige of the name attached to it" }
+      {
+        "qid": "q_who_said_it_or_why",
+        "text": "Rests on reasons you could check, not mainly on who endorsed it"
+      },
+      {
+        "qid": "q_expertise_fits_topic",
+        "text": "Any cited expert actually fits the topic and isn't treated as the whole case"
+      },
+      {
+        "qid": "q_prestige_carries_it",
+        "text": "The case would hold without the prestige of the name attached to it"
+      }
     ],
     "appeal_to_emotion": [
-      { "qid": "q_feeling_does_the_work", "text": "A real reason remains once the emotional pull (fear, pity, anger) is set aside" },
-      { "qid": "q_emotion_or_reason_persuades", "text": "Persuades by reasons that would still stand if the case were put calmly" },
-      { "qid": "q_feeling_is_the_push", "text": "The push toward the conclusion is a reason, not mainly a feeling" }
+      {
+        "qid": "q_feeling_does_the_work",
+        "text": "A real reason remains once the emotional pull (fear, pity, anger) is set aside"
+      },
+      {
+        "qid": "q_emotion_or_reason_persuades",
+        "text": "Persuades by reasons that would still stand if the case were put calmly"
+      },
+      {
+        "qid": "q_feeling_is_the_push",
+        "text": "The push toward the conclusion is a reason, not mainly a feeling"
+      }
     ],
     "appeal_to_nature": [
-      { "qid": "q_natural_label_judges", "text": "Judges good or bad by actual effects, not by the 'natural' or 'artificial' label" },
-      { "qid": "q_naturalness_checks_case", "text": "Checks this specific case for benefit or harm, not naturalness alone" },
-      { "qid": "q_natural_equals_good", "text": "Ties its verdict to measured benefit or harm, not 'natural means good'" }
+      {
+        "qid": "q_natural_label_judges",
+        "text": "Judges good or bad by actual effects, not by the 'natural' or 'artificial' label"
+      },
+      {
+        "qid": "q_naturalness_checks_case",
+        "text": "Checks this specific case for benefit or harm, not naturalness alone"
+      },
+      {
+        "qid": "q_natural_equals_good",
+        "text": "Ties its verdict to measured benefit or harm, not 'natural means good'"
+      }
     ],
     "bandwagon": [
-      { "qid": "q_popularity_is_the_reason", "text": "Rests on reasons, not on how many people believe or do it" },
-      { "qid": "q_crowd_or_evidence", "text": "Gives independent evidence beyond 'most people' or 'everyone' agreeing" }
+      {
+        "qid": "q_popularity_is_the_reason",
+        "text": "Rests on reasons, not on how many people believe or do it"
+      },
+      {
+        "qid": "q_crowd_or_evidence",
+        "text": "Gives independent evidence beyond 'most people' or 'everyone' agreeing"
+      }
     ],
     "hasty_generalization": [
-      { "qid": "q_sample_supports_breadth", "text": "The breadth of the conclusion matches how much evidence backs it" },
-      { "qid": "q_examples_representative", "text": "The examples look representative, not cherry-picked or one-off anecdotes" }
+      {
+        "qid": "q_sample_supports_breadth",
+        "text": "The breadth of the conclusion matches how much evidence backs it"
+      },
+      {
+        "qid": "q_examples_representative",
+        "text": "The examples look representative, not cherry-picked or one-off anecdotes"
+      }
     ],
     "false_cause": [
-      { "qid": "q_cause_beyond_timing", "text": "Offers a mechanism or evidence for the cause, beyond just timing or correlation" },
-      { "qid": "q_alternatives_ruled_out", "text": "Considers and rules out other explanations (coincidence, a shared cause)" },
-      { "qid": "q_timing_is_whole_case", "text": "The case is more than 'one came first, so it caused the other'" }
+      {
+        "qid": "q_cause_beyond_timing",
+        "text": "Offers a mechanism or evidence for the cause, beyond just timing or correlation"
+      },
+      {
+        "qid": "q_alternatives_ruled_out",
+        "text": "Considers and rules out other explanations (coincidence, a shared cause)"
+      },
+      {
+        "qid": "q_timing_is_whole_case",
+        "text": "The case is more than 'one came first, so it caused the other'"
+      }
     ],
     "slippery_slope": [
-      { "qid": "q_steps_supported_or_assumed", "text": "The steps from the first move to the feared outcome are actually supported" },
-      { "qid": "q_outcome_proportionate", "text": "The predicted outcome is proportionate to the small step being discussed" },
-      { "qid": "q_each_link_inevitable", "text": "Each link in the chain is shown to be likely, not just assumed to follow" }
+      {
+        "qid": "q_steps_supported_or_assumed",
+        "text": "The steps from the first move to the feared outcome are actually supported"
+      },
+      {
+        "qid": "q_outcome_proportionate",
+        "text": "The predicted outcome is proportionate to the small step being discussed"
+      },
+      {
+        "qid": "q_each_link_inevitable",
+        "text": "Each link in the chain is shown to be likely, not just assumed to follow"
+      }
     ],
     "false_dilemma": [
-      { "qid": "q_two_options_or_more", "text": "Presents the real range of options, not just two when a 'both' or 'neither' exists" },
-      { "qid": "q_middle_ground_excluded", "text": "Leaves a workable middle ground or 'do both' on the table" },
-      { "qid": "q_only_two_camps", "text": "Allows positions beyond exactly two camps" }
+      {
+        "qid": "q_two_options_or_more",
+        "text": "Presents the real range of options, not just two when a 'both' or 'neither' exists"
+      },
+      {
+        "qid": "q_middle_ground_excluded",
+        "text": "Leaves a workable middle ground or 'do both' on the table"
+      },
+      {
+        "qid": "q_only_two_camps",
+        "text": "Allows positions beyond exactly two camps"
+      }
     ],
     "circular_reasoning": [
-      { "qid": "q_support_independent", "text": "The support is an independent reason, not a restatement of the conclusion" },
-      { "qid": "q_persuades_only_agreers", "text": "Would persuade someone who doesn't already accept the conclusion" },
-      { "qid": "q_reason_restates_claim", "text": "The reason adds something the conclusion did not already say" }
+      {
+        "qid": "q_support_independent",
+        "text": "The support is an independent reason, not a restatement of the conclusion"
+      },
+      {
+        "qid": "q_persuades_only_agreers",
+        "text": "Would persuade someone who doesn't already accept the conclusion"
+      },
+      {
+        "qid": "q_reason_restates_claim",
+        "text": "The reason adds something the conclusion did not already say"
+      }
     ],
     "argument_from_incredulity": [
-      { "qid": "q_rejected_for_unimaginable", "text": "Rejects the claim on evidence, not because the speaker can't picture how it could be true" },
-      { "qid": "q_cant_see_how_means_false", "text": "Gives an actual reason against the claim, not just 'I don't see how'" },
-      { "qid": "q_limit_is_speaker_not_claim", "text": "The doubt points to something implausible about the claim, not a gap in imagination" }
+      {
+        "qid": "q_rejected_for_unimaginable",
+        "text": "Rejects the claim on evidence, not because the speaker can't picture how it could be true"
+      },
+      {
+        "qid": "q_cant_see_how_means_false",
+        "text": "Gives an actual reason against the claim, not just 'I don't see how'"
+      },
+      {
+        "qid": "q_limit_is_speaker_not_claim",
+        "text": "The doubt points to something implausible about the claim, not a gap in imagination"
+      }
+    ],
+    "poisoning_the_well": [
+      {
+        "qid": "q_source_discredited_in_advance",
+        "text": "Takes up the point after it's made, rather than labeling the source beforehand"
+      },
+      {
+        "qid": "q_anything_they_say_pre_dismissed",
+        "text": "Leaves each thing the person says open to be judged on its own merits"
+      }
+    ],
+    "genetic_fallacy": [
+      {
+        "qid": "q_origin_decides_worth",
+        "text": "Judges the claim by what it says now, not by where or whom it came from"
+      },
+      {
+        "qid": "q_history_settles_present_merit",
+        "text": "Examines the idea's present merit regardless of how or where it started"
+      }
+    ],
+    "red_herring": [
+      {
+        "qid": "q_redherring_offtopic_pivot",
+        "text": "Stays on the topic actually under discussion"
+      },
+      {
+        "qid": "q_redherring_resolves_original",
+        "text": "The point it raises bears on the original question"
+      }
+    ],
+    "whataboutism": [
+      {
+        "qid": "q_whataboutism_counter_grievance",
+        "text": "Responds to the criticism on its own terms"
+      },
+      {
+        "qid": "q_whataboutism_leaves_charge_open",
+        "text": "Engages the original charge directly"
+      }
+    ],
+    "moving_the_goalposts": [
+      {
+        "qid": "q_goalposts_raised_after_met",
+        "text": "Accepts the originally requested evidence as settling the point"
+      },
+      {
+        "qid": "q_goalposts_new_demand_preexisting",
+        "text": "Holds to the standard it stated up front"
+      }
+    ],
+    "non_sequitur": [
+      {
+        "qid": "q_nonsequitur_premise_conclusion_gap",
+        "text": "The conclusion follows from the reasons offered"
+      },
+      {
+        "qid": "q_nonsequitur_missing_link",
+        "text": "Spells out the step connecting reasons to conclusion"
+      }
+    ],
+    "appeal_to_fear": [
+      {
+        "qid": "q_fear_replaces_evidence",
+        "text": "Backs the warning with evidence the outcome is likely, not just how scary it is"
+      },
+      {
+        "qid": "q_threat_sized_to_facts",
+        "text": "Sizes the danger to what's actually known, not inflated for effect"
+      }
+    ],
+    "appeal_to_pity": [
+      {
+        "qid": "q_pity_replaces_merits",
+        "text": "Gives reasons the conclusion holds, not just sympathy for a hardship"
+      },
+      {
+        "qid": "q_hardship_relevant_to_claim",
+        "text": "Any hardship it raises genuinely bears on what's being decided"
+      }
+    ],
+    "appeal_to_ridicule": [
+      {
+        "qid": "q_mockery_replaces_rebuttal",
+        "text": "Gives a reason the position is wrong, not just a laugh at its expense"
+      },
+      {
+        "qid": "q_target_treated_seriously",
+        "text": "Engages the position as meant rather than a mocking caricature of it"
+      }
+    ],
+    "appeal_to_spite": [
+      {
+        "qid": "q_spite_drives_conclusion",
+        "text": "Rests on reasons the conclusion is right, not on someone getting their comeuppance"
+      },
+      {
+        "qid": "q_spite_conduct_at_issue",
+        "text": "Any wrongdoing it raises genuinely bears on what's being decided"
+      }
+    ],
+    "appeal_to_tradition": [
+      {
+        "qid": "q_age_makes_it_right",
+        "text": "Rests on reasons it works, not on how long or how traditionally it's been done"
+      },
+      {
+        "qid": "q_track_record_shown_not_assumed",
+        "text": "Shows what the long practice has actually produced, beyond merely lasting"
+      }
+    ],
+    "appeal_to_novelty": [
+      {
+        "qid": "q_newness_makes_it_better",
+        "text": "Rests on reasons it performs better, not on how new or modern it is"
+      },
+      {
+        "qid": "q_improvement_shown_over_old",
+        "text": "Shows a real improvement over the older option, beyond merely being latest"
+      }
+    ],
+    "snob_appeal": [
+      {
+        "qid": "q_elite_favor_is_the_reason",
+        "text": "Rests on the thing's actual qualities, not the elite status of who picks it"
+      },
+      {
+        "qid": "q_belonging_replaces_merit",
+        "text": "Offers reasons the thing is genuinely good, not just a place among a select set"
+      }
+    ],
+    "false_equivalence": [
+      {
+        "qid": "q_equated_despite_difference",
+        "text": "Compares things that truly match in scale and seriousness"
+      },
+      {
+        "qid": "q_shared_trait_carries_equation",
+        "text": "Limits the comparison to the respect the two things actually share"
+      }
+    ],
+    "perfect_solution": [
+      {
+        "qid": "q_imperfection_used_to_reject",
+        "text": "Weighs the leftover flaws against the real gains the option offers"
+      },
+      {
+        "qid": "q_ideal_set_as_the_bar",
+        "text": "Judges the option against realistic alternatives, not an unreachable ideal"
+      }
+    ],
+    "middle_ground": [
+      {
+        "qid": "q_midpoint_assumed_correct",
+        "text": "Backs the moderate position with its own reasons, not just its central location"
+      },
+      {
+        "qid": "q_extremes_force_compromise",
+        "text": "Lets the better-supported side win, even when that side is an extreme"
+      }
+    ],
+    "begging_the_question": [
+      {
+        "qid": "q_key_premise_assumed",
+        "text": "Supports the premises it leans on rather than taking the crucial one for granted"
+      },
+      {
+        "qid": "q_disputed_point_smuggled",
+        "text": "Argues the contested point out in the open instead of assuming it settled"
+      }
+    ],
+    "loaded_question": [
+      {
+        "qid": "q_question_presupposes_unproven",
+        "text": "Leaves the contested point genuinely open rather than baking it into the question"
+      },
+      {
+        "qid": "q_answer_forced_to_concede",
+        "text": "Can be answered straight without first conceding an unproven assumption"
+      }
+    ],
+    "appeal_to_ignorance": [
+      {
+        "qid": "q_absence_treated_as_proof",
+        "text": "Gives positive evidence for the claim, not just the lack of evidence against it"
+      },
+      {
+        "qid": "q_unproven_means_false",
+        "text": "Treats an unproven claim as open, not as settled false for want of proof"
+      }
+    ],
+    "shifting_burden_of_proof": [
+      {
+        "qid": "q_claimant_supports_own_claim",
+        "text": "The one making the claim provides the support, rather than asking for it to be disproven"
+      },
+      {
+        "qid": "q_default_true_until_refuted",
+        "text": "Lets the claim earn acceptance by being backed up, not stand by default until refuted"
+      }
+    ],
+    "argument_from_silence": [
+      {
+        "qid": "q_inference_from_missing_mention",
+        "text": "Builds on what the source actually says, not on a gap where it doesn't mention something"
+      },
+      {
+        "qid": "q_mention_would_be_expected",
+        "text": "Shows the source would truly be expected to mention it before reading meaning into its silence"
+      }
+    ],
+    "anecdotal": [
+      {
+        "qid": "q_story_stands_for_evidence",
+        "text": "Backs the claim with systematic evidence, not just a personal story or one experience"
+      },
+      {
+        "qid": "q_vivid_case_over_data",
+        "text": "Lets the broader data carry the conclusion rather than one vivid case"
+      }
+    ],
+    "cherry_picking": [
+      {
+        "qid": "q_contrary_cases_omitted",
+        "text": "Acknowledges and weighs evidence that points the other way, not just the helpful bits"
+      },
+      {
+        "qid": "q_only_supporting_data_shown",
+        "text": "Shows the full mix of cases, not only the ones that fit the conclusion"
+      }
+    ],
+    "sampling_bias": [
+      {
+        "qid": "q_sample_drawn_skewed",
+        "text": "Draws its sample to represent the whole, not just whoever was handy or volunteered"
+      },
+      {
+        "qid": "q_surveyed_match_population",
+        "text": "Samples cases that match the population the conclusion is about"
+      }
+    ],
+    "overgeneralization": [
+      {
+        "qid": "q_rule_stated_exceptionless",
+        "text": "Qualifies the rule to where it actually holds instead of claiming it never fails"
+      },
+      {
+        "qid": "q_broad_rule_ignores_exception",
+        "text": "Allows for exceptions rather than forcing the rule onto a case that doesn't fit"
+      }
+    ],
+    "post_hoc": [
+      {
+        "qid": "q_post_hoc_order_is_the_proof",
+        "text": "Offers evidence beyond the sheer order of events, not just 'it came after'"
+      },
+      {
+        "qid": "q_post_hoc_one_off_sequence",
+        "text": "Shows the sequence repeats reliably, not a single coincidental before-and-after"
+      }
+    ],
+    "single_cause": [
+      {
+        "qid": "q_single_cause_one_factor_only",
+        "text": "Treats the outcome as having several contributing factors, not one sole cause"
+      },
+      {
+        "qid": "q_single_cause_others_dismissed",
+        "text": "Acknowledges and weighs other contributing causes rather than ignoring them"
+      }
+    ],
+    "correlation_causation": [
+      {
+        "qid": "q_corr_caus_moves_together",
+        "text": "Gives evidence that one thing produces the other, beyond their tracking together"
+      },
+      {
+        "qid": "q_corr_caus_direction_fixed",
+        "text": "Establishes which way the causation runs, not just that the two move in step"
+      }
+    ],
+    "weak_analogy": [
+      {
+        "qid": "q_likenesses_thin_or_relevant",
+        "text": "Points to shared traits that genuinely bear on the conclusion, not just surface resemblance"
+      },
+      {
+        "qid": "q_shared_traits_carry_conclusion",
+        "text": "The similarities run deep enough to actually carry the conclusion drawn"
+      }
+    ],
+    "false_analogy": [
+      {
+        "qid": "q_relevant_difference_glossed",
+        "text": "The two cases match in the respect the conclusion depends on, with no decisive difference skipped"
+      },
+      {
+        "qid": "q_parallel_holds_where_it_counts",
+        "text": "The parallel holds right at the point the argument turns on, not just elsewhere"
+      }
+    ],
+    "apples_to_oranges": [
+      {
+        "qid": "q_common_yardstick_exists",
+        "text": "Measures both against one shared standard that genuinely fits each of them"
+      },
+      {
+        "qid": "q_treated_as_same_kind",
+        "text": "The two are alike enough in kind that lining them up side by side actually means something"
+      }
+    ],
+    "equivocation": [
+      {
+        "qid": "q_word_shifts_sense",
+        "text": "Keeps each key word in one consistent sense from premise to conclusion"
+      },
+      {
+        "qid": "q_term_stable_in_argument",
+        "text": "Still works when the key term is pinned to a single fixed definition throughout"
+      }
+    ],
+    "amphiboly": [
+      {
+        "qid": "q_ambiguity_from_grammar",
+        "text": "Relies on a sentence that has one clear grammatical reading, not two"
+      },
+      {
+        "qid": "q_sentence_structure_clear",
+        "text": "Phrases the load-bearing sentence so only one meaning survives"
+      }
+    ],
+    "accent": [
+      {
+        "qid": "q_meaning_changes_with_stress",
+        "text": "Reads the statement under its plain emphasis, not a stress that tilts the meaning"
+      },
+      {
+        "qid": "q_emphasis_neutral",
+        "text": "Means the same with the original context and emphasis restored"
+      }
+    ],
+    "definist": [
+      {
+        "qid": "q_definition_rigs_outcome",
+        "text": "Defines the key term independently, not in a way that pre-decides the conclusion"
+      },
+      {
+        "qid": "q_definition_fits_ordinary",
+        "text": "Uses a definition that matches the term's ordinary or agreed meaning"
+      }
+    ],
+    "composition": [
+      {
+        "qid": "q_part_trait_to_whole",
+        "text": "Establishes the whole's trait directly, not by copying it up from each part"
+      },
+      {
+        "qid": "q_parts_to_whole_transfer_shown",
+        "text": "Shows why the property survives combining the parts, rather than assuming it carries up"
+      }
+    ],
+    "division": [
+      {
+        "qid": "q_whole_trait_to_part",
+        "text": "Establishes each part's trait directly, not by handing it down from the whole"
+      },
+      {
+        "qid": "q_whole_to_part_transfer_shown",
+        "text": "Shows why the property reaches each member, rather than assuming it distributes down"
+      }
+    ],
+    "ecological_fallacy": [
+      {
+        "qid": "q_group_stat_to_individual",
+        "text": "Keeps a group average as a group claim, not a verdict about one individual"
+      },
+      {
+        "qid": "q_individual_level_evidence",
+        "text": "Backs claims about the person with individual-level evidence, not just the group rate"
+      }
     ]
   }
 }

@@ -40,13 +40,14 @@ export const CONFIG = {
   // sequential answers, so the leading fallacy peaks lower. A gentler VALID ratio lets two
   // confident ticks of the same fallacy tentatively accuse, while one tick still can't (it stays
   // below VALID). Runner-up + min-mass conditions are unchanged, so we still know WHICH one.
-  CHECKLIST_RATIO_VALID: 0.55, // Evaluated on FAMILY-LOCAL renormalized beliefs (scoreChecklist).
-                               // In that space, denying one distinctive virtue lands f/VALID ≈ 0.29;
-                               // denying two lands ≈ 0.89. 0.55 sits near the MIDPOINT of that gap,
-                               // so the gate cleanly separates "one denial" (never accuse) from
-                               // "two denials" (accuse) with wide margin on both sides — robust to
-                               // the prior shifts that adding fallacies causes. (Was 0.85, which
-                               // hugged the top of the window and broke when a 14th fallacy was added.)
+  CHECKLIST_RATIO_VALID: 0.16, // Evaluated on FAMILY-LOCAL renormalized beliefs (scoreChecklist).
+                               // Sits at the midpoint of the measured 1-denial / 2-denial window for
+                               // the current 51-fallacy catalog (1-denial maxes ≈0.083, 2-denial mins
+                               // ≈0.251). The absolute value shifts as families grow/shrink (more
+                               // members dilute each share), so RE-MEASURE and re-center when the
+                               // catalog changes a lot — tools or a quick script that prints
+                               // max(1-denial) and min(2-denial) family-local f/VALID. The midpoint is
+                               // the right gate. (Was 0.55 at the 13-fallacy/4-family scale.)
 
   // VALID exits
   TAU_VALID: 0.75,        // earned-VALID: confident "this holds up"
@@ -490,10 +491,14 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
   const p2 = ranked[1] ? ranked[1][1] : 0;
   const pv = P.VALID;
 
-  // Relative gate (§3.1) evaluated within the family, with the gentler checklist VALID ratio.
+  // Relative gate within the family: f1 must beat VALID by the checklist ratio AND clearly dominate
+  // the runner-up fallacy. NOTE: MIN_ACCUSE_MASS (the sequential gate's absolute floor) is
+  // deliberately NOT applied here — in family-local renormalized space a legitimate winner in a
+  // 5-member family only reaches ~0.18 mass, so an absolute floor would reject valid catches. The
+  // ratio + runner-up conditions already guarantee a real, dominant signal; the family localization
+  // is what replaces the "not a near-empty field" job the mass floor did in global space.
   if (f1 &&
       p1 >= CONFIG.CHECKLIST_RATIO_VALID * pv &&
-      p1 >= CONFIG.MIN_ACCUSE_MASS &&
       p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
     return { kind: 'accuse', fallacy: f1, confirm_check: data.fallacies[f1].confirm_check, beliefs: P, state };
   }

@@ -42,6 +42,10 @@ const PER_FALLACY_FLOOR = 0.5; // a fallacy is "reliably catchable" at ≥ this;
 // previously-strong fallacy regressing into weakness fails too. Shrinking this list is the goal.
 const KNOWN_WEAK = new Set([
   'strawman', 'false_dilemma', 'slippery_slope', 'false_cause', 'appeal_to_nature', 'bandwagon',
+  // Weakened further once the catalog expanded to 51 (more questions dilute the sequential engine's
+  // info-gain selection — the exact weakness the checklist flow replaced). They catch fine in the
+  // live checklist (the authority); this is the retired sequential flow only.
+  'hasty_generalization', 'circular_reasoning',
 ]);
 
 // LEGACY_SET: the fallacies that existed while the sequential interview was the live flow. This test

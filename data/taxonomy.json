@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "_comment": "Family taxonomy skeleton for the 60-80 fallacy catalog. Buckets = the 2-level picker's first choice; families = the second. The generation workflow assigns each fallacy to a family. Member counts are targets (keep families 4-7). Cues feed suggestFamily(); they're starting seeds the workflow can extend per fallacy.",
+  "buckets": [
+    { "id": "relevance",   "name": "It misses the point",        "prompt": "The response seems aimed somewhere other than the actual claim" },
+    { "id": "appeals",     "name": "It leans on the wrong thing", "prompt": "It seems to lean on feeling, popularity, authority, or tradition more than reasons" },
+    { "id": "presumption", "name": "It assumes too much",         "prompt": "It seems to take for granted something it should have established" },
+    { "id": "induction",   "name": "It over-reaches the evidence","prompt": "The conclusion seems to go further than the evidence supports" },
+    { "id": "language",    "name": "It plays on words",           "prompt": "The wording itself seems to be doing something slippery" }
+  ],
+  "families": [
+    {
+      "id": "against_the_person", "bucket": "relevance",
+      "name": "Against the person",
+      "prompt": "It goes after who's speaking, or a reworded version of their point",
+      "members_target": ["ad_hominem", "tu_quoque", "strawman", "poisoning_the_well", "genetic_fallacy"],
+      "cues": ["you're just", "she's a", "he's a", "hypocrite", "paid shill", "shill", "what about you", "look who's talking", "coming from someone", "consider the source", "so-called", "of course you'd say"]
+    },
+    {
+      "id": "deflection", "bucket": "relevance",
+      "name": "Changes the subject",
+      "prompt": "It seems to dodge the point rather than answer it",
+      "members_target": ["red_herring", "whataboutism", "moving_the_goalposts", "non_sequitur"],
+      "cues": ["what about", "let's talk about", "the real issue is", "speaking of", "anyway", "that's not the point", "but you still haven't", "changing the subject"]
+    },
+    {
+      "id": "emotional_appeal", "bucket": "appeals",
+      "name": "Plays on feelings",
+      "prompt": "It seems to move you by emotion rather than by reasons",
+      "members_target": ["appeal_to_emotion", "appeal_to_fear", "appeal_to_pity", "appeal_to_ridicule", "appeal_to_spite"],
+      "cues": ["think of the", "imagine how", "for the children", "heartless", "how can you", "terrifying", "devastating", "you should be ashamed", "scary", "disaster"]
+    },
+    {
+      "id": "appeal_to_standing", "bucket": "appeals",
+      "name": "Leans on who or how many",
+      "prompt": "It seems to rest on authority, popularity, or novelty rather than evidence",
+      "members_target": ["appeal_to_authority", "bandwagon", "appeal_to_nature", "appeal_to_tradition", "appeal_to_novelty", "snob_appeal"],
+      "cues": ["experts say", "scientists agree", "doctors recommend", "celebrity", "everyone knows", "everybody", "most people", "natural", "all-natural", "the way it's always", "tradition", "brand new", "latest", "old-fashioned"]
+    },
+    {
+      "id": "false_choices", "bucket": "presumption",
+      "name": "Forces a narrow choice",
+      "prompt": "It frames the options more narrowly than reality allows",
+      "members_target": ["false_dilemma", "false_equivalence", "perfect_solution", "middle_ground"],
+      "cues": ["either", "or else", "only two", "the only option", "no other choice", "you can't have it both", "same thing as", "just as bad as", "unless it's perfect", "somewhere in between must be"]
+    },
+    {
+      "id": "assumed_conclusion", "bucket": "presumption",
+      "name": "Assumes what it's proving",
+      "prompt": "Its support seems to already take the conclusion for granted",
+      "members_target": ["circular_reasoning", "begging_the_question", "loaded_question", "argument_from_incredulity"],
+      "cues": ["by definition", "obviously true", "of course it's true", "everyone agrees it's", "it's just true", "begs the question", "can't imagine", "cannot imagine", "no way that", "makes no sense that", "must be false", "have you stopped"]
+    },
+    {
+      "id": "burden_and_ignorance", "bucket": "presumption",
+      "name": "Shifts the burden of proof",
+      "prompt": "It treats 'not disproven' as 'proven', or vice versa",
+      "members_target": ["appeal_to_ignorance", "shifting_burden_of_proof", "argument_from_silence"],
+      "cues": ["no evidence that", "can't prove it isn't", "prove me wrong", "nobody has shown", "until you can show", "hasn't been disproven", "no one has denied"]
+    },
+    {
+      "id": "hasty_conclusions", "bucket": "induction",
+      "name": "Jumps from too little",
+      "prompt": "It draws a broad conclusion from thin or one-sided evidence",
+      "members_target": ["hasty_generalization", "anecdotal", "cherry_picking", "sampling_bias", "overgeneralization"],
+      "cues": ["always", "never", "everyone i", "every time", "in my experience", "i once", "this one time", "all of them", "they all", "just look at"]
+    },
+    {
+      "id": "causal", "bucket": "induction",
+      "name": "Mistakes the cause",
+      "prompt": "It reads a cause into things that may just be linked or sequential",
+      "members_target": ["false_cause", "post_hoc", "slippery_slope", "single_cause", "correlation_causation"],
+      "cues": ["ever since", "after that", "right after", "led to", "caused by", "will end up", "next thing", "slippery slope", "before you know it", "because right before", " once we allow"]
+    },
+    {
+      "id": "comparison", "bucket": "induction",
+      "name": "Compares unlike things",
+      "prompt": "It leans on an analogy or comparison that may not hold",
+      "members_target": ["weak_analogy", "false_analogy", "apples_to_oranges"],
+      "cues": ["just like", "same as", "no different from", "it's basically", "comparable to", "like comparing"]
+    },
+    {
+      "id": "ambiguity", "bucket": "language",
+      "name": "Slides between meanings",
+      "prompt": "A key word seems to shift meaning, or the phrasing is doing the work",
+      "members_target": ["equivocation", "amphiboly", "accent", "definist"],
+      "cues": ["depends what you mean", "in a sense", "technically", "real ", "true ", "by 'free' i mean"]
+    },
+    {
+      "id": "composition_division", "bucket": "language",
+      "name": "Confuses parts and wholes",
+      "prompt": "It assumes the parts and the whole must share a trait",
+      "members_target": ["composition", "division", "ecological_fallacy"],
+      "cues": ["each part", "every member", "the whole team", "so the group", "made of", "therefore the team"]
+    }
+  ]
+}
