@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "fallacies": [
+    {
+      "id": "ad_hominem",
+      "name": "Ad Hominem",
+      "base_rate": 1.5,
+      "short": "Responding to who made a claim—their character, motive, or past—rather than to the claim itself.",
+      "teaching": "Ad hominem answers a claim by talking about the person who made it—their character, motives, or history—instead of the reasoning. A person's flaws can be real and still leave their actual point standing or falling on its own merits, so the two need to be weighed separately.",
+      "confirm_check": "Is the speaker's character, motive, or past being used IN PLACE OF engaging with the claim they actually made?"
+    },
+    {
+      "id": "strawman",
+      "name": "Strawman",
+      "base_rate": 1.5,
+      "short": "Refuting a distorted, weaker version of the claim instead of the one actually made.",
+      "teaching": "A strawman swaps the other side's real claim for an exaggerated or oversimplified version, then knocks that down instead. The original point may still stand; only the easier substitute was beaten. People often restate a view this way by accident when they disagree with it.",
+      "confirm_check": "Re-read the rebuttal: is it answering the claim as it was actually made, or a weaker/exaggerated version of it?"
+    },
+    {
+      "id": "false_dilemma",
+      "name": "False Dilemma",
+      "base_rate": 1.1,
+      "short": "Framing an issue as only two options when other choices or a middle ground also exist.",
+      "teaching": "A false dilemma presents just two paths as if they were the only ones, when more options or a middle ground are actually available. Some choices really are binary, so it is only the fallacy when realistic alternatives have been left out rather than honestly ruled out.",
+      "confirm_check": "Are realistic options or a middle ground being left out, so the choice is framed as just two when more genuinely exist?"
+    },
+    {
+      "id": "slippery_slope",
+      "name": "Slippery Slope",
+      "base_rate": 1.2,
+      "short": "Claims one modest step must lead to an extreme outcome, without showing the links in between.",
+      "teaching": "A slippery slope predicts that a small first step will inevitably chain into a much bigger, usually alarming, result. The reasoning leaves a gap when it treats each step as certain to cause the next without showing why. A chain of events can be a fair worry when the steps along the way are actually supported.",
+      "confirm_check": "Does the argument treat a small first step as bound to end in an extreme outcome, while leaving the steps in between unsupported?"
+    },
+    {
+      "id": "appeal_to_authority",
+      "name": "Appeal to Authority",
+      "base_rate": 1.1,
+      "short": "Treating a claim as true mainly because a famous or respected person said so, not because of the evidence.",
+      "teaching": "An appeal to authority leans on who said something instead of the reasons behind it, and it is weakest when the source's expertise does not actually fit the topic. Pointing to a genuine, relevant expert as supporting evidence is fine; the trouble starts only when their say-so stands in for the actual reasoning.",
+      "confirm_check": "Is the claim being treated as true mainly because of WHO endorsed it, rather than the evidence or reasoning offered for it?"
+    },
+    {
+      "id": "hasty_generalization",
+      "name": "Hasty Generalization",
+      "base_rate": 1.5,
+      "short": "Drawing a broad conclusion from too few or unrepresentative examples.",
+      "teaching": "A hasty generalization takes a small or one-sided handful of cases and treats it as proof about a whole group or every situation. The examples may be true and worth noting; the leap happens when the sample is too thin or too selective to carry such a sweeping conclusion.",
+      "confirm_check": "Is the sweeping conclusion resting on just a few or one-sided examples, rather than enough representative cases to support it?"
+    },
+    {
+      "id": "circular_reasoning",
+      "name": "Circular Reasoning",
+      "base_rate": 1.2,
+      "short": "The conclusion is used as one of its own reasons, so the support just restates the claim.",
+      "teaching": "In circular reasoning, the point being argued is quietly assumed in the support for it, so the reasons end up restating the conclusion in different words. The argument can feel solid because everything agrees, but nothing independent has actually been offered to a listener who doesn't already accept the claim.",
+      "confirm_check": "Does the support for the conclusion already assume the conclusion is true, rather than giving an independent reason to believe it?"
+    },
+    {
+      "id": "appeal_to_emotion",
+      "name": "Appeal to Emotion",
+      "base_rate": 1.2,
+      "short": "Using a strong feeling (fear, pity, anger) in place of reasons to support the conclusion.",
+      "teaching": "An appeal to emotion leans on how something makes you feel - afraid, sympathetic, outraged - rather than on whether the conclusion is actually true. Feelings can be a fair part of a case; this only goes wrong when the feeling is offered as the reason itself, standing in for evidence that the claim holds.",
+      "confirm_check": "Take away the emotional pull (the fear, pity, or anger): is there still a reason left that supports the conclusion, or was the feeling doing the work in place of evidence?"
+    },
+    {
+      "id": "false_cause",
+      "name": "False Cause",
+      "base_rate": 1.2,
+      "short": "Treating two things that happen together or in sequence as proof one caused the other.",
+      "teaching": "False cause concludes that one thing caused another just because they happened together or one came first. The link may be real, but timing or correlation alone does not show it; a shared cause or coincidence could explain it just as well.",
+      "confirm_check": "Is the causal claim resting only on the two things happening together or in sequence, with no mechanism or ruling-out of other explanations offered?"
+    },
+    {
+      "id": "tu_quoque",
+      "name": "Tu Quoque",
+      "base_rate": 1.3,
+      "short": "Answering a criticism by pointing to the critic's own hypocrisy instead of the point they raised.",
+      "teaching": "Tu Quoque (\"you too\") shifts focus from the claim to the person making it, suggesting their criticism doesn't count because they're inconsistent or guilty of the same thing. Whether or not the critic practices what they preach, that doesn't settle whether their point is true. Note: it's fair game to raise a double standard when consistency itself is the actual question.",
+      "confirm_check": "Is the reply treating the critic's own hypocrisy or behavior as a reason the criticism can be set aside, rather than answering the criticism itself?"
+    },
+    {
+      "id": "appeal_to_nature",
+      "name": "Appeal to Nature",
+      "base_rate": 1,
+      "short": "Treating \"natural\" as automatically good and \"unnatural/artificial\" as automatically bad.",
+      "teaching": "An appeal to nature uses \"it's natural\" as the reason something is good, safe, or right (and \"it's artificial\" as the reason it's bad), without showing the link. Whether something is natural and whether it's actually good are separate questions, so the naturalness alone doesn't settle it. The argument can still be sound if it backs the claim with real evidence of benefit or harm.",
+      "confirm_check": "Is \"natural\" (or \"unnatural/artificial/man-made\") being used as the main reason the thing is good or bad, rather than evidence of its actual effects?"
+    },
+    {
+      "id": "bandwagon",
+      "name": "Bandwagon",
+      "base_rate": 1.3,
+      "short": "Treating \"lots of people believe or do it\" as the reason a claim is true or right.",
+      "teaching": "A bandwagon appeal points to how many people accept or do something as if that alone settles whether it's true or right. Popularity can occasionally be a faint clue, but it becomes a fallacy when a head-count stands in for actual reasons or evidence.",
+      "confirm_check": "Is the popularity itself (how many believe or do it) being offered as the reason the claim is true or right, rather than as one clue alongside independent reasons?"
+    }
+  ]
+}

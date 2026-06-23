@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "id": "valid_sleep_study",
+      "label": "VALID",
+      "argument": "A randomized trial of 1,200 students found that those assigned a consistent 8-hour sleep schedule scored on average 11% higher on memory tests than the control group. The study controlled for prior grades, study time, and caffeine intake. So adequate sleep plausibly improves memory consolidation for students like these.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_cause_beyond_timing": "no",
+        "q_alternatives_ruled_out": "no",
+        "q_timing_is_whole_case": "no",
+        "q_sample_supports_breadth": "no",
+        "q_examples_representative": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_reason_restates_claim": "no",
+        "q_feeling_does_the_work": "no",
+        "q_feeling_is_the_push": "no",
+        "q_emotion_or_reason_persuades": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_crowd_or_evidence": "no",
+        "q_who_said_it_or_why": "no",
+        "q_natural_label_judges": "no",
+        "q_natural_settles_it": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_expert_with_reasons",
+      "label": "VALID",
+      "argument": "A structural engineer inspected the bridge and concluded the main support cables need replacement within two years. She pointed to corrosion measurements at three anchor points, fatigue cracks visible in her photographs, and load-test data showing reduced tension. Given those findings, we should schedule the replacement.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_who_said_it_or_why": "no",
+        "q_expertise_fits_topic": "no",
+        "q_prestige_carries_it": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_reason_restates_claim": "no",
+        "q_feeling_does_the_work": "no",
+        "q_feeling_is_the_push": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_sample_supports_breadth": "no",
+        "q_cause_beyond_timing": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_genuine_binary",
+      "label": "VALID",
+      "argument": "The committee must either approve this year's budget by Friday or operate under last year's budget by law until a new one passes; the statute provides no third option and no partial adoption. Since the new budget cuts a program the members consider essential, and they cannot amend it before the deadline, they should let last year's budget carry over. The two outcomes really are the only ones the law allows here.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_two_options_or_more": "no",
+        "q_middle_ground_excluded": "no",
+        "q_only_two_camps": "no",
+        "q_steps_supported_or_assumed": "no",
+        "q_outcome_proportionate": "no",
+        "q_each_link_inevitable": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_feeling_does_the_work": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_sample_supports_breadth": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_supported_chain",
+      "label": "VALID",
+      "argument": "If we miss this loan payment, the bank charges a late fee that our account can't cover, which triggers an overdraft, and the overdraft notice goes to our landlord who already warned he'd start eviction at the next missed rent. Each of those steps has happened to us before in this exact order, and we have the letters to show it. So skipping the payment really would put our housing at risk.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_steps_supported_or_assumed": "no",
+        "q_outcome_proportionate": "no",
+        "q_each_link_inevitable": "no",
+        "q_two_options_or_more": "no",
+        "q_only_two_camps": "no",
+        "q_middle_ground_excluded": "no",
+        "q_cause_beyond_timing": "no",
+        "q_alternatives_ruled_out": "no",
+        "q_timing_is_whole_case": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_feeling_does_the_work": "no",
+        "q_popularity_is_the_reason": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_addresses_claim",
+      "label": "VALID",
+      "argument": "He argues the new tax will raise prices because it adds 6% to wholesale costs that retailers historically pass through. But last year a similar 6% surcharge was absorbed by suppliers competing for shelf space, with shelf prices unchanged in the audited data. So his prediction that prices must rise doesn't hold given how the market actually responded.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_distrust_speaker_settles_truth": "no",
+        "q_hypocrisy_dismisses_point": "no",
+        "q_double_standard_is_the_topic": "no",
+        "q_version_refuted_matches": "no",
+        "q_speaker_would_recognize": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_reason_restates_claim": "no",
+        "q_sample_supports_breadth": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_feeling_does_the_work": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_well_sampled",
+      "label": "VALID",
+      "argument": "A national survey of 9,000 small businesses across every region and industry found that 72% reported difficulty hiring skilled workers in the past year. The sample was weighted to match the known distribution of firm sizes and sectors. So skilled-labor shortages appear to be widespread among small businesses, not just in one area.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_sample_supports_breadth": "no",
+        "q_examples_representative": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_reason_restates_claim": "no",
+        "q_feeling_does_the_work": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_crowd_or_evidence": "no",
+        "q_cause_beyond_timing": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "valid_natural_with_evidence",
+      "label": "VALID",
+      "argument": "We switched the orchard from the broad-spectrum spray to a botanical pesticide, but not because it's 'natural' — we ran two seasons of side-by-side plots and the botanical one left predator-insect populations intact while controlling the pest just as well, and residue tests came back lower. Given those measured results on our specific crop, it's the better choice for us. If the data had gone the other way we'd have kept the old spray.",
+      "answers": {
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_claim_addressed_or_left_standing": "no",
+        "q_natural_label_judges": "no",
+        "q_naturalness_checks_case": "no",
+        "q_natural_equals_good": "no",
+        "q_natural_settles_it": "no",
+        "q_cause_beyond_timing": "no",
+        "q_support_independent": "no",
+        "q_persuades_only_agreers": "no",
+        "q_feeling_does_the_work": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_sample_supports_breadth": "no",
+        "q_who_said_it_or_why": "no"
+      },
+      "default": "no"
+    },
+    {
+      "id": "fall_ad_hominem",
+      "label": "ad_hominem",
+      "argument": "The economist published a model predicting the merger will reduce competition and raise prices. But he used to consult for a rival firm and he's known to be arrogant in interviews, so there's no reason to take his merger analysis seriously. We can safely ignore what his report says.",
+      "answers": {
+        "q_responds_to_claim_or_person": "yes",
+        "q_claim_addressed_or_left_standing": "yes",
+        "q_distrust_speaker_settles_truth": "yes",
+        "q_hypocrisy_dismisses_point": "no",
+        "q_double_standard_is_the_topic": "no",
+        "q_version_refuted_matches": "no",
+        "q_speaker_would_recognize": "no",
+        "q_evidence_or_assertion": "unsure",
+        "q_conclusion_matches_support": "unsure",
+        "q_options_framed_fairly": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_tu_quoque",
+      "label": "tu_quoque",
+      "argument": "The doctor told me I should quit smoking because it's damaging my lungs. But I've seen her sneak a cigarette outside the clinic, so her advice clearly doesn't count and I see no reason to take the warning seriously. If she really believed it she'd quit herself, so I'll keep smoking.",
+      "answers": {
+        "q_responds_to_claim_or_person": "yes",
+        "q_claim_addressed_or_left_standing": "yes",
+        "q_hypocrisy_dismisses_point": "yes",
+        "q_double_standard_is_the_topic": "yes",
+        "q_distrust_speaker_settles_truth": "no",
+        "q_version_refuted_matches": "no",
+        "q_speaker_would_recognize": "no",
+        "q_evidence_or_assertion": "unsure",
+        "q_conclusion_matches_support": "unsure",
+        "q_options_framed_fairly": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_bandwagon",
+      "label": "bandwagon",
+      "argument": "Almost everyone in our neighborhood has switched to this brand of solar panel, and the group chat is full of people raving about it. If that many people are going with it, it must be the right choice, so we should just get it too. There's no need to compare specs when the whole street already agrees.",
+      "answers": {
+        "q_evidence_or_assertion": "yes",
+        "q_popularity_is_the_reason": "yes",
+        "q_crowd_or_evidence": "yes",
+        "q_responds_to_claim_or_person": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "unsure",
+        "q_claim_addressed_or_left_standing": "unsure",
+        "q_who_said_it_or_why": "unsure",
+        "q_feeling_does_the_work": "no",
+        "q_natural_label_judges": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_appeal_to_emotion",
+      "label": "appeal_to_emotion",
+      "argument": "Think of the terrified children who will lie awake at night if this shelter loses its funding — picture their tears and their fear. Anyone with a heart can see we simply must approve the grant; only a cruel person could even hesitate. The sheer pain at stake settles it.",
+      "answers": {
+        "q_evidence_or_assertion": "yes",
+        "q_feeling_does_the_work": "yes",
+        "q_emotion_or_reason_persuades": "yes",
+        "q_feeling_is_the_push": "yes",
+        "q_responds_to_claim_or_person": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "no",
+        "q_popularity_is_the_reason": "no",
+        "q_who_said_it_or_why": "no",
+        "q_natural_label_judges": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_appeal_to_authority",
+      "label": "appeal_to_authority",
+      "argument": "This new supplement must boost immunity and prevent colds — a famous Olympic gold medalist endorses it and swears by it in the ad. He's one of the greatest athletes alive, so he'd know what actually works. His name on the box is all the reason I need to buy it.",
+      "answers": {
+        "q_evidence_or_assertion": "yes",
+        "q_who_said_it_or_why": "yes",
+        "q_expertise_fits_topic": "yes",
+        "q_prestige_carries_it": "yes",
+        "q_responds_to_claim_or_person": "no",
+        "q_conclusion_matches_support": "no",
+        "q_options_framed_fairly": "unsure",
+        "q_claim_addressed_or_left_standing": "unsure",
+        "q_feeling_does_the_work": "no",
+        "q_feeling_is_the_push": "no",
+        "q_popularity_is_the_reason": "unsure",
+        "q_crowd_or_evidence": "unsure",
+        "q_natural_label_judges": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_circular_reasoning",
+      "label": "circular_reasoning",
+      "argument": "This policy is the most sensible one available because it's the most reasonable approach we could take. We know it's reasonable since any thoughtful person would back it, and thoughtful people back it precisely because it's the sensible choice. So clearly it's the right policy.",
+      "answers": {
+        "q_conclusion_matches_support": "yes",
+        "q_support_independent": "yes",
+        "q_persuades_only_agreers": "yes",
+        "q_reason_restates_claim": "yes",
+        "q_responds_to_claim_or_person": "no",
+        "q_evidence_or_assertion": "unsure",
+        "q_options_framed_fairly": "unsure",
+        "q_claim_addressed_or_left_standing": "unsure",
+        "q_sample_supports_breadth": "no",
+        "q_examples_representative": "no",
+        "q_cause_beyond_timing": "no",
+        "q_alternatives_ruled_out": "no",
+        "q_feeling_does_the_work": "no"
+      },
+      "default": "unsure"
+    },
+    {
+      "id": "fall_appeal_to_nature",
+      "label": "appeal_to_nature",
+      "argument": "This remedy is made entirely from natural herbs, with nothing artificial in it, so it has to be safe and good for you. Anything man-made and chemical is the kind of thing you should avoid, while what comes from nature can be trusted. Being natural is reason enough to use it instead of the pharmacy drug.",
+      "answers": {
+        "q_evidence_or_assertion": "yes",
+        "q_natural_label_judges": "yes",
+        "q_naturalness_checks_case": "yes",
+        "q_natural_equals_good": "yes",
+        "q_natural_settles_it": "yes",
+        "q_options_framed_fairly": "no",
+        "q_who_said_it_or_why": "no",
+        "q_feeling_does_the_work": "no",
+        "q_feeling_is_the_push": "no",
+        "q_responds_to_claim_or_person": "unsure",
+        "q_conclusion_matches_support": "unsure",
+        "q_claim_addressed_or_left_standing": "unsure",
+        "q_popularity_is_the_reason": "unsure"
+      },
+      "default": "unsure"
+    }
+  ]
+}
