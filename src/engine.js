@@ -36,6 +36,16 @@ export const CONFIG = {
   MIN_ACCUSE_MASS: 0.18,  // A3: a small absolute floor so a fallacy leading a near-empty field on
                           //     thin evidence can't accuse; well below what real fallacies reach.
 
+  // Checklist gate: the checklist flow gathers evidence as a few deliberate ticks rather than ~7
+  // sequential answers, so the leading fallacy peaks lower. A gentler VALID ratio lets two
+  // confident ticks of the same fallacy tentatively accuse, while one tick still can't (it stays
+  // below VALID). Runner-up + min-mass conditions are unchanged, so we still know WHICH one.
+  CHECKLIST_RATIO_VALID: 0.85, // two ticks land a fallacy at f/VALID ≈ 0.9–1.4 (and ≥4× its
+                               // family runner-up); one tick at ≈ 0.2–0.3. A floor of 0.85 sits
+                               // cleanly between: two deliberate ticks tentatively accuse, one
+                               // never does. (Lower than the sequential 1.5 because two ticks is a
+                               // stronger deliberate signal than two passive sequential answers.)
+
   // VALID exits
   TAU_VALID: 0.75,        // earned-VALID: confident "this holds up"
 
@@ -211,7 +221,7 @@ export function validateBank(fallaciesJSON, questionsJSON, C = CONFIG) {
 }
 
 // ---------- LOAD ----------
-export function loadData(fallaciesJSON, questionsJSON, fixturesJSON = null) {
+export function loadData(fallaciesJSON, questionsJSON, fixturesJSON = null, familiesJSON = null) {
   const { warnings } = validateBank(fallaciesJSON, questionsJSON);
   const H = ['VALID', ...fallaciesJSON.fallacies.map((f) => f.id)];
   const fallacies = {};
@@ -220,7 +230,20 @@ export function loadData(fallaciesJSON, questionsJSON, fixturesJSON = null) {
     ...q,
     cat: buildCategoricals(q.lr, H, CONFIG),  // precompute proper categoricals once
   }));
-  return { H, fallacies, questions, fixtures: fixturesJSON, warnings };
+  // families: family-id → [fallacy ids], from each fallacy's `family` field (singleton fallback).
+  const families = {};
+  for (const f of fallaciesJSON.fallacies) (families[f.family || f.id] ||= []).push(f.id);
+  // families.json (optional): display metadata + routing cues + checklist tells.
+  const familyMeta = {};
+  const familyCues = {};
+  const tells = (familiesJSON && familiesJSON.tells) || {};
+  if (familiesJSON && Array.isArray(familiesJSON.families)) {
+    for (const fm of familiesJSON.families) {
+      familyMeta[fm.id] = { id: fm.id, name: fm.name, prompt: fm.prompt };
+      familyCues[fm.id] = fm.cues || [];
+    }
+  }
+  return { H, fallacies, families, familyMeta, familyCues, tells, questions, fixtures: fixturesJSON, warnings };
 }
 
 // ---------- INIT ----------
@@ -403,4 +426,82 @@ export function confirmVerdict(state, accepted) {
   }
   // rejected → cynic exit, never a second-best accusation
   return { kind: 'cynic_after_reject', rejected: stop.fallacy, beliefs: stop.beliefs };
+}
+
+// ---------- CHECKLIST scoring (the reformulated, POSITIVE-FIRST UX) ----------
+// Instead of a sequential engine-chosen interview, the UI shows the chosen family's checklist as a
+// list of VIRTUES — things a sound argument does ("engages the actual claim", "gives reasons beyond
+// a feeling"). The user looks for what HOLDS UP. Each virtue is 3-state:
+//   • affirmed ("✓ it does this")  → that question = "no"  → evidence FOR validity
+//   • denied   ("✗ it doesn't")    → that question = "yes" → evidence for the fallacy
+//   • skipped  (left blank)        → no signal (the user didn't judge that dimension)
+// This is "innocent until proven otherwise" expressed in the *interaction*: the user is a fair juror
+// confirming soundness, not a prosecutor hunting flaws. A fallacy is suspected only where a virtue
+// is actively marked ABSENT. Skipping costs nothing (charitable default).
+//
+// It feeds the SAME Bayesian engine, restricted to the family's fallacies + VALID, so VALID only
+// competes against 3-4 candidates — the "drowning" problem of the flat sequential flow is gone. The
+// accusation gate and 0-false-accusation guarantee are unchanged.
+//
+//   familyId   : key in data.families, or null/"none" for "seems fine / none of these"
+//   affirmed   : question ids the user marked as virtues the argument HAS (→ "no", pro-VALID)
+//   denied     : question ids the user marked as virtues the argument LACKS (→ "yes", pro-fallacy)
+//   (anything not in either list is skipped = no signal)
+// Returns a verdict in the same shape as checkStop(): { kind, fallacy?, confirm_check?, beliefs }.
+export function scoreChecklist(data, { familyId, affirmed = [], denied = [], seed } = {}) {
+  const state = newSession(data, seed);
+
+  // "none of these / seems fine" — the user surveyed and saw no problem. That IS the goodwill
+  // outcome: nothing to score, the argument stands.
+  if (!familyId || familyId === 'none') {
+    return { kind: 'cynic_valid', beliefs: beliefs(state), leanFallacy: null };
+  }
+
+  // Affirmed virtues exonerate (answer "no"); denied virtues incriminate (answer "yes"); skipped
+  // virtues contribute nothing. With nothing denied, no fallacy can clear the gate → the argument
+  // holds up. It takes ~two denied virtues of the same fallacy to raise a tentative suspicion.
+  for (const qid of affirmed) {
+    if (data.questions.find((x) => x.id === qid)) answer(state, qid, 'no');
+  }
+  for (const qid of denied) {
+    if (data.questions.find((x) => x.id === qid)) answer(state, qid, 'yes');
+  }
+
+  // Restrict the verdict to this family: the leading fallacy must belong to familyId. We reuse the
+  // full Bayesian beliefs (all hypotheses stay normalized), but only consider this family's members
+  // as accusation candidates — that's what the routing bought us.
+  const famIds = new Set(data.families[familyId] || []);
+  const P = beliefs(state);
+  const fIds = Object.keys(P).filter((h) => h !== 'VALID' && famIds.has(h));
+  const ranked = fIds.map((f) => [f, P[f]]).sort((a, b) => b[1] - a[1]);
+  const [f1, p1] = ranked[0] || [null, 0];
+  const p2 = ranked[1] ? ranked[1][1] : 0;
+  const pv = P.VALID;
+
+  // Relative gate (§3.1) evaluated within the family, with the gentler checklist VALID ratio.
+  if (f1 &&
+      p1 >= CONFIG.CHECKLIST_RATIO_VALID * pv &&
+      p1 >= CONFIG.MIN_ACCUSE_MASS &&
+      p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
+    return { kind: 'accuse', fallacy: f1, confirm_check: data.fallacies[f1].confirm_check, beliefs: P, state };
+  }
+  // A family member leads VALID but didn't clear the gate → tentative lean, never an accusation.
+  if (f1 && p1 > pv && p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
+    return { kind: 'inconclusive_lean', leanFallacy: f1, beliefs: P, state };
+  }
+  // Nothing rose above the benefit of the doubt → the argument holds up.
+  return { kind: 'cynic_valid', leanFallacy: null, beliefs: P, state };
+}
+
+// Scan a pasted argument for family routing cues (plain case-insensitive substring match — no AI).
+// Returns families ranked by cue hits, for "suggest, don't decide" routing. data.familyCues is the
+// {familyId: [cue strings]} map loaded from data/families.json.
+export function suggestFamily(data, text) {
+  const hay = String(text || '').toLowerCase();
+  const scores = {};
+  for (const [fam, cues] of Object.entries(data.familyCues || {})) {
+    scores[fam] = (cues || []).reduce((n, cue) => n + (hay.includes(cue.toLowerCase()) ? 1 : 0), 0);
+  }
+  const ranked = Object.entries(scores).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]);
+  return { top: ranked[0]?.[0] ?? null, scores };
 }
