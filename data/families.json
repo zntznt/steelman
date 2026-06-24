@@ -62,7 +62,7 @@
     {
       "id": "presumption",
       "name": "Assumes what it should establish",
-      "prompt": "Does it treat its starting point as true without backing it up?",
+      "prompt": "Does it treat its starting point as true without proving it?",
       "cues": [
         "because the book says so",
         "the book is true",
@@ -1136,7 +1136,7 @@
     {
       "id": "language",
       "name": "It plays on words",
-      "prompt": "The wording itself seems to be pulling a fast one."
+      "prompt": "The wording itself is doing something sneaky."
     },
     {
       "id": "logic",

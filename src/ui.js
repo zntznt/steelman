@@ -60,6 +60,9 @@ async function fetchJSON(path) {
 
 const clear = () => app.replaceChildren();
 const familyName = (id) => DATA.familyMeta[id]?.name || id;
+// "a" / "an" so we never say "a Ad Hominem" — 27 of the fallacy names start with a vowel sound.
+// ponytail: vowel-letter test, not phonetic; none of the names start with a silent-h or "eu-/u-as-you" word, so it holds.
+const article = (word) => (/^[aeiou]/i.test(word) ? 'an' : 'a');
 // Tell the mascot what stage we're on. Best-effort: if Steely (p5) didn't load, this is a no-op
 // and the static SVG fallback simply stays put. The app never depends on it.
 const steelyStage = (name) => { try { window.steely?.setStage(name); } catch { /* ignore */ } };
@@ -74,20 +77,21 @@ function renderStart() {
   });
   steelyStage('input');
   const begin = el('button', { className: 'btn btn-primary', textContent: 'Start →' });
+  // The re-audit found three regressions here: "best version of it" read as a promise to rewrite
+  // the user's text; the goodwill was piled on so thick it read as preachy; "argument" was heard as
+  // "a fight". Fix: one plain promise (not three nudges), a gloss on "argument", concrete actions,
+  // and "type or paste" / "stays on your phone" for phone-first users.
   const card = el('section', { className: 'card' },
     el('p', { className: 'kicker', textContent: 'Steelman' }),
-    el('h1', { textContent: 'Is something actually wrong with this argument — or am I just being doubtful?' }),
+    el('h1', { textContent: 'Is something really wrong with this argument, or am I just being doubtful?' }),
     el('p', {
       className: 'lede',
       textContent:
-        'Paste an argument you’re not sure about. We’ll look at the best version of it first, ' +
-        'notice what it does well, and only point to a weak spot if there really is one. ' +
-        'No accounts, no AI, nothing leaves your browser.',
+        'Type or paste a point someone is making. We’ll assume it’s fair to start, see what it gets ' +
+        'right, and only flag a weak spot if there really is one. No account, no AI. It stays on your device.',
     }),
     ta,
     el('div', { className: 'row end' }, begin),
-    el('p', { className: 'muted', style: 'margin-top:1rem',
-      textContent: 'Give it the best read you can first. A good argument deserves a fair chance.' }),
   );
   app.append(card);
   ta.focus();
@@ -220,29 +224,44 @@ function renderChecklist(familyId) {
   if (argument) card.append(el('blockquote', { className: 'recall', textContent: argument }));
   card.append(el('p', { className: 'kicker', textContent: familyName(familyId) }));
   card.append(el('h2', { textContent: 'For each one, does the argument do this?' }));
+  // We start out trusting the argument. Two short sentences, no em-dashes (the re-audit found slow
+  // and ESL readers lose the thread at " — "). The reassurance answers the panel's "skip-fear".
   card.append(el('p', { className: 'muted',
-    textContent: 'Tap 👍 if it does, 👎 if it doesn’t, or skip it if you’re not sure. We start out trusting the argument.' }));
+    textContent: 'Answer the ones you can. Many won’t apply to your example, and that’s normal — it won’t change the result.' }));
 
   const list = el('div', { className: 'checklist' });
   for (const r of rows) {
-    const has = el('button', { className: 'tri tri-has', textContent: '👍', title: 'Yes, it does this' });
-    const lacks = el('button', { className: 'tri tri-lacks', textContent: '👎', title: 'No, it doesn’t' });
+    // Each choice carries its own always-visible label (under the icon), so the meaning of 👍/👎
+    // never hides on hover — the re-audit found the hover legend invisible on phones. A third
+    // choice, "doesn’t apply", lets a reader confidently clear a row that can’t apply to their
+    // one-liner. It maps to neutral (omitted from affirmed/denied), exactly like a skip.
+    const mkChoice = (kind, icon, label, cls) => {
+      const b = el('button', { className: `tri ${cls}` },
+        el('span', { className: 'tri-icon', textContent: icon }),
+        el('span', { className: 'tri-label', textContent: label }),
+      );
+      b.onclick = () => { choice[r.qid] = choice[r.qid] === kind ? undefined : kind; refresh(); };
+      return b;
+    };
+    const has = mkChoice('has', '👍', 'yes', 'tri-has');
+    const lacks = mkChoice('lacks', '👎', 'no', 'tri-lacks');
+    const na = mkChoice('na', '—', 'doesn’t apply', 'tri-na');
     const row = el('div', { className: 'check-row' },
       el('span', { className: 'check-text', textContent: r.text }),
-      el('span', { className: 'tri-group' }, has, lacks),
+      el('span', { className: 'tri-group' }, has, lacks, na),
     );
-    const refresh = () => {
+    function refresh() {
       has.classList.toggle('on', choice[r.qid] === 'has');
       lacks.classList.toggle('on', choice[r.qid] === 'lacks');
-    };
-    has.onclick = () => { choice[r.qid] = choice[r.qid] === 'has' ? undefined : 'has'; refresh(); };
-    lacks.onclick = () => { choice[r.qid] = choice[r.qid] === 'lacks' ? undefined : 'lacks'; refresh(); };
+      na.classList.toggle('on', choice[r.qid] === 'na');
+    }
     list.append(row);
   }
   card.append(list);
 
   const see = el('button', { className: 'btn btn-primary', textContent: 'See the result →' });
   see.onclick = () => {
+    // 'na' (doesn’t apply) and skip are both neutral — only 👍/👎 feed the engine.
     const affirmed = Object.keys(choice).filter((q) => choice[q] === 'has');
     const denied = Object.keys(choice).filter((q) => choice[q] === 'lacks');
     renderVerdict(scoreChecklist(DATA, { familyId, affirmed, denied }), familyId);
@@ -294,7 +313,7 @@ function renderConfirmed(f) {
   clear();
   app.append(el('section', { className: 'card verdict-accuse' },
     el('p', { className: 'kicker', textContent: 'You made the call' }),
-    el('p', { className: 'verdict-title', textContent: `Looks like a ${f.name}.` }),
+    el('p', { className: 'verdict-title', textContent: `Looks like ${article(f.name)} ${f.name}.` }),
     el('p', { textContent:
       'You confirmed it — the argument depends on this instead of standing on its own. ' +
       'Naming it isn’t a way to “win,” though: the real point underneath might still be worth ' +
@@ -308,7 +327,7 @@ function renderInconclusive(result) {
   clear();
   const f = result.leanFallacy ? DATA.fallacies[result.leanFallacy] : null;
   const lean = f
-    ? `There might be something here — maybe a ${f.name} — but not enough to be sure.`
+    ? `There might be something here — maybe ${article(f.name)} ${f.name} — but not enough to be sure.`
     : 'There might be something here, but not enough to be sure.';
   app.append(el('section', { className: 'card verdict-cynic' },
     el('p', { className: 'kicker', textContent: 'The result' }),
@@ -353,16 +372,18 @@ function renderValid(mode) {
 
 function renderCynic(why, rejectedFallacy) {
   clear();
+  // Re-audit: the old "maybe it’s just you reading carefully" landed as a polite scold ("calm down,
+  // you imagined it"). Reframe as a finding about the ARGUMENT, and keep the reassurance about the
+  // reader separate and genuinely on their side.
   const body = why === 'rejected'
-    ? `You looked at whether it was ${rejectedFallacy.name} and decided it didn’t fit — good. ` +
-      `We won’t reach for a second-best label. The argument may simply be fine, and you may just ` +
-      `be reading it carefully. That’s an honest place to land.`
-    : 'There may be nothing wrong here at all — you might just be reading it carefully, which is a good thing.';
+    ? `You looked at whether it was ${rejectedFallacy.name} and decided it didn’t fit. ` +
+      `We won’t reach for a second-best label. The reasoning seems to hold, and checking it was the right move.`
+    : 'We couldn’t find a clear problem here. The reasoning seems to hold up.';
   app.append(el('section', { className: 'card verdict-cynic' },
     el('p', { className: 'kicker', textContent: 'The result' }),
-    el('p', { className: 'verdict-title', textContent: 'Maybe it’s just you reading carefully.' }),
+    el('p', { className: 'verdict-title', textContent: 'No clear problem — it seems to hold up.' }),
     el('p', { textContent: body }),
-    el('p', { className: 'muted', textContent: 'Reading carefully is a good thing. Treating every argument as guilty is the part worth resisting.' }),
+    el('p', { className: 'muted', textContent: 'Checking was worth doing. Nothing here needs you to back down.' }),
     restartRow(),
   ));
 }
