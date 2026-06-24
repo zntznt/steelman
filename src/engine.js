@@ -38,16 +38,17 @@ export const CONFIG = {
 
   // Checklist gate: the checklist flow gathers evidence as a few deliberate ticks rather than ~7
   // sequential answers, so the leading fallacy peaks lower. A gentler VALID ratio lets two
-  // confident ticks of the same fallacy tentatively accuse, while one tick still can't (it stays
-  // below VALID). Runner-up + min-mass conditions are unchanged, so we still know WHICH one.
-  CHECKLIST_RATIO_VALID: 0.16, // Evaluated on FAMILY-LOCAL renormalized beliefs (scoreChecklist).
-                               // Sits at the midpoint of the measured 1-denial / 2-denial window for
-                               // the current 51-fallacy catalog (1-denial maxes ≈0.083, 2-denial mins
-                               // ≈0.251). The absolute value shifts as families grow/shrink (more
-                               // members dilute each share), so RE-MEASURE and re-center when the
-                               // catalog changes a lot — tools or a quick script that prints
-                               // max(1-denial) and min(2-denial) family-local f/VALID. The midpoint is
-                               // the right gate. (Was 0.55 at the 13-fallacy/4-family scale.)
+  // confident denials of the SAME fallacy tentatively accuse, while one denial still can't.
+  CHECKLIST_RATIO_VALID: 0.12, // Evaluated PER-FALLACY in its own isolated {VALID, F} world (see
+                               // scoreChecklist — each fallacy scored only from its own tells, so
+                               // siblings can't dilute it; panel fix C-1). Sits at the midpoint of
+                               // the measured window for the current 73-fallacy / 21-family bank:
+                               // one denied own-tell tops out at f/VALID ≈ 0.06, two denied bottoms
+                               // out at ≈ 0.18 (appeal_to_nature). 0.12 is the midpoint — safe margin
+                               // both sides. The absolute value shifts as the catalog grows, so
+                               // RE-MEASURE and re-center when it changes a lot: a script that prints
+                               // max(1-own-denial) and min(2-own-denial) isolated f/VALID across all
+                               // fallacies; the midpoint is the right gate.
 
   // Cue routing (suggestFamily/suggestBucket). Scores are specificity-weighted: a cue listed by N
   // families is worth 1/N. Only suggest when the top family clears a real signal AND clearly beats
@@ -485,6 +486,16 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
   const deniedSet = new Set(denied);
   const affirmedSet = new Set(affirmed);
   const famIds = (data.families[familyId] || []);
+
+  // m-6: warn (dev only) if an affirmed/denied qid isn't a real question at all — that's a typo, and
+  // the qid would otherwise vanish silently and read as "holds up". A qid that IS a valid question
+  // but isn't this family's tell is NOT a typo: the engine is correctly ignoring an answer that
+  // doesn't bear on these fallacies, so it stays quiet. Never throws — a stray must never break a session.
+  if (typeof console !== 'undefined' && console.warn) {
+    const knownQids = new Set((data.questions || []).map((q) => q.id));
+    const unknown = [...affirmedSet, ...deniedSet].filter((q) => !knownQids.has(q));
+    if (unknown.length) console.warn(`scoreChecklist: ${unknown.length} unknown qid(s) ignored (not in questions.json): ${unknown.join(', ')}`);
+  }
 
   // For one fallacy: a fresh 2-hypothesis session, apply only THIS fallacy's tell answers, return
   // its renormalized P(F) / P(VALID) share within {VALID, F}.

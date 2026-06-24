@@ -33,17 +33,21 @@ const virtuesOf = (fid) =>
 // clearly; denying a SHARED one (e.g. q_hypocrisy_dismisses_point, owned by tu_quoque but borrowed
 // by ad_hominem) splits evidence and is genuinely ambiguous. The checklist should expose a
 // fallacy's distinctive virtues as its tells, so this is what "any pair must catch" tests.
-const distinctiveVirtuesOf = (fid) =>
-  data.questions
+const distinctiveVirtuesOf = (fid) => {
+  // Restrict to the fallacy's AUTHORED tells — those are the only qids the UI can send to
+  // scoreChecklist, so the test must exercise exactly those (a weight-distinctive question that
+  // isn't a tell, e.g. q_options_framed_fairly, can never reach the engine in the live flow).
+  const tellQids = new Set((data.tells[fid] || []).map((t) => t.qid));
+  return data.questions
     .filter((q) => {
+      if (!tellQids.has(q.id)) return false;
       if (!(q.lr[fid] && q.lr[fid].yes > 1)) return false;
       const others = Object.keys(q.lr).filter((k) => k !== 'VALID' && k !== fid);
-      // SOLE owner: this fallacy's signal must strictly exceed every other fallacy's on this
-      // question. Excludes broad family-shared questions (q_evidence_or_assertion,
-      // q_conclusion_matches_support) which route to a family but can't single out a member.
+      // SOLE owner: this fallacy's signal must strictly exceed every other fallacy's on this question.
       return others.every((k) => q.lr[fid].yes > q.lr[k].yes);
     })
     .map((q) => q.id);
+};
 
 let passed = 0;
 const ok = (m) => { passed++; console.log(`  ✓ ${m}`); };
@@ -251,5 +255,20 @@ ok('authored tells: denying any fallacy’s first two tells accuses it');
   }
 }
 ok('suggestFamily routes typical arguments by cue, and stays silent on a sound one');
+
+// ---- m-6: the dev warning fires only on a real typo, not on a valid-but-off-topic qid ----
+{
+  const fam = Object.keys(data.families)[0];
+  const orig = console.warn;
+  const grab = (qid) => {
+    let warned = false;
+    console.warn = () => { warned = true; };
+    try { scoreChecklist(data, { familyId: fam, denied: [qid], seed: 1 }); } finally { console.warn = orig; }
+    return warned;
+  };
+  assert.equal(grab('q_TOTALLY_MADE_UP'), true, 'a qid not in questions.json must warn (typo guard)');
+  assert.equal(grab('q_evidence_or_assertion'), false, 'a valid question that just isn’t this family’s tell must NOT warn');
+}
+ok('m-6: dev warning fires on a typo qid, stays silent on a valid off-topic qid');
 
 console.log(`\n${passed} checks passed.`);
