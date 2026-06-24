@@ -494,23 +494,23 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
   const p2 = ranked[1] ? ranked[1][1] : 0;
   const pv = P.VALID;
 
-  // Relative gate within the family: f1 must beat VALID by the checklist ratio AND clearly dominate
-  // the runner-up fallacy. NOTE: MIN_ACCUSE_MASS (the sequential gate's absolute floor) is
-  // deliberately NOT applied here — in family-local renormalized space a legitimate winner in a
-  // 5-member family only reaches ~0.18 mass, so an absolute floor would reject valid catches. The
-  // ratio + runner-up conditions already guarantee a real, dominant signal; the family localization
-  // is what replaces the "not a near-empty field" job the mass floor did in global space.
-  if (f1 &&
-      p1 >= CONFIG.CHECKLIST_RATIO_VALID * pv &&
-      p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
+  // Two-step gate. STEP 1: has innocence been beaten? The leading fallacy must clear the checklist
+  // VALID ratio. (MIN_ACCUSE_MASS, the sequential gate's absolute floor, is deliberately not applied
+  // in family-local renormalized space.)
+  const innocenceBeaten = f1 && p1 >= CONFIG.CHECKLIST_RATIO_VALID * pv;
+  if (!innocenceBeaten) {
+    // VALID held: few/no denials, or virtues affirmed → the argument genuinely holds up.
+    return { kind: 'cynic_valid', leanFallacy: null, beliefs: P, state };
+  }
+
+  // STEP 2: innocence is beaten — something IS off. Do we know WHICH fallacy?
+  // Only the runner-up ratio decides accuse-vs-lean. The key fix: when many virtues are denied at
+  // once, guilt spreads across the family so no single fallacy dominates — that must NOT fall through
+  // to "sound" (it's the least-sound case). It becomes an honest "something's off, hard to pin one."
+  if (p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
     return { kind: 'accuse', fallacy: f1, confirm_check: data.fallacies[f1].confirm_check, beliefs: P, state };
   }
-  // A family member leads VALID but didn't clear the gate → tentative lean, never an accusation.
-  if (f1 && p1 > pv && p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
-    return { kind: 'inconclusive_lean', leanFallacy: f1, beliefs: P, state };
-  }
-  // Nothing rose above the benefit of the doubt → the argument holds up.
-  return { kind: 'cynic_valid', leanFallacy: null, beliefs: P, state };
+  return { kind: 'inconclusive_lean', leanFallacy: f1, beliefs: P, state };
 }
 
 // Scan a pasted argument for family routing cues (plain case-insensitive substring match — no AI).

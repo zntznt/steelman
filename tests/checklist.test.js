@@ -133,6 +133,22 @@ ok('affirming virtues actively defends an argument (positive validation works)')
 }
 ok('"none of these" routes to a holds-up verdict');
 
+// ---- denying EVERY virtue must NOT read as "sound" (the spread-guilt bug). An argument that
+// fails every virtue is the least sound possible; with guilt spread across a family no single
+// fallacy may win, but the verdict must be a concerned lean, never cynic_valid. ----
+{
+  const fails = [];
+  for (const fam of Object.keys(data.families)) {
+    const qids = [...new Set(data.families[fam].flatMap((f) => (data.tells[f] || []).map((t) => t.qid)))];
+    if (qids.length < 2) continue;
+    const v = scoreChecklist(data, { familyId: fam, denied: qids, seed: 1 });
+    if (v.kind === 'cynic_valid') fails.push(`${fam}: denying all ${qids.length} virtues → cynic_valid (should be concerned, not sound)`);
+  }
+  for (const m of fails) console.log('  ✗ ' + m);
+  assert.equal(fails.length, 0, `denying every virtue must never read as "sound" (${fails.length} family/ies regressed)`);
+}
+ok('denying every virtue is never "sound" — spread guilt → a concerned lean, in every family');
+
 // ---- AUTHORED data/families.json: tells, metadata, cues are present and well-formed ----
 {
   // every family has metadata + cues
