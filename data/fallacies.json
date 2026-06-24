@@ -70,7 +70,7 @@
       "base_rate": 1.2,
       "family": "irrelevant_appeal",
       "short": "Using a strong feeling (fear, pity, anger) in place of reasons to support the conclusion.",
-      "teaching": "An appeal to emotion leans on how something makes you feel - afraid, sympathetic, outraged - rather than on whether the conclusion is actually true. Feelings can be a fair part of a case; this only goes wrong when the feeling is offered as the reason itself, standing in for evidence that the claim holds.",
+      "teaching": "An appeal to emotion leans on how something makes you feel, whether afraid, sympathetic, or outraged, rather than on whether the conclusion is actually true. Feelings can be a fair part of a case; this only goes wrong when the feeling is offered as the reason itself, standing in for evidence that the claim holds.",
       "confirm_check": "Take away the emotional pull (the fear, pity, or anger): is there still a reason left that supports the conclusion, or was the feeling doing the work in place of evidence?"
     },
     {
@@ -187,7 +187,7 @@
       "base_rate": 1.1,
       "family": "emotional_appeal",
       "short": "Urging a conclusion by stirring sympathy for someone's hardship rather than showing the claim is right.",
-      "teaching": "An appeal to pity asks you to accept a conclusion because of the sympathy you feel for someone's suffering or hardship, rather than because the hardship bears on whether the claim is true or the decision is right. When the hardship is genuinely relevant - say, deciding what help someone needs - compassion is the point and no fallacy occurs; it only goes wrong when sympathy stands in for reasons the conclusion actually follows.",
+      "teaching": "An appeal to pity asks you to accept a conclusion because of the sympathy you feel for someone's suffering or hardship, rather than because the hardship bears on whether the claim is true or the decision is right. When the hardship is genuinely relevant, say when deciding what help someone needs, compassion is the point and no fallacy occurs; it only goes wrong when sympathy stands in for reasons the conclusion actually follows.",
       "confirm_check": "Set the sympathy aside: does the person's hardship actually bear on the conclusion, or was pity carrying it?"
     },
     {
@@ -205,7 +205,7 @@
       "base_rate": 1,
       "family": "emotional_appeal",
       "short": "Winning agreement by stirring resentment or a wish to see someone get their comeuppance.",
-      "teaching": "An appeal to spite exploits ill-will - the satisfaction of seeing a disliked person or group lose, suffer, or be denied - as the reason to back a conclusion, rather than reasons the conclusion is right. Noting that someone has behaved badly can be fair when their conduct is genuinely the matter at issue; it only goes wrong when the pull of resentment, not evidence, is what carries the claim.",
+      "teaching": "An appeal to spite uses ill-will, the satisfaction of seeing a disliked person or group lose, suffer, or be denied, as the reason to back a conclusion, rather than reasons the conclusion is actually right. Noting that someone has behaved badly can be fair when their conduct is genuinely the matter at issue; it only goes wrong when the pull of resentment, not evidence, is what carries the claim.",
       "confirm_check": "Set the resentment aside: is there a reason the conclusion is right, or was the wish to see someone lose carrying it?"
     },
     {
@@ -466,8 +466,8 @@
       "base_rate": 1,
       "family": "formal_conditional",
       "short": "Seeing the predicted result show up and concluding the stated condition must therefore be true.",
-      "teaching": "This treats 'if X, then Y' as if Y could only come from X, so when Y shows up it claims X must be true. But the same result can arrive other ways, so seeing the result does not confirm that one condition. It is not this fallacy when the stated condition really is the only thing that could produce that result, or when the other possible explanations have already been checked and ruled out.",
-      "confirm_check": "Does it take the predicted result being present as proof that the stated condition is true?"
+      "teaching": "This treats 'if X, then Y' as if Y could only ever come from X, so when Y shows up it claims X must be true. But the same outcome can have other causes, so seeing the outcome does not confirm that one particular condition. It is not this fallacy when that condition really is the only thing that could produce the outcome, or when the other possible explanations have already been checked and ruled out.",
+      "confirm_check": "Is the stated condition being treated as proven just because its predicted result showed up, even though that result could have come about some other way?"
     },
     {
       "id": "denying_the_antecedent",
@@ -475,8 +475,8 @@
       "base_rate": 1,
       "family": "formal_conditional",
       "short": "Because the stated condition did not happen, concluding the result is ruled out.",
-      "teaching": "This takes 'if X, then Y' and reasons that since X did not happen, Y will not happen either. But X may be only one of several ways to reach Y, so its absence does not rule the result out. It is not this fallacy when the stated condition truly is the only way the result could occur, so removing it genuinely removes the result.",
-      "confirm_check": "Does it treat the stated condition not happening as enough to rule the result out?"
+      "teaching": "This takes 'if X, then Y' and reasons that because X did not happen, Y will not happen either. But X may be only one of several ways to reach Y, so its absence does not rule the result out. It is not this fallacy when the stated condition truly is the only way the result could occur, so removing it genuinely removes the result.",
+      "confirm_check": "Is the result being ruled out just because the stated condition did not happen, even though the result could still come about another way?"
     },
     {
       "id": "base_rate_neglect",
@@ -565,8 +565,8 @@
       "base_rate": 1,
       "family": "presumption_extra",
       "short": "Fuses two separate questions into one, so a single answer is forced to settle both at once.",
-      "teaching": "A complex question packs more than one issue into a single demand, so any one answer quietly settles a point that was never agreed (the classic 'Should we cut waste and raise taxes?' as one yes-or-no). It is not this fallacy when the parts genuinely belong together and answering one really does answer the other, or when the bundled point is already settled.",
-      "confirm_check": "Does the question bundle two separate matters so a single answer is made to settle both at once?"
+      "teaching": "A complex question is built on a hidden assumption you never agreed to, so any straight answer quietly grants that assumption. The classic shape bundles a loaded presupposition into a yes-or-no, like 'Have you stopped cutting corners?', where both yes and no admit you were cutting corners. It is not this fallacy when the built-in assumption is genuinely settled or already agreed, since then a direct answer concedes nothing in dispute.",
+      "confirm_check": "Does the question rest on an unproven assumption, so that any direct answer would grant that assumption without it ever being established?"
     },
     {
       "id": "no_true_scotsman",
@@ -592,7 +592,7 @@
       "base_rate": 1,
       "family": "appeal_extra",
       "short": "Backing a claim or demand with a threat of harm or penalty instead of with reasons.",
-      "teaching": "An appeal to force (the 'or else' move) gets you to agree or comply by warning that disagreement will cost you - your job, safety, standing - rather than by giving reasons the claim is true. A threat can never make a claim correct, only riskier to dispute. It is not this fallacy to simply describe a real consequence as part of an honest decision ('if we miss the deadline, the contract is void'); the line is crossed when the penalty is offered as the reason to believe or accept the point.",
+      "teaching": "An appeal to force, the 'or else' move, gets you to agree or comply by warning that disagreement will cost you, whether your job, safety, or standing, rather than by giving reasons the claim is true. A threat can never make a claim correct, only riskier to dispute. It is not this fallacy to simply describe a real consequence as part of an honest decision, such as 'if we miss the deadline, the contract is void'; the line is crossed when the penalty is offered as the reason to believe or accept the point.",
       "confirm_check": "Is acceptance being pressed by a threat of harm or penalty, rather than by reasons the claim is actually true or right?"
     },
     {
@@ -601,7 +601,7 @@
       "base_rate": 1,
       "family": "appeal_extra",
       "short": "Praising the listener so they'll accept the claim, instead of giving reasons for it.",
-      "teaching": "An appeal to flattery (sometimes 'apple polishing') warms you up with compliments - how smart, fair, or discerning you are - so you'll go along with the point, when the praise has nothing to do with whether the point is true. A sincere compliment is fine on its own; this only goes wrong when the flattery is doing the persuading in place of evidence. It is not this fallacy to note someone's genuine, relevant qualification when that qualification actually bears on the matter.",
+      "teaching": "An appeal to flattery, sometimes called 'apple polishing', warms you up with compliments about how smart, fair, or discerning you are, so you'll go along with the point, when the praise has nothing to do with whether the point is true. A sincere compliment is fine on its own; this only goes wrong when the flattery is doing the persuading in place of evidence. It is not this fallacy to note someone's genuine, relevant qualification when that qualification actually bears on the matter.",
       "confirm_check": "Is the listener being won over by praise of themselves, rather than by reasons the claim holds?"
     },
     {
@@ -610,7 +610,7 @@
       "base_rate": 1,
       "family": "appeal_extra",
       "short": "Treating high price, cost, or riches as proof a thing is better, true, or right.",
-      "teaching": "An appeal to wealth (argumentum ad crumenam) takes how expensive or rich something is as evidence of its quality, correctness, or worth - 'it costs more, so it must be better' or 'they're rich, so they must be right.' Price and wealth can track quality sometimes, but they don't establish it; cost alone can come from branding, scarcity, or luck. It is not this fallacy to cite price as a clue alongside actual evidence of performance, or to discuss cost when affordability is the real question.",
+      "teaching": "An appeal to wealth (argumentum ad crumenam) takes how expensive or rich something is as evidence of its quality, correctness, or worth, as in 'it costs more, so it must be better' or 'they're rich, so they must be right.' Price and wealth can track quality sometimes, but they don't establish it; cost alone can come from branding, scarcity, or luck. It is not this fallacy to cite price as a clue alongside actual evidence of performance, or to discuss cost when affordability is the real question.",
       "confirm_check": "Is the cost, price, or wealth itself being offered as the reason the thing is better, true, or right?"
     },
     {
@@ -619,7 +619,7 @@
       "base_rate": 1,
       "family": "appeal_extra",
       "short": "Calling a claim 'just common sense' or 'obvious' so it needs no reasons given for it.",
-      "teaching": "An appeal to common sense waves a claim through by labeling it obvious or plain common sense, so no actual reasons are given - and often paints anyone who questions it as foolish. Calling something obvious doesn't make it true; plenty of 'obvious' things turn out wrong on a closer look. It is not this fallacy to note a genuinely uncontested, well-established fact in passing; the trouble starts when 'it's just common sense' stands in for support on a point that's actually in dispute.",
+      "teaching": "An appeal to common sense waves a claim through by labeling it obvious or plain common sense, so no actual reasons are given, and it often paints anyone who questions it as foolish. Calling something obvious doesn't make it true; plenty of 'obvious' things turn out wrong on a closer look. It is not this fallacy to note a genuinely uncontested, well-established fact in passing; the trouble starts when 'it's just common sense' stands in for support on a point that's actually in dispute.",
       "confirm_check": "Is the claim being passed off as obvious or common sense in place of giving reasons for it?"
     },
     {
