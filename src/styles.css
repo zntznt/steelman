@@ -232,6 +232,7 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .muted { color: var(--ink-soft); font-size: .92rem; }
 .error { color: var(--suspect); }
 
+.site-foot[hidden] { display: none; }   /* hidden attribute beats the flex below */
 .site-foot {
   font-size: .82rem;
   color: var(--ink-soft);
