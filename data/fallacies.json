@@ -6,8 +6,8 @@
       "name": "Ad Hominem",
       "base_rate": 1.5,
       "family": "against_the_person",
-      "short": "Responding to who made a claim—their character, motive, or past—rather than to the claim itself.",
-      "teaching": "Ad hominem answers a claim by talking about the person who made it—their character, motives, or history—instead of the reasoning. A person's flaws can be real and still leave their actual point standing or falling on its own merits, so the two need to be weighed separately.",
+      "short": "Responding to who made a claim, their character, motive, or past, rather than to the claim itself.",
+      "teaching": "Ad hominem answers a claim by talking about the person who made it, focusing on their character, motives, or history, instead of the reasoning. A person's flaws can be real and still leave their actual point standing or falling on its own merits, so the two need to be weighed separately.",
       "confirm_check": "Is the speaker's character, motive, or past being used IN PLACE OF engaging with the claim they actually made?"
     },
     {

@@ -92,7 +92,7 @@ function renderStart() {
   clear();
   const ta = el('textarea', {
     id: 'arg',
-    placeholder: 'e.g. "We can\'t trust her plan — she failed a class in college."',
+    placeholder: 'e.g. "We can\'t trust her plan. She failed a class in college."',
     value: argument,
   });
   steelyStage('input');
@@ -140,7 +140,7 @@ function renderFamilyPick() {
   card.append(el('h2', { textContent: 'What feels wrong about it, if anything?' }));
   card.append(el('p', { className: 'muted',
     textContent: bucketSuggestion
-      ? 'Here’s a place to start — but trust your own read. Pick the closest one, then we’ll narrow it.'
+      ? 'Here’s a place to start, but trust your own read. Pick the closest one, then we’ll narrow it.'
       : 'Pick the closest one, then we’ll narrow it. (If it seems fine, you can say that too.)' }));
 
   const opts = el('div', { className: 'family-list' });
@@ -173,7 +173,7 @@ function renderFamilyPick() {
 
   // The goodwill escape hatch.
   const fine = el('button', { className: 'family-opt family-opt-fine' },
-    el('span', { className: 'family-opt-title', textContent: 'Nothing — it looks fine to me' }),
+    el('span', { className: 'family-opt-title', textContent: 'Nothing. It looks fine to me' }),
     el('span', { className: 'family-opt-sub', textContent: 'Maybe it really is fine. That happens a lot.' }),
   );
   fine.onclick = () => renderVerdict(scoreChecklist(DATA, { familyId: 'none' }));
@@ -259,7 +259,7 @@ function renderChecklist(familyId) {
   // We start out trusting the argument. Two short sentences, no em-dashes (the re-audit found slow
   // and ESL readers lose the thread at " — "). The reassurance answers the panel's "skip-fear".
   card.append(el('p', { className: 'muted',
-    textContent: 'Answer the ones you can. Many won’t apply to your example, and that’s normal — it won’t change the result.' }));
+    textContent: 'Answer the ones you can. Many won’t apply to your example. That’s normal, and it won’t change the result.' }));
 
   // Build one question row. Each choice carries its own always-visible label (under the icon), so
   // the meaning of 👍/👎 never hides on hover — the re-audit found the hover legend invisible on
@@ -276,7 +276,7 @@ function renderChecklist(familyId) {
     };
     const has = mkChoice('has', '👍', 'yes', 'tri-has');
     const lacks = mkChoice('lacks', '👎', 'no', 'tri-lacks');
-    const na = mkChoice('na', '—', 'doesn’t apply', 'tri-na');
+    const na = mkChoice('na', '🤷', 'doesn’t apply', 'tri-na');
     function refresh() {
       has.classList.toggle('on', choice[r.qid] === 'has');
       lacks.classList.toggle('on', choice[r.qid] === 'lacks');
@@ -339,12 +339,12 @@ function renderVerdict(result, familyId) {
 
 function renderAccuse(result) {
   const f = DATA.fallacies[result.fallacy];
-  const yes = el('button', { className: 'btn btn-primary', textContent: 'Yes — that fits' });
-  const no = el('button', { className: 'btn', textContent: 'No — that’s not it' });
+  const yes = el('button', { className: 'btn btn-primary', textContent: 'Yes, that fits' });
+  const no = el('button', { className: 'btn', textContent: 'No, that’s not it' });
   const card = el('section', { className: 'card verdict-accuse' },
     el('p', { className: 'kicker', textContent: 'One thing to check' }),
-    el('p', { className: 'verdict-title', textContent: `There may be a weak spot here — it looks like ${f.name}.` }),
-    el('p', { className: 'muted', textContent: 'That’s just what we noticed — you’re the judge. Here’s what it means:' }),
+    el('p', { className: 'verdict-title', textContent: `There may be a weak spot here. It looks like ${f.name}.` }),
+    el('p', { className: 'muted', textContent: 'That’s just what we noticed. You’re the judge. Here’s what it means:' }),
     el('div', { className: 'teaching' },
       el('span', { className: 'name', textContent: f.name + '. ' }),
       // Teach the word "fallacy" exactly once, attached to a concrete example the user is looking
@@ -366,10 +366,10 @@ function renderConfirmed(f) {
     el('p', { className: 'kicker', textContent: 'You made the call' }),
     el('p', { className: 'verdict-title', textContent: `Looks like ${article(f.name)} ${f.name}.` }),
     el('p', { textContent:
-      'You confirmed it — the argument depends on this instead of standing on its own. ' +
-      'Naming it isn’t a way to “win,” though: the real point underneath might still be worth ' +
+      'You confirmed it. The argument depends on this instead of standing on its own. ' +
+      'Naming it isn’t a way to “win,” though. The real point underneath might still be worth ' +
       'taking seriously once it’s made fairly. The fair next move is to ask for the stronger version.' }),
-    el('p', { className: 'muted', textContent: 'Spotting the weak spot is the easy part. Building the strongest version of what’s left is the generous one — and the whole point here.' }),
+    el('p', { className: 'muted', textContent: 'Spotting the weak spot is the easy part. Building the strongest version of what’s left is the generous one, and the whole point here.' }),
     restartRow(),
   ));
 }
@@ -378,11 +378,11 @@ function renderInconclusive(result) {
   clear();
   const f = result.leanFallacy ? DATA.fallacies[result.leanFallacy] : null;
   const lean = f
-    ? `There might be something here — maybe ${article(f.name)} ${f.name} — but not enough to be sure.`
+    ? `There might be something here, maybe ${article(f.name)} ${f.name}, but not enough to be sure.`
     : 'There might be something here, but not enough to be sure.';
   app.append(el('section', { className: 'card verdict-cynic' },
     el('p', { className: 'kicker', textContent: 'The result' }),
-    el('p', { className: 'verdict-title', textContent: 'Not enough to be sure — and that’s fine.' }),
+    el('p', { className: 'verdict-title', textContent: 'Not enough to be sure, and that’s fine.' }),
     el('p', { textContent: lean + ' We’d rather say “not sure” than pin a label on an argument that might be fine.' }),
     el('p', { className: 'muted', textContent: 'Trust your own read. If it still feels wrong, the fair move is to ask the other person to explain their reasoning.' }),
     restartRow(),
@@ -396,19 +396,19 @@ function renderValid(mode) {
   clear();
   const COPY = {
     earned: {
-      title: 'It makes sense — and you confirmed why.',
-      body: 'You marked the things a good argument does, and they checked out. This isn’t just “nothing wrong found” — you actually confirmed the reasoning does its job.',
+      title: 'It makes sense, and you confirmed why.',
+      body: 'You marked the things a good argument does, and they checked out. This isn’t just “nothing wrong found.” You actually confirmed the reasoning does its job.',
       muted: 'That’s the best kind of pass: not “I couldn’t find a problem,” but “it does the right things.”',
     },
     checked: {
       title: 'It makes sense.',
-      body: 'You looked closely at this kind of problem, and we gave it a fair chance — and it held up. Nothing clearly wrong here.',
-      muted: 'A real result — most arguments are fine. Disagreeing is okay; just answer the actual point.',
+      body: 'You looked closely at this kind of problem, and we gave it a fair chance. It held up. Nothing clearly wrong here.',
+      muted: 'A real result. Most arguments are fine. Disagreeing is okay; just answer the actual point.',
     },
     skimmed: {
-      title: 'Nothing jumped out — it seems fine.',
+      title: 'Nothing jumped out. It seems fine.',
       body: 'You read it fairly and didn’t spot a problem worth digging into. Nothing clearly wrong; it makes sense well enough.',
-      muted: 'If something still nags at you, pick the kind of problem it might be and check — but “it’s fine” is an honest answer too.',
+      muted: 'If something still nags at you, pick the kind of problem it might be and check. But “it’s fine” is an honest answer too.',
     },
   };
   const c = COPY[mode] || COPY.checked;
@@ -432,7 +432,7 @@ function renderCynic(why, rejectedFallacy) {
     : 'We couldn’t find a clear problem here. The reasoning seems to hold up.';
   app.append(el('section', { className: 'card verdict-cynic' },
     el('p', { className: 'kicker', textContent: 'The result' }),
-    el('p', { className: 'verdict-title', textContent: 'No clear problem — it seems to hold up.' }),
+    el('p', { className: 'verdict-title', textContent: 'No clear problem. It seems to hold up.' }),
     el('p', { textContent: body }),
     el('p', { className: 'muted', textContent: 'Checking was worth doing. Nothing here needs you to back down.' }),
     restartRow(),
