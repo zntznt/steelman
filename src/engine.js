@@ -463,54 +463,60 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
     return { kind: 'cynic_valid', beliefs: beliefs(state), leanFallacy: null };
   }
 
-  // Affirmed virtues exonerate (answer "no"); denied virtues incriminate (answer "yes"); skipped
-  // virtues contribute nothing. With nothing denied, no fallacy can clear the gate → the argument
-  // holds up. It takes ~two denied virtues of the same fallacy to raise a tentative suspicion.
-  for (const qid of affirmed) {
-    if (data.questions.find((x) => x.id === qid)) answer(state, qid, 'no');
-  }
-  for (const qid of denied) {
-    if (data.questions.find((x) => x.id === qid)) answer(state, qid, 'yes');
+  // ---- PER-FALLACY scoring (fixes the sibling-affirmation whitewash, panel finding C-1) ----
+  // The old approach poured every affirm/deny answer into ONE shared belief state, so honestly
+  // affirming a sibling's virtues ("it didn't strawman, didn't tu quoque…") raised VALID and
+  // drowned the real denials of the guilty fallacy. The fix: score EACH fallacy in its own isolated
+  // two-hypothesis world {VALID, F}, using ONLY the answers to F's own tells. A fallacy's suspicion
+  // then can't be diluted (or inflated) by what the user said about its siblings. This mirrors the
+  // family-local renormalization (cross-family isolation) one level deeper: per-fallacy isolation.
+  const deniedSet = new Set(denied);
+  const affirmedSet = new Set(affirmed);
+  const famIds = (data.families[familyId] || []);
+
+  // For one fallacy: a fresh 2-hypothesis session, apply only THIS fallacy's tell answers, return
+  // its renormalized P(F) / P(VALID) share within {VALID, F}.
+  function scoreFallacy(fid) {
+    const tellQids = (data.tells[fid] || []).map((t) => t.qid);
+    const s = newSession(data, seed);
+    let deniedCount = 0;
+    for (const qid of tellQids) {
+      if (deniedSet.has(qid)) { answer(s, qid, 'yes'); deniedCount++; }
+      else if (affirmedSet.has(qid)) { answer(s, qid, 'no'); }
+    }
+    const raw = beliefs(s);
+    const Z = raw[fid] + raw.VALID || 1;     // isolate to {VALID, F}
+    return { fid, p: raw[fid] / Z, pv: raw.VALID / Z, deniedCount };
   }
 
-  // Restrict the verdict to this family: the leading fallacy must belong to familyId. We reuse the
-  // full Bayesian beliefs (all hypotheses stay normalized), but only consider this family's members
-  // as accusation candidates — that's what the routing bought us.
-  //
-  // Field-size invariance: renormalize beliefs over JUST {VALID} ∪ {this family's members} before
-  // applying the gate. Adding a fallacy to a *different* family shrinks every raw prior a little
-  // (the denominator grows), which would otherwise nudge a borderline verdict here. Renormalizing
-  // within the family makes a verdict depend only on this family's evidence — so additions in other
-  // families can never perturb it, and the gate stays correct as the catalog grows to any size.
-  const famIds = new Set(data.families[familyId] || []);
-  const raw = beliefs(state);
-  const localKeys = ['VALID', ...Object.keys(raw).filter((h) => h !== 'VALID' && famIds.has(h))];
-  const Z = localKeys.reduce((s, h) => s + raw[h], 0) || 1;
-  const P = {};
-  for (const h of localKeys) P[h] = raw[h] / Z;
-  const fIds = localKeys.filter((h) => h !== 'VALID');
-  const ranked = fIds.map((f) => [f, P[f]]).sort((a, b) => b[1] - a[1]);
-  const [f1, p1] = ranked[0] || [null, 0];
-  const p2 = ranked[1] ? ranked[1][1] : 0;
-  const pv = P.VALID;
+  const scored = famIds.map(scoreFallacy).sort((a, b) => b.p - a.p);
+  const top = scored[0];
+  const runner = scored[1];
 
-  // Two-step gate. STEP 1: has innocence been beaten? The leading fallacy must clear the checklist
-  // VALID ratio. (MIN_ACCUSE_MASS, the sequential gate's absolute floor, is deliberately not applied
-  // in family-local renormalized space.)
-  const innocenceBeaten = f1 && p1 >= CONFIG.CHECKLIST_RATIO_VALID * pv;
-  if (!innocenceBeaten) {
-    // VALID held: few/no denials, or virtues affirmed → the argument genuinely holds up.
+  // beliefs snapshot for callers/tests: each fallacy's isolated share + VALID = min isolated share
+  const P = { VALID: top ? top.pv : 1 };
+  for (const sc of scored) P[sc.fid] = sc.p;
+
+  if (!top || top.p < CONFIG.CHECKLIST_RATIO_VALID * top.pv) {
+    // No single fallacy's own virtues were denied enough to beat innocence. But an argument with
+    // failures spread across SEVERAL distinct fallacies (panel finding C-3) is less sound, not
+    // sound: ≥2 distinct fallacies each with a denied virtue → an honest lean toward the strongest,
+    // never "holds up". One denial of one fallacy alone still correctly holds up.
+    const denCount = scored.filter((sc) => sc.deniedCount > 0).length;
+    if (denCount >= 2) {
+      return { kind: 'inconclusive_lean', leanFallacy: top.fid, beliefs: P, state };
+    }
     return { kind: 'cynic_valid', leanFallacy: null, beliefs: P, state };
   }
 
-  // STEP 2: innocence is beaten — something IS off. Do we know WHICH fallacy?
-  // Only the runner-up ratio decides accuse-vs-lean. The key fix: when many virtues are denied at
-  // once, guilt spreads across the family so no single fallacy dominates — that must NOT fall through
-  // to "sound" (it's the least-sound case). It becomes an honest "something's off, hard to pin one."
-  if (p1 >= CONFIG.RATIO_RUNNERUP * (p2 || CONFIG.EPS)) {
-    return { kind: 'accuse', fallacy: f1, confirm_check: data.fallacies[f1].confirm_check, beliefs: P, state };
+  // Innocence is beaten for the leader. Accuse only if it clearly dominates the runner-up fallacy's
+  // OWN score too (we know WHICH one). If a second fallacy is independently suspected (C-3: two
+  // distinct fallacies), the runner-up ratio won't clear → an honest lean, never "sound".
+  const runnerP = runner ? runner.p : 0;
+  if (top.p >= CONFIG.RATIO_RUNNERUP * (runnerP || CONFIG.EPS)) {
+    return { kind: 'accuse', fallacy: top.fid, confirm_check: data.fallacies[top.fid].confirm_check, beliefs: P, state };
   }
-  return { kind: 'inconclusive_lean', leanFallacy: f1, beliefs: P, state };
+  return { kind: 'inconclusive_lean', leanFallacy: top.fid, beliefs: P, state };
 }
 
 // Scan a pasted argument for family routing cues (plain case-insensitive substring match — no AI).

@@ -133,6 +133,42 @@ ok('affirming virtues actively defends an argument (positive validation works)')
 }
 ok('"none of these" routes to a holds-up verdict');
 
+// ---- C-1 regression (panel): denying a fallacy's tells must STILL accuse it even when every other
+// virtue in the family is honestly affirmed. The old family-pooled gate let sibling affirmations
+// drown the denials and whitewash ~9/12 clear fallacies. Per-fallacy scoring fixes it. ----
+{
+  const fails = [];
+  for (const [fid, tells] of Object.entries(data.tells)) {
+    const fam = familyOf[fid];
+    const own = tells.map((t) => t.qid);
+    // every OTHER tell in the family, affirmed (the honest juror crediting the true sibling virtues)
+    const siblings = [...new Set(data.families[fam].flatMap((f) => (data.tells[f] || []).map((t) => t.qid)))]
+      .filter((q) => !own.includes(q));
+    const v = scoreChecklist(data, { familyId: fam, denied: own.slice(0, 2), affirmed: siblings, seed: 1 });
+    if (!(v.kind === 'accuse' && v.fallacy === fid)) fails.push(`${fid} → ${v.kind}${v.fallacy ? ':' + v.fallacy : ''} (whitewashed by sibling affirmation)`);
+  }
+  for (const m of fails) console.log('  ✗ ' + m);
+  assert.equal(fails.length, 0, `denying a fallacy's tells must accuse it despite honest sibling affirmation (${fails.length} whitewashed)`);
+}
+ok('C-1: honest sibling affirmation never whitewashes a denied fallacy (per-fallacy gating)');
+
+// ---- C-3 regression (panel): two DISTINCT fallacies each with a denied virtue must not read as
+// "sound" — an argument with multiple independent failures is less sound, not sound. ----
+{
+  const fams = Object.keys(data.families).filter((f) => data.families[f].length >= 2);
+  const fails = [];
+  for (const fam of fams) {
+    const [a, b] = data.families[fam];
+    const qa = (data.tells[a] || [])[0]?.qid, qb = (data.tells[b] || [])[0]?.qid;
+    if (!qa || !qb) continue;
+    const v = scoreChecklist(data, { familyId: fam, denied: [qa, qb], seed: 1 });
+    if (v.kind === 'cynic_valid') fails.push(`${fam}: denying 1 ${a} + 1 ${b} tell → cynic_valid (two distinct failures read as sound)`);
+  }
+  for (const m of fails) console.log('  ✗ ' + m);
+  assert.equal(fails.length, 0, `two distinct fallacies with denials must not read as sound (${fails.length} families)`);
+}
+ok('C-3: two distinct fallacies → a concerned lean, never "sound"');
+
 // ---- denying EVERY virtue must NOT read as "sound" (the spread-guilt bug). An argument that
 // fails every virtue is the least sound possible; with guilt spread across a family no single
 // fallacy may win, but the verdict must be a concerned lean, never cynic_valid. ----
