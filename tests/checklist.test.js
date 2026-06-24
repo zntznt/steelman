@@ -133,6 +133,23 @@ ok('affirming virtues actively defends an argument (positive validation works)')
 }
 ok('"none of these" routes to a holds-up verdict');
 
+// ---- m-1 (panel): "holds up" splits into valid_earned (positively confirmed via ≥2 affirmed
+// virtues) vs cynic_valid (merely not-defeated: skipped / none-of-these / weak vouch). ----
+{
+  const f = 'ad_hominem';
+  const fam = familyOf[f];
+  const famQids = [...new Set(data.families[fam].flatMap((x) => (data.tells[x] || []).map((t) => t.qid)))];
+  const earned = scoreChecklist(data, { familyId: fam, affirmed: famQids, seed: 1 });
+  assert.equal(earned.kind, 'valid_earned', 'affirming the virtues → positively justified (valid_earned)');
+  const skimmed = scoreChecklist(data, { familyId: fam, seed: 1 });
+  assert.equal(skimmed.kind, 'cynic_valid', 'inspecting but marking nothing → not-defeated (cynic_valid)');
+  const none = scoreChecklist(data, { familyId: 'none', seed: 1 });
+  assert.equal(none.kind, 'cynic_valid', '"none of these" → cynic_valid');
+  const weak = scoreChecklist(data, { familyId: fam, affirmed: [famQids[0]], seed: 1 });
+  assert.equal(weak.kind, 'cynic_valid', 'a single affirmation is too weak a vouch to be "earned"');
+}
+ok('m-1: holds-up splits into valid_earned (confirmed) vs cynic_valid (not-defeated)');
+
 // ---- C-1 regression (panel): denying a fallacy's tells must STILL accuse it even when every other
 // virtue in the family is honestly affirmed. The old family-pooled gate let sibling affirmations
 // drown the denials and whitewash ~9/12 clear fallacies. Per-fallacy scoring fixes it. ----

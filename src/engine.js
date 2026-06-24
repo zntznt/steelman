@@ -463,11 +463,17 @@ export function confirmVerdict(state, accepted) {
 export function scoreChecklist(data, { familyId, affirmed = [], denied = [], seed } = {}) {
   const state = newSession(data, seed);
 
-  // "none of these / seems fine" — the user surveyed and saw no problem. That IS the goodwill
-  // outcome: nothing to score, the argument stands.
+  // "none of these / seems fine" — the user surveyed the families and saw no problem worth checking.
+  // Nothing was inspected, so this is "not defeated", not "positively confirmed" → cynic_valid.
   if (!familyId || familyId === 'none') {
     return { kind: 'cynic_valid', beliefs: beliefs(state), leanFallacy: null };
   }
+
+  // m-1: a holds-up verdict means two different things and deserves two labels. If the user actively
+  // AFFIRMED virtues (ticked ✓ "it does this"), the argument is POSITIVELY justified → valid_earned.
+  // If they mostly skipped / denied-but-not-enough, it's merely not-defeated → cynic_valid. ≥2
+  // affirmations is the bar for "earned" (one tick is a weak vouch).
+  const holdsUpKind = affirmed.length >= 2 ? 'valid_earned' : 'cynic_valid';
 
   // ---- PER-FALLACY scoring (fixes the sibling-affirmation whitewash, panel finding C-1) ----
   // The old approach poured every affirm/deny answer into ONE shared belief state, so honestly
@@ -512,7 +518,7 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
     if (denCount >= 2) {
       return { kind: 'inconclusive_lean', leanFallacy: top.fid, beliefs: P, state };
     }
-    return { kind: 'cynic_valid', leanFallacy: null, beliefs: P, state };
+    return { kind: holdsUpKind, leanFallacy: null, beliefs: P, state };
   }
 
   // Innocence is beaten for the leader. Accuse only if it clearly dominates the runner-up fallacy's

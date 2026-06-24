@@ -261,8 +261,9 @@ function renderVerdict(result, familyId) {
   switch (result.kind) {
     case 'accuse': return renderAccuse(result);
     case 'inconclusive_lean': return renderInconclusive(result);
+    case 'valid_earned': return renderValid('earned');
     case 'cynic_valid':
-    default: return renderValid(familyId);
+    default: return renderValid(familyId ? 'checked' : 'skimmed');
   }
 }
 
@@ -315,16 +316,34 @@ function renderInconclusive(result) {
   ));
 }
 
-function renderValid(familyId) {
+// mode: 'earned' (user affirmed ≥2 virtues → positively justified),
+//       'checked' (inspected a family, nothing failed enough → not defeated),
+//       'skimmed' ("none of these / seems fine" → not inspected, just stands)
+function renderValid(mode) {
   clear();
-  const body = familyId
-    ? 'You looked closely and it holds up — what you checked came out in the argument’s favor. No clear fallacy here.'
-    : 'You read it fairly and nothing rose above the benefit of the doubt. There’s no clear fallacy — the argument holds up well enough.';
+  const COPY = {
+    earned: {
+      title: 'The argument holds up — and you confirmed why.',
+      body: 'You ticked the things a sound argument does, and they checked out. This isn’t just “no fallacy found” — you actively confirmed the reasoning does its job.',
+      muted: 'That’s the strongest kind of pass: not “I couldn’t fault it,” but “it does the right things.”',
+    },
+    checked: {
+      title: 'The argument holds up.',
+      body: 'You looked closely at this kind of problem and nothing rose above the benefit of the doubt. No clear fallacy here.',
+      muted: 'A real result — most arguments aren’t fallacies. Disagreeing is fine; just engage the actual point.',
+    },
+    skimmed: {
+      title: 'Nothing jumped out — it seems to stand.',
+      body: 'You read it fairly and didn’t see a problem worth digging into. There’s no clear fallacy; it holds up well enough.',
+      muted: 'If something still nags at you, pick the kind of problem it might be and check — but “it’s fine” is an honest answer too.',
+    },
+  };
+  const c = COPY[mode] || COPY.checked;
   app.append(el('section', { className: 'card verdict-valid' },
     el('p', { className: 'kicker', textContent: 'The verdict' }),
-    el('p', { className: 'verdict-title', textContent: 'The argument holds up.' }),
-    el('p', { textContent: body }),
-    el('p', { className: 'muted', textContent: 'That’s a real result — most arguments aren’t fallacies. Disagreeing is fine; just engage the actual point.' }),
+    el('p', { className: 'verdict-title', textContent: c.title }),
+    el('p', { textContent: c.body }),
+    el('p', { className: 'muted', textContent: c.muted }),
     restartRow(),
   ));
 }
