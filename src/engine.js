@@ -614,3 +614,42 @@ export function suggestBucket(data, text) {
     && top[1] >= CONFIG.CUE_MIN_MARGIN * (second ? second[1] : 0);
   return { top: confident ? top[0] : null, scores };
 }
+
+// Surface the most likely SIBLING FALLACIES ("moves") within a chosen family, so the UI can show a
+// short "which of these is it doing?" pick instead of the full virtue checklist. Each fallacy is
+// scored by how many of its plain-language `cues` (everyday trigger phrases, authored per fallacy)
+// appear in the pasted argument. This is the bucket/family cue routing pushed one level deeper.
+// Measured to surface the right move first ~9/10 on the hardest 8-fallacy family, vs ~2/6 for the
+// abstract tell-row relevance heuristic (see guidance/CHECKLIST-LENGTH-INVESTIGATION.md). Pure, no AI.
+//
+//   returns { moves: [{fid, score}], surfaced: [fid...], residual: fid, allZero: bool }
+//   - moves:    every family fallacy with its cue score, score-descending (ties keep catalog order)
+//   - surfaced: the top fallacies to show first. All positive-scorers tied at the top are kept (a
+//               multi-move argument legitimately surfaces 2+), capped at `limit`. When nothing scores,
+//               surfaced is just [residual].
+//   - residual: the family's catch-all (its first/most-general fallacy, e.g. red_herring for
+//               deflection), used as the default when no cue matches.
+export function suggestMoves(data, familyId, text, limit = 3) {
+  const fids = data.families[familyId] || [];
+  const hay = ' ' + String(text || '').toLowerCase().replace(/[^a-z ]+/g, ' ').replace(/\s+/g, ' ') + ' ';
+  const moves = fids.map((fid) => {
+    const cues = data.fallacies[fid]?.cues || [];
+    let score = 0;
+    for (const cue of cues) if (hay.includes(' ' + cue.toLowerCase() + ' ') || hay.includes(cue.toLowerCase())) score++;
+    return { fid, score };
+  }).sort((a, b) => b.score - a.score);   // stable: equal scores keep catalog order
+
+  const residual = fids[0] || null;       // first fallacy = the family's most general / catch-all move
+  const top = moves[0]?.score || 0;
+  const allZero = top === 0;
+  let surfaced;
+  if (allZero) {
+    surfaced = residual ? [residual] : [];
+  } else {
+    // keep everything tied at the top, then fill toward `limit` with the next-highest scorers
+    const tiedTop = moves.filter((m) => m.score === top).map((m) => m.fid);
+    const rest = moves.filter((m) => m.score < top && m.score > 0).map((m) => m.fid);
+    surfaced = [...tiedTop, ...rest].slice(0, Math.max(limit, tiedTop.length));
+  }
+  return { moves, surfaced, residual, allZero };
+}

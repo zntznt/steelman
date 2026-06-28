@@ -5,7 +5,7 @@
 // Flow: paste → (cue scan suggests a family) → pick a family → confirm the argument's virtues
 //       (✓ it does this / ✗ it falls short / skip) → tentative+teaching verdict.
 
-import { loadData, scoreChecklist, suggestFamily, suggestBucket } from './engine.js';
+import { loadData, scoreChecklist, suggestFamily, suggestBucket, suggestMoves } from './engine.js';
 
 const app = document.getElementById('app');
 const el = (tag, props = {}, ...kids) => {
@@ -314,8 +314,167 @@ function relevanceToArgument(rowText) {
   return score;
 }
 
+// ---------- 3a. the "which move is it?" pick (deeper-branch redesign) ----------
+// Replaces the long virtue checklist for families that have authored move content. Surfaces the 2-3
+// most likely sibling fallacies from the pasted argument (suggestMoves), each as a plain label + an
+// everyday example, with a "something else" that reveals the rest. Picking a move leads to a short
+// confirm. This turns up to 16 thumbs into 1 pick + about 2 thumbs, with no fallacy dropped.
+function renderMovePick(familyId) {
+  clear();
+  steelyStage('checklist');
+  const fids = DATA.families[familyId];
+  const { surfaced, allZero } = suggestMoves(DATA, familyId, argument);
+  // Panel must-fix: when NOTHING in the argument matched a move (allZero), suggestMoves returns the
+  // residual as the lone "surfaced" item. Presenting that one move as if it were a confident match
+  // steered a trusting reader straight to the wrong fallacy. So on allZero we show ALL moves at once
+  // with honest "nothing jumped out" framing and DON'T single one out. Only when a real cue matched
+  // do we surface the few likely moves and fold the rest behind "something else".
+  const showAll = allZero;
+  const shown = showAll ? fids : surfaced;
+  const shownSet = new Set(shown);
+  const others = showAll ? [] : fids.filter((f) => !shownSet.has(f));
+
+  const card = el('section', { className: 'card' });
+  if (argument) card.append(recallBlock(argument));
+  card.append(el('p', { className: 'kicker', textContent: familyName(familyId) }));
+  card.append(el('h1', { textContent: 'Which of these is it doing?' }));
+  card.append(el('p', { className: 'muted',
+    textContent: allZero
+      ? 'Nothing jumped out from your wording, so here are all of them. Pick the one that fits, or go back if none do.'
+      : 'Here are the closest matches. Pick the one that fits, or open “something else” to see the rest.' }));
+
+  const mkMove = (fid) => {
+    const f = DATA.fallacies[fid];
+    const b = el('button', { className: 'family-opt' },
+      el('span', { className: 'family-opt-title', textContent: f.pick_label }),
+      el('span', { className: 'family-opt-sub', textContent: f.pick_example }),
+    );
+    b.onclick = () => renderMoveConfirm(familyId, fid);
+    return b;
+  };
+
+  const list = el('div', { className: 'family-list' });
+  for (const fid of shown) list.append(mkMove(fid));
+  card.append(list);
+
+  if (others.length) {
+    const moreList = el('div', { className: 'family-list', hidden: true });
+    for (const fid of others) moreList.append(mkMove(fid));
+    const toggle = el('button', { className: 'btn btn-quiet show-more',
+      textContent: `Something else (${others.length} more)` });
+    toggle.onclick = () => {
+      moreList.hidden = !moreList.hidden;
+      toggle.textContent = moreList.hidden ? `Something else (${others.length} more)` : '− Show fewer';
+    };
+    card.append(toggle);
+    card.append(moreList);
+  }
+
+  card.append(el('div', { className: 'row between' },
+    el('button', { className: 'btn', textContent: '← Pick a different focus', 'aria-label': 'Pick a different focus', onclick: renderFamilyPick }),
+    el('span', { className: 'muted', textContent: 'We still start by trusting the argument.' }),
+  ));
+  mount(card);
+}
+
+// ---------- 3b. the short confirm for one picked move ----------
+// Shows just the picked fallacy's own tells (about 2) as 👍/👎. Denying them feeds the SAME engine
+// call the checklist would (the denied qids), so the verdict is identical to marking those rows on
+// the old checklist. Safety net: if the user doesn't deny anything (so this move isn't actually
+// present), offer to look at the other moves instead of forcing a verdict on a mis-pick.
+function renderMoveConfirm(familyId, fid) {
+  clear();
+  steelyStage('checklist');
+  const f = DATA.fallacies[fid];
+  const tells = DATA.tells[fid] || [];
+  const choice = {};   // qid -> 'has' | 'lacks' | 'na'
+
+  const card = el('section', { className: 'card' });
+  if (argument) card.append(recallBlock(argument));
+  card.append(el('p', { className: 'kicker', textContent: f.pick_label }));
+  card.append(el('h1', { textContent: 'Two quick checks on that.' }));
+  card.append(el('p', { className: 'muted',
+    textContent: 'Tap 👍 if the argument does this fair thing, 👎 if it falls short. A 👎 is the weak spot. ' +
+      'Marking an honest 👎 isn’t being harsh; it’s just noticing.' }));
+
+  // Reuse the same tri-button row interaction as the checklist (kept local for the short list).
+  const makeRow = (r) => {
+    const mkChoice = (kind, icon, label, cls) => {
+      const b = el('button', { className: `tri ${cls}`, type: 'button' },
+        el('span', { className: 'tri-icon', textContent: icon, 'aria-hidden': 'true' }),
+        el('span', { className: 'tri-label', textContent: label }),
+      );
+      b.setAttribute('aria-label', `${label}: ${r.text}`);
+      b.setAttribute('aria-pressed', 'false');
+      b.onclick = () => { choice[r.qid] = choice[r.qid] === kind ? undefined : kind; refresh(); };
+      return b;
+    };
+    const has = mkChoice('has', '👍', 'Yes, it does', 'tri-has');
+    const lacks = mkChoice('lacks', '👎', 'No, it doesn’t', 'tri-lacks');
+    const na = mkChoice('na', '🤷', 'Doesn’t apply', 'tri-na');
+    function refresh() {
+      for (const [b, k] of [[has, 'has'], [lacks, 'lacks'], [na, 'na']]) {
+        const on = choice[r.qid] === k;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', String(on));
+      }
+    }
+    return el('div', { className: 'check-row' },
+      el('span', { className: 'check-text', textContent: r.text }),
+      el('span', { className: 'tri-group' }, has, lacks, na),
+    );
+  };
+
+  const list = el('div', { className: 'checklist' });
+  for (const t of tells) list.append(makeRow({ qid: t.qid, text: t.text }));
+  card.append(list);
+
+  const see = el('button', { className: 'btn btn-primary', textContent: 'See the result →', 'aria-label': 'See the result' });
+  see.onclick = () => {
+    const affirmed = Object.keys(choice).filter((q) => choice[q] === 'has');
+    const denied = Object.keys(choice).filter((q) => choice[q] === 'lacks');
+    // Safety net (panel finding): if they denied nothing, this move probably isn't what's happening.
+    // Rather than return a misleading "holds up", nudge them back to the other moves. They can still
+    // force the result from there if they disagree.
+    if (denied.length === 0) return renderMoveMiss(familyId, fid);
+    renderVerdict(scoreChecklist(DATA, { familyId, affirmed, denied }), familyId);
+  };
+  card.append(el('div', { className: 'row between' },
+    el('button', { className: 'btn', textContent: '← Other moves', 'aria-label': 'Other moves', onclick: () => renderMovePick(familyId) }),
+    see,
+  ));
+  mount(card);
+}
+
+// Shown when the user picked a move but didn't mark a 👎 on any of its checks, i.e. the move they
+// picked probably isn't what the argument is doing. Offer the other moves, or let them proceed anyway.
+function renderMoveMiss(familyId, fid) {
+  clear();
+  const f = DATA.fallacies[fid];
+  const card = el('section', { className: 'card' });
+  if (argument) card.append(recallBlock(argument));
+  card.append(el('p', { className: 'kicker', textContent: 'Hmm' }));
+  card.append(el('h1', { textContent: 'That might not be the move.' }));
+  card.append(el('p', { textContent:
+    `You didn’t mark a shortfall for “${f.pick_label}”, so it may not be what’s going on here. ` +
+    'Want to look at the other moves, or is it genuinely fine?' }));
+  const back = el('button', { className: 'btn btn-primary', textContent: 'See the other moves →' });
+  back.onclick = () => renderMovePick(familyId);
+  const fine = el('button', { className: 'btn', textContent: 'It looks fine to me' });
+  fine.onclick = () => renderVerdict(scoreChecklist(DATA, { familyId: 'none' }));
+  card.append(el('div', { className: 'answers' }, back, fine));
+  mount(card);
+}
+
 // ---------- 3. the positive-first virtue checklist ----------
 function renderChecklist(familyId) {
+  // Deeper-branch redesign (deflection only, for now): instead of a wall of up to 16 virtue rows,
+  // ask "which of these is it doing?" with a few plain moves surfaced from the argument, then a short
+  // confirm for just that move. Same engine call, far fewer thumbs. Families without authored move
+  // content fall through to the classic checklist below. See guidance/CHECKLIST-LENGTH-INVESTIGATION.md.
+  const hasMoveContent = (DATA.families[familyId] || []).every((fid) => DATA.fallacies[fid]?.pick_label);
+  if (hasMoveContent) return renderMovePick(familyId);
+
   clear();
   steelyStage('checklist');
   // Collect every tell for the family's fallacies, de-duplicated by question id (a question shared
