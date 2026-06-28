@@ -47,6 +47,41 @@ test('suggestMoves surfaces the right deflection move, ties multi-move, defaults
   assert.equal(r.surfaced[0], 'whataboutism');
 });
 
+test('rollout split: 12 topic families carry pick content, 5 structure families stay on the checklist', () => {
+  const CLEARED = ['deflection', 'against_the_person', 'irrelevant_appeal', 'weak_induction', 'emotional_appeal',
+    'appeal_to_standing', 'hasty_conclusions', 'causal', 'comparison', 'false_choices', 'formal_conditional', 'presumption'];
+  const STRUCT = ['ambiguity', 'assumed_conclusion', 'burden_and_ignorance', 'composition_division', 'statistical'];
+  for (const fam of CLEARED) {
+    assert.ok(data.families[fam].every((fid) => data.fallacies[fid].pick_label && data.fallacies[fid].move_keywords),
+      `${fam} must have pick content + keywords (uses move-pick)`);
+  }
+  for (const fam of STRUCT) {
+    assert.ok(data.families[fam].every((fid) => !data.fallacies[fid].pick_label),
+      `${fam} must have NO pick content (stays on the checklist)`);
+  }
+});
+
+test('keyword surfacing floats the right move first across the rolled-out families', () => {
+  // a representative held-out argument per cleared family; the true move must rank first
+  const CASES = [
+    ['appeal_to_standing', 'appeal_to_authority', 'my cardiologist says this fish oil is the best, she went to harvard'],
+    ['appeal_to_standing', 'bandwagon', 'over half the country already orders groceries this way so it must be smart'],
+    ['emotional_appeal', 'appeal_to_pity', 'please do not report me, i have three kids and my mom is in the hospital'],
+    ['against_the_person', 'ad_hominem', 'why are we even debating this with you, you flunked out of college'],
+    ['irrelevant_appeal', 'appeal_to_nature', 'honey is healthier than white sugar because it comes straight from nature'],
+    ['weak_induction', 'slippery_slope', 'if we let them work from home one day a week next thing nobody comes in'],
+    ['causal', 'correlation_causation', 'countries that eat more chocolate win more nobel prizes so chocolate makes you smart'],
+    ['comparison', 'weak_analogy', 'a school is basically a business so it should drop any class that does not pay'],
+    ['false_choices', 'false_dilemma', 'either we keep this job we hate forever or we end up broke on the street'],
+  ];
+  let hit = 0;
+  for (const [fam, truth, arg] of CASES) {
+    const r = suggestMoves(data, fam, arg);
+    if (r.surfaced[0] === truth) hit++;
+  }
+  assert.ok(hit >= 8, `expected >= 8/9 first-surface, got ${hit}`);
+});
+
 test('held-out deflection arguments surface the correct move first >= 9/10', () => {
   const TESTS = [
     ['red_herring', 'I asked why the report is late and he started ranting about the coffee machine'],

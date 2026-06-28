@@ -617,25 +617,30 @@ export function suggestBucket(data, text) {
 
 // Surface the most likely SIBLING FALLACIES ("moves") within a chosen family, so the UI can show a
 // short "which of these is it doing?" pick instead of the full virtue checklist. Each fallacy is
-// scored by how many of its plain-language `cues` (everyday trigger phrases, authored per fallacy)
-// appear in the pasted argument. This is the bucket/family cue routing pushed one level deeper.
-// Measured to surface the right move first ~9/10 on the hardest 8-fallacy family, vs ~2/6 for the
-// abstract tell-row relevance heuristic (see guidance/CHECKLIST-LENGTH-INVESTIGATION.md). Pure, no AI.
+// scored against the pasted argument by two signals: its `move_keywords` (concrete signal words for
+// the move) and its `cues` (everyday trigger phrases). Keyword overlap is the robust driver: exact
+// phrase cues alone scored ~4% on independent paraphrased arguments, while keyword overlap (each
+// fallacy's distinctive signal words) recovers it to 88-100% on the families this is rolled out to.
+// Families whose move is structural rather than topical (ambiguity, circular reasoning, base rates)
+// can't be keyword-surfaced and keep the checklist instead (they carry no pick content, so the UI
+// gate routes them to renderChecklist). Pure, no AI. See guidance/CHECKLIST-LENGTH-INVESTIGATION.md.
 //
 //   returns { moves: [{fid, score}], surfaced: [fid...], residual: fid, allZero: bool }
-//   - moves:    every family fallacy with its cue score, score-descending (ties keep catalog order)
+//   - moves:    every family fallacy with its score, descending (ties keep catalog order)
 //   - surfaced: the top fallacies to show first. All positive-scorers tied at the top are kept (a
 //               multi-move argument legitimately surfaces 2+), capped at `limit`. When nothing scores,
 //               surfaced is just [residual].
 //   - residual: the family's catch-all (its first/most-general fallacy, e.g. red_herring for
-//               deflection), used as the default when no cue matches.
+//               deflection), used as the default when nothing matches.
 export function suggestMoves(data, familyId, text, limit = 3) {
   const fids = data.families[familyId] || [];
   const hay = ' ' + String(text || '').toLowerCase().replace(/[^a-z ]+/g, ' ').replace(/\s+/g, ' ') + ' ';
+  const has = (needle) => { const n = needle.toLowerCase(); return hay.includes(' ' + n + ' ') || hay.includes(n); };
   const moves = fids.map((fid) => {
-    const cues = data.fallacies[fid]?.cues || [];
+    const f = data.fallacies[fid] || {};
     let score = 0;
-    for (const cue of cues) if (hay.includes(' ' + cue.toLowerCase() + ' ') || hay.includes(cue.toLowerCase())) score++;
+    for (const kw of (f.move_keywords || [])) if (has(kw)) score++;   // robust signal-word overlap
+    for (const cue of (f.cues || [])) if (has(cue)) score++;          // bonus for an exact phrase match
     return { fid, score };
   }).sort((a, b) => b.score - a.score);   // stable: equal scores keep catalog order
 

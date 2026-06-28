@@ -91,3 +91,33 @@ out, not piecemeal for deflection):
 - The 👎-means-the-bad-thing polarity still taxes skimmers ("wait, down is the bad one?").
 - suggestFamily returns null for some deflection arguments (e.g. goalposts), so the user navigates to
   the family unaided; better cues or a clearer bucket label for "Changes the subject" would help.
+
+## Rolled out: 12 of 17 families on the move-pick flow
+
+Completing the redesign meant authoring pick content for the remaining 65 fallacies and a robust
+surfacing signal. Measuring surfacing before rollout (the discipline that has held throughout) caught
+a real blocker: exact-cue-phrase matching scored 4% on INDEPENDENT paraphrased arguments (the
+deflection 9/10 was self-consistent test authoring, the author wrote both the cues and the test args).
+Lay grievances rarely contain the exact phrases.
+
+Fix: a per-fallacy `move_keywords` set (the concrete signal words for the move, e.g. authority =
+doctor/expert/scientist/study; bandwagon = everyone/most/majority/popular). suggestMoves now scores
+by keyword overlap plus the phrase cues as a bonus. Measured on held-out paraphrased arguments
+(2 per fallacy, written by a reviewer who did not see the keywords), this split the catalog cleanly:
+
+- 12 TOPIC-DRIVEN families surface the right move first 88-100% (against the person, appeals trio,
+  weak induction, hasty conclusions, causal, comparison, false choices, formal conditional,
+  presumption, deflection). These now use the move-pick flow. Live aggregate: 91%.
+- 5 STRUCTURE-DRIVEN families can't be keyword-surfaced because the move is in the argument's logical
+  SHAPE, not its topic words (ambiguity: "no woman is a man" is equivocation but contains no
+  word-about-words; assumed_conclusion: circular reasoning; burden_and_ignorance; composition_division;
+  statistical: base rates / regression). These keep the checklist, which needs no surfacing. They carry
+  no pick content, so the existing UI gate routes them to renderChecklist automatically.
+
+This is a principled cut, not a compromise: the move-pick mechanism is applied exactly where its
+surfacing is valid, and the one big structure-driven wall (ambiguity, 16 rows) is the honest limit
+of keyword surfacing, noted for a future approach (detecting argument shape rather than topic).
+
+Verified: all five suites green, validateBank clean, distinctness 73/73, verdict parity 52/52 across
+all rolled-out fallacies (no fallacy dropped or rescored), live surfacing 91%, headless renders
+confirming cleared families show the pick flow and structure families show the checklist, zero dashes.

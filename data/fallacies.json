@@ -8,7 +8,39 @@
       "family": "against_the_person",
       "short": "Responding to who made a claim, their character, motive, or past, rather than to the claim itself.",
       "teaching": "Ad hominem answers a claim by talking about the person who made it, focusing on their character, motives, or history, instead of the reasoning. A person's flaws can be real and still leave their actual point standing or falling on its own merits, so the two need to be weighed separately.",
-      "confirm_check": "Is the speaker's character, motive, or past being used IN PLACE OF engaging with the claim they actually made?"
+      "confirm_check": "Is the speaker's character, motive, or past being used IN PLACE OF engaging with the claim they actually made?",
+      "pick_label": "Attacks who you are, not what you said",
+      "pick_example": "They tear into your character instead of answering your point. Like: you raise a real concern at work, and they snap back \"you're just a bitter person, that's why you said that.\"",
+      "cues": [
+        "you're an idiot",
+        "what a loser",
+        "you're pathetic",
+        "no one cares what you think",
+        "why should we even listen to you",
+        "you're too dumb to",
+        "you have no idea what you're talking about",
+        "coming from someone like you",
+        "typical of someone like you",
+        "you're just bitter"
+      ],
+      "move_keywords": [
+        "flunked",
+        "college",
+        "idiot",
+        "loser",
+        "bitter",
+        "angry",
+        "miserable",
+        "stupid",
+        "pathetic",
+        "character",
+        "personal",
+        "name",
+        "jealous",
+        "cant manage",
+        "your kind",
+        "whatever shes"
+      ]
     },
     {
       "id": "strawman",
@@ -17,7 +49,33 @@
       "family": "against_the_person",
       "short": "Refuting a distorted, weaker version of the claim instead of the one actually made.",
       "teaching": "A strawman swaps the other side's real claim for an exaggerated or oversimplified version, then knocks that down instead. The original point may still stand; only the easier substitute was beaten. People often restate a view this way by accident when they disagree with it.",
-      "confirm_check": "Re-read the rebuttal: is it answering the claim as it was actually made, or a weaker/exaggerated version of it?"
+      "confirm_check": "Re-read the rebuttal: is it answering the claim as it was actually made, or a weaker/exaggerated version of it?",
+      "pick_label": "Twists your point into an easier one to beat",
+      "pick_example": "They swap what you said for a wilder version, then knock that down. Like: you say \"let's slow down on the budget,\" and they reply \"so you want us to do nothing and go broke.\"",
+      "cues": [
+        "so you're saying",
+        "so what you're saying is",
+        "so you basically want",
+        "so you'd rather we just",
+        "that's not what i said",
+        "you're putting words in my mouth",
+        "you're twisting my words",
+        "i never said that",
+        "nobody is saying we should"
+      ],
+      "move_keywords": [
+        "so according to you",
+        "so you want",
+        "open the borders",
+        "apparently you think",
+        "nobody should",
+        "completely",
+        "so you basically",
+        "extreme",
+        "wilder",
+        "that means you want",
+        "blew it up"
+      ]
     },
     {
       "id": "false_dilemma",
@@ -26,7 +84,33 @@
       "family": "false_choices",
       "short": "Framing an issue as only two options when other choices or a middle ground also exist.",
       "teaching": "A false dilemma presents just two paths as if they were the only ones, when more options or a middle ground are actually available. Some choices really are binary, so it is only the fallacy when realistic alternatives have been left out rather than honestly ruled out.",
-      "confirm_check": "Are realistic options or a middle ground being left out, so the choice is framed as just two when more genuinely exist?"
+      "confirm_check": "Are realistic options or a middle ground being left out, so the choice is framed as just two when more genuinely exist?",
+      "pick_label": "Acts like it's only this or that",
+      "pick_example": "They squeeze every option down to two, as if nothing else exists. Like: \"either we cancel the whole trip or we go broke,\" when you could just pick a cheaper hotel.",
+      "cues": [
+        "either we",
+        "it is either",
+        "you are either with us",
+        "only two options",
+        "us or them",
+        "if you are not with us",
+        "no other choice",
+        "pick a side",
+        "black and white",
+        "there is no in between"
+      ],
+      "move_keywords": [
+        "either",
+        "only two",
+        "us or them",
+        "no choice",
+        "keep this job",
+        "one or the",
+        "support the",
+        "or we admit",
+        "forever or",
+        "pick a side"
+      ]
     },
     {
       "id": "slippery_slope",
@@ -35,7 +119,35 @@
       "family": "weak_induction",
       "short": "Claims one modest step must lead to an extreme outcome, without showing the links in between.",
       "teaching": "A slippery slope predicts that a small first step will inevitably chain into a much bigger, usually alarming, result. The reasoning leaves a gap when it treats each step as certain to cause the next without showing why. A chain of events can be a fair worry when the steps along the way are actually supported.",
-      "confirm_check": "Does the argument treat a small first step as bound to end in an extreme outcome, while leaving the steps in between unsupported?"
+      "confirm_check": "Does the argument treat a small first step as bound to end in an extreme outcome, while leaving the steps in between unsupported?",
+      "pick_label": "Says one small step ends in disaster",
+      "pick_example": "They jump from a tiny first step straight to a doomsday ending, skipping everything in between. Like: \"if we let kids have phones at lunch, next thing you know nobody will ever read a book again.\"",
+      "cues": [
+        "next thing you know",
+        "where will it stop",
+        "before you know it",
+        "and then what",
+        "give an inch",
+        "slippery slope",
+        "opens the door to",
+        "leads to total",
+        "we will end up with",
+        "it will snowball"
+      ],
+      "move_keywords": [
+        "next thing",
+        "before you",
+        "end up",
+        "lead to",
+        "spiral",
+        "participation trophies",
+        "one day a week",
+        "then theyll",
+        "work from home",
+        "soon",
+        "entitled",
+        "wont stop"
+      ]
     },
     {
       "id": "appeal_to_authority",
@@ -44,7 +156,38 @@
       "family": "appeal_to_standing",
       "short": "Treating a claim as true mainly because a famous or respected person said so, not because of the evidence.",
       "teaching": "An appeal to authority leans on who said something instead of the reasons behind it, and it is weakest when the source's expertise does not actually fit the topic. Pointing to a genuine, relevant expert as supporting evidence is fine; the trouble starts only when their say-so stands in for the actual reasoning.",
-      "confirm_check": "Is the claim being treated as true mainly because of WHO endorsed it, rather than the evidence or reasoning offered for it?"
+      "confirm_check": "Is the claim being treated as true mainly because of WHO endorsed it, rather than the evidence or reasoning offered for it?",
+      "pick_label": "Leans on a big name who backed it",
+      "pick_example": "They point to a famous or respected person instead of giving a reason. Like: \"a top doctor swears by this drink, so it must work.\"",
+      "cues": [
+        "expert says",
+        "a doctor said",
+        "scientists say",
+        "trust the experts",
+        "endorsed by",
+        "who am i to argue with",
+        "professor",
+        "my doctor recommends",
+        "authority on",
+        "leading specialist"
+      ],
+      "move_keywords": [
+        "expert",
+        "doctor",
+        "cardiologist",
+        "scientist",
+        "professor",
+        "specialist",
+        "study",
+        "researcher",
+        "credentials",
+        "phd",
+        "nobel",
+        "harvard",
+        "prize",
+        "put his name",
+        "degree"
+      ]
     },
     {
       "id": "hasty_generalization",
@@ -53,7 +196,34 @@
       "family": "weak_induction",
       "short": "Drawing a broad conclusion from too few or unrepresentative examples.",
       "teaching": "A hasty generalization takes a small or one-sided handful of cases and treats it as proof about a whole group or every situation. The examples may be true and worth noting; the leap happens when the sample is too thin or too selective to carry such a sweeping conclusion.",
-      "confirm_check": "Is the sweeping conclusion resting on just a few or one-sided examples, rather than enough representative cases to support it?"
+      "confirm_check": "Is the sweeping conclusion resting on just a few or one-sided examples, rather than enough representative cases to support it?",
+      "pick_label": "Decides about everyone from a couple of cases",
+      "pick_example": "They meet one or two and stamp the whole group with it. Like: \"two rude drivers cut me off today, people from that town are all rude.\"",
+      "cues": [
+        "they are all like that",
+        "every single one of them",
+        "all of them are",
+        "that whole group is",
+        "i met one and now i know",
+        "people like that always",
+        "that is so typical of them",
+        "once again proves they",
+        "i knew it about them",
+        "they never change"
+      ],
+      "move_keywords": [
+        "last two",
+        "toyotas",
+        "the one guy",
+        "ghosted",
+        "every",
+        "all of them",
+        "that whole",
+        "broke down",
+        "two of",
+        "app",
+        "once and"
+      ]
     },
     {
       "id": "circular_reasoning",
@@ -62,7 +232,41 @@
       "family": "presumption",
       "short": "The conclusion is used as one of its own reasons, so the support just restates the claim.",
       "teaching": "In circular reasoning, the point being argued is quietly assumed in the support for it, so the reasons end up restating the conclusion in different words. The argument can feel solid because everything agrees, but nothing independent has actually been offered to a listener who doesn't already accept the claim.",
-      "confirm_check": "Does the support for the conclusion already assume the conclusion is true, rather than giving an independent reason to believe it?"
+      "confirm_check": "Does the support for the conclusion already assume the conclusion is true, rather than giving an independent reason to believe it?",
+      "pick_label": "Their reason just repeats the claim",
+      "pick_example": "You ask why it is true, and the answer is basically the claim said over again. Like: \"the rule is right because that is the rule.\"",
+      "cues": [
+        "because it is true",
+        "because it's true",
+        "it just is",
+        "it just is true",
+        "that is what makes it right",
+        "same thing twice",
+        "said it again",
+        "going in circles",
+        "circular",
+        "proves itself",
+        "it is right because it is right",
+        "the reason is the conclusion"
+      ],
+      "move_keywords": [
+        "because",
+        "itself",
+        "restates",
+        "obviously",
+        "by definition",
+        "true because",
+        "right because",
+        "assumes",
+        "same thing",
+        "goes in circles",
+        "repeats",
+        "self proving",
+        "begs",
+        "the rule is",
+        "says so",
+        "already true"
+      ]
     },
     {
       "id": "appeal_to_emotion",
@@ -71,7 +275,32 @@
       "family": "emotional_appeal",
       "short": "Using a strong feeling (fear, pity, anger) in place of reasons to support the conclusion.",
       "teaching": "An appeal to emotion leans on how something makes you feel, whether afraid, sympathetic, or outraged, rather than on whether the conclusion is actually true. Feelings can be a fair part of a case; this only goes wrong when the feeling is offered as the reason itself, standing in for evidence that the claim holds.",
-      "confirm_check": "Take away the emotional pull (the fear, pity, or anger): is there still a reason left that supports the conclusion, or was the feeling doing the work in place of evidence?"
+      "confirm_check": "Take away the emotional pull (the fear, pity, or anger): is there still a reason left that supports the conclusion, or was the feeling doing the work in place of evidence?",
+      "pick_label": "Guilts or stirs you up instead of giving a reason",
+      "pick_example": "They lean on making you feel guilty or worked up, and treat that feeling as the whole case. Like: \"if you really cared about this town you would just say yes.\"",
+      "cues": [
+        "if you really cared",
+        "how can you live with yourself",
+        "have a heart",
+        "think of the children",
+        "you should be ashamed",
+        "do you even care",
+        "where is your compassion",
+        "a good person would",
+        "how can you be okay with"
+      ],
+      "move_keywords": [
+        "family",
+        "suffer",
+        "love",
+        "heart",
+        "after everything",
+        "cruel",
+        "heartless",
+        "real person",
+        "how dare",
+        "you would even"
+      ]
     },
     {
       "id": "false_cause",
@@ -80,7 +309,33 @@
       "family": "weak_induction",
       "short": "Treating two things that happen together or in sequence as proof one caused the other.",
       "teaching": "False cause concludes that one thing caused another just because they happened together or one came first. The link may be real, but timing or correlation alone does not show it; a shared cause or coincidence could explain it just as well.",
-      "confirm_check": "Is the causal claim resting only on the two things happening together or in sequence, with no mechanism or ruling-out of other explanations offered?"
+      "confirm_check": "Is the causal claim resting only on the two things happening together or in sequence, with no mechanism or ruling-out of other explanations offered?",
+      "pick_label": "Calls timing proof of cause",
+      "pick_example": "Two things lined up in time, so they call one the cause of the other. Like: \"I wore my lucky socks and we won, the socks did it.\"",
+      "cues": [
+        "ever since i started",
+        "that is why we won",
+        "i did this and then it worked",
+        "right after that it happened",
+        "it worked because i",
+        "every time i do this it",
+        "as soon as i",
+        "the reason it happened was",
+        "so the socks did it",
+        "i changed it and it fixed itself"
+      ],
+      "move_keywords": [
+        "started taking",
+        "supplement",
+        "ever since",
+        "right after",
+        "same year",
+        "opened",
+        "crime went up",
+        "a week later",
+        "took the",
+        "coincidence"
+      ]
     },
     {
       "id": "tu_quoque",
@@ -89,7 +344,33 @@
       "family": "against_the_person",
       "short": "Answering a criticism by pointing to the critic's own hypocrisy instead of the point they raised.",
       "teaching": "Tu Quoque (\"you too\") shifts focus from the claim to the person making it, suggesting their criticism doesn't count because they're inconsistent or guilty of the same thing. Whether or not the critic practices what they preach, that doesn't settle whether their point is true. Note: it's fair game to raise a double standard when consistency itself is the actual question.",
-      "confirm_check": "Is the reply treating the critic's own hypocrisy or behavior as a reason the criticism can be set aside, rather than answering the criticism itself?"
+      "confirm_check": "Is the reply treating the critic's own hypocrisy or behavior as a reason the criticism can be set aside, rather than answering the criticism itself?",
+      "pick_label": "Calls you a hypocrite to dodge your point",
+      "pick_example": "You call out a problem, and instead of answering, they say you do it too. Like: you say \"you skipped the dishes,\" and they fire back \"well you never do them either, so you can't talk.\"",
+      "cues": [
+        "you do it too",
+        "you can't talk",
+        "what about when you",
+        "practice what you preach",
+        "you're a hypocrite",
+        "look who's talking",
+        "you're just as guilty",
+        "pot calling the kettle black",
+        "you do the exact same thing"
+      ],
+      "move_keywords": [
+        "you do it too",
+        "you can",
+        "what about when you",
+        "hypocrite",
+        "look who",
+        "showed up late",
+        "you never",
+        "spare me",
+        "crush a whole",
+        "watched you",
+        "yourself"
+      ]
     },
     {
       "id": "appeal_to_nature",
@@ -98,7 +379,38 @@
       "family": "irrelevant_appeal",
       "short": "Treating \"natural\" as automatically good and \"unnatural/artificial\" as automatically bad.",
       "teaching": "An appeal to nature uses \"it's natural\" as the reason something is good, safe, or right (and \"it's artificial\" as the reason it's bad), without showing the link. Whether something is natural and whether it's actually good are separate questions, so the naturalness alone doesn't settle it. The argument can still be sound if it backs the claim with real evidence of benefit or harm.",
-      "confirm_check": "Is \"natural\" (or \"unnatural/artificial/man-made\") being used as the main reason the thing is good or bad, rather than evidence of its actual effects?"
+      "confirm_check": "Is \"natural\" (or \"unnatural/artificial/man-made\") being used as the main reason the thing is good or bad, rather than evidence of its actual effects?",
+      "pick_label": "Says it's good because it's natural",
+      "pick_example": "They treat \"natural\" as automatically safe and \"man-made\" as automatically bad, with nothing to back it. Like: \"this tea cures it, it's all natural, no chemicals.\"",
+      "cues": [
+        "all natural",
+        "it's natural",
+        "no chemicals",
+        "chemical free",
+        "the way nature intended",
+        "man made",
+        "artificial stuff",
+        "not natural so",
+        "mother nature",
+        "organic so"
+      ],
+      "move_keywords": [
+        "natural",
+        "honey",
+        "organic",
+        "grows",
+        "ground",
+        "herbal",
+        "chemicals",
+        "artificial",
+        "comes straight",
+        "pure",
+        "plant",
+        "mother nature",
+        "white sugar",
+        "remedy",
+        "additives"
+      ]
     },
     {
       "id": "bandwagon",
@@ -107,7 +419,40 @@
       "family": "appeal_to_standing",
       "short": "Treating \"lots of people believe or do it\" as the reason a claim is true or right.",
       "teaching": "A bandwagon appeal points to how many people accept or do something as if that alone settles whether it's true or right. Popularity can occasionally be a faint clue, but it becomes a fallacy when a head-count stands in for actual reasons or evidence.",
-      "confirm_check": "Is the popularity itself (how many believe or do it) being offered as the reason the claim is true or right, rather than as one clue alongside independent reasons?"
+      "confirm_check": "Is the popularity itself (how many believe or do it) being offered as the reason the claim is true or right, rather than as one clue alongside independent reasons?",
+      "pick_label": "Says it must be right because so many people agree",
+      "pick_example": "They count heads instead of giving a reason. Like: \"a million users can't be wrong, so the app must be good.\"",
+      "cues": [
+        "millions of people",
+        "cant all be wrong",
+        "most people agree",
+        "everyones switching",
+        "its popular",
+        "join the rest of us",
+        "so many people use",
+        "everybody is doing it",
+        "what most people think",
+        "the majority"
+      ],
+      "move_keywords": [
+        "everyone",
+        "everybody",
+        "most",
+        "majority",
+        "half",
+        "country",
+        "block",
+        "neighborhood",
+        "popular",
+        "switching",
+        "trend",
+        "millions",
+        "crowd",
+        "signed up",
+        "ordering",
+        "all the",
+        "whole town"
+      ]
     },
     {
       "id": "argument_from_incredulity",
@@ -116,7 +461,41 @@
       "family": "presumption",
       "short": "Concluding a claim is false because one personally can't imagine how it could be true.",
       "teaching": "An argument from incredulity treats \"I can't see how this could be true\" as if it settled that it isn't. But the limit being reached is the speaker's own knowledge or imagination, not the claim's plausibility. It is reasonable to ask for an explanation; this only goes wrong when not understanding how is taken as proof of not so.",
-      "confirm_check": "Is the claim being rejected because no one could show it's true, or just because the speaker personally can't see or imagine how it could be?"
+      "confirm_check": "Is the claim being rejected because no one could show it's true, or just because the speaker personally can't see or imagine how it could be?",
+      "pick_label": "Can't picture it, so they call it false",
+      "pick_example": "They cannot imagine how it could work, so they decide it is not real. Like: \"no way the trick is real, I just don't see how anyone could pull that off.\"",
+      "cues": [
+        "i can't imagine",
+        "i cannot imagine",
+        "cant picture how",
+        "i don't see how",
+        "i refuse to believe that could",
+        "how could that even work",
+        "how is that even possible",
+        "nobody could ever do that",
+        "that just can't be real",
+        "i can't wrap my head around",
+        "seems impossible to me",
+        "my brain can't accept that"
+      ],
+      "move_keywords": [
+        "imagine",
+        "no way",
+        "impossible",
+        "cant see how",
+        "dont believe",
+        "unbelievable",
+        "makes no sense",
+        "cant picture",
+        "cant fathom",
+        "ridiculous",
+        "how could",
+        "doesnt add up",
+        "i dont get",
+        "hard to believe",
+        "must be fake",
+        "implausible"
+      ]
     },
     {
       "id": "poisoning_the_well",
@@ -125,7 +504,33 @@
       "family": "against_the_person",
       "short": "Discrediting a source ahead of time so the audience dismisses whatever they go on to say.",
       "teaching": "Poisoning the well places an unfavorable label or warning about a person before they speak, so listeners are set to reject anything they say in advance. The adverse information may be true, yet it doesn't settle whether their coming point is right. It is not this fallacy to share genuinely relevant background that listeners can still weigh against what the person actually argues.",
-      "confirm_check": "Is the source being discredited in advance so their coming point is set aside before it's heard, rather than that point being weighed once it's made?"
+      "confirm_check": "Is the source being discredited in advance so their coming point is set aside before it's heard, rather than that point being weighed once it's made?",
+      "pick_label": "Warns the room to ignore you before you speak",
+      "pick_example": "Before you even open your mouth, they tell everyone not to trust you. Like: \"don't listen to whatever she's about to say, she always lies.\"",
+      "cues": [
+        "don't listen to anything they say",
+        "don't trust a word out of",
+        "before they even open their mouth",
+        "you can't believe anything from",
+        "whatever they're about to tell you is",
+        "just so you know before they start",
+        "heads up, this person always",
+        "ignore whatever comes next from them",
+        "you already know they're going to lie"
+      ],
+      "move_keywords": [
+        "before he",
+        "before she",
+        "everyone should know",
+        "quick warning",
+        "got fired",
+        "keep that in mind",
+        "before they",
+        "heads up",
+        "friends with",
+        "so nothing she",
+        "gets up to present"
+      ]
     },
     {
       "id": "genetic_fallacy",
@@ -134,7 +539,34 @@
       "family": "against_the_person",
       "short": "Judging a claim true or false by where it came from rather than by what it actually says.",
       "teaching": "The genetic fallacy rates an idea by its origin or history (who or what it came from) instead of its current merits. Where a claim came from can be a clue worth noting, but a good idea from a poor source is still good, and a weak one from a respected source is still weak. It is not this fallacy when the origin genuinely bears on reliability and is weighed alongside the claim itself.",
-      "confirm_check": "Is the claim being judged by its origin or history (where or who it came from) rather than by what it actually says now?"
+      "confirm_check": "Is the claim being judged by its origin or history (where or who it came from) rather than by what it actually says now?",
+      "pick_label": "Dismisses the idea over where it came from",
+      "pick_example": "They wave off an idea because of its origin, not what it actually says. Like: \"that idea came from a tabloid, so it has to be wrong.\"",
+      "cues": [
+        "it's wrong because it came from",
+        "that's automatically false since it started as",
+        "you can't trust anything from that source",
+        "that idea has roots in",
+        "that's just something the other side made up",
+        "came from them, so it's garbage",
+        "of course it's nonsense, look who started it",
+        "that whole idea began as",
+        "it's tainted because of where it came from"
+      ],
+      "move_keywords": [
+        "came from",
+        "tabloid",
+        "wellness blog",
+        "started by",
+        "originally",
+        "trying to sell",
+        "scam from",
+        "source",
+        "began as",
+        "roots in",
+        "health claim",
+        "old blog"
+      ]
     },
     {
       "id": "red_herring",
@@ -156,6 +588,20 @@
         "distract",
         "smokescreen",
         "bringing up"
+      ],
+      "move_keywords": [
+        "off topic",
+        "unrelated",
+        "changing",
+        "subject",
+        "beside the point",
+        "distract",
+        "what about",
+        "different topic",
+        "irrelevant",
+        "sidetrack",
+        "brings up",
+        "tangent"
       ]
     },
     {
@@ -178,6 +624,19 @@
         "you are no better",
         "hypocrite",
         "your side did"
+      ],
+      "move_keywords": [
+        "what about you",
+        "you too",
+        "look who",
+        "you do it",
+        "hypocrite",
+        "you missed",
+        "you forget",
+        "well you",
+        "what about when",
+        "double standard",
+        "yourself"
       ]
     },
     {
@@ -200,6 +659,21 @@
         "now you need",
         "more proof",
         "goalpost"
+      ],
+      "move_keywords": [
+        "now they want",
+        "still not enough",
+        "more proof",
+        "keep asking",
+        "raise the bar",
+        "gave it",
+        "not enough",
+        "then they want",
+        "more evidence",
+        "never satisfied",
+        "one more thing",
+        "bank statement",
+        "receipt"
       ]
     },
     {
@@ -221,6 +695,19 @@
         "how did you get from",
         "non sequitur",
         "unrelated reason"
+      ],
+      "move_keywords": [
+        "so therefore",
+        "doesnt follow",
+        "out of nowhere",
+        "makes no sense",
+        "unrelated reason",
+        "how did you get",
+        "therefore",
+        "owns a truck",
+        "does not follow",
+        "leap",
+        "jump to"
       ]
     },
     {
@@ -230,7 +717,34 @@
       "family": "emotional_appeal",
       "short": "Pressing a conclusion by raising alarm about a scary outcome instead of showing it's likely or true.",
       "teaching": "An appeal to fear drives you toward a conclusion by stressing how frightening some outcome would be, rather than showing the outcome is actually likely or that the claim is true. Warning about a real, well-supported danger is perfectly legitimate; it only goes wrong when the scare is offered in place of evidence that the threat is real and sized to the facts.",
-      "confirm_check": "Set the frightening prospect aside: is there evidence the threat is real and likely, or was the alarm itself doing the persuading?"
+      "confirm_check": "Set the frightening prospect aside: is there evidence the threat is real and likely, or was the alarm itself doing the persuading?",
+      "pick_label": "Scares you into agreeing",
+      "pick_example": "They paint a terrifying outcome to push you, without showing it would actually happen. Like: \"vote no or your kids end up on the street.\"",
+      "cues": [
+        "or else",
+        "you will regret it",
+        "do this or",
+        "what if it happens to you",
+        "imagine if you lose everything",
+        "it is only a matter of time",
+        "you do not want to find out",
+        "next it could be you",
+        "before it is too late"
+      ],
+      "move_keywords": [
+        "wait",
+        "danger",
+        "scary",
+        "terrifying",
+        "wake up",
+        "catastrophe",
+        "disaster",
+        "afraid",
+        "one more",
+        "sign now",
+        "before it",
+        "lose everything"
+      ]
     },
     {
       "id": "appeal_to_pity",
@@ -239,7 +753,34 @@
       "family": "emotional_appeal",
       "short": "Urging a conclusion by stirring sympathy for someone's hardship rather than showing the claim is right.",
       "teaching": "An appeal to pity asks you to accept a conclusion because of the sympathy you feel for someone's suffering or hardship, rather than because the hardship bears on whether the claim is true or the decision is right. When the hardship is genuinely relevant, say when deciding what help someone needs, compassion is the point and no fallacy occurs; it only goes wrong when sympathy stands in for reasons the conclusion actually follows.",
-      "confirm_check": "Set the sympathy aside: does the person's hardship actually bear on the conclusion, or was pity carrying it?"
+      "confirm_check": "Set the sympathy aside: does the person's hardship actually bear on the conclusion, or was pity carrying it?",
+      "pick_label": "Wins you over with a sob story",
+      "pick_example": "They lean on how hard they have it so you will agree, even when it has nothing to do with the point. Like: \"give me the grade, I have been through so much.\"",
+      "cues": [
+        "i have been through so much",
+        "after everything i have done",
+        "please i am begging you",
+        "i work so hard for this",
+        "i have nobody else",
+        "cut me some slack",
+        "have a little sympathy",
+        "do not be so harsh on me",
+        "i am barely getting by"
+      ],
+      "move_keywords": [
+        "mom",
+        "kids",
+        "children",
+        "sick",
+        "hospital",
+        "struggling",
+        "please",
+        "rent",
+        "three kids",
+        "report is late",
+        "dont report",
+        "going through"
+      ]
     },
     {
       "id": "appeal_to_ridicule",
@@ -248,7 +789,32 @@
       "family": "emotional_appeal",
       "short": "Treating a position as refuted by mocking it or making it look absurd, instead of answering it.",
       "teaching": "An appeal to ridicule (the 'horse laugh') tries to defeat a position by mocking it or painting it as laughably absurd, rather than giving a reason it's wrong. A claim can be made to sound ridiculous and still be true. Humor that illustrates a real, separately-stated flaw is fine; it only goes wrong when the laugh is offered in place of an actual rebuttal.",
-      "confirm_check": "Strip out the mockery: is there an actual reason the position is wrong, or was making it look absurd the whole reply?"
+      "confirm_check": "Strip out the mockery: is there an actual reason the position is wrong, or was making it look absurd the whole reply?",
+      "pick_label": "Laughs it off instead of answering",
+      "pick_example": "They make your point sound silly so nobody takes it seriously, instead of saying why it is wrong. Like: \"so you think the earth is flat too, ha.\"",
+      "cues": [
+        "that is ridiculous",
+        "what a joke",
+        "you cannot be serious",
+        "oh sure, and next you will say",
+        "yeah right",
+        "so you actually believe that",
+        "that is adorable",
+        "good luck with that",
+        "what are you, five"
+      ],
+      "move_keywords": [
+        "another person",
+        "read one blog",
+        "suppose",
+        "moon landing",
+        "ridiculous",
+        "absurd",
+        "sure and",
+        "i guess",
+        "filmed in",
+        "laughable"
+      ]
     },
     {
       "id": "appeal_to_spite",
@@ -257,7 +823,34 @@
       "family": "emotional_appeal",
       "short": "Winning agreement by stirring resentment or a wish to see someone get their comeuppance.",
       "teaching": "An appeal to spite uses ill-will, the satisfaction of seeing a disliked person or group lose, suffer, or be denied, as the reason to back a conclusion, rather than reasons the conclusion is actually right. Noting that someone has behaved badly can be fair when their conduct is genuinely the matter at issue; it only goes wrong when the pull of resentment, not evidence, is what carries the claim.",
-      "confirm_check": "Set the resentment aside: is there a reason the conclusion is right, or was the wish to see someone lose carrying it?"
+      "confirm_check": "Set the resentment aside: is there a reason the conclusion is right, or was the wish to see someone lose carrying it?",
+      "pick_label": "Plays on your grudge against someone",
+      "pick_example": "They stir up your dislike of a person so you side against them, not because of any real reason. Like: \"you hate him anyway, so vote against his plan.\"",
+      "cues": [
+        "you hate them anyway",
+        "they had it coming",
+        "serve them right",
+        "get back at them",
+        "after what they did to you",
+        "show them who is right",
+        "they deserve to lose",
+        "do not let them win",
+        "give them what they deserve"
+      ],
+      "move_keywords": [
+        "humiliated",
+        "looked down",
+        "comeuppance",
+        "deserve",
+        "revenge",
+        "payback",
+        "manager",
+        "department",
+        "stick it",
+        "get back",
+        "had it coming",
+        "resent"
+      ]
     },
     {
       "id": "appeal_to_tradition",
@@ -266,7 +859,39 @@
       "family": "appeal_to_standing",
       "short": "Treating something as right or true mainly because it is long-established or 'how it's always been done'.",
       "teaching": "An appeal to tradition treats the age or long use of a practice as the reason it must be good, correct, or worth keeping. How long something has been done does not by itself show it works or is right. It is not this fallacy when the long track record is offered as real evidence, for example that the practice has been tested over time and shown to hold up.",
-      "confirm_check": "Is the practice's age or long history being used as the main reason it is right, rather than evidence that it actually works?"
+      "confirm_check": "Is the practice's age or long history being used as the main reason it is right, rather than evidence that it actually works?",
+      "pick_label": "Says it's right because it's always been done that way",
+      "pick_example": "They defend it by how old it is, not by whether it works. Like: \"we've always run payroll this way, so don't change it.\"",
+      "cues": [
+        "weve always done it",
+        "the way it has always been",
+        "time honored",
+        "stood the test of time",
+        "tradition",
+        "old fashioned way",
+        "since the beginning",
+        "thats how its done",
+        "our ancestors",
+        "never changed it"
+      ],
+      "move_keywords": [
+        "always",
+        "tradition",
+        "grandfather",
+        "grandmother",
+        "ancestors",
+        "generations",
+        "decades",
+        "century",
+        "centuries",
+        "same weekend",
+        "same way",
+        "heritage",
+        "custom",
+        "seasoned",
+        "held the",
+        "since forever"
+      ]
     },
     {
       "id": "appeal_to_novelty",
@@ -275,7 +900,38 @@
       "family": "appeal_to_standing",
       "short": "Treating something as better or true mainly because it is new, modern, or the latest thing.",
       "teaching": "An appeal to novelty treats newness or being up-to-date as the reason something must be better, correct, or worth adopting. That a thing is new says nothing on its own about whether it works or is true. It is not this fallacy when the case gives actual reasons the newer option is an improvement, such as a measured benefit over the older one.",
-      "confirm_check": "Is the newness or modernity of the thing being used as the main reason it is better, rather than evidence that it actually is?"
+      "confirm_check": "Is the newness or modernity of the thing being used as the main reason it is better, rather than evidence that it actually is?",
+      "pick_label": "Says it's better just because it's new",
+      "pick_example": "They sell it on being the latest thing, not on results. Like: \"it's the newest model, so it's got to beat the old one.\"",
+      "cues": [
+        "its the newest",
+        "latest version",
+        "brand new",
+        "cutting edge",
+        "modern way",
+        "up to date",
+        "old and outdated",
+        "newer is better",
+        "state of the art",
+        "just came out"
+      ],
+      "move_keywords": [
+        "new",
+        "newest",
+        "latest",
+        "modern",
+        "dropped",
+        "redesign",
+        "rebuilt",
+        "cutting",
+        "upgrade",
+        "newer",
+        "just released",
+        "this year",
+        "brand new",
+        "redesigned",
+        "from scratch"
+      ]
     },
     {
       "id": "snob_appeal",
@@ -284,7 +940,38 @@
       "family": "appeal_to_standing",
       "short": "Treating something as good or true because elite, refined, or discerning people favor it.",
       "teaching": "Snob appeal urges a conclusion by tying it to an exclusive, classy, or discerning kind of person, so accepting it makes you one of them. The taste of a select few does not by itself show the thing is good or the claim true. It is not this fallacy when the appeal points to real qualities the thing has, rather than just the status of who chooses it.",
-      "confirm_check": "Is the thing being recommended mainly because select or elite people favor it, rather than for qualities it actually has?"
+      "confirm_check": "Is the thing being recommended mainly because select or elite people favor it, rather than for qualities it actually has?",
+      "pick_label": "Says only refined, elite people pick it, so you should too",
+      "pick_example": "They tie it to a select, classy few so you'll feel like one of them. Like: \"people of real taste only drink this label.\"",
+      "cues": [
+        "people of taste",
+        "discerning",
+        "the elite",
+        "sophisticated people",
+        "not for everyone",
+        "exclusive",
+        "a cut above",
+        "those in the know",
+        "refined",
+        "only the best people",
+        "upscale"
+      ],
+      "move_keywords": [
+        "palate",
+        "refined",
+        "discerning",
+        "sophisticated",
+        "elite",
+        "classy",
+        "connoisseur",
+        "developed",
+        "taste",
+        "exclusive",
+        "upscale",
+        "appreciate",
+        "cultured",
+        "fine wine"
+      ]
     },
     {
       "id": "false_equivalence",
@@ -293,7 +980,32 @@
       "family": "false_choices",
       "short": "Treating two things as equal or the same when they differ greatly in scale, degree, or kind.",
       "teaching": "A false equivalence puts two things side by side as if they were the same or equally bad, while ignoring a large difference in scale, degree, or kind that actually matters. The comparison can be perfectly fair when the two things really are alike in the respect being discussed; it only goes wrong when an important difference between them is set aside.",
-      "confirm_check": "Are two things being treated as the same or equally bad while a real difference in their scale, degree, or kind is set aside?"
+      "confirm_check": "Are two things being treated as the same or equally bad while a real difference in their scale, degree, or kind is set aside?",
+      "pick_label": "Treats two unequal things as the same",
+      "pick_example": "They line up two things as if they were just as bad, ignoring how different they really are. Like: \"a parking ticket and robbing a bank are both breaking the law.\"",
+      "cues": [
+        "same thing",
+        "just as bad",
+        "no different from",
+        "that is like comparing",
+        "you might as well say",
+        "it is the same as",
+        "equally bad",
+        "they are basically the same",
+        "both are technically",
+        "no better than"
+      ],
+      "move_keywords": [
+        "same as",
+        "just like",
+        "equally",
+        "skipping the gym",
+        "no different",
+        "same thing",
+        "ruining your",
+        "as bad as",
+        "one day is"
+      ]
     },
     {
       "id": "perfect_solution",
@@ -302,7 +1014,33 @@
       "family": "false_choices",
       "short": "Rejecting a workable option because it isn't a flawless fix that solves the whole problem.",
       "teaching": "The perfect-solution (or nirvana) fallacy dismisses a real improvement just because it falls short of a flawless ideal, as if anything less than total success were worthless. Holding out for a perfect fix is reasonable when the imperfect option's leftover flaws actually make it worse than doing nothing or than another choice; it is a fallacy only when a genuine improvement is rejected merely for not being perfect.",
-      "confirm_check": "Is a workable option being rejected mainly because it isn't a perfect or complete fix, rather than because its flaws make it worse than the alternative?"
+      "confirm_check": "Is a workable option being rejected mainly because it isn't a perfect or complete fix, rather than because its flaws make it worse than the alternative?",
+      "pick_label": "Trashes a fix for not being perfect",
+      "pick_example": "They throw out something that would clearly help because it does not fix everything. Like: \"seatbelts do not save everyone, so why bother wearing one.\"",
+      "cues": [
+        "does not fix everything",
+        "what is the point if",
+        "will not solve it all",
+        "still not perfect",
+        "why bother if",
+        "does not work every time",
+        "it would not stop all",
+        "no point unless",
+        "not a real solution",
+        "all or nothing"
+      ],
+      "move_keywords": [
+        "not perfect",
+        "wont stop",
+        "doesnt cover",
+        "every possible",
+        "by itself",
+        "so why",
+        "pointless",
+        "why bother",
+        "doesnt fix",
+        "not flawless"
+      ]
     },
     {
       "id": "middle_ground",
@@ -311,7 +1049,33 @@
       "family": "false_choices",
       "short": "Assuming the truth must sit halfway between two positions just because it's the compromise.",
       "teaching": "The middle-ground (or argument-to-moderation) fallacy treats the compromise between two views as automatically correct simply because it sits in the middle, regardless of the evidence on either side. A compromise can absolutely be the right answer when there are real reasons for it; it is a fallacy only when the midpoint is assumed true just for being the midpoint, even when one side is better supported.",
-      "confirm_check": "Is the compromise being treated as correct mainly because it's in the middle, rather than because there's evidence supporting that position?"
+      "confirm_check": "Is the compromise being treated as correct mainly because it's in the middle, rather than because there's evidence supporting that position?",
+      "pick_label": "Assumes the answer is splitting the difference",
+      "pick_example": "They land in the middle just because it is the middle, not because it is right. Like: one says 2 plus 2 is 4, the other says 6, so \"let's call it 5.\"",
+      "cues": [
+        "meet in the middle",
+        "somewhere in between",
+        "split the difference",
+        "the truth is in the middle",
+        "halfway between",
+        "both have a point so the answer is",
+        "middle ground",
+        "the answer must be in between",
+        "compromise somewhere",
+        "right down the middle"
+      ],
+      "move_keywords": [
+        "halfway",
+        "compromise",
+        "split the difference",
+        "middle",
+        "somewhere between",
+        "one says",
+        "another says",
+        "so its probably",
+        "must be around",
+        "truth is in"
+      ]
     },
     {
       "id": "begging_the_question",
@@ -365,7 +1129,34 @@
       "family": "hasty_conclusions",
       "short": "Using a personal story or single vivid case in place of systematic evidence.",
       "teaching": "Anecdotal reasoning leans on one memorable story or personal experience as if it settled what is true in general, even when broader data points the other way. A single case can be a fine illustration or a prompt to look closer; it is only a fallacy when the story is treated as the proof rather than as one example among many.",
-      "confirm_check": "Is a personal story or single vivid case being offered as the proof, rather than systematic evidence about the broader pattern?"
+      "confirm_check": "Is a personal story or single vivid case being offered as the proof, rather than systematic evidence about the broader pattern?",
+      "pick_label": "Leans on one story as proof",
+      "pick_example": "They treat a single tale or one thing that happened to them as if it settles the whole question. Like: \"my grandpa smoked every day and lived to 95, so smoking is fine.\"",
+      "cues": [
+        "my grandpa",
+        "worked for me",
+        "i know a guy",
+        "that happened to me",
+        "my friend told me",
+        "this one time",
+        "in my experience",
+        "i saw someone",
+        "a guy i know",
+        "my cousin did"
+      ],
+      "move_keywords": [
+        "uncle",
+        "tried",
+        "week",
+        "my own",
+        "worked for me",
+        "one time",
+        "lost five pounds",
+        "never wore",
+        "seatbelt",
+        "i did",
+        "diet"
+      ]
     },
     {
       "id": "cherry_picking",
@@ -374,7 +1165,32 @@
       "family": "hasty_conclusions",
       "short": "Citing only the cases that support a claim while leaving out the ones that count against it.",
       "teaching": "Cherry picking presents the data points that fit a conclusion and quietly sets aside the ones that don't, so a one-sided picture looks like the whole story. Highlighting your strongest supporting evidence is normal; it only becomes a fallacy when contrary evidence that's known to exist is left out rather than weighed.",
-      "confirm_check": "Is contrary evidence that's known to exist being left out, so only the supporting cases are shown?"
+      "confirm_check": "Is contrary evidence that's known to exist being left out, so only the supporting cases are shown?",
+      "pick_label": "Shows the wins, hides the losses",
+      "pick_example": "They point at the cases that help them and act like the ones that hurt them do not exist. Like: bragging about the three trades that went up and never mentioning the ten that tanked.",
+      "cues": [
+        "only counts the good ones",
+        "ignoring all the times it failed",
+        "what about the ones that flopped",
+        "conveniently left out the losses",
+        "they skip the bad results",
+        "only shows the wins",
+        "forgets the failures",
+        "picks the flattering numbers",
+        "never mentions the misses"
+      ],
+      "move_keywords": [
+        "jumped these",
+        "ignore",
+        "only counting",
+        "just look",
+        "three days",
+        "conveniently",
+        "handpicked",
+        "best part",
+        "cured my",
+        "neighbors"
+      ]
     },
     {
       "id": "sampling_bias",
@@ -383,7 +1199,32 @@
       "family": "hasty_conclusions",
       "short": "Drawing a conclusion from a group that was selected in a way that doesn't represent the whole.",
       "teaching": "Sampling bias happens when the people or cases looked at were gathered in a skewed way, such as volunteers, a convenient crowd, or one slice of a group, so they can't speak for the larger population the conclusion is about. A sample drawn casually can still be honest, so this is only a fallacy when how it was collected makes it unrepresentative of the group being claimed about.",
-      "confirm_check": "Was the sample gathered in a skewed way (self-selected, convenient, one-sided) that doesn't represent the group the conclusion is about?"
+      "confirm_check": "Was the sample gathered in a skewed way (self-selected, convenient, one-sided) that doesn't represent the group the conclusion is about?",
+      "pick_label": "Asked a crowd that cannot speak for everyone",
+      "pick_example": "They poll a slanted group and act like it speaks for everybody. Like: asking people leaving a steakhouse whether the town wants more steakhouses.",
+      "cues": [
+        "only asked the regulars",
+        "asked the wrong people",
+        "whoever happened to be around",
+        "just people on this site",
+        "that is not a fair sample",
+        "everyone i asked was already a fan",
+        "only polled one side",
+        "the crowd was stacked",
+        "picked who to survey"
+      ],
+      "move_keywords": [
+        "poll",
+        "survey",
+        "my group",
+        "replied",
+        "gaming group",
+        "followers",
+        "ninety percent",
+        "everyone who",
+        "responded",
+        "my survey"
+      ]
     },
     {
       "id": "overgeneralization",
@@ -392,7 +1233,32 @@
       "family": "hasty_conclusions",
       "short": "Treating a rule that holds in many cases as if it held in every case, with no exceptions.",
       "teaching": "Overgeneralization takes a pattern that's true often and states it as an exceptionless 'always/never/all' rule, then applies it even to cases it doesn't fit. Broad rules are useful and many do hold widely; it only becomes a fallacy when the sweeping form is asserted without qualification or pressed onto a case that's a known exception.",
-      "confirm_check": "Is a rule that holds in many cases being stated as exceptionless, or pressed onto a case it doesn't actually fit?"
+      "confirm_check": "Is a rule that holds in many cases being stated as exceptionless, or pressed onto a case it doesn't actually fit?",
+      "pick_label": "Turns a sometimes into an always",
+      "pick_example": "They take something that is often true and slap an always or never on it, no exceptions allowed. Like: \"one barista was rude, so this whole chain has terrible service.\"",
+      "cues": [
+        "they always do that",
+        "it never works",
+        "all of them are like that",
+        "every single one is",
+        "those people are all the same",
+        "no exceptions ever",
+        "that is just how they all are",
+        "happens every time without fail",
+        "typical of every one of them"
+      ],
+      "move_keywords": [
+        "teenager",
+        "airline",
+        "cut me off",
+        "delayed twice",
+        "teens are",
+        "that airline",
+        "those people",
+        "every single",
+        "all teenagers",
+        "whole generation"
+      ]
     },
     {
       "id": "post_hoc",
@@ -401,7 +1267,32 @@
       "family": "causal",
       "short": "Concluding that because one thing happened after another, the first must have caused the second.",
       "teaching": "Post hoc reasoning treats the order of events as proof of cause: B came right after A, so A caused B. But one thing following another can be pure coincidence, and a single before-then-after sequence shows nothing on its own. It is not this fallacy when the sequence has been seen to repeat reliably or a mechanism connects the two, beyond their bare order in time.",
-      "confirm_check": "Is the only support for the causal claim that one event came before the other, with no repeat or mechanism shown?"
+      "confirm_check": "Is the only support for the causal claim that one event came before the other, with no repeat or mechanism shown?",
+      "pick_label": "Says one thing caused another just because it happened earlier",
+      "pick_example": "One thing happened, then another came right after, so they call the earlier one the reason. Like: \"I wore my lucky socks and then we won, so the socks won us the game.\"",
+      "cues": [
+        "right after",
+        "ever since",
+        "happened after",
+        "as soon as",
+        "the moment i",
+        "then it started",
+        "that is when it",
+        "ever since i started",
+        "first this then that",
+        "right before it happened"
+      ],
+      "move_keywords": [
+        "started taking",
+        "monday",
+        "felt better",
+        "right after",
+        "ever since",
+        "after i",
+        "took the",
+        "then i",
+        "next day"
+      ]
     },
     {
       "id": "single_cause",
@@ -410,7 +1301,30 @@
       "family": "causal",
       "short": "Blaming an outcome on one cause when it plausibly arose from several contributing factors.",
       "teaching": "Causal oversimplification pins a complex outcome on a single cause, as if nothing else contributed. Real events usually have several factors working together, so naming just one and ignoring the rest distorts the picture. It is not this fallacy when one cause genuinely is the main driver and the others have been weighed and found minor, rather than simply left out.",
-      "confirm_check": "Is one cause being treated as the whole explanation for an outcome that plausibly had several contributing factors?"
+      "confirm_check": "Is one cause being treated as the whole explanation for an outcome that plausibly had several contributing factors?",
+      "pick_label": "Blames one cause when the outcome had several",
+      "pick_example": "A messy outcome with lots of reasons behind it, but they pin it on just one. Like: \"the only reason we lost the client was the late email,\" ignoring the price and the bad meeting.",
+      "cues": [
+        "the only reason",
+        "all because of",
+        "it all comes down to",
+        "the real reason is",
+        "purely because",
+        "nothing else mattered",
+        "one and only cause",
+        "blame it on",
+        "if not for that one"
+      ],
+      "move_keywords": [
+        "all because",
+        "whole reason",
+        "the only reason",
+        "entirely",
+        "blame",
+        "social media",
+        "just because of",
+        "one thing"
+      ]
     },
     {
       "id": "correlation_causation",
@@ -419,7 +1333,32 @@
       "family": "causal",
       "short": "Treating two things that move together as proof that one of them causes the other.",
       "teaching": "This error reads a correlation, two things rising and falling together, as if it settled that one causes the other. But the link can run the opposite way, or a third factor can be driving both, so tracking together is not the same as causing. It is not this fallacy when the causal direction has been established or other drivers tested, rather than the connection simply being assumed from the matching pattern.",
-      "confirm_check": "Is a causal claim resting on two things tracking together, with the direction assumed rather than established?"
+      "confirm_check": "Is a causal claim resting on two things tracking together, with the direction assumed rather than established?",
+      "pick_label": "Sees two things rise and fall together and calls it cause",
+      "pick_example": "Two things go up and down together, so they assume one drives the other. Like: \"towns with more firefighters have more fires, so firefighters cause fires.\"",
+      "cues": [
+        "they go together",
+        "every time one goes up",
+        "whenever one rises",
+        "people who do x also",
+        "studies show a link",
+        "the more x the more y",
+        "they track together",
+        "tied together",
+        "move together"
+      ],
+      "move_keywords": [
+        "chocolate",
+        "nobel",
+        "more books",
+        "score higher",
+        "countries that",
+        "linked",
+        "correlated",
+        "kids who",
+        "the more",
+        "associated with"
+      ]
     },
     {
       "id": "weak_analogy",
@@ -428,7 +1367,33 @@
       "family": "comparison",
       "short": "Drawing a conclusion from a comparison resting on too few or only surface-level shared traits.",
       "teaching": "A weak analogy argues that because two things are alike in some way, what is true of one must be true of the other, but the likenesses it points to are too few or too shallow to carry that weight. Analogies are a fair and useful way to reason. It is not this fallacy when the cases line up in the ways that actually matter and the shared traits are substantial.",
-      "confirm_check": "Are the similarities the comparison rests on substantial and relevant to the conclusion, rather than few or surface-level?"
+      "confirm_check": "Are the similarities the comparison rests on substantial and relevant to the conclusion, rather than few or surface-level?",
+      "pick_label": "Leans on a surface resemblance",
+      "pick_example": "They tie two things together over a thin, surface likeness and act like that settles it. Like: \"a company is just like a family, so the boss should make all the calls.\"",
+      "cues": [
+        "is just like a",
+        "is basically a",
+        "kind of like a",
+        "think of it like a",
+        "you can compare it to",
+        "is no different from a",
+        "picture it as a",
+        "treat a company like a",
+        "run a country like a"
+      ],
+      "move_keywords": [
+        "basically a",
+        "just like",
+        "is like",
+        "school is",
+        "brain is",
+        "like a computer",
+        "same as",
+        "compare",
+        "analogy",
+        "treat it like",
+        "think of it as"
+      ]
     },
     {
       "id": "false_analogy",
@@ -437,7 +1402,33 @@
       "family": "comparison",
       "short": "A comparison that breaks down because the two things differ in the respect the conclusion depends on.",
       "teaching": "A false analogy treats two cases as parallel while ignoring a difference between them that is decisive for the point being made. The comparison can be apt in other ways and still fail here, because the one respect that matters is where they part. It is not this fallacy when the cases really are alike in the relevant respect, or when the difference raised has no bearing on the conclusion.",
-      "confirm_check": "Are the two things alike in the one respect the conclusion actually depends on, with no decisive difference being glossed over?"
+      "confirm_check": "Are the two things alike in the one respect the conclusion actually depends on, with no decisive difference being glossed over?",
+      "pick_label": "Ignores the one difference that matters",
+      "pick_example": "The comparison fits in most ways but falls apart on the exact thing the point hangs on. Like: \"a car needs an oil change, so your body needs a yearly detox.\"",
+      "cues": [
+        "the same way a",
+        "so it should work for",
+        "if it works for a",
+        "just like we do with",
+        "we already do this with",
+        "so why not do the same with",
+        "we let people do it with",
+        "by the same token",
+        "it worked for them so it will work for"
+      ],
+      "move_keywords": [
+        "let adults",
+        "so we should let",
+        "pruning a tree",
+        "cutting school",
+        "grow back",
+        "just like",
+        "comparing",
+        "since we",
+        "if we let",
+        "the same way",
+        "apply the same"
+      ]
     },
     {
       "id": "apples_to_oranges",
@@ -446,7 +1437,34 @@
       "family": "comparison",
       "short": "Comparing two things as if on a common measure when they share no yardstick or category.",
       "teaching": "An apples-to-oranges comparison lines up two things as equivalent when they belong to different categories or are measured by different yardsticks, so the comparison has no common footing. The point is not that the things are merely different, since all comparisons involve different things, but that there is no shared standard on which putting them side by side makes sense. It is fine when a genuine common measure such as cost, risk, or effect actually does apply to both.",
-      "confirm_check": "Are the two things measured on a single shared standard that genuinely applies to both, rather than lined up across different categories?"
+      "confirm_check": "Are the two things measured on a single shared standard that genuinely applies to both, rather than lined up across different categories?",
+      "pick_label": "Stacks up two things with no shared measuring stick",
+      "pick_example": "They line two things up as equal when there is no common ruler that fits both. Like: \"this song got more streams than that movie made at the box office, so the song is the bigger hit.\"",
+      "cues": [
+        "has more than that so it beats",
+        "scored higher than",
+        "is bigger than the",
+        "does better numbers than",
+        "outsells the",
+        "ranks above the",
+        "beat out the",
+        "is worth more than the",
+        "puts up better stats than"
+      ],
+      "move_keywords": [
+        "costs more than",
+        "more pages than",
+        "tracks",
+        "latte",
+        "gym",
+        "worse deal",
+        "comparing",
+        "book has more",
+        "clearly put in",
+        "cheaper than",
+        "fewer than",
+        "versus"
+      ]
     },
     {
       "id": "equivocation",
@@ -518,7 +1536,39 @@
       "family": "formal_conditional",
       "short": "Seeing the predicted result show up and concluding the stated condition must therefore be true.",
       "teaching": "This treats 'if X, then Y' as if Y could only ever come from X, so when Y shows up it claims X must be true. But the same outcome can have other causes, so seeing the outcome does not confirm that one particular condition. It is not this fallacy when that condition really is the only thing that could produce the outcome, or when the other possible explanations have already been checked and ruled out.",
-      "confirm_check": "Is the stated condition being treated as proven just because its predicted result showed up, even though that result could have come about some other way?"
+      "confirm_check": "Is the stated condition being treated as proven just because its predicted result showed up, even though that result could have come about some other way?",
+      "pick_label": "Saw the expected result, so assumes their one cause did it",
+      "pick_example": "They spot the outcome they were expecting and decide their single cause must be behind it, ignoring that other things produce the same outcome. Like: \"the grass is wet, so it rained last night,\" when the sprinkler runs every morning.",
+      "cues": [
+        "so it must have rained",
+        "so that proves it was",
+        "the result is here so it was",
+        "it happened so it must have been",
+        "since we got that result",
+        "so it definitely came from",
+        "that means it was because of",
+        "so clearly it was the"
+      ],
+      "move_keywords": [
+        "must have",
+        "so it",
+        "therefore",
+        "proves",
+        "happened",
+        "showed up",
+        "result",
+        "outcome",
+        "wet grass",
+        "rained",
+        "symptom",
+        "sign",
+        "confirms",
+        "explains it",
+        "saw",
+        "did it",
+        "backwards",
+        "jumped"
+      ]
     },
     {
       "id": "denying_the_antecedent",
@@ -527,7 +1577,39 @@
       "family": "formal_conditional",
       "short": "Because the stated condition did not happen, concluding the result is ruled out.",
       "teaching": "This takes 'if X, then Y' and reasons that because X did not happen, Y will not happen either. But X may be only one of several ways to reach Y, so its absence does not rule the result out. It is not this fallacy when the stated condition truly is the only way the result could occur, so removing it genuinely removes the result.",
-      "confirm_check": "Is the result being ruled out just because the stated condition did not happen, even though the result could still come about another way?"
+      "confirm_check": "Is the result being ruled out just because the stated condition did not happen, even though the result could still come about another way?",
+      "pick_label": "The trigger never happened, so rules the result out",
+      "pick_example": "They note that one thing did not happen and conclude the result is off the table, forgetting it could arrive another way. Like: \"I did not study, so I am sure to fail,\" when you might still pass on what you already know.",
+      "cues": [
+        "did not happen so it wont",
+        "so there is no way it happens",
+        "since that didnt happen",
+        "without that it cant",
+        "if you dont do that you cant",
+        "that didnt happen so it is ruled out",
+        "so it is impossible now",
+        "so it definitely wont work out"
+      ],
+      "move_keywords": [
+        "didnt",
+        "did not",
+        "never happened",
+        "without",
+        "no",
+        "ruled out",
+        "wont",
+        "cant happen",
+        "off the table",
+        "impossible",
+        "absence",
+        "missing",
+        "skipped",
+        "not there",
+        "fail",
+        "guaranteed",
+        "removed",
+        "lacking"
+      ]
     },
     {
       "id": "base_rate_neglect",
@@ -593,6 +1675,20 @@
         "that would mean",
         "too awful",
         "hope it is not"
+      ],
+      "move_keywords": [
+        "too awful",
+        "too sad",
+        "cant be true",
+        "would be terrible",
+        "refuse to believe",
+        "if that were true",
+        "awful",
+        "layoffs",
+        "cant accept",
+        "wish",
+        "hope it",
+        "scared"
       ]
     },
     {
@@ -619,6 +1715,19 @@
         "only because you",
         "you only believe",
         "you only think"
+      ],
+      "move_keywords": [
+        "you only want",
+        "you only believe",
+        "you only think",
+        "of course you",
+        "agenda",
+        "biased because",
+        "stand to gain",
+        "you would say",
+        "follow the money",
+        "schedule",
+        "raise"
       ]
     },
     {
@@ -641,6 +1750,19 @@
         "people do this all the time",
         "not just me",
         "two wrongs"
+      ],
+      "move_keywords": [
+        "everyone does it",
+        "everybody does",
+        "others do",
+        "but everyone",
+        "normal to",
+        "not just me",
+        "everyone is late",
+        "cut corners",
+        "parked",
+        "late",
+        "everybody"
       ]
     },
     {
@@ -663,6 +1785,19 @@
         "coming from someone like you",
         "of course she thinks that",
         "consider the source"
+      ],
+      "move_keywords": [
+        "got divorced",
+        "you are rich",
+        "you are poor",
+        "because he is",
+        "because she is",
+        "mess",
+        "given who",
+        "situation",
+        "of course she thinks",
+        "fired",
+        "unstable"
       ]
     },
     {
@@ -672,7 +1807,39 @@
       "family": "presumption",
       "short": "Fuses two separate questions into one, so a single answer is forced to settle both at once.",
       "teaching": "A complex question is built on a hidden assumption you never agreed to, so any straight answer quietly grants that assumption. The classic shape bundles a loaded presupposition into a yes-or-no, like 'Have you stopped cutting corners?', where both yes and no admit you were cutting corners. It is not this fallacy when the built-in assumption is genuinely settled or already agreed, since then a direct answer concedes nothing in dispute.",
-      "confirm_check": "Does the question rest on an unproven assumption, so that any direct answer would grant that assumption without it ever being established?"
+      "confirm_check": "Does the question rest on an unproven assumption, so that any direct answer would grant that assumption without it ever being established?",
+      "pick_label": "Asks a question that traps you",
+      "pick_example": "The question sneaks in something you never agreed to, so any answer admits it. Like: \"so when did you stop slacking off?\"",
+      "cues": [
+        "have you stopped",
+        "when did you stop",
+        "why do you always",
+        "why are you so",
+        "so you admit that",
+        "who told you to",
+        "how long have you been",
+        "what made you decide to lie",
+        "why did you really",
+        "since you obviously"
+      ],
+      "move_keywords": [
+        "stopped",
+        "when did",
+        "still",
+        "loaded question",
+        "admit",
+        "trick question",
+        "either way",
+        "presupposes",
+        "yes or no",
+        "trap",
+        "gotcha",
+        "have you stopped",
+        "sneaks in",
+        "any answer",
+        "built in",
+        "concede"
+      ]
     },
     {
       "id": "no_true_scotsman",
@@ -681,7 +1848,40 @@
       "family": "presumption",
       "short": "Saves a sweeping claim from a counterexample by redefining the group to exclude that case.",
       "teaching": "No True Scotsman protects a universal claim ('no member of this group ever does that') by relabeling any counterexample as 'not a real member,' instead of letting the example count against the claim. It is not this fallacy when the excluded case genuinely fails a standard that was set out beforehand, rather than one invented on the spot once the example came up.",
-      "confirm_check": "Is a counterexample being dismissed by relabeling it as 'not a real member' rather than letting it count against the claim?"
+      "confirm_check": "Is a counterexample being dismissed by relabeling it as 'not a real member' rather than letting it count against the claim?",
+      "pick_label": "Says the exception doesn't count",
+      "pick_example": "You point to a case that breaks their rule, and they say that one is not the real thing. Like: \"no real fan would ever leave early.\"",
+      "cues": [
+        "no real",
+        "not a real",
+        "no true",
+        "they were never really",
+        "wasn't a true",
+        "not really one of us",
+        "real ones would never",
+        "you're not a true",
+        "that's not a real",
+        "a true one would never",
+        "doesn't count as a real"
+      ],
+      "move_keywords": [
+        "no real",
+        "true fan",
+        "real man",
+        "doesnt count",
+        "not a real",
+        "real one",
+        "exception",
+        "wasnt really",
+        "genuine",
+        "true believer",
+        "no real fan",
+        "real christian",
+        "doesnt qualify",
+        "not really",
+        "real member",
+        "redefine"
+      ]
     },
     {
       "id": "suppressed_correlative",
@@ -690,7 +1890,40 @@
       "family": "presumption",
       "short": "Stretches one of a paired set of options so wide that its opposite is left with nothing to cover.",
       "teaching": "A suppressed correlative redefines one side of a contrasting pair so broadly that the other side is emptied out and can no longer apply ('everyone is selfish, since even kindness is really just doing what you want'). It is not this fallacy when the broader meaning is genuinely justified and the contrast still leaves real cases on the other side.",
-      "confirm_check": "Is one option stretched so wide that its opposite is left with no real cases to cover?"
+      "confirm_check": "Is one option stretched so wide that its opposite is left with no real cases to cover?",
+      "pick_label": "Stretches a word until nothing is left out",
+      "pick_example": "They widen one word so far that its opposite can never apply to anyone. Like: \"everybody is selfish, since even being kind is just doing what you want.\"",
+      "cues": [
+        "deep down everyone",
+        "nobody is truly",
+        "no one is really",
+        "at the end of the day everyone",
+        "even that counts as",
+        "always secretly",
+        "we're all just",
+        "there's no such thing as truly",
+        "everyone is really",
+        "that's just selfishness too",
+        "kindness is selfish too"
+      ],
+      "move_keywords": [
+        "everyone is",
+        "selfish",
+        "deep down",
+        "really just",
+        "secretly",
+        "nobody is truly",
+        "always",
+        "just doing what",
+        "ultimately",
+        "at heart",
+        "everybody is",
+        "all the same",
+        "no such thing",
+        "even kindness",
+        "boils down",
+        "always selfish"
+      ]
     },
     {
       "id": "appeal_to_force",
@@ -699,7 +1932,37 @@
       "family": "irrelevant_appeal",
       "short": "Backing a claim or demand with a threat of harm or penalty instead of with reasons.",
       "teaching": "An appeal to force, the 'or else' move, gets you to agree or comply by warning that disagreement will cost you, whether your job, safety, or standing, rather than by giving reasons the claim is true. A threat can never make a claim correct, only riskier to dispute. It is not this fallacy to simply describe a real consequence as part of an honest decision, such as 'if we miss the deadline, the contract is void'; the line is crossed when the penalty is offered as the reason to believe or accept the point.",
-      "confirm_check": "Is acceptance being pressed by a threat of harm or penalty, rather than by reasons the claim is actually true or right?"
+      "confirm_check": "Is acceptance being pressed by a threat of harm or penalty, rather than by reasons the claim is actually true or right?",
+      "pick_label": "Backs it with a threat",
+      "pick_example": "Instead of a reason, they warn that disagreeing will cost you. Like: \"agree this is fine, or you can find another job.\"",
+      "cues": [
+        "or else",
+        "you'll regret it",
+        "find another job",
+        "if you know what's good for you",
+        "do it or",
+        "you don't want to make this hard",
+        "watch yourself",
+        "there will be consequences",
+        "wouldn't want to lose your",
+        "keep pushing and see"
+      ],
+      "move_keywords": [
+        "sign off",
+        "or i",
+        "boss hears",
+        "keep questioning",
+        "youll be looking",
+        "fired",
+        "or else",
+        "threat",
+        "clients",
+        "regret",
+        "watch out",
+        "make sure",
+        "new job",
+        "careful"
+      ]
     },
     {
       "id": "appeal_to_flattery",
@@ -708,7 +1971,35 @@
       "family": "irrelevant_appeal",
       "short": "Praising the listener so they'll accept the claim, instead of giving reasons for it.",
       "teaching": "An appeal to flattery, sometimes called 'apple polishing', warms you up with compliments about how smart, fair, or discerning you are, so you'll go along with the point, when the praise has nothing to do with whether the point is true. A sincere compliment is fine on its own; this only goes wrong when the flattery is doing the persuading in place of evidence. It is not this fallacy to note someone's genuine, relevant qualification when that qualification actually bears on the matter.",
-      "confirm_check": "Is the listener being won over by praise of themselves, rather than by reasons the claim holds?"
+      "confirm_check": "Is the listener being won over by praise of themselves, rather than by reasons the claim holds?",
+      "pick_label": "Softens you up with compliments",
+      "pick_example": "They butter you up so you'll just go along with it. Like: \"you're way too smart to need all the boring details, so trust me on this.\"",
+      "cues": [
+        "you're too smart to",
+        "smart person like you",
+        "i know you'll understand",
+        "you of all people",
+        "you're so sharp",
+        "someone like you gets it",
+        "i can tell you're",
+        "you'd never fall for",
+        "trust me you're",
+        "you have great taste"
+      ],
+      "move_keywords": [
+        "eye for detail",
+        "sharp",
+        "sees this",
+        "investor like you",
+        "dont need me",
+        "smart enough",
+        "clever",
+        "brilliant",
+        "already sees",
+        "someone with your",
+        "good taste",
+        "savvy"
+      ]
     },
     {
       "id": "appeal_to_wealth",
@@ -717,7 +2008,37 @@
       "family": "irrelevant_appeal",
       "short": "Treating high price, cost, or riches as proof a thing is better, true, or right.",
       "teaching": "An appeal to wealth (argumentum ad crumenam) takes how expensive or rich something is as evidence of its quality, correctness, or worth, as in 'it costs more, so it must be better' or 'they're rich, so they must be right.' Price and wealth can track quality sometimes, but they don't establish it; cost alone can come from branding, scarcity, or luck. It is not this fallacy to cite price as a clue alongside actual evidence of performance, or to discuss cost when affordability is the real question.",
-      "confirm_check": "Is the cost, price, or wealth itself being offered as the reason the thing is better, true, or right?"
+      "confirm_check": "Is the cost, price, or wealth itself being offered as the reason the thing is better, true, or right?",
+      "pick_label": "Says pricey or rich means right",
+      "pick_example": "They treat the price tag or someone's money as proof it's better or true. Like: \"it's the most expensive one, so obviously it's the best.\"",
+      "cues": [
+        "you get what you pay for",
+        "it's expensive so",
+        "costs more so",
+        "the pricey one",
+        "if they're rich they must",
+        "must be good if it costs",
+        "cheap for a reason",
+        "you pay for quality",
+        "they can afford to be right",
+        "top dollar"
+      ],
+      "move_keywords": [
+        "charging",
+        "four hundred an hour",
+        "cheap",
+        "billionaire",
+        "expensive",
+        "rich",
+        "costs more",
+        "premium",
+        "luxury",
+        "afford",
+        "priciest",
+        "better than the cheap",
+        "money",
+        "high end"
+      ]
     },
     {
       "id": "appeal_to_common_sense",
@@ -726,7 +2047,35 @@
       "family": "irrelevant_appeal",
       "short": "Calling a claim 'just common sense' or 'obvious' so it needs no reasons given for it.",
       "teaching": "An appeal to common sense waves a claim through by labeling it obvious or plain common sense, so no actual reasons are given, and it often paints anyone who questions it as foolish. Calling something obvious doesn't make it true; plenty of 'obvious' things turn out wrong on a closer look. It is not this fallacy to note a genuinely uncontested, well-established fact in passing; the trouble starts when 'it's just common sense' stands in for support on a point that's actually in dispute.",
-      "confirm_check": "Is the claim being passed off as obvious or common sense in place of giving reasons for it?"
+      "confirm_check": "Is the claim being passed off as obvious or common sense in place of giving reasons for it?",
+      "pick_label": "Calls it obvious so it needs no proof",
+      "pick_example": "They wave it through as plain common sense and treat anyone who asks why as silly. Like: \"everybody knows that, it's just common sense, why are you even asking.\"",
+      "cues": [
+        "it's just common sense",
+        "everybody knows",
+        "everyone knows that",
+        "it's obvious",
+        "do i really have to explain",
+        "any idiot knows",
+        "that's just how it is",
+        "plain as day",
+        "no one questions that",
+        "use your head"
+      ],
+      "move_keywords": [
+        "obvious",
+        "common sense",
+        "everybody knows",
+        "leave the porch",
+        "everyone already knows",
+        "tip twenty",
+        "duh",
+        "of course we should",
+        "clearly",
+        "no brainer",
+        "plain",
+        "why would you even"
+      ]
     },
     {
       "id": "loaded_language",
