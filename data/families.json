@@ -316,21 +316,21 @@
     "ad_hominem": [
       {
         "qid": "q_responds_to_claim_or_person",
-        "text": "Does it argue against the idea, not the person who said it?"
+        "text": "Does it keep the argument aimed at the idea itself?"
       },
       {
         "qid": "q_distrust_speaker_settles_truth",
-        "text": "Does it judge the claim on its own, not on distrusting the speaker?"
+        "text": "Does it judge the claim on its own merits, whoever said it?"
       },
       {
         "qid": "q_claim_addressed_or_left_standing",
-        "text": "Does it answer the original point instead of switching to the speaker?"
+        "text": "Does it give the original point a direct answer?"
       }
     ],
     "strawman": [
       {
         "qid": "q_version_refuted_matches",
-        "text": "Does it argue against the claim as actually made, not a stretched version?"
+        "text": "Does it take on the claim exactly as the other person made it?"
       },
       {
         "qid": "q_speaker_would_recognize",
@@ -340,25 +340,25 @@
     "tu_quoque": [
       {
         "qid": "q_hypocrisy_dismisses_point",
-        "text": "Does it answer the criticism, not point at the critic's own conduct?"
+        "text": "Does it answer the criticism on its content, whoever raised it?"
       },
       {
         "qid": "q_double_standard_is_the_topic",
-        "text": "Is any inconsistency it raises truly the issue, not just a dodge?"
+        "text": "If it raises an inconsistency, is that inconsistency truly the topic at hand?"
       }
     ],
     "appeal_to_authority": [
       {
         "qid": "q_who_said_it_or_why",
-        "text": "Is it built on reasons you can check, not mainly who backed it?"
+        "text": "Is it built on reasons you could check for yourself?"
       },
       {
         "qid": "q_expertise_fits_topic",
-        "text": "Does any cited expert fit the topic and not stand in for the whole case?"
+        "text": "If it cites an expert, does the expert's specialty match this exact topic?"
       },
       {
         "qid": "q_prestige_carries_it",
-        "text": "Would the case still make sense without the famous name attached?"
+        "text": "Would the case still hold up with the famous name left out?"
       }
     ],
     "appeal_to_emotion": [
@@ -372,27 +372,27 @@
       },
       {
         "qid": "q_feeling_is_the_push",
-        "text": "Is what pushes you toward the conclusion a reason, not mainly a feeling?"
+        "text": "Is the thing pushing you toward the conclusion an actual reason?"
       }
     ],
     "appeal_to_nature": [
       {
         "qid": "q_natural_label_judges",
-        "text": "Does it judge good or bad by real effects, not by the \"natural\" label?"
+        "text": "Does it weigh good and bad by real effects?"
       },
       {
         "qid": "q_naturalness_checks_case",
-        "text": "Does it check this case for benefit or harm, not just \"natural\"?"
+        "text": "Does it look at this specific case for real benefit or harm?"
       },
       {
         "qid": "q_natural_equals_good",
-        "text": "Does it tie its verdict to real benefit or harm, not \"natural means good\"?"
+        "text": "Does the verdict rest on evidence of benefit or harm, whatever is natural?"
       }
     ],
     "bandwagon": [
       {
         "qid": "q_popularity_is_the_reason",
-        "text": "Is it built on reasons, not on how many people believe it?"
+        "text": "Does the case rest on reasons, however many people agree?"
       },
       {
         "qid": "q_crowd_or_evidence",
@@ -406,7 +406,7 @@
       },
       {
         "qid": "q_examples_representative",
-        "text": "Are the examples a fair sample, not hand-picked or one-off stories?"
+        "text": "Are the examples a fair, varied sample of the whole?"
       }
     ],
     "false_cause": [
@@ -434,13 +434,13 @@
       },
       {
         "qid": "q_each_link_inevitable",
-        "text": "Is each link in the chain shown to be likely, not just assumed?"
+        "text": "Is each link in the chain shown to be likely on its own?"
       }
     ],
     "false_dilemma": [
       {
         "qid": "q_two_options_or_more",
-        "text": "Does it show the real range of options, not just two?"
+        "text": "Does it lay out the full range of real options?"
       },
       {
         "qid": "q_middle_ground_excluded",
@@ -454,35 +454,35 @@
     "circular_reasoning": [
       {
         "qid": "q_support_independent",
-        "text": "Is the support a separate reason, not a restatement of the conclusion?"
+        "text": "Is the support a genuinely separate reason from the conclusion?"
       },
       {
         "qid": "q_persuades_only_agreers",
-        "text": "Would it persuade someone who doesn't already accept the conclusion?"
+        "text": "Would it persuade someone still on the fence about the conclusion?"
       },
       {
         "qid": "q_reason_restates_claim",
-        "text": "Does the reason add something the conclusion didn’t already say?"
+        "text": "Does the reason add new information beyond the conclusion itself?"
       }
     ],
     "argument_from_incredulity": [
       {
         "qid": "q_rejected_for_unimaginable",
-        "text": "Does it reject the claim on evidence, not because the speaker can’t picture how it’s true?"
+        "text": "Does it reject the claim on actual evidence against it?"
       },
       {
         "qid": "q_cant_see_how_means_false",
-        "text": "Does it give a real reason against the claim, not just “I don’t see how”?"
+        "text": "Does it back its doubt with a checkable reason?"
       },
       {
         "qid": "q_limit_is_speaker_not_claim",
-        "text": "Does the doubt point to something unlikely about the claim, not just a gap in imagination?"
+        "text": "Does the doubt point to something specific and unlikely in the claim itself?"
       }
     ],
     "poisoning_the_well": [
       {
         "qid": "q_source_discredited_in_advance",
-        "text": "Does it take up the point after it's made, not label the source first?"
+        "text": "Does it let the point get made first, then answer it?"
       },
       {
         "qid": "q_anything_they_say_pre_dismissed",
@@ -492,7 +492,7 @@
     "genetic_fallacy": [
       {
         "qid": "q_origin_decides_worth",
-        "text": "Does it judge the idea by what it says now, not where it came from?"
+        "text": "Does it judge the idea by what it says today, on its own terms?"
       },
       {
         "qid": "q_history_settles_present_merit",
@@ -542,17 +542,17 @@
     "appeal_to_fear": [
       {
         "qid": "q_fear_replaces_evidence",
-        "text": "Does it show the scary outcome is likely, not just frightening?"
+        "text": "Does it show the feared outcome is actually likely?"
       },
       {
         "qid": "q_threat_sized_to_facts",
-        "text": "Does it size the danger to what's known, not blow it up?"
+        "text": "Does it size the danger to the known facts?"
       }
     ],
     "appeal_to_pity": [
       {
         "qid": "q_pity_replaces_merits",
-        "text": "Does it give reasons the point holds, not just sympathy?"
+        "text": "Does it give reasons the point holds on its merits?"
       },
       {
         "qid": "q_hardship_relevant_to_claim",
@@ -562,17 +562,17 @@
     "appeal_to_ridicule": [
       {
         "qid": "q_mockery_replaces_rebuttal",
-        "text": "Does it give a reason the view is wrong, not just a laugh?"
+        "text": "Does it give an actual reason the view is wrong?"
       },
       {
         "qid": "q_target_treated_seriously",
-        "text": "Does it take the view as meant, not as a mocking version?"
+        "text": "Does it engage the view as its holder actually meant it?"
       }
     ],
     "appeal_to_spite": [
       {
         "qid": "q_spite_drives_conclusion",
-        "text": "Does it give reasons the point is right, not someone getting what they deserve?"
+        "text": "Does the case work for a reader with no grudge involved?"
       },
       {
         "qid": "q_spite_conduct_at_issue",
@@ -582,7 +582,7 @@
     "appeal_to_tradition": [
       {
         "qid": "q_age_makes_it_right",
-        "text": "Does it give reasons it works, not just that it's old or traditional?"
+        "text": "Does it give reasons the practice works today?"
       },
       {
         "qid": "q_track_record_shown_not_assumed",
@@ -592,7 +592,7 @@
     "appeal_to_novelty": [
       {
         "qid": "q_newness_makes_it_better",
-        "text": "Does it give reasons it works better, not just that it's new?"
+        "text": "Does it give reasons the new thing actually works better?"
       },
       {
         "qid": "q_improvement_shown_over_old",
@@ -602,11 +602,11 @@
     "snob_appeal": [
       {
         "qid": "q_elite_favor_is_the_reason",
-        "text": "Does it point to the thing's real qualities, not who fancy picks it?"
+        "text": "Does it point to the thing's own qualities?"
       },
       {
         "qid": "q_belonging_replaces_merit",
-        "text": "Does it give reasons the thing is good, not just that it's exclusive?"
+        "text": "Would the case still work if everyone could have it?"
       }
     ],
     "false_equivalence": [
@@ -626,13 +626,13 @@
       },
       {
         "qid": "q_ideal_set_as_the_bar",
-        "text": "Does it judge the option against real choices, not a perfect ideal?"
+        "text": "Does it judge the option against the real alternatives on the table?"
       }
     ],
     "middle_ground": [
       {
         "qid": "q_midpoint_assumed_correct",
-        "text": "Does it back the middle position with its own reasons, not just being in the middle?"
+        "text": "Does it back the middle position with reasons of its own?"
       },
       {
         "qid": "q_extremes_force_compromise",
@@ -642,47 +642,47 @@
     "begging_the_question": [
       {
         "qid": "q_key_premise_assumed",
-        "text": "Does it back up its starting reasons instead of taking the key one for granted?"
+        "text": "Does it back up its key starting premise with support of its own?"
       },
       {
         "qid": "q_disputed_point_smuggled",
-        "text": "Does it argue the disputed point openly instead of assuming it settled?"
+        "text": "Does it argue the disputed point out in the open?"
       }
     ],
     "loaded_question": [
       {
         "qid": "q_question_presupposes_unproven",
-        "text": "Does the question leave the disputed point open instead of baking it in?"
+        "text": "Does the question leave the disputed point genuinely open?"
       },
       {
         "qid": "q_answer_forced_to_concede",
-        "text": "Can you answer it straight without first granting an unproven assumption?"
+        "text": "Can you give a straight answer and keep your actual position?"
       }
     ],
     "appeal_to_ignorance": [
       {
         "qid": "q_absence_treated_as_proof",
-        "text": "Does it give real evidence for the claim, not just a lack of evidence against it?"
+        "text": "Does it give positive evidence for the claim itself?"
       },
       {
         "qid": "q_unproven_means_false",
-        "text": "Does it keep an unproven claim open instead of calling it false for lack of proof?"
+        "text": "Does it treat an unproven claim as still an open question?"
       }
     ],
     "shifting_burden_of_proof": [
       {
         "qid": "q_claimant_supports_own_claim",
-        "text": "Does the person making the claim give support, instead of asking others to disprove it?"
+        "text": "Does the person making the claim bring their own support for it?"
       },
       {
         "qid": "q_default_true_until_refuted",
-        "text": "Does the claim have to be backed up, not just assumed true until disproven?"
+        "text": "Is the claim treated as needing support before it counts?"
       }
     ],
     "argument_from_silence": [
       {
         "qid": "q_inference_from_missing_mention",
-        "text": "Does it build on what the source says, not on something it didn't mention?"
+        "text": "Does it build on what the source actually says?"
       },
       {
         "qid": "q_mention_would_be_expected",
@@ -692,27 +692,27 @@
     "anecdotal": [
       {
         "qid": "q_story_stands_for_evidence",
-        "text": "Does it back the claim with broad evidence, not just one person's story?"
+        "text": "Does it back the claim with evidence beyond one person's story?"
       },
       {
         "qid": "q_vivid_case_over_data",
-        "text": "Does the wider data carry the conclusion, not one vivid case?"
+        "text": "Does the wider data do the convincing here?"
       }
     ],
     "cherry_picking": [
       {
         "qid": "q_contrary_cases_omitted",
-        "text": "Does it weigh evidence that points the other way, not just the helpful bits?"
+        "text": "Does it weigh the evidence that points the other way too?"
       },
       {
         "qid": "q_only_supporting_data_shown",
-        "text": "Does it show the full mix of cases, not only ones that fit the conclusion?"
+        "text": "Does it show the full mix of cases, favorable and unfavorable?"
       }
     ],
     "sampling_bias": [
       {
         "qid": "q_sample_drawn_skewed",
-        "text": "Does it pick a sample that stands for the whole, not just whoever was handy?"
+        "text": "Does its sample fairly stand for the whole group?"
       },
       {
         "qid": "q_surveyed_match_population",
@@ -722,31 +722,31 @@
     "overgeneralization": [
       {
         "qid": "q_rule_stated_exceptionless",
-        "text": "Does it limit the rule to where it holds, instead of saying it never fails?"
+        "text": "Does it keep the rule scoped to where it actually holds?"
       },
       {
         "qid": "q_broad_rule_ignores_exception",
-        "text": "Does it allow exceptions instead of forcing the rule onto a case that doesn't fit?"
+        "text": "Does it leave room for exceptions where the case is different?"
       }
     ],
     "post_hoc": [
       {
         "qid": "q_post_hoc_order_is_the_proof",
-        "text": "Does it give evidence beyond the order of events, not just 'it came after'?"
+        "text": "Does it give evidence beyond one thing coming after another?"
       },
       {
         "qid": "q_post_hoc_one_off_sequence",
-        "text": "Does it show the sequence repeats, not just one coincidental before-and-after?"
+        "text": "Does it show the pattern repeating beyond a single before-and-after?"
       }
     ],
     "single_cause": [
       {
         "qid": "q_single_cause_one_factor_only",
-        "text": "Does it treat the outcome as having several causes, not just one?"
+        "text": "Does it allow that several causes fed the outcome?"
       },
       {
         "qid": "q_single_cause_others_dismissed",
-        "text": "Does it weigh other contributing causes instead of ignoring them?"
+        "text": "Does it weigh the other contributing causes too?"
       }
     ],
     "correlation_causation": [
@@ -756,13 +756,13 @@
       },
       {
         "qid": "q_corr_caus_direction_fixed",
-        "text": "Does it show which way the cause runs, not just that the two move together?"
+        "text": "Does it show which way the cause actually runs?"
       }
     ],
     "weak_analogy": [
       {
         "qid": "q_likenesses_thin_or_relevant",
-        "text": "Does it point to shared traits that matter to the conclusion, not just surface looks?"
+        "text": "Do the shared traits it points to matter for the conclusion?"
       },
       {
         "qid": "q_shared_traits_carry_conclusion",
@@ -776,7 +776,7 @@
       },
       {
         "qid": "q_parallel_holds_where_it_counts",
-        "text": "Does the parallel hold right where the argument turns, not just elsewhere?"
+        "text": "Does the parallel hold right where the argument turns on it?"
       }
     ],
     "apples_to_oranges": [
@@ -812,7 +812,7 @@
     "accent": [
       {
         "qid": "q_meaning_changes_with_stress",
-        "text": "Does it read the statement with plain emphasis, not a tilted one?"
+        "text": "Does it read the statement with its plain, even emphasis?"
       },
       {
         "qid": "q_emphasis_neutral",
@@ -822,7 +822,7 @@
     "definist": [
       {
         "qid": "q_definition_rigs_outcome",
-        "text": "Does it define the key word without pre-deciding the conclusion?"
+        "text": "Does its definition of the key word leave the conclusion open?"
       },
       {
         "qid": "q_definition_fits_ordinary",
@@ -832,7 +832,7 @@
     "composition": [
       {
         "qid": "q_part_trait_to_whole",
-        "text": "Does it prove the whole has the trait, not just each part?"
+        "text": "Does it give separate proof that the whole itself has the trait?"
       },
       {
         "qid": "q_parts_to_whole_transfer_shown",
@@ -842,11 +842,11 @@
     "division": [
       {
         "qid": "q_whole_trait_to_part",
-        "text": "Does it prove each part has the trait, not just the whole?"
+        "text": "Does it give separate proof that each part has the trait?"
       },
       {
         "qid": "q_whole_to_part_transfer_shown",
-        "text": "Does it show the trait reaches each part, not just assume it?"
+        "text": "Does it show how the trait reaches each individual part?"
       }
     ],
     "ecological_fallacy": [
@@ -862,7 +862,7 @@
     "affirming_the_consequent": [
       {
         "qid": "q_result_confirms_condition",
-        "text": "Does it allow the result could happen even if the stated condition isn’t true?"
+        "text": "Does it consider other ways the result could have come about?"
       },
       {
         "qid": "q_other_paths_to_result_checked",
@@ -882,7 +882,7 @@
     "base_rate_neglect": [
       {
         "qid": "q_base_rate_ignored",
-        "text": "Does it weigh how common the thing is, not just the test result?"
+        "text": "Does it weigh how common the thing is overall, alongside the test result?"
       },
       {
         "qid": "q_rarity_factored_in",
@@ -896,7 +896,7 @@
       },
       {
         "qid": "q_due_for_reversal",
-        "text": "Does it avoid treating the opposite outcome as overdue after a run?"
+        "text": "Does it treat each new try as a fresh, independent chance?"
       }
     ],
     "regression_fallacy": [
@@ -912,47 +912,47 @@
     "survivorship_bias": [
       {
         "qid": "q_only_survivors_counted",
-        "text": "Does it count the cases that failed, not just the ones still around?"
+        "text": "Does it count the cases that dropped out along the way too?"
       },
       {
         "qid": "q_dropouts_would_change_it",
-        "text": "Does it check whether the cases that failed shared the same trait before crediting it?"
+        "text": "Does it check whether the dropped-out cases shared that same trait?"
       }
     ],
     "texas_sharpshooter": [
       {
         "qid": "q_pattern_drawn_after_data",
-        "text": "Does it name the pattern in advance, not draw the target around a cluster afterward?"
+        "text": "Does it name the pattern in advance, before looking at the results?"
       },
       {
         "qid": "q_cluster_picked_rest_ignored",
-        "text": "Does it weigh all the cases, not just spotlight one cluster and ignore the misses?"
+        "text": "Does it weigh all the cases, the scattered ones along with the cluster?"
       }
     ],
     "appeal_to_consequences": [
       {
         "qid": "q_consequences_decide_truth",
-        "text": "Does it tie the verdict to evidence it’s true, not to how nice believing it would be?"
+        "text": "Does it tie the verdict to evidence about what is actually true?"
       },
       {
         "qid": "q_unwelcome_so_rejected",
-        "text": "Does it reject a claim only when something shows it false, not because the result is unwelcome?"
+        "text": "When it rejects a claim, is that grounded in evidence the claim is false?"
       }
     ],
     "appeal_to_motive": [
       {
         "qid": "q_motive_dismisses_claim",
-        "text": "Does it weigh the claim on the evidence, not on what the speaker stands to gain?"
+        "text": "Does it weigh the claim on the evidence, whatever the speaker stands to gain?"
       },
       {
         "qid": "q_stake_replaces_check",
-        "text": "Does it treat a hidden motive as a cue to check the point, not proof it’s false?"
+        "text": "If it flags a motive, does it still judge the point on its own evidence?"
       }
     ],
     "two_wrongs": [
       {
         "qid": "q_other_wrong_justifies",
-        "text": "Does it defend the act on its own, not by pointing at another wrong?"
+        "text": "Does it defend the act on its own terms?"
       },
       {
         "qid": "q_precedent_cancels_fault",
@@ -962,47 +962,47 @@
     "ad_hominem_circumstantial": [
       {
         "qid": "q_circumstance_predisposes_dismissal",
-        "text": "Does it address the view itself, not whether the speaker's situation makes it expected?"
+        "text": "Does it address the view itself, whatever the speaker's situation?"
       },
       {
         "qid": "q_position_explains_away_view",
-        "text": "Does it treat the speaker's situation as a bias to check, not proof they're wrong?"
+        "text": "Does the view still get judged on its merits after the speaker's situation is noted?"
       }
     ],
     "complex_question": [
       {
         "qid": "q_cq_two_questions_as_one",
-        "text": "Does it ask about one thing at a time, not several fused into one demand?"
+        "text": "Does it ask about one thing at a time?"
       },
       {
         "qid": "q_cq_single_answer_covers_both",
-        "text": "Does it let each part be answered on its own, not force one answer for both?"
+        "text": "Does it let each part of the question be answered on its own?"
       }
     ],
     "no_true_scotsman": [
       {
         "qid": "q_nts_counterexample_redefined_out",
-        "text": "Does it let a counterexample count, instead of relabeling it away?"
+        "text": "Does it let a genuine counterexample count against the claim?"
       },
       {
         "qid": "q_nts_standard_invented_after",
-        "text": "Does it stick to membership rules set up front, not ones added after the example?"
+        "text": "Does it stick to the membership rules it set up front?"
       }
     ],
     "suppressed_correlative": [
       {
         "qid": "q_sc_one_term_swallows_other",
-        "text": "Does it keep both sides of the pair meaningful, not stretch one to swallow the other?"
+        "text": "Does it keep both sides of the pair genuinely meaningful?"
       },
       {
         "qid": "q_sc_contrast_emptied_out",
-        "text": "Does it keep a real line between the options, not empty one category out?"
+        "text": "Does it keep a real line between the two options?"
       }
     ],
     "appeal_to_force": [
       {
         "qid": "q_threat_swaps_for_reason",
-        "text": "Does it rest on reasons the claim is true, not on a threat for disagreeing?"
+        "text": "Does it rest on reasons you are free to weigh and turn down?"
       },
       {
         "qid": "q_comply_or_pay_consequence",
@@ -1012,7 +1012,7 @@
     "appeal_to_flattery": [
       {
         "qid": "q_praise_softens_into_agreement",
-        "text": "Does it persuade with reasons a stranger could weigh, not by flattering you?"
+        "text": "Does it persuade with reasons a stranger could weigh?"
       },
       {
         "qid": "q_compliment_carries_the_claim",
@@ -1022,27 +1022,27 @@
     "appeal_to_wealth": [
       {
         "qid": "q_price_proves_quality",
-        "text": "Does it show quality by how the thing performs, not by how much it costs?"
+        "text": "Does it show quality by how the thing actually performs?"
       },
       {
         "qid": "q_wealth_makes_it_right",
-        "text": "Does it weigh the claim on its reasons, not on how rich the speaker is?"
+        "text": "Does it weigh the claim on its reasons, rich speaker or poor?"
       }
     ],
     "appeal_to_common_sense": [
       {
         "qid": "q_obvious_excuses_support",
-        "text": "Does it give actual reasons, instead of just calling the claim obvious?"
+        "text": "Does it give actual reasons beyond calling the claim obvious?"
       },
       {
         "qid": "q_dissent_cast_as_senseless",
-        "text": "Does it answer doubts on the facts, not by calling the doubter foolish?"
+        "text": "Does it answer doubts with facts, treating the doubter as reasonable?"
       }
     ],
     "loaded_language": [
       {
         "qid": "q_charged_words_carry_verdict",
-        "text": "Does it back the judgment with reasons, not just words that pre-decide it?"
+        "text": "Does it back the judgment with reasons beyond charged wording?"
       },
       {
         "qid": "q_neutral_wording_survives",
@@ -1052,11 +1052,11 @@
     "weasel_words": [
       {
         "qid": "q_attribution_unnamed_vague",
-        "text": "Does it name a specific source you could look up, not a vague \"some say\"?"
+        "text": "Does it name a specific source you could look up?"
       },
       {
         "qid": "q_qualifier_hides_no_support",
-        "text": "Does it put real evidence behind the claim, not just a softening word?"
+        "text": "Does it put real evidence behind the hedged claim?"
       }
     ],
     "continuum_fallacy": [
@@ -1072,7 +1072,7 @@
     "reification": [
       {
         "qid": "q_abstraction_acts_as_agent",
-        "text": "Does it use \"society\" or \"the market\" as shorthand, not a thing with a will?"
+        "text": "Does it treat \"society\" or \"the market\" as shorthand for real people acting?"
       },
       {
         "qid": "q_concept_treated_as_concrete",
