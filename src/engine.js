@@ -573,19 +573,28 @@ function cueWeights(data) {
   return w;
 }
 
-// Scan a pasted argument for family routing cues (plain case-insensitive substring match — no AI).
+// Normalize text for cue/keyword matching: fold apostrophes (so "won't" matches "wont"), drop all
+// other punctuation, collapse whitespace, and pad with spaces so a phrase can only match on whole
+// words. This is what stops "app" from firing inside "appear" and "no" inside "know". The raw
+// substring fallback that used to live in suggestMoves made short keywords permanent false attractors.
+function normPhrase(s) {
+  return ' ' + String(s || '').toLowerCase().replace(/['’]/g, '')
+    .replace(/[^a-z ]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+}
+
+// Scan a pasted argument for family routing cues (whole-word case-insensitive match, no AI).
 // Scores each family by the SPECIFICITY-WEIGHTED sum of its matched cues (a cue shared by N families
 // counts 1/N). Only returns a suggestion when the top score clears CUE_MIN_SCORE *and* clearly beats
 // the runner-up (CUE_MIN_MARGIN) — otherwise null, and the UI just shows the full picker. Better to
 // suggest nothing than to confidently misroute (the panel showed wrong suggestions steer novices).
 export function suggestFamily(data, text) {
-  const hay = String(text || '').toLowerCase();
+  const hay = normPhrase(text);
   const w = cueWeights(data);
   const scores = {}; const hits = {};
   for (const [fam, cues] of Object.entries(data.familyCues || {})) {
     let score = 0, n = 0;
     for (const cue of (cues || [])) {
-      if (hay.includes(cue.toLowerCase())) { score += w[cue.toLowerCase()] || 0; n++; }
+      if (hay.includes(normPhrase(cue))) { score += w[cue.toLowerCase()] || 0; n++; }
     }
     scores[fam] = score; hits[fam] = n;
   }
@@ -634,8 +643,8 @@ export function suggestBucket(data, text) {
 //               deflection), used as the default when nothing matches.
 export function suggestMoves(data, familyId, text, limit = 3) {
   const fids = data.families[familyId] || [];
-  const hay = ' ' + String(text || '').toLowerCase().replace(/[^a-z ]+/g, ' ').replace(/\s+/g, ' ') + ' ';
-  const has = (needle) => { const n = needle.toLowerCase(); return hay.includes(' ' + n + ' ') || hay.includes(n); };
+  const hay = normPhrase(text);
+  const has = (needle) => hay.includes(normPhrase(needle));
   const moves = fids.map((fid) => {
     const f = data.fallacies[fid] || {};
     let score = 0;

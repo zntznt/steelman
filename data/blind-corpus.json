@@ -1,0 +1,461 @@
+{
+  "version": 1,
+  "authored_blind": true,
+  "note": "Authored without reading any repo data. Written from general knowledge of each fallacy. For routing/calibration measurement only.",
+  "cases": [
+    {
+      "id": "bc_ad_hominem_1",
+      "label": "ad_hominem",
+      "argument": "Don't waste time on Marco's budget proposal for the club. The guy is 35, still lives with his mom, and can't keep a houseplant alive. Whatever he wrote about our finances is obviously garbage."
+    },
+    {
+      "id": "bc_strawman_1",
+      "label": "strawman",
+      "argument": "My wife suggested we cook at home more often this month. So basically she wants to ban all fun and have us eating plain rice under fluorescent lights for the rest of our lives. Nobody sane wants that, so I told her the restaurant nights stay."
+    },
+    {
+      "id": "bc_false_dilemma_1",
+      "label": "false_dilemma",
+      "argument": "Either you sign your kid up for travel soccer this summer, or you're fine with him rotting on the couch until September. There's no other way this goes, so which is it?"
+    },
+    {
+      "id": "bc_slippery_slope_1",
+      "label": "slippery_slope",
+      "argument": "If the HOA lets one house paint its front door purple, next month somebody repaints a whole facade neon green. Within a year the street looks like a carnival and our property values are gone. So we vote no on the door."
+    },
+    {
+      "id": "bc_appeal_to_authority_1",
+      "label": "appeal_to_authority",
+      "argument": "My dentist told me that coin is going to triple by December, and she went to a top medical school. So I moved half my savings into it yesterday. She's a doctor, she wouldn't be wrong about something like this."
+    },
+    {
+      "id": "bc_hasty_generalization_1",
+      "label": "hasty_generalization",
+      "argument": "I played two matches of that new shooter and got wrecked by an obvious cheater both times. The entire player base is cheaters. Uninstalled, and I'm telling the group chat to skip it."
+    },
+    {
+      "id": "bc_circular_reasoning_1",
+      "label": "circular_reasoning",
+      "argument": "He's obviously the best coach in the league. How do I know? Because no coach in the league is better than him. It really is that simple."
+    },
+    {
+      "id": "bc_appeal_to_emotion_1",
+      "label": "appeal_to_emotion",
+      "argument": "Picture Ava's little face when we tell her the pool membership is cancelled. She's been crossing off days on her calendar since March. We simply can't do that to her, so the membership stays, whatever the spreadsheet says."
+    },
+    {
+      "id": "bc_false_cause_1",
+      "label": "false_cause",
+      "argument": "Think about it, the sickest people in town are all inside the hospital. Clearly that building is doing something to them. Stay out of hospitals and you'll stay healthier, it's right there in front of you."
+    },
+    {
+      "id": "bc_tu_quoque_1",
+      "label": "tu_quoque",
+      "argument": "You're telling me to quit vaping? I've watched you sneak cigarettes at every single wedding we've been to. So I don't have to hear this from you, and I'm not quitting."
+    },
+    {
+      "id": "bc_appeal_to_nature_1",
+      "label": "appeal_to_nature",
+      "argument": "That sweetener was cooked up in a lab, which tells you everything you need to know. Honey comes straight from bees, made the way it's been made since before humans had chemistry sets. I'm not feeding my kid factory molecules when the hive already makes the real thing."
+    },
+    {
+      "id": "bc_bandwagon_1",
+      "label": "bandwagon",
+      "argument": "My brother switched to that bank this year, then both my neighbors, then basically the whole gym group chat. That many people making the same call can't all be wrong. I'm moving my account over this weekend."
+    },
+    {
+      "id": "bc_argument_from_incredulity_1",
+      "label": "argument_from_incredulity",
+      "argument": "You expect me to believe my phone turns my voice into another language in under a second with nobody involved? I can't even begin to picture how that would work, so it can't work that way. There have to be operators listening in somewhere."
+    },
+    {
+      "id": "bc_poisoning_the_well_1",
+      "label": "poisoning_the_well",
+      "argument": "Before the new ops manager presents her restructuring plan tomorrow, just remember who hired her: the same exec who drove the Henderson project into the ground. Keep that in mind with every slide she shows you."
+    },
+    {
+      "id": "bc_genetic_fallacy_1",
+      "label": "genetic_fallacy",
+      "argument": "That stretching routine you sent me came from a bodybuilding forum, so it's automatically nonsense. I don't need to read what it actually says. Look at where it came out of, that settles it."
+    },
+    {
+      "id": "bc_red_herring_1",
+      "label": "red_herring",
+      "argument": "You're asking why my report was three days late, but can we take a second to appreciate how great the team offsite was? Morale is the highest it's been in years. Honestly, that energy is what this quarter is really about."
+    },
+    {
+      "id": "bc_whataboutism_1",
+      "label": "whataboutism",
+      "argument": "Sure, our council wasted money on that fountain. But have you seen what the town next door spent renovating their mayor's office? Let's talk about that before anyone starts pointing fingers over here."
+    },
+    {
+      "id": "bc_moving_the_goalposts_1",
+      "label": "moving_the_goalposts",
+      "argument": "Fine, you found the study I asked for. But one study means nothing, I need a meta-analysis. Oh, there is one? Well, unless it covers thirty years of data across multiple countries, I'm still not convinced."
+    },
+    {
+      "id": "bc_non_sequitur_1",
+      "label": "non_sequitur",
+      "argument": "Marco changes his own oil and rebuilt his lawnmower engine last spring. So he's clearly the guy to ask about which middle school our daughter should go to."
+    },
+    {
+      "id": "bc_appeal_to_fear_1",
+      "label": "appeal_to_fear",
+      "argument": "If you don't renew the extended coverage today, imagine your washing machine flooding the kitchen at 2am with no one to call. Can you really live with that hanging over you every laundry day? Sign the renewal."
+    },
+    {
+      "id": "bc_appeal_to_pity_1",
+      "label": "appeal_to_pity",
+      "argument": "I know my essay missed half the requirements, but I've had the worst month, my car broke down and my cat has been sick the whole time. Giving this a C would just be piling on. Surely all of that counts for a better mark."
+    },
+    {
+      "id": "bc_appeal_to_ridicule_1",
+      "label": "appeal_to_ridicule",
+      "argument": "Oh sure, let's all track our spending in a little spreadsheet like tiny accountants playing office. What's next, laminating our receipts? Budgeting apps are a joke and deep down you know it."
+    },
+    {
+      "id": "bc_appeal_to_spite_1",
+      "label": "appeal_to_spite",
+      "argument": "Remember how the marketing team took credit for our launch last year? Voting for their proposal now would be handing them another trophy to wave in our faces. That alone is reason enough to back the other plan."
+    },
+    {
+      "id": "bc_appeal_to_tradition_1",
+      "label": "appeal_to_tradition",
+      "argument": "We've smoked the brisket over charcoal in this family since my grandfather's day, and his father before him. That's how it's done, full stop. The pellet grill goes back to the store."
+    },
+    {
+      "id": "bc_appeal_to_novelty_1",
+      "label": "appeal_to_novelty",
+      "argument": "The framework only shipped last month, which is exactly why we should rebuild the whole app in it. A fresh release is ahead of everything older by definition. Anything from three years ago is already behind."
+    },
+    {
+      "id": "bc_snob_appeal_1",
+      "label": "snob_appeal",
+      "argument": "You don't want the streaming plan the masses settle for. People with taste, people like you and me, go for the collector tier. Ordinary subscribers wouldn't understand what they're missing, and that's fine, it isn't for them."
+    },
+    {
+      "id": "bc_false_equivalence_1",
+      "label": "false_equivalence",
+      "argument": "Forgetting to reply to one email is basically the same thing as ghosting a client for a month. Both are failures to communicate, so Dana's missed message should be treated exactly like Rob's disappearing act."
+    },
+    {
+      "id": "bc_perfect_solution_1",
+      "label": "perfect_solution",
+      "argument": "That bike lane plan won't stop every single accident on that road, so why bother painting it at all? Until someone shows me a design with zero crashes, I'm voting against spending a cent."
+    },
+    {
+      "id": "bc_middle_ground_1",
+      "label": "middle_ground",
+      "argument": "Dad says the used car is worth eight grand, the dealer offered two. So the fair price is obviously five, right in between. Splitting it down the center is the only reasonable answer here."
+    },
+    {
+      "id": "bc_begging_the_question_1",
+      "label": "begging_the_question",
+      "argument": "Letting teenagers set their own bedtime is clearly a mistake, because kids that age shouldn't be the ones deciding when they go to sleep. It follows straightforwardly, so the 10pm rule stands."
+    },
+    {
+      "id": "bc_loaded_question_1",
+      "label": "loaded_question",
+      "argument": "So when did you start letting your dog terrorize the whole block, before or after you decided the leash rules don't apply to you? Just answer that and we can move on."
+    },
+    {
+      "id": "bc_appeal_to_ignorance_1",
+      "label": "appeal_to_ignorance",
+      "argument": "Nobody has ever produced a shred of proof that my pre-game socks don't help me bowl better. Until someone does, I'm calling it a fact that they work. The lane doesn't lie."
+    },
+    {
+      "id": "bc_shifting_burden_of_proof_1",
+      "label": "shifting_burden_of_proof",
+      "argument": "I'm telling you the property manager is skimming the building's maintenance fund. Don't ask me for receipts. If you're so sure he's clean, go dig through the books yourself and show me."
+    },
+    {
+      "id": "bc_argument_from_silence_1",
+      "label": "argument_from_silence",
+      "argument": "My sister hasn't posted a single photo with her boyfriend in two months, and she hasn't mentioned him once at dinner. She never said anything, but that quiet tells you all you need to know. They broke up."
+    },
+    {
+      "id": "bc_anecdotal_1",
+      "label": "anecdotal",
+      "argument": "The car seat studies can say whatever they want. My uncle drove us around loose in the truck bed for years and we all turned out great. All this strapping-in business is massively overblown."
+    },
+    {
+      "id": "bc_cherry_picking_1",
+      "label": "cherry_picking",
+      "argument": "Look, in weeks three, seven, and eleven the store beat its targets under the new manager. Send those three weeks to the regional office. Never mind the other nine, those don't tell the real story."
+    },
+    {
+      "id": "bc_sampling_bias_1",
+      "label": "sampling_bias",
+      "argument": "We polled visitors at the marathon expo and 92 percent said they exercise weekly. So this city is in fantastic shape overall, and the couch potato crisis the local paper keeps writing about is basically invented."
+    },
+    {
+      "id": "bc_overgeneralization_1",
+      "label": "overgeneralization",
+      "argument": "Kids who play video games don't read, period. My nephew hasn't touched a book since he got a console, and neither have his friends. Every single gamer on the planet would rather stare at a screen, no exceptions worth discussing."
+    },
+    {
+      "id": "bc_post_hoc_1",
+      "label": "post_hoc",
+      "argument": "I switched to the green protein powder on Monday and hit a deadlift PR on Thursday. The powder came first, the PR came after. Case closed, this stuff works, ordering three more tubs."
+    },
+    {
+      "id": "bc_single_cause_1",
+      "label": "single_cause",
+      "argument": "Why did the restaurant close? Rent. That's it, the whole story. Don't tell me about the menu changes or the road construction or the reviews, it was the rent and nothing else."
+    },
+    {
+      "id": "bc_correlation_causation_1",
+      "label": "correlation_causation",
+      "argument": "Neighborhoods with more coffee shops per block also have higher rents, the data is really clear on this. So if the council wants to keep housing affordable, it should cap the number of cafes. Fewer espresso machines, cheaper apartments."
+    },
+    {
+      "id": "bc_weak_analogy_1",
+      "label": "weak_analogy",
+      "argument": "Running a family is like running a small business, so I've started giving my kids quarterly performance reviews and I put the youngest on an improvement plan. If it works for companies, it works at home."
+    },
+    {
+      "id": "bc_false_analogy_1",
+      "label": "false_analogy",
+      "argument": "Banning phones in class is like banning pencils, both are just tools students use to get things done. Nobody would ever confiscate a pencil. So taking phones away makes no sense either."
+    },
+    {
+      "id": "bc_apples_to_oranges_1",
+      "label": "apples_to_oranges",
+      "argument": "The bakery on 5th sells croissants for six bucks and the gas station sells donuts for one. Same job, sweet breakfast pastry. So the bakery is ripping people off six to one, the numbers don't lie."
+    },
+    {
+      "id": "bc_equivocation_1",
+      "label": "equivocation",
+      "argument": "You agreed I have a right to my opinion. So when I share my opinion about your cooking at every family dinner, I'm just doing what's right. You can't get mad at someone for doing the right thing."
+    },
+    {
+      "id": "bc_amphiboly_1",
+      "label": "amphiboly",
+      "argument": "The listing said 'apartment with parking space available now.' Turns out only the parking space was available now, but that's not my problem. It said available now, so the apartment is mine to move into today. That's literally what the sentence says."
+    },
+    {
+      "id": "bc_accent_1",
+      "label": "accent",
+      "argument": "The memo says we should not criticize teammates IN MEETINGS. Read it out loud with the stress at the end like I do. That's basically written permission to tear into people over chat, it only rules out meetings."
+    },
+    {
+      "id": "bc_definist_1",
+      "label": "definist",
+      "argument": "Let's agree on terms before we argue: a real vacation means leaving the country. Your beach weekend was two hours from home, so by definition you haven't taken a vacation in years. Which means you can't claim you're rested, can you."
+    },
+    {
+      "id": "bc_composition_1",
+      "label": "composition",
+      "argument": "Every single ingredient in this stew is delicious on its own. The chocolate, the pickles, the salmon, all fantastic separately. So the stew has to be delicious, it's just math."
+    },
+    {
+      "id": "bc_division_1",
+      "label": "division",
+      "argument": "That studio ships the best games in the industry, so any one programmer on their payroll must be a superstar. Grab literally anyone off that team and they'll instantly be the best coder our company has ever had."
+    },
+    {
+      "id": "bc_ecological_fallacy_1",
+      "label": "ecological_fallacy",
+      "argument": "The zip code next to ours has the highest average income in the county, and that new guy in the league just moved here from there. So he's definitely loaded. Charge him the premium rate for the fantasy buy-in."
+    },
+    {
+      "id": "bc_affirming_the_consequent_1",
+      "label": "affirming_the_consequent",
+      "argument": "If the router is broken, the wifi drops. Well, the wifi dropped twice during the movie last night. So the router is broken, and I'm buying a new one this weekend."
+    },
+    {
+      "id": "bc_denying_the_antecedent_1",
+      "label": "denying_the_antecedent",
+      "argument": "If you practice piano daily, you end up good at it. My daughter doesn't practice daily. So she's never going to be any good, and there's no point paying for more lessons."
+    },
+    {
+      "id": "bc_base_rate_neglect_1",
+      "label": "base_rate_neglect",
+      "argument": "The screening for that rare fish allergy is 95 percent accurate and Milo tested positive, so it's basically certain he has it. Yes, only one in ten thousand kids has this thing, but the test said what it said. 95 percent is 95 percent."
+    },
+    {
+      "id": "bc_gamblers_fallacy_1",
+      "label": "gamblers_fallacy",
+      "argument": "The claw machine has eaten my last nine dollars without a single win. That means it's primed now, the next grab is basically owed to me. Lend me a dollar, this one is a lock."
+    },
+    {
+      "id": "bc_regression_fallacy_1",
+      "label": "regression_fallacy",
+      "argument": "Jayden was in the worst shooting slump of his season, so we bought him those balance bracelets. The very next week his numbers bounced right back to normal. The bracelets fixed his jumper, I'm ordering a set for the whole team."
+    },
+    {
+      "id": "bc_survivorship_bias_1",
+      "label": "survivorship_bias",
+      "argument": "Every founder they interview on that podcast dropped out of college, so clearly dropping out is the smart route to building a company. You never hear the hosts talking to people who finished their degree. The pattern speaks for itself."
+    },
+    {
+      "id": "bc_texas_sharpshooter_1",
+      "label": "texas_sharpshooter",
+      "argument": "I went back through two seasons of my fantasy picks and found that in October, on Thursdays, my running backs scored big four separate times. That is a pattern you cannot ignore. From now on the strategy is Thursday running backs in October, the data proves it."
+    },
+    {
+      "id": "bc_appeal_to_consequences_1",
+      "label": "appeal_to_consequences",
+      "argument": "If it turns out our star reviewer took money for those write-ups, the whole channel loses credibility and we'd owe sponsors refunds. So he didn't take money. He can't have, and I refuse to entertain the idea."
+    },
+    {
+      "id": "bc_appeal_to_motive_1",
+      "label": "appeal_to_motive",
+      "argument": "Of course the trainer says you need three sessions a week, he gets paid per session. Whatever chart he showed you about muscle recovery, toss it. The math only says what his wallet wants it to say."
+    },
+    {
+      "id": "bc_two_wrongs_1",
+      "label": "two_wrongs",
+      "argument": "Yeah, I took a bag of office snacks home. Kevin has been expensing fancy lunches for a year and nobody blinks. If he gets his, I get mine, so I really don't see the problem with what I did."
+    },
+    {
+      "id": "bc_ad_hominem_circumstantial_1",
+      "label": "ad_hominem_circumstantial",
+      "argument": "Naturally the bus drivers' union rep says the routes need more funding, what else would someone in her seat say? Her position writes her opinion for her. So the ridership numbers she brought to the meeting mean nothing."
+    },
+    {
+      "id": "bc_complex_question_1",
+      "label": "complex_question",
+      "argument": "Just answer the committee yes or no: did you approve the vendor and pocket the discount? It's a simple question. One word, no dodging, one answer covers both."
+    },
+    {
+      "id": "bc_no_true_scotsman_1",
+      "label": "no_true_scotsman",
+      "argument": "No serious runner skips a race over a bit of rain. What about Dave, who skipped Sunday? Well then Dave isn't a serious runner, is he. Serious runners run, that's exactly what makes them serious."
+    },
+    {
+      "id": "bc_suppressed_correlative_1",
+      "label": "suppressed_correlative",
+      "argument": "Honestly, you can't call anyone tall. Compared to a giraffe we're all tiny, every last one of us. So tall people don't actually exist, and you can stop describing your date that way."
+    },
+    {
+      "id": "bc_appeal_to_force_1",
+      "label": "appeal_to_force",
+      "argument": "That's a cute little theory about splitting the utility bill by usage. Remember whose name is on the lease, though, and how quickly a room can become available to someone else. So we'll keep splitting it my way."
+    },
+    {
+      "id": "bc_appeal_to_flattery_1",
+      "label": "appeal_to_flattery",
+      "argument": "Someone with your eye for quality doesn't need to sit through an inspection report. You knew this house was solid the second you walked in, and buyers as sharp as you can skip the boring paperwork. Shall we sign today?"
+    },
+    {
+      "id": "bc_appeal_to_wealth_1",
+      "label": "appeal_to_wealth",
+      "argument": "The guy who owns three car dealerships in town says stretching before a run is pointless. He built all of that from nothing, so who are we to argue with him about warm-ups? Cancel the stretching portion of practice."
+    },
+    {
+      "id": "bc_appeal_to_common_sense_1",
+      "label": "appeal_to_common_sense",
+      "argument": "You don't need a study to know reading in dim light ruins your eyes, it's plain obvious. Anyone with a functioning head knows it. Whatever the eye doctor said, obvious beats journals every time."
+    },
+    {
+      "id": "bc_loaded_language_1",
+      "label": "loaded_language",
+      "argument": "The council wants to ram through another pet scheme, a bloated bike path nobody asked for, bulldozed across our peaceful street. It's a cash grab dressed up as safety. That's really all you need to know to vote it down."
+    },
+    {
+      "id": "bc_weasel_words_1",
+      "label": "weasel_words",
+      "argument": "Some say the new schedule is hurting morale. It's widely felt that mistakes have gone up since it started, and experts have suggested this kind of shift pattern causes burnout. So the schedule clearly needs to go."
+    },
+    {
+      "id": "bc_continuum_fallacy_1",
+      "label": "continuum_fallacy",
+      "argument": "One extra cookie won't make anyone unhealthy. Neither will one more after that, and you can't point to the exact cookie where it becomes a problem. So there's no such thing as eating too many cookies, and I'm finishing the tin."
+    },
+    {
+      "id": "bc_reification_1",
+      "label": "reification",
+      "argument": "The market wants us to lower our prices, and you don't argue with the market. It punished us last quarter and it will do it again if we disrespect it. The market has spoken, so cut the price."
+    },
+    {
+      "id": "bc_valid_1",
+      "label": "VALID",
+      "argument": "I buy the plain whole oats instead of the flavored instant packets, but not because they're closer to nature. I checked the labels: the flavored ones pack 12 grams of added sugar per serving, and my doctor wants me under 25 a day total. The plain ones have zero, so they fit my numbers better.",
+      "trap": "appeal_to_nature"
+    },
+    {
+      "id": "bc_valid_2",
+      "label": "VALID",
+      "argument": "The lease renewal is due Friday, and legally we either sign it or we don't, there is no third status for the contract. If we sign, we're locked into the higher rent for a year. If we don't, we have to give notice and start packing. Either way the decision has to happen by Friday, so let's sit down tonight.",
+      "trap": "false_dilemma"
+    },
+    {
+      "id": "bc_valid_3",
+      "label": "VALID",
+      "argument": "I asked the structural engineer who inspected the deck, and she didn't just say trust me. She showed me the rotted joist, her moisture meter readings, and photos of where the ledger board is pulling away from the house. Given that evidence, I'm keeping everyone off the deck until it's repaired.",
+      "trap": "appeal_to_authority"
+    },
+    {
+      "id": "bc_valid_4",
+      "label": "VALID",
+      "argument": "We surveyed 400 of our 2,000 customers, drawn at random from the full list, not just the happy ones. 62 percent said checkout was confusing, and the confusion showed up across every age bracket and device type. A sample that size and that broad makes me confident the checkout flow genuinely needs a redesign.",
+      "trap": "hasty_generalization"
+    },
+    {
+      "id": "bc_valid_5",
+      "label": "VALID",
+      "argument": "Pretty much everyone in the group chat swears the shortcut over the hill is faster, but that's not why I take it. I timed both routes five mornings each, leaving at the same time, and the hill route averaged nine minutes less. The crowd happens to be right, but the stopwatch is my reason.",
+      "trap": "bandwagon"
+    },
+    {
+      "id": "bc_valid_6",
+      "label": "VALID",
+      "argument": "We've kept grandma's sourdough starter going for thirty years, and I'm sticking with it, but not because it's old. A mature starter has a stable culture that rises predictably. When I tested a fresh starter last month, my loaves came out dense on two bakes out of three. The old one simply performs better, that's the whole reason.",
+      "trap": "appeal_to_tradition"
+    },
+    {
+      "id": "bc_valid_7",
+      "label": "VALID",
+      "argument": "If the dishwasher's heating element still worked, the dishes would come out hot at the end of a cycle. I just ran a full cycle and they came out stone cold. So the heating element is dead, and that's the part I'm ordering.",
+      "trap": "affirming_the_consequent"
+    },
+    {
+      "id": "bc_valid_8",
+      "label": "VALID",
+      "argument": "I'm not hiring that contractor for our roof, and it's nothing personal. On the last three jobs he did on our street, two roofs leaked within a year and the third failed inspection. I've seen the paperwork on all three. A record of exactly this kind of work going wrong is directly relevant to whether he'll do this job well.",
+      "trap": "ad_hominem"
+    },
+    {
+      "id": "bc_valid_9",
+      "label": "VALID",
+      "argument": "The crash reports started at the exact minute version 2.3.1 rolled out, they only occur on devices running 2.3.1, and when we rolled two test phones back to 2.3.0 the crash became unreproducible. That's isolation, not coincidence. The bug is in 2.3.1, so we revert while we dig in.",
+      "trap": "post_hoc"
+    },
+    {
+      "id": "bc_valid_10",
+      "label": "VALID",
+      "argument": "The food safety chart says that if the thickest part of the chicken reads 74 degrees, it's safe to serve. The thermometer reads 78 in the thickest part. So it's safe, let's plate it."
+    },
+    {
+      "id": "bc_valid_11",
+      "label": "VALID",
+      "argument": "We compared the two daycares on the three things we agreed mattered before we visited: staff turnover, child-to-teacher ratio, and distance. The cheaper one has half the turnover, a 1-to-4 ratio versus 1-to-6, and it's ten minutes closer. It wins on every criterion we set in advance, so that's the one."
+    },
+    {
+      "id": "bc_valid_12",
+      "label": "VALID",
+      "argument": "Over our last ten matches we conceded eight goals from corners and only three from open play. Set pieces are where we're bleeding. So this week's training should focus on marking corners, because that's where the goals are actually coming from."
+    },
+    {
+      "id": "bc_valid_13",
+      "label": "VALID",
+      "argument": "Skipping the extended coverage on the 60 dollar toaster makes sense. The plan costs 15, and the published failure rate for this model over three years is about 5 percent. That's an expected payout of roughly 3 dollars, so paying 15 to cover a 3 dollar expected loss is a bad trade."
+    },
+    {
+      "id": "bc_valid_14",
+      "label": "VALID",
+      "argument": "Before buying the console I read the teardown reports and the repair association's failure statistics: a 2 percent fault rate in year one, down from 9 percent on the previous model. Reliability was my main worry, and the data directly addresses it. So I went ahead and ordered one."
+    },
+    {
+      "id": "bc_valid_15",
+      "label": "VALID",
+      "argument": "My savings account pays 1 percent and the card I carry a balance on charges 22 percent. Every month I hold both, the interest I pay dwarfs the interest I earn on that same money. So paying the card down before building the savings buffer past one month of expenses leaves me strictly better off."
+    },
+    {
+      "id": "bc_valid_16",
+      "label": "VALID",
+      "argument": "The proposed crosswalk sits where the city's own collision map shows eleven pedestrian injuries in five years, more than the next three intersections combined. Paint and signals there cost about 40 grand, which the safety budget already has as an unspent line. High documented harm, targeted fix, funded line item. I'm speaking in favor at the meeting."
+    }
+  ]
+}
