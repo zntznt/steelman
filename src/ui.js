@@ -65,11 +65,23 @@ const clear = () => app.replaceChildren();
 // a11y pattern (better than aria-live announcing the whole card): it tells a screen reader where it
 // now is and drops a keyboard user at the top of the new content instead of back on <body>.
 function mount(card) {
+  tagScreen(card);
   app.replaceChildren(card);
   const heading = card.querySelector('h1, h2, .verdict-title');
   if (heading) {
     if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
     heading.focus({ preventScroll: false });
+  }
+}
+
+// Purely presentational hook for the stylesheet (no behavior, no flow). Tags a verdict card with
+// screen-verdict so the CSS can give the reading spine its verdict temperament (a gilt cap on a
+// holds-up, a single clay band on a suspicion) and the faint colophon wash. Non-verdict screens
+// need no class; the spine is a fixed margin rule everywhere. Never throws.
+function tagScreen(card) {
+  const cls = card.classList;
+  if (cls.contains('verdict-valid') || cls.contains('verdict-cynic') || cls.contains('verdict-accuse')) {
+    cls.add('screen-verdict');
   }
 }
 const familyName = (id) => DATA.familyMeta[id]?.name || id;
@@ -137,7 +149,7 @@ function renderStart() {
       'To “steelman” is to read someone’s point at its strongest before you judge it. That’s what this does.' }),
     el('h1', { className: 'hero', textContent: 'Does this point actually hold up?' }),
     el('p', {
-      className: 'lede',
+      className: 'lede invitation',   // `invitation` is the drop-cap target on the start screen only
       textContent:
         'Paste something another person said or wrote, the kind of thing you’re not sure about. ' +
         'We’ll start by assuming it’s fair, see what it gets right, and only point out a weak spot ' +

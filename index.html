@@ -6,6 +6,11 @@
   <title>Steelman: read an argument at its strongest before you judge it</title>
   <meta name="description" content="A fair-minded thinking companion. Paste an argument, check what it does well, and find out whether something's actually wrong with it or whether it makes sense. ('Steelman' means reading an argument at its strongest before you judge it.)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Fraunces (variable, opsz+wght), latin subset, self-hosted: no third-party request, works under
+       the /steelman/ project-pages base. Relative paths on purpose. Body stays a text serif via the
+       CSS fallback stack, so the unstyled/unloaded state already reads like the prior design. -->
+  <link rel="preload" href="fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Fraunces-Italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
@@ -16,6 +21,9 @@
   <div id="mascot-canvas" aria-hidden="true">
     <img id="mascot-img" alt="" width="84" height="84" hidden>
   </div>
+  <!-- Static running-head, the broadsheet masthead. Outside the card so it frames the whole page and
+       fills the top void. Decorative; aria-hidden so screen readers reach the card heading directly. -->
+  <p class="masthead" aria-hidden="true">Steelman / A Fair Reading</p>
   <main id="app">
     <!-- screens are rendered here by src/ui.js -->
     <noscript>
@@ -32,7 +40,7 @@
     <span class="dot">·</span>
     <a href="https://github.com/zntznt/steelman">source</a>
   </footer>
-  <!-- Steely mascot — swaps a per-stage raster image in /mascot. Self-contained; no-op until the
+  <!-- Steely mascot: swaps a per-stage raster image in /mascot. Self-contained; no-op until the
        art files exist. See mascot/README.md for the spec (format, size, expressions). -->
   <script defer src="src/mascot.js"></script>
   <script type="module" src="src/ui.js"></script>

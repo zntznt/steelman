@@ -1,133 +1,282 @@
-/* Steelman — calm & thoughtful.
-   The anti-cynicism thesis made visual: soft, unhurried, generous whitespace,
-   serif for the things you read slowly, nothing that feels like a gotcha. */
+/* Steelman: "The Fair Reading".
+   A fine-press broadsheet that performs steelmanning: the page reads an argument at full attention
+   before it says a word. Calm, printed, generous, sure of itself without raising its voice. The
+   anti-cynicism thesis made visual. Static site, no build: one self-hosted display family, the body
+   is a text serif via fallback so the unloaded state already reads like a printed page. */
+
+/* ---------- display face: Fraunces (variable opsz+wght), latin subset, self-hosted ---------- */
+/* Relative src on purpose: this ships to a project-pages base (/steelman/). Body text stays a real
+   text serif via --font-text below, so a slow font load never leaves us with serif-title-over-sans. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  font-optical-sizing: auto;
+  src: url("../fonts/Fraunces-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+2018-2019, U+201C-201D, U+2026;
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  font-optical-sizing: auto;
+  src: url("../fonts/Fraunces-Italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+2018-2019, U+201C-201D, U+2026;
+}
 
 :root {
-  --paper: #faf6ef;
-  --ink: #2e2a24;
-  --ink-soft: #6b6157;
-  --line: #e6ddcf;          /* decorative separators */
-  --line-strong: #94886f;   /* control borders — ≥3:1 vs card/paper (WCAG 1.4.11) */
-  --card: #fffdf9;
-  --accent: #5b6f5a;       /* muted sage — calm, not alarming */
-  --accent-soft: #e7ede6;
-  --valid: #4f7a52;        /* "it holds up" green, gentle */
-  --suspect: #9a6a4f;      /* warm clay for a tentative suspicion — never red */
-  --shadow: 0 1px 2px rgba(46, 42, 36, .04), 0 6px 24px rgba(46, 42, 36, .06);
-  --radius: 16px;
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-text: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", Georgia, serif;
+
+  /* Warm printed stock and ink. Sage is the ink structure is drawn in, not an even tint.
+     All text tokens hold WCAG AA on the lighter leaf (--card), not just on --paper. */
+  --paper: #f4ede0;          /* the stock */
+  --card: #fbf6ec;           /* the leaf set on the stock */
+  --ink: #26221b;            /* near-black warm ink, ~13:1 on card */
+  --ink-soft: #665c4e;       /* AA on card */
+  --line: #ddd2be;           /* hairline rules (decorative) */
+  --line-strong: #8a7d63;    /* control borders, >=3:1 vs card */
+  --accent: #4c6249;         /* sage as INK: rules, ticks, markers */
+  --accent-ink: #40513f;     /* sage TEXT on card, AA-safe */
+  --accent-soft: #e7ede6;    /* the "considered" teaching wash */
+  --accent-deep: #3c4d39;    /* pressed sage */
+  --valid: #3f6b45;          /* "it holds up" green, AA on the leaf */
+  --suspect: #8a5a3f;        /* warm clay for a tentative suspicion, never red */
+  --gilt: #a9884e;           /* brass foil, used ONCE (the holds-up tick cap). Never under text. */
+
+  --radius: 14px;
   --maxw: 40rem;
+  --measure: 34rem;          /* text measure cap inside the leaf */
+  --lh: 1.62rem;             /* baseline unit; header margins are multiples of this */
+  --shadow: 0 1px 2px rgba(46, 42, 36, .04), 0 6px 24px rgba(46, 42, 36, .06);  /* legacy fallback */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1c1a17;
-    --ink: #ece5da;
-    --ink-soft: #a89e90;
-    --line: #322e28;
-    --line-strong: #736a5c;   /* control borders — ≥3:1 in dark */
-    --card: #24211d;
-    --accent: #8aa089;
+    --paper: #171512;
+    --card: #201d18;
+    --ink: #ece2d2;
+    --ink-soft: #a99d89;
+    --line: #302b23;
+    --line-strong: #7a7160;   /* >=3:1 vs card and paper (WCAG 1.4.11 control borders) */
+    --accent: #92a98d;
+    --accent-ink: #a6bda4;
     --accent-soft: #2b322a;
-    --valid: #8fc093;
-    --suspect: #c79a7c;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 6px 24px rgba(0, 0, 0, .25);
+    --accent-deep: #a6bda4;
+    --valid: #8dc191;
+    --suspect: #cf9d7d;
+    --gilt: #caa662;
   }
 }
 
 * { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
+/* ---------- the room: warm stock with a faint directional light + 4% grain ---------- */
 body {
   margin: 0;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;   /* center via #app margin-block:auto instead, so a tall card can't
-                                    overflow above the viewport top and become unscrollable */
+  justify-content: flex-start;   /* center via #app margin-block:auto so a tall card never clips up top */
   overflow-y: auto;
-  gap: 1.5rem;
-  padding: 2rem 1.25rem 1rem;
-  background: var(--paper);
+  gap: 1.25rem;
+  padding: 2rem 1.25rem 1.5rem;
   color: var(--ink);
-  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font: 17px/1.62 var(--font-text);
+  font-variant-numeric: oldstyle-nums proportional-nums;   /* prose numerals sit in the reading line */
+  background-color: var(--paper);
+  /* A faint top-down warmth (a lit sheet on a desk, not a spotlit hero) plus a fine grain on the
+     stock. Grain never sits under card text: the card paints its solid --card over it. */
+  background-image:
+    linear-gradient(rgba(255, 252, 245, .35), transparent 12rem),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:
+      linear-gradient(rgba(255, 250, 240, .03), transparent 12rem),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
 }
 
+/* ---------- the masthead running-head (kills the top void) ---------- */
+.masthead {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto .5rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--line);
+  font: 600 .72rem/1 var(--font-text);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.masthead[hidden] { display: none; }
+
+/* display type: size carries authority, never heavy bold */
 h1, h2, .verdict-title {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 480;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  font-variation-settings: "opsz" 40;
 }
 
-#app { width: 100%; max-width: var(--maxw); margin-block: auto; }   /* centers when there's room, never clips a tall card */
+#app { width: 100%; max-width: var(--maxw); margin-block: auto; }
 
-/* one card at a time, gently fading in */
+/* ---------- the leaf, not a floating card ---------- */
 .card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 2rem 1.75rem;
-  animation: rise .35s ease both;
+  --gutter: 0rem;
+  box-shadow:
+    0 1px 2px rgba(38, 34, 28, .05),          /* tight contact */
+    0 8px 20px -6px rgba(38, 34, 28, .10),    /* mid ambient */
+    0 24px 48px -22px rgba(38, 34, 28, .16),  /* wide soft cast */
+    inset 0 1px 0 rgba(255, 255, 255, .6);    /* printed sheen edge */
+  animation: rise .45s ease both;
 }
+@media (prefers-color-scheme: dark) {
+  .card {
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, .35),
+      0 8px 20px -6px rgba(0, 0, 0, .40),
+      0 24px 48px -22px rgba(0, 0, 0, .50),
+      inset 0 1px 0 rgba(255, 255, 255, .05);
+  }
+}
+.card > * { max-width: var(--measure); }   /* prose never runs slack across the full leaf */
+
+/* the broadsheet margin gutter, opening just above the phone breakpoint (30rem) so there is no
+   dead band where the spine would crowd the content edge. The gutter belongs to the reading spine;
+   the kicker keeps its own hairline rule in the text column. */
+@media (min-width: 30.01rem) {
+  .card { --gutter: 2.6rem; padding-left: calc(1.75rem + var(--gutter)); }
+}
+
 @keyframes rise {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: none; }
 }
+
+/* ---------- the reading spine: the signature. A thin sage margin rule running the full length of
+   the card, the way a reader draws a line down the margin of a passage they are giving their full
+   attention. It is a fixed rule, NOT a meter: same on every screen, no growth, no fill, no percent.
+   (An earlier version grew per screen; that read as a progress bar, which the goodwill thesis
+   forbids. A fair reading does not gamify.) The only per-screen change is the verdict temperament:
+   holds-up earns a small gilt cap, a suspicion shows one localized clay band. ---------- */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 1.4rem;
+  top: 2rem;
+  bottom: 2rem;               /* full length, top and bottom inset equally: a margin rule, not a bar */
+  width: 2px;
+  background: var(--accent);
+  opacity: .45;
+  border-radius: 1px;
+}
+/* verdict temperaments, equal dignity: holds-up caps the spine with a single gilt tick (the one
+   gilt moment); a suspicion marks ONE localized clay band, so an accusation reads as "the line only
+   broke here", never a red X. Same spine, same length, same dignity either way. */
+.card.screen-verdict::before { opacity: .6; }
+.verdict-valid.card::before,
+.verdict-cynic.card::before {
+  border-top: 3px solid var(--gilt);   /* gilt appears exactly once, a hairline cap, never a fill */
+}
+.verdict-accuse.card::before {
+  background: linear-gradient(var(--accent) 0 46%, var(--suspect) 46% 54%, var(--accent) 54%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card { animation: none; }
   .btn, .tri, .family-opt { transition: none; }
   .btn:active, .tri:hover, .family-opt:active { transform: none; }
+  .card .kicker, .card h1, .tri.on, #mascot-img { animation: none; }
 }
 
+/* ---------- kickers: the hairline-rule grammar ---------- */
 .kicker {
-  font-size: .8rem;
-  letter-spacing: .08em;
+  font-family: var(--font-text);
+  font-size: .74rem;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin: 0 0 .5rem;
+  margin: 0 0 .7rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--line);   /* a thin rule under every kicker */
+  font-variant-numeric: tabular-nums lining-nums;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card .kicker { animation: draw .5s ease both; transform-origin: left; }
+  @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  .card h1 { animation: rise .45s ease .07s both; }   /* ~70ms stagger: the eye lands top-first */
 }
 
-/* Every screen's primary line is an h1 (one heading per screen, proper hierarchy). The Start hero
-   reads largest; interior question heads and verdict lines share one slightly smaller serif size. */
-.card h1 { font-size: 1.55rem; margin: 0 0 1rem; }
-.card h1.hero { font-size: 1.8rem; margin: 0 0 .5rem; }
-.card h1:focus { outline: none; }   /* programmatic focus target; the visible cue is the heading itself */
-.lede { color: var(--ink-soft); margin: 0 0 1.5rem; }
+/* headings + lede */
+.card h1 { font-size: 1.7rem; margin: 0 0 1rem; }
+.card h1.hero {
+  font-size: clamp(2.05rem, 6vw, 2.5rem);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin: 0 0 .6rem;
+}
+.card h1:focus { outline: none; }   /* programmatic focus target; the heading itself is the visible cue */
+.lede { color: var(--ink-soft); margin: 0 0 1.5rem; font-size: 1.06rem; }
 
-/* Brand gloss under the "Steelman" kicker. Explains the name once, quietly. */
-.brand-note { color: var(--ink-soft); font-size: .85rem; margin: -.25rem 0 1rem; }
+/* brand gloss under the "Steelman" wordmark kicker */
+.brand-note { color: var(--ink-soft); font-size: .85rem; margin: -.35rem 0 1.1rem; }
 
-/* The "for example, someone says" block. Deliberately NOT inside the textarea: a placeholder reads
-   as "type your version here," which made every test user overwrite it with their own grievance.
-   As static, quoted, labeled content it reads as an example to imitate, not a field to fill. */
+/* ---------- START: the title page. One sage drop cap, exactly once in the whole app. The
+   `.invitation` class exists only on the start screen's lede, so it needs no screen qualifier. ---------- */
+.invitation::first-letter {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 96;
+  color: var(--accent-ink);
+  float: left;
+  font-size: 3.1em;
+  line-height: .8;
+  padding: .06em .12em 0 0;
+}
+
+/* the "for example, someone says" block: a quiet neutral rule (the sage spine in the gutter is the
+   app's one sage vertical; a second sage bar here would read as a doubled rule). Quote in Fraunces italic. */
 .example {
   margin: 0 0 .9rem;
-  padding: .7rem .9rem;
+  padding: .7rem .95rem;
   border-left: 3px solid var(--line-strong);
   background: var(--accent-soft);
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 8px 8px 0;
 }
-.example-label { display: block; font-size: .78rem; color: var(--ink-soft); margin-bottom: .15rem; }
-.example-quote { margin: 0; font-family: Georgia, "Iowan Old Style", serif; font-style: italic; }
+.example-label { display: block; font-size: .78rem; color: var(--ink-soft); margin-bottom: .2rem; }
+.example-quote { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1.05rem; font-variation-settings: "opsz" 24; }
 
+/* the writing surface */
 textarea {
   width: 100%;
+  max-width: 100%;
   min-height: 9rem;
   resize: vertical;
   padding: .9rem 1rem;
   border: 1px solid var(--line-strong);
-  border-radius: 12px;
-  background: var(--paper);
+  border-radius: 10px;
+  background: var(--card);
   color: var(--ink);
   font: inherit;
   line-height: 1.55;
 }
 textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-/* buttons */
+/* ---------- buttons: ink, not candy ---------- */
 .btn {
   font: inherit;
   cursor: pointer;
@@ -136,27 +285,27 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
   color: var(--ink);
   border-radius: 999px;
   padding: .65rem 1.2rem;
-  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+  transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
 }
-.btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }  /* ink deepens */
 .btn:active { transform: translateY(1px); }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-/* Quiet, borderless toggle for "show more checks" — present but never competing with the verdict CTA. */
+
 .btn-quiet {
   border: none;
   background: none;
-  color: var(--accent);
+  color: var(--accent-ink);
   padding: .5rem .25rem;
   font-size: .92rem;
 }
-.btn-quiet:hover { background: none; text-decoration: underline; }
+.btn-quiet:hover { background: none; box-shadow: none; text-decoration: underline; }
 .show-more {
   display: block;
   width: 100%;
-  min-height: 44px;          /* real tap target, not body-text-sized */
+  min-height: 44px;
   margin: .35rem 0 .25rem;
   text-align: center;
-  text-decoration: underline;   /* reads as an action, not a sentence */
+  text-decoration: underline;
 }
 
 .btn-primary {
@@ -165,10 +314,11 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
   border-color: var(--accent);
   padding: .75rem 1.6rem;
 }
-.btn-primary:hover { filter: brightness(1.06); background: var(--accent); }
-
+.btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); box-shadow: none; }
+.btn-primary:active { background: var(--accent-deep); }
 @media (prefers-color-scheme: dark) {
   .btn-primary { color: #15140f; }
+  .btn-primary:hover { color: #15140f; }
 }
 
 .answers {
@@ -189,18 +339,19 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .row.end { justify-content: flex-end; }
 .row.between { justify-content: space-between; }
 
-/* argument recall, dimmed for reference */
+/* ---------- argument recall: a margin-note in Fraunces italic ---------- */
 .recall {
-  font-size: .9rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  font-variation-settings: "opsz" 20;   /* low opsz: a small italic quote wants text contrast, not display */
   color: var(--ink-soft);
-  border-left: 3px solid var(--line);
-  padding: .25rem 0 .25rem .85rem;
+  border-left: 3px solid var(--line);   /* neutral: the sage spine in the gutter is the only sage rule */
+  padding: .3rem 0 .3rem .9rem;
   margin: 0 0 1.5rem;
   white-space: pre-wrap;
-  overflow-wrap: anywhere;     /* a long URL / unbroken token wraps instead of overflowing sideways */
+  overflow-wrap: anywhere;
 }
-/* A long paste is clamped to ~3 lines with a soft fade so it never pushes the controls off-screen.
-   Set as expandable by ui.js (recallBlock) only when it actually overflows. */
 .recall.clamped {
   position: relative;
   display: -webkit-box;
@@ -209,7 +360,7 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.recall.clamped::after {                 /* soft fade so the clamp edge isn't a hard cut */
+.recall.clamped::after {
   content: "";
   position: absolute;
   right: 0;
@@ -225,35 +376,61 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
   overflow: visible;
 }
 .recall.clamped.open::after { content: none; }
-.recall-toggle { margin: -1rem 0 1.25rem; }   /* sits just under the clamped quote */
+.recall-toggle { margin: -1rem 0 1.25rem; }
 
-/* verdicts */
-.verdict-title { font-size: 1.55rem; margin: .25rem 0 .75rem; }
-h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1 */
+/* ---------- the double rule: signature separator above verdicts and the family list ---------- */
+.rule-double {
+  height: 0;
+  border: 0;
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 3px 0 -1px var(--line);   /* the thin partner sits 2px below */
+  margin: calc(var(--lh) * 1.4) 0 var(--lh);
+}
+
+/* ---------- verdicts: the colophon ---------- */
+.verdict-title { font-size: clamp(1.9rem, 5vw, 2.2rem); margin: .1rem 0 .75rem; }
+h1.verdict-title { font-size: clamp(1.9rem, 5vw, 2.2rem); }
 .verdict-valid .verdict-title,
 .verdict-cynic .verdict-title { color: var(--valid); }
 .verdict-accuse .verdict-title { color: var(--suspect); }
 
+/* a faint tone shift so a verdict reads as its own page, never a saturated "correct answer" card.
+   The solid --card is a SEPARATE background-color declaration, so if a browser can't parse the
+   color-mix tint the card still keeps its opaque surface (text contrast never falls back to the
+   grainy paper). A flat top-anchored linear tone, not a centered radial bloom (a fine press does
+   not spotlight a page). */
+.verdict-valid.card,
+.verdict-cynic.card {
+  background-color: var(--card);
+  background-image: linear-gradient(color-mix(in oklab, var(--valid), transparent 93%), transparent 8rem);
+}
+.verdict-accuse.card {
+  background-color: var(--card);
+  background-image: linear-gradient(color-mix(in oklab, var(--suspect), transparent 94%), transparent 8rem);
+}
+
 .teaching {
   background: var(--accent-soft);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 1rem 1.15rem;
   margin: 1.25rem 0;
 }
-/* the verdict's premises: the user's own ticks echoed back as the case it was built from */
-.premises { margin: 1rem 0 .25rem; }
-.premises-lead { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .35rem; }
-.premise { margin: .25rem 0; padding-left: .85rem; border-left: 3px solid var(--accent-soft); }
-.premise-q { font-style: italic; }
-.premise-a { color: var(--ink-soft); font-size: .92rem; }
 .teaching .name { font-weight: 600; }
 .teaching .aside { color: var(--ink-soft); font-size: .92rem; }
 .check { font-style: italic; color: var(--ink); margin: 1rem 0 .25rem; }
 
+/* the premises: the user's own ticks echoed back as a pull-quote proof, in their words */
+.premises { margin: 1rem 0 .25rem; }
+.premises-lead { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .4rem; }
+.premise { margin: .35rem 0; padding-left: .9rem; border-left: 3px solid var(--accent-soft); }
+.premise-q { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 24; }
+.premise-a { color: var(--ink-soft); font-size: .92rem; font-variant-numeric: tabular-nums; }
+
 .muted { color: var(--ink-soft); font-size: .92rem; }
 .error { color: var(--suspect); }
 
-.site-foot[hidden] { display: none; }   /* hidden attribute beats the flex below */
+/* ---------- footer ---------- */
+.site-foot[hidden] { display: none; }
 .site-foot {
   font-size: .82rem;
   color: var(--ink-soft);
@@ -262,53 +439,84 @@ h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  font-variant-numeric: tabular-nums;
 }
-.site-foot a { color: var(--accent); text-decoration: none; }
+.site-foot a { color: var(--accent-ink); text-decoration: none; }
 .site-foot a:hover { text-decoration: underline; }
 .site-foot .dot { opacity: .5; }
 
-/* ---------- family picker ---------- */
+/* ---------- family picker: a table of contents, auto-numbered by CSS ---------- */
 .family-list {
   display: flex;
   flex-direction: column;
-  gap: .6rem;
-  margin: 1.25rem 0;
+  gap: 0;
+  margin: var(--lh) 0;
+  border-top: 1px solid var(--line);
+  counter-reset: toc;
 }
 .family-opt {
+  position: relative;
   font: inherit;
   text-align: left;
   cursor: pointer;
-  border: 1px solid var(--line-strong);
-  background: var(--card);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
-  border-radius: 12px;
-  padding: .9rem 1.1rem;
+  padding: .95rem 0 .95rem 2rem;   /* room for the hanging numeral */
   display: flex;
   flex-direction: column;
   gap: .2rem;
-  transition: border-color .15s ease, background .15s ease, transform .12s ease;
+  transition: background .15s ease;
 }
-.family-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+/* the hanging oldstyle numeral (the "contents" number). Skips the goodwill "it's fine" row. */
+.family-opt:not(.family-opt-fine)::before {
+  counter-increment: toc;
+  content: counter(toc);
+  position: absolute;
+  left: 0;
+  top: .95rem;
+  font-family: var(--font-display);
+  font-variant-numeric: oldstyle-nums;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+.family-opt:hover { background: var(--accent-soft); }
 .family-opt:active { transform: translateY(1px); }
-.family-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.family-opt-title { font-weight: 600; }
-.family-opt-sub { font-size: .9rem; color: var(--ink-soft); }
-.family-opt.suggested { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.family-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.family-opt-title { font-family: var(--font-display); font-weight: 480; font-size: 1.08rem; }
+.family-opt-sub { font-size: .92rem; color: var(--ink-soft); }
+/* suggested: a quiet sage tick beside its numeral (inside the option's own padding, so it never
+   hangs into the spine gutter or clips at the card corner on mobile) + a sage title. Not a box. */
+.family-opt.suggested .family-opt-title { color: var(--accent-ink); }
+.family-opt.suggested::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 1.15rem;
+  width: 3px;
+  height: 1.1rem;
+  background: var(--accent);
+  border-radius: 1px;
+}
 .family-opt.suggested .family-opt-title::after {
   content: " · suggested";
+  font-family: var(--font-text);
   font-weight: 400;
   font-size: .8rem;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
-.family-opt-fine { border-style: dashed; }
+/* the "it holds up" escape: a kind exit, dashed rule, green title */
+.family-opt-fine { border-bottom-style: dashed; }
 .family-opt-fine .family-opt-title { color: var(--valid); }
 
-/* ---------- virtue checklist ---------- */
+/* ---------- virtue checklist: the marked-up proof ---------- */
 .checklist {
   display: flex;
   flex-direction: column;
-  gap: 0;                 /* border sits at the true row midpoint, even rhythm */
-  margin: 1.25rem 0;
+  gap: 0;
+  margin: var(--lh) 0;
 }
 .check-row {
   display: flex;
@@ -324,42 +532,50 @@ h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1
   font: inherit;
   cursor: pointer;
   display: flex;
-  flex-direction: column;   /* icon over an always-visible label (no hover-only legend) */
+  flex-direction: column;   /* icon over an always-visible label, no hover-only legend */
   align-items: center;
   justify-content: center;
   gap: .15rem;
-  min-width: 4.4rem;       /* roomier: holds two-word side-anchored labels ("No, it doesn’t") */
-  min-height: 44px;        /* HIG/WCAG 2.5.8 touch target */
+  min-width: 4.4rem;
+  min-height: 44px;         /* HIG/WCAG 2.5.8 touch target */
   padding: .5rem .45rem;
-  border-radius: 12px;
+  border-radius: 8px;       /* chip, not pill */
   border: 1px solid var(--line-strong);
   background: var(--card);
   color: var(--ink-soft);
   transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
 }
 .tri-icon { font-size: 1.1rem; line-height: 1; }
-/* Two-word labels are allowed to wrap to two short balanced lines rather than overflow, so the copy
-   can change length without re-tuning a fixed width. */
 .tri-label { font-size: .7rem; line-height: 1.15; text-align: center; text-wrap: balance; }
-.tri:hover { transform: translateY(-1px); }
+.tri:hover { transform: translateY(-1px); border-color: var(--accent); }
 .tri:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* "Yes, it does" is an affirmation, so it fills warm green (the app is glad to note a virtue).
+   "No, it doesn't" is just a careful observation, not a wrong answer, so it stays QUIET: a clay
+   outline on a faint clay tint, never a solid buzzer block. Marking a shortfall must not feel like
+   being buzzed for the wrong choice (that would pre-load the accusation the engine hasn't reached). */
 .tri-has.on { background: var(--valid); border-color: var(--valid); color: #fff; }
-.tri-lacks.on { background: var(--suspect); border-color: var(--suspect); color: #fff; }
-.tri-na.on { background: var(--ink-soft); border-color: var(--ink-soft); color: var(--card); }
-@media (prefers-color-scheme: dark) {
-  .tri-has.on, .tri-lacks.on, .tri-na.on { color: #15140f; }
+.tri-lacks.on {
+  background: color-mix(in oklab, var(--suspect), transparent 88%);
+  border-color: var(--suspect);
+  color: var(--suspect);
+  font-weight: 600;
 }
-/* On narrow phones the three labeled pills can crowd the question; let the row wrap gracefully. */
+.tri-na.on { background: var(--accent-soft); border-color: var(--ink-soft); color: var(--ink-soft); }
+@media (prefers-reduced-motion: no-preference) {
+  .tri.on { animation: bloom .18s ease both; }
+  @keyframes bloom { from { transform: scale(.94); } to { transform: none; } }
+}
+@media (prefers-color-scheme: dark) {
+  .tri-has.on { color: #15140f; }
+}
 @media (max-width: 30rem) {
-  .card { padding: 1.5rem 1.15rem; }   /* reclaim horizontal room on ~360px screens */
+  .card { padding: 1.5rem 1.15rem; }        /* reclaim room on ~360px screens */
+  .invitation::first-letter { font-size: 2.8em; }
   .check-row { flex-wrap: wrap; }
   .tri-group { width: 100%; justify-content: flex-end; }
 }
 
-/* ---------- mascot (Steely) — persistent host above the card ---------- */
-/* A single <img> whose src is swapped per stage by src/mascot.js. Hand-made raster art lives in
-   /mascot (see mascot/README.md). The host reserves space and centers; the image is hidden until a
-   real file loads, so a missing mascot collapses to nothing rather than a broken icon. */
+/* ---------- mascot (Steely): persistent host above the card ---------- */
 #mascot-canvas {
   width: 96px;
   margin: 0 auto;
@@ -368,10 +584,8 @@ h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1
   align-items: flex-end;
   position: relative;
   z-index: 2;
-  min-height: 0;             /* parked: no art, so collapse the slot (no phantom gap above the card) */
+  min-height: 0;
 }
-/* When real art ships, mascot.js drops [hidden] on the <img>; that re-expands the reserved slot and
-   restores the nestle-onto-the-card overlap automatically. No code change needed when art lands. */
 #mascot-canvas:has(#mascot-img:not([hidden])) {
   min-height: 84px;
   margin-bottom: -0.5rem;
@@ -379,7 +593,7 @@ h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1
 #mascot-img {
   display: block;
   width: 84px;
-  height: 84px;              /* square art (see spec); fixed box keeps swaps from shifting layout */
+  height: 84px;
   object-fit: contain;
   animation: mascot-in .5s ease both;
 }
@@ -388,8 +602,6 @@ h1.verdict-title { font-size: 1.55rem; }   /* the payoff line is the screen's h1
   from { opacity: 0; transform: translateY(6px) scale(.96); }
   to   { opacity: 1; transform: none; }
 }
-
-/* gentle idle float — calm, and suppressed under reduced-motion */
 @media (prefers-reduced-motion: no-preference) {
   #mascot-img { animation: mascot-in .5s ease both, mascot-float 2.8s ease-in-out .5s infinite; }
 }
