@@ -486,12 +486,6 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
     return { kind: 'cynic_valid', beliefs: beliefs(state), leanFallacy: null };
   }
 
-  // m-1: a holds-up verdict means two different things and deserves two labels. If the user actively
-  // AFFIRMED virtues (ticked ✓ "it does this"), the argument is POSITIVELY justified → valid_earned.
-  // If they mostly skipped / denied-but-not-enough, it's merely not-defeated → cynic_valid. ≥2
-  // affirmations is the bar for "earned" (one tick is a weak vouch).
-  const holdsUpKind = affirmed.length >= 2 ? 'valid_earned' : 'cynic_valid';
-
   // ---- PER-FALLACY scoring (fixes the sibling-affirmation whitewash, panel finding C-1) ----
   // The old approach poured every affirm/deny answer into ONE shared belief state, so honestly
   // affirming a sibling's virtues ("it didn't strawman, didn't tu quoque…") raised VALID and
@@ -502,6 +496,16 @@ export function scoreChecklist(data, { familyId, affirmed = [], denied = [], see
   const deniedSet = new Set(denied);
   const affirmedSet = new Set(affirmed);
   const famIds = (data.families[familyId] || []);
+
+  // m-1: a holds-up verdict means two different things and deserves two labels. If the user actively
+  // AFFIRMED virtues (ticked ✓ "it does this"), the argument is POSITIVELY justified → valid_earned.
+  // If they mostly skipped / denied-but-not-enough, it's merely not-defeated → cynic_valid. ≥2
+  // affirmations is the bar for "earned" (one tick is a weak vouch). Count only THIS family's own
+  // tells: an off-topic affirmation (only reachable by a direct API caller, never the UI) must not
+  // earn the "positively justified" label for a family it didn't vouch for.
+  const famTellSet = new Set(famIds.flatMap((f) => (data.tells[f] || []).map((t) => t.qid)));
+  const ownAffirmed = [...affirmedSet].filter((q) => famTellSet.has(q)).length;
+  const holdsUpKind = ownAffirmed >= 2 ? 'valid_earned' : 'cynic_valid';
 
   // m-6: warn (dev only) if an affirmed/denied qid isn't a real question at all — that's a typo, and
   // the qid would otherwise vanish silently and read as "holds up". A qid that IS a valid question
@@ -645,15 +649,21 @@ export function suggestMoves(data, familyId, text, limit = 3) {
   const fids = data.families[familyId] || [];
   const hay = normPhrase(text);
   const has = (needle) => hay.includes(normPhrase(needle));
-  const moves = fids.map((fid) => {
-    const f = data.fallacies[fid] || {};
-    let score = 0;
-    for (const kw of (f.move_keywords || [])) if (has(kw)) score++;   // robust signal-word overlap
-    for (const cue of (f.cues || [])) if (has(cue)) score++;          // bonus for an exact phrase match
-    return { fid, score };
-  }).sort((a, b) => b.score - a.score);   // stable: equal scores keep catalog order
-
   const residual = fids[0] || null;       // first fallacy = the family's most general / catch-all move
+  const moves = fids.map((fid, i) => {
+    const f = data.fallacies[fid] || {};
+    // Count each DISTINCT matched phrase once. move_keywords and cues overlap for 25 of 73 fallacies;
+    // scoring a shared phrase twice invented a phantom lead that could bump a co-equal move (one the
+    // user literally typed) out of the surfaced set. A Set keyed on the normalized phrase fixes it:
+    // two different matches still score 2, the same phrase in both arrays scores 1.
+    const matched = new Set();
+    for (const kw of (f.move_keywords || [])) if (has(kw)) matched.add(normPhrase(kw));
+    for (const cue of (f.cues || [])) if (has(cue)) matched.add(normPhrase(cue));
+    return { fid, score: matched.size, i };
+  }).sort((a, b) =>
+    (b.score - a.score) ||                                  // higher score first
+    ((a.fid === residual ? 1 : 0) - (b.fid === residual ? 1 : 0)) ||  // a SPECIFIC match beats the catch-all on a tie
+    (a.i - b.i));                                           // otherwise keep catalog order (stable)
   const top = moves[0]?.score || 0;
   const allZero = top === 0;
   let surfaced;
