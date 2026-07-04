@@ -426,6 +426,44 @@ h1.verdict-title { font-size: clamp(1.9rem, 5vw, 2.2rem); }
 .premise-q { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 24; }
 .premise-a { color: var(--ink-soft); font-size: .92rem; font-variant-numeric: tabular-nums; }
 
+/* "Did it cross the line?": the honest logic readout. One suspicion bar for the leading candidate,
+   with a gilt threshold marked ON the track. The engine names a fallacy by a ratio threshold, not by
+   "biggest bar", so a real catch fills PAST the line and a sound argument sits short of it. This is
+   what actually decides the verdict, shown plainly. Calm and printed, never a dashboard. */
+.weigh { margin: 1.25rem 0 .5rem; }
+.weigh-lead { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .7rem; }
+.weigh-bar {
+  display: grid;
+  grid-template-columns: minmax(6rem, 9rem) 1fr 3.2rem;
+  align-items: center;
+  gap: .7rem;
+  margin: .45rem 0;
+}
+.weigh-name { font-family: var(--font-display); font-size: .98rem; color: var(--ink-soft); }
+.weigh.crossed .weigh-name,
+.weigh-bar.crossed .weigh-name { color: var(--suspect); }
+.weigh-track { position: relative; height: 14px; background: var(--accent-soft); border-radius: 7px; overflow: hidden; }
+.weigh-fill {
+  display: block; height: 100%; border-radius: 7px; background: var(--ink-soft);
+  transition: width .5s cubic-bezier(.4, 0, .2, 1);
+}
+.weigh.crossed .weigh-fill,
+.weigh-bar.crossed .weigh-fill { background: var(--suspect); }
+/* the threshold marker sits ON the track: a gilt hairline the bar must cross to name a weak spot */
+.weigh-mark {
+  position: absolute; top: -2px; bottom: -2px; width: 2px;
+  background: var(--gilt); border-radius: 1px; transform: translateX(-1px);
+}
+.weigh-verdict {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-soft); text-align: right;
+}
+.weigh.crossed .weigh-verdict,
+.weigh-bar.crossed .weigh-verdict { color: var(--suspect); }
+.weigh-thresh { color: var(--ink-soft); font-size: .88rem; margin: .5rem 0 0; }
+.weigh.crossed .weigh-thresh { color: var(--suspect); }
+.weigh-rest { color: var(--ink-soft); font-size: .85rem; margin: .55rem 0 0; font-style: italic; }
+
 .muted { color: var(--ink-soft); font-size: .92rem; }
 .error { color: var(--suspect); }
 

@@ -5,7 +5,7 @@
 // Flow: paste → (cue scan suggests a family) → pick a family → confirm the argument's virtues
 //       (✓ it does this / ✗ it falls short / skip) → tentative+teaching verdict.
 
-import { loadData, scoreChecklist, suggestFamily, suggestBucket, suggestMoves } from './engine.js';
+import { loadData, scoreChecklist, suggestFamily, suggestBucket, suggestMoves, CONFIG } from './engine.js';
 
 const app = document.getElementById('app');
 const el = (tag, props = {}, ...kids) => {
@@ -15,6 +15,7 @@ const el = (tag, props = {}, ...kids) => {
     // them; route those through setAttribute. Everything else (className, textContent, onclick, …) is
     // a real property and gets assigned directly.
     if (k === 'role' || k.startsWith('aria-') || k.startsWith('data-')) n.setAttribute(k, v);
+    else if (k === 'style') n.style.cssText = v;   // a plain string of inline declarations
     else n[k] = v;
   }
   for (const c of kids) n.append(c);
@@ -478,6 +479,74 @@ function renderMoveMiss(familyId, fid) {
   mount(card);
 }
 
+// "Make sure": from the inconclusive-lean screen, the user zooms in on ONE of the close candidates
+// to settle it. We show that fallacy's own tells (any the user already denied are pre-marked, so a
+// second honest denial pushes it over the naming line; if they instead affirm the rest, it stays
+// "holds up" and they've confirmed it does NOT fit, just as valuable). Same engine, same goodwill
+// framing as the checklist: we ask whether it does the fair thing, never "confirm the flaw". Works
+// for any fallacy (uses f.name, not pick content), so structural families are covered too.
+function renderMakeSure(familyId, fid, priorDenied = []) {
+  clear();
+  steelyStage('checklist');
+  const f = DATA.fallacies[fid];
+  const tells = DATA.tells[fid] || [];
+  const priorSet = new Set(priorDenied.filter((q) => tells.some((t) => t.qid === q)));
+  const choice = {};
+  for (const q of priorSet) choice[q] = 'lacks';   // carry forward the denial that made it a candidate
+
+  const card = el('section', { className: 'card' });
+  if (argument) card.append(recallBlock(argument));
+  card.append(el('p', { className: 'kicker', textContent: 'A closer look' }));
+  card.append(el('h1', { textContent: `Is it ${article(f.name)} ${f.name}?` }));
+  card.append(el('p', { className: 'muted',
+    textContent: 'A few checks on just this one. Tap 👍 if the argument does the fair thing, 👎 if it falls short. ' +
+      'If it does them all, it holds up here, and you’ll have made sure.' }));
+
+  const makeRow = (r) => {
+    const mkChoice = (kind, icon, label, cls) => {
+      const b = el('button', { className: `tri ${cls}`, type: 'button' },
+        el('span', { className: 'tri-icon', textContent: icon, 'aria-hidden': 'true' }),
+        el('span', { className: 'tri-label', textContent: label }),
+      );
+      b.setAttribute('aria-label', `${label}: ${r.text}`);
+      b.setAttribute('aria-pressed', String(choice[r.qid] === kind));
+      b.onclick = () => { choice[r.qid] = choice[r.qid] === kind ? undefined : kind; refresh(); };
+      return b;
+    };
+    const has = mkChoice('has', '👍', 'Yes, it does', 'tri-has');
+    const lacks = mkChoice('lacks', '👎', 'No, it doesn’t', 'tri-lacks');
+    const na = mkChoice('na', '🤷', 'Doesn’t apply', 'tri-na');
+    function refresh() {
+      for (const [b, k] of [[has, 'has'], [lacks, 'lacks'], [na, 'na']]) {
+        const on = choice[r.qid] === k;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', String(on));
+      }
+    }
+    refresh();   // reflect any carried-forward denial
+    return el('div', { className: 'check-row' },
+      el('span', { className: 'check-text', textContent: r.text }),
+      el('span', { className: 'tri-group' }, has, lacks, na),
+    );
+  };
+
+  const list = el('div', { className: 'checklist' });
+  for (const t of tells) list.append(makeRow({ qid: t.qid, text: t.text }));
+  card.append(list);
+
+  const see = el('button', { className: 'btn btn-primary', textContent: 'See the result →', 'aria-label': 'See the result' });
+  see.onclick = () => {
+    const affirmed = Object.keys(choice).filter((q) => choice[q] === 'has');
+    const denied = Object.keys(choice).filter((q) => choice[q] === 'lacks');
+    renderVerdict(scoreChecklist(DATA, { familyId, affirmed, denied }), familyId, { affirmed, denied });
+  };
+  card.append(el('div', { className: 'row between' },
+    el('button', { className: 'btn', textContent: '← Back', 'aria-label': 'Back', onclick: () => renderVerdict(scoreChecklist(DATA, { familyId, denied: priorDenied }), familyId, { denied: priorDenied }) }),
+    see,
+  ));
+  mount(card);
+}
+
 // ---------- 3. the positive-first virtue checklist ----------
 function renderChecklist(familyId) {
   // Deeper-branch redesign (deflection only, for now): instead of a wall of up to 16 virtue rows,
@@ -617,11 +686,11 @@ function renderVerdict(result, familyId, marked = {}) {
   clear();
   steelyStage(result.kind);   // mascot maps accuse/lean → gap, valid → holds, cynic → skeptic
   switch (result.kind) {
-    case 'accuse': return renderAccuse(result, marked);
-    case 'inconclusive_lean': return renderInconclusive(result, marked);
-    case 'valid_earned': return renderValid('earned', marked);
+    case 'accuse': return renderAccuse(result, marked, familyId);
+    case 'inconclusive_lean': return renderInconclusive(result, marked, familyId);
+    case 'valid_earned': return renderValid('earned', marked, result, familyId);
     case 'cynic_valid':
-    default: return renderValid(familyId ? 'checked' : 'skimmed');
+    default: return renderValid(familyId ? 'checked' : 'skimmed', marked, result, familyId);
   }
 }
 
@@ -637,6 +706,96 @@ function anyTellText(qid) {
   return null;
 }
 
+// "Did it cross the line?": the honest logic readout. The engine does NOT decide by "which raw
+// probability is bigger" (a real catch sits at only ~18% belief vs ~82% for VALID, because the app
+// is deliberately slow to accuse). It decides by a RATIO threshold: the leading candidate is named
+// when its isolated share reaches CHECKLIST_RATIO_VALID (0.12) of VALID's share. So we plot the ONE
+// thing that actually decides the verdict: how far the leading suspicion got toward that line.
+//   ratio  = P[lead] / P[VALID]           (the engine's isolated f/VALID for the leader)
+//   reach  = ratio / CHECKLIST_RATIO_VALID (>= 1 means it crossed and got named)
+// The threshold sits at a fixed mark on the track; the bar fills to `reach` of that mark. A named
+// fallacy fills past the line, a sound argument sits well short of it. This shows the machine's real
+// decision, not a probability bar that misreads as "basically fine" at the moment of a catch.
+// Real numbers from result.beliefs; no computation here beyond the ratio. Only rendered where a
+// family was actually inspected, never on the "seems fine" skim path.
+const WEIGH_LINE = 66;   // percent of the track where the gilt "name a weak spot" threshold sits
+
+// reach = how far a candidate's isolated suspicion got toward the naming line. 1.0 == exactly at it.
+const reachOf = (P, fid) => ((P[fid] ?? 0) / (P.VALID || 1)) / CONFIG.CHECKLIST_RATIO_VALID;
+
+// The candidates that actually moved on a lean (the split): reach well above the flat baseline
+// (untouched siblings sit near 0.07, movers near 0.5). Used both for the split bars and the
+// "make sure" buttons, so they always agree. Empty for non-lean verdicts.
+function weighSplitCandidates(result, familyId) {
+  const P = result?.beliefs;
+  if (result?.kind !== 'inconclusive_lean' || !P || !DATA.families[familyId]) return [];
+  return DATA.families[familyId]
+    .map((f) => [f, reachOf(P, f)])
+    .filter(([, r]) => r >= 0.25)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([f]) => f);
+}
+// one suspicion bar: name, a track with a fill and the gilt threshold marked on it, an end label.
+function weighBar(fid, reach, endLabel, crossed) {
+  const fillPct = Math.max(3, Math.min(100, Math.round(reach * WEIGH_LINE)));
+  return el('div', { className: 'weigh-bar' + (crossed ? ' crossed' : '') },
+    el('span', { className: 'weigh-name', textContent: fid ? DATA.fallacies[fid].name : 'Nothing here' }),
+    el('span', { className: 'weigh-track' },
+      el('span', { className: 'weigh-fill', style: `width:${fillPct}%` }),
+      el('span', { className: 'weigh-mark', style: `left:${WEIGH_LINE}%` }),
+    ),
+    el('span', { className: 'weigh-verdict', textContent: endLabel }),
+  );
+}
+
+function weighBlock(result, familyId) {
+  const P = result.beliefs;
+  if (!P || !familyId || !DATA.families[familyId]) return null;
+  const fids = DATA.families[familyId];
+  const ranked = fids.map((f) => [f, reachOf(P, f)]).sort((a, b) => b[1] - a[1]);
+  const [leadId, leadReach] = ranked[0] || [null, 0];
+  if (!leadId) return null;
+
+  const wrap = el('div', { className: 'weigh' });
+
+  if (result.kind === 'inconclusive_lean') {
+    // The split: a lean means SEVERAL candidates each got partway, none crossing. Showing that
+    // split is the whole point of this screen, it's WHY nothing was named. Same candidate list the
+    // "make sure" buttons use (weighSplitCandidates), so bars and buttons always agree.
+    const ids = weighSplitCandidates(result, familyId);
+    const show = (ids.length ? ids : [leadId]).map((f) => [f, reachOf(P, f)]);
+    wrap.append(el('p', { className: 'weigh-lead', textContent: 'How the suspicion split:' }));
+    for (const [fid, r] of show) wrap.append(weighBar(fid, r, 'partway', false));
+    wrap.append(el('p', { className: 'weigh-thresh', textContent:
+      show.length > 1
+        ? 'Each came partway. None crossed the line, and the concern is split between them, so we name neither.'
+        : 'It came partway but stayed short of the line, so nothing was named.' }));
+    return wrap;
+  }
+
+  const named = result.kind === 'accuse';
+  const crossed = named;                 // by construction, an accuse is the only crossed verdict
+  const nameLead = named || leadReach >= 0.5;   // don't spotlight a barely-moved sibling on a holds-up
+  wrap.classList.toggle('crossed', crossed);
+  wrap.append(el('p', { className: 'weigh-lead', textContent:
+    named ? 'How far it crossed the line:' : 'How close it came to a weak spot:' }));
+  wrap.append(weighBar(nameLead ? leadId : null, leadReach, named ? 'named' : 'held up', crossed));
+  wrap.append(el('p', { className: 'weigh-thresh', textContent:
+    named ? 'It crossed the line, so we named a weak spot.'
+          : 'It stayed short of the line, so nothing was named.' }));
+
+  const others = ranked.length - 1;
+  if (nameLead && others > 0) {
+    wrap.append(el('p', { className: 'weigh-rest', textContent:
+      `The other ${others === 1 ? 'possibility' : others + ' possibilities'} in this group stayed further back. Each was weighed on its own.` }));
+  } else if (!nameLead) {
+    wrap.append(el('p', { className: 'weigh-rest', textContent:
+      `All ${ranked.length} possibilities in this group were weighed on their own. None came close.` }));
+  }
+  return wrap;
+}
+
 // "Built from your answers" block: each cited tell echoed with the user's own call attached.
 // verb: what their tick meant ('no' for a denied virtue, 'yes' for an affirmed one).
 function premiseBlock(lead, texts, verb) {
@@ -650,7 +809,7 @@ function premiseBlock(lead, texts, verb) {
   return block;
 }
 
-function renderAccuse(result, marked = {}) {
+function renderAccuse(result, marked = {}, familyId = null) {
   const f = DATA.fallacies[result.fallacy];
   // The premises of this accusation are the accused fallacy's OWN tells the user marked absent.
   // (Denials of sibling tells never feed this fallacy's score, per-fallacy isolation, so citing
@@ -679,8 +838,10 @@ function renderAccuse(result, marked = {}) {
       document.createTextNode(f.teaching),
       el('p', { className: 'check', textContent: f.confirm_check }),
     ),
-    el('div', { className: 'answers' }, yes, no),
   );
+  const weigh = weighBlock(result, familyId);
+  if (weigh) card.append(weigh);
+  card.append(el('div', { className: 'answers' }, yes, no));
   mount(card);
   yes.onclick = () => { steelyStage('confirmed'); renderConfirmed(f); };
   no.onclick = () => { steelyStage('cynic_after_reject'); renderCynic('rejected', f); };
@@ -700,34 +861,67 @@ function renderConfirmed(f) {
   ));
 }
 
-function renderInconclusive(result, marked = {}) {
+function renderInconclusive(result, marked = {}, familyId = null) {
   clear();
   const f = result.leanFallacy ? DATA.fallacies[result.leanFallacy] : null;
   const lean = f
     ? `There might be something here, maybe ${article(f.name)} ${f.name}, but not enough to be sure.`
     : 'There might be something here, but not enough to be sure.';
+  // Lead with settling it, not with a shrug: the old "not enough to be sure, trust your read" read
+  // as the app giving up. A lean is not a dead end; it means the whole question comes down to one
+  // thing, and there is always a way to reach a verdict from here.
   const card = el('section', { className: 'card verdict-cynic' },
-    el('p', { className: 'kicker', textContent: 'The result' }),
-    el('h1', { className: 'verdict-title', textContent: 'Not enough to be sure, and that’s fine.' }),
+    el('p', { className: 'kicker', textContent: 'It comes down to one thing' }),
+    el('h1', { className: 'verdict-title', textContent: 'Almost. One check would settle it.' }),
   );
-  // Echo what they actually flagged, so "not sure" reads as an honest weighing of THEIR findings,
-  // not the app shrugging them off (re-audit: the old ending "read as the app giving up").
   const flagged = (marked.denied || []).map(anyTellText).filter(Boolean).slice(0, 3);
   if (flagged.length) {
     card.append(premiseBlock('You did spot something. You marked:', flagged, 'no'));
   }
-  card.append(
-    el('p', { textContent: lean + ' We’d rather say “not sure” than pin a label on an argument that might be fine.' }),
-    el('p', { className: 'muted', textContent: 'Trust your own read. If it still feels wrong, the fair move is to ask the other person to explain their reasoning.' }),
-    restartRow(),
-  );
+  card.append(el('p', { textContent: lean + ' It did not cross the line on its own, but you can settle it.' }));
+  // The split bars: the suspicion divided across two or more candidates, none crossing. Shows WHY.
+  const weigh = weighBlock(result, familyId);
+  if (weigh) card.append(weigh);
+
+  // Path 1, "take a closer look": zoom into one close candidate for a focused check that always
+  // resolves to accuse or holds-up (a single fallacy's own tells can never re-lean; verified).
+  const closeIds = weighSplitCandidates(result, familyId);
+  if (closeIds.length) {
+    card.append(el('p', { className: 'muted make-sure-lead',
+      textContent: 'Take a closer look at whichever felt closest:' }));
+    const btns = el('div', { className: 'answers' });
+    for (const fid of closeIds) {
+      const b = el('button', { className: 'btn', textContent: DATA.fallacies[fid].name });
+      b.onclick = () => renderMakeSure(familyId, fid, marked.denied || []);
+      btns.append(b);
+    }
+    card.append(btns);
+  }
+
+  // Path 2, "just call it": the forced fork. Some arguments are a genuine judgment call; the engine
+  // will not manufacture certainty, but the user can and should decide. Never leaves them stranded.
+  // The lead candidate for the fork is the strongest of the close ones (the engine's leanFallacy).
+  const forkFallacy = DATA.fallacies[result.leanFallacy || closeIds[0]];
+  if (forkFallacy) {
+    card.append(el('p', { className: 'muted make-sure-lead',
+      textContent: 'Or make the call yourself, it is a fair one to make:' }));
+    const yes = el('button', { className: 'btn', textContent: `Yes, it leans on ${forkFallacy.name}` });
+    yes.onclick = () => { steelyStage('confirmed'); renderConfirmed(forkFallacy); };
+    const no = el('button', { className: 'btn', textContent: 'No, the point holds up' });
+    no.onclick = () => { steelyStage('cynic_after_reject'); renderCynic('rejected', forkFallacy); };
+    card.append(el('div', { className: 'answers' }, yes, no));
+  }
+
+  card.append(restartRow());
   mount(card);
 }
 
 // mode: 'earned' (user affirmed ≥2 virtues → positively justified),
 //       'checked' (inspected a family, nothing failed enough → not defeated),
 //       'skimmed' ("none of these / seems fine" → not inspected, just stands)
-function renderValid(mode, marked = {}) {
+// result + familyId are passed for the "how it weighed out" balance, shown only on the inspected
+// paths (earned / checked), never on skimmed (nothing was weighed there).
+function renderValid(mode, marked = {}, result = null, familyId = null) {
   clear();
   const COPY = {
     // The re-test found "it holds up" gets misread as "the other person is RIGHT and you lose," and
@@ -769,6 +963,12 @@ function renderValid(mode, marked = {}) {
         more > 0 ? `The case you built for it (and ${more} more):` : 'The case you built for it:',
         vouched, 'yes'));
     }
+  }
+  // The balance, on the inspected holds-up paths only (earned / checked). On 'skimmed' the user
+  // never picked a family, so there is nothing that was weighed to show.
+  if (mode !== 'skimmed') {
+    const weigh = weighBlock(result || {}, familyId);
+    if (weigh) card.append(weigh);
   }
   card.append(
     el('p', { className: 'muted', textContent: c.muted }),
