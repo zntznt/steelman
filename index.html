@@ -14,35 +14,14 @@
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-  <!-- Persistent mascot host. A single <img> whose src is swapped per stage by src/mascot.js.
-       Hand-made raster art drops into /mascot (see mascot/README.md). Starts hidden and stays
-       hidden until a real image loads, so a missing file shows nothing rather than a broken icon.
-       The app never depends on the mascot. -->
-  <div id="mascot-canvas" aria-hidden="true">
-    <img id="mascot-img" alt="" width="84" height="84" hidden>
-  </div>
-  <!-- Static running-head, the broadsheet masthead. Outside the card so it frames the whole page and
-       fills the top void. Decorative; aria-hidden so screen readers reach the card heading directly. -->
-  <p class="masthead" aria-hidden="true">Steelman / A Fair Reading</p>
-  <main id="app">
-    <!-- screens are rendered here by src/ui.js -->
+  <!-- The two-pane reading desk (sidebar + right pane) is rendered here by src/ui.js. -->
+  <div id="app">
     <noscript>
-      <section class="card">
-        <h1>Steelman</h1>
-        <p>This thinking companion needs JavaScript to run. It does all its reasoning in your browser. Nothing is sent anywhere.</p>
-      </section>
+      <p style="margin:44px 48px;max-width:42rem;font:15px/1.55 system-ui,sans-serif;color:#211f1a">
+        Steelman needs JavaScript to run. It does all its reasoning in your browser. Nothing is sent anywhere.
+      </p>
     </noscript>
-  </main>
-  <footer class="site-foot" hidden>
-    <span>Steelman</span>
-    <span class="dot">·</span>
-    <span>Innocent until proven otherwise.</span>
-    <span class="dot">·</span>
-    <a href="https://github.com/zntznt/steelman">source</a>
-  </footer>
-  <!-- Steely mascot: swaps a per-stage raster image in /mascot. Self-contained; no-op until the
-       art files exist. See mascot/README.md for the spec (format, size, expressions). -->
-  <script defer src="src/mascot.js"></script>
+  </div>
   <script type="module" src="src/ui.js"></script>
 </body>
 </html>
