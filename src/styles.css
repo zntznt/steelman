@@ -1,12 +1,13 @@
-/* Steelman: "The Fair Reading".
-   A fine-press broadsheet that performs steelmanning: the page reads an argument at full attention
-   before it says a word. Calm, printed, generous, sure of itself without raising its voice. The
-   anti-cynicism thesis made visual. Static site, no build: one self-hosted display family, the body
-   is a text serif via fallback so the unloaded state already reads like a printed page. */
+/* Steelman: the Reading Desk.
+   A two-pane reading desk. The pasted argument stays pinned in a left sidebar for the whole session,
+   with step "receipts" accumulating beneath it, while the right pane walks the picker flow. Warm,
+   printed, flat: no shadows, no gradient washes, no texture. One display serif (Fraunces) for
+   headings and the argument quote; system sans for UI; a mono face for kickers, step numbers, and
+   scale labels. The goodwill thesis made visual: calm, generous, sure of itself without raising its
+   voice. */
 
 /* ---------- display face: Fraunces (variable opsz+wght), latin subset, self-hosted ---------- */
-/* Relative src on purpose: this ships to a project-pages base (/steelman/). Body text stays a real
-   text serif via --font-text below, so a slow font load never leaves us with serif-title-over-sans. */
+/* Relative src on purpose: this ships to a project-pages base (/steelman/). */
 @font-face {
   font-family: "Fraunces";
   font-style: normal;
@@ -28,619 +29,472 @@
 
 :root {
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-text: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", Georgia, serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", monospace;
 
-  /* Warm printed stock and ink. Sage is the ink structure is drawn in, not an even tint.
-     All text tokens hold WCAG AA on the lighter leaf (--card), not just on --paper. */
-  --paper: #f4ede0;          /* the stock */
-  --card: #fbf6ec;           /* the leaf set on the stock */
-  --ink: #26221b;            /* near-black warm ink, ~13:1 on card */
-  --ink-soft: #665c4e;       /* AA on card */
-  --line: #ddd2be;           /* hairline rules (decorative) */
-  --line-strong: #8a7d63;    /* control borders, >=3:1 vs card */
-  --accent: #4c6249;         /* sage as INK: rules, ticks, markers */
-  --accent-ink: #40513f;     /* sage TEXT on card, AA-safe */
-  --accent-soft: #e7ede6;    /* the "considered" teaching wash */
-  --accent-deep: #3c4d39;    /* pressed sage */
-  --valid: #3f6b45;          /* "it holds up" green, AA on the leaf */
-  --suspect: #8a5a3f;        /* warm clay for a tentative suspicion, never red */
-  --gilt: #a9884e;           /* brass foil, used ONCE (the holds-up tick cap). Never under text. */
-
-  --radius: 14px;
-  --maxw: 40rem;
-  --measure: 34rem;          /* text measure cap inside the leaf */
-  --lh: 1.62rem;             /* baseline unit; header margins are multiples of this */
-  --shadow: 0 1px 2px rgba(46, 42, 36, .04), 0 6px 24px rgba(46, 42, 36, .06);  /* legacy fallback */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #171512;
-    --card: #201d18;
-    --ink: #ece2d2;
-    --ink-soft: #a99d89;
-    --line: #302b23;
-    --line-strong: #7a7160;   /* >=3:1 vs card and paper (WCAG 1.4.11 control borders) */
-    --accent: #92a98d;
-    --accent-ink: #a6bda4;
-    --accent-soft: #2b322a;
-    --accent-deep: #a6bda4;
-    --valid: #8dc191;
-    --suspect: #cf9d7d;
-    --gilt: #caa662;
-  }
+  --page: #f7f5f0;        /* page / right-pane background */
+  --rail-bg: #efece4;     /* sidebar background */
+  --suggest: #efe9db;     /* suggested-option row bg; example callout bg */
+  --suggest-hover: #e9e2d0;
+  --hair: #d8d2c2;        /* hairline borders */
+  --sep: #e2ddd0;         /* list-row separators */
+  --edge: #b7b1a2;        /* stronger borders (frame, segmented control, textarea, secondary buttons) */
+  --ink: #211f1a;         /* headings, body, primary buttons */
+  --ink-2: #6d675a;       /* secondary text */
+  --ink-3: #a39b89;       /* tertiary / faint text, inactive numerals */
+  --rust: #8a3324;        /* now markers, suggested badges, no state, accuse verdict */
+  --green: #3f6b45;       /* check marks, yes state, holds-up verdict */
+  --green-ink: #40513f;   /* quiet green link ink (toggles, teaching summary) */
+  --gilt: #a9884e;        /* the threshold line on the verdict scale, the example callout border */
+  --radius: 8px;
 }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+/* A class that sets `display` (e.g. .checks, .picker) otherwise beats the UA [hidden] rule, which
+   would leave folded rows visible. Keep the hidden attribute authoritative. */
+[hidden] { display: none !important; }
 
-/* ---------- the room: warm stock with a faint directional light + 4% grain ---------- */
 body {
   margin: 0;
+  color: var(--ink);
+  background: var(--page);
+  font: 15px/1.5 var(--font-ui);
+}
+
+#app { display: block; }
+
+/* ---------- the desk: two panes, full viewport ---------- */
+.desk {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
   min-height: 100dvh;
+  background: var(--page);
+}
+
+/* ---------- the pinned sidebar ---------- */
+.rail {
+  width: 340px;
+  flex: none;
+  background: var(--rail-bg);
+  border-right: 1px solid var(--hair);
+  padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;   /* center via #app margin-block:auto so a tall card never clips up top */
-  overflow-y: auto;
-  gap: 1.25rem;
-  padding: 2rem 1.25rem 1.5rem;
-  color: var(--ink);
-  font: 17px/1.62 var(--font-text);
-  font-variant-numeric: oldstyle-nums proportional-nums;   /* prose numerals sit in the reading line */
-  background-color: var(--paper);
-  /* A faint top-down warmth (a lit sheet on a desk, not a spotlit hero) plus a fine grain on the
-     stock. Grain never sits under card text: the card paints its solid --card over it. */
-  background-image:
-    linear-gradient(rgba(255, 252, 245, .35), transparent 12rem),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image:
-      linear-gradient(rgba(255, 250, 240, .03), transparent 12rem),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  }
-}
-
-/* ---------- the masthead running-head (kills the top void) ---------- */
-.masthead {
-  width: 100%;
-  max-width: var(--maxw);
-  margin: 0 auto .5rem;
-  padding-top: .75rem;
-  border-top: 1px solid var(--line);
-  font: 600 .72rem/1 var(--font-text);
-  letter-spacing: .16em;
+.rail-brand { display: flex; flex-direction: column; }
+.rail-mark {
+  font: 600 11px/1 var(--font-mono);
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--ink);
 }
-.masthead[hidden] { display: none; }
+.rail-tag { font: 12px/1.4 var(--font-ui); color: var(--ink-2); margin: 4px 0 28px; }
+.rail-step { display: none; }   /* mobile-only step counter */
 
-/* display type: size carries authority, never heavy bold */
-h1, h2, .verdict-title {
-  font-family: var(--font-display);
-  font-weight: 480;
-  line-height: 1.18;
-  letter-spacing: -0.012em;
+.rail-quote-wrap { margin-bottom: 0; }
+.rail-quote {
+  margin: 0;
+  font: italic 500 24px/1.35 var(--font-display);
   font-variation-settings: "opsz" 40;
-}
-
-#app { width: 100%; max-width: var(--maxw); margin-block: auto; }
-
-/* ---------- the leaf, not a floating card ---------- */
-.card {
-  position: relative;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2rem 1.75rem;
-  --gutter: 0rem;
-  box-shadow:
-    0 1px 2px rgba(38, 34, 28, .05),          /* tight contact */
-    0 8px 20px -6px rgba(38, 34, 28, .10),    /* mid ambient */
-    0 24px 48px -22px rgba(38, 34, 28, .16),  /* wide soft cast */
-    inset 0 1px 0 rgba(255, 255, 255, .6);    /* printed sheen edge */
-  animation: rise .45s ease both;
-}
-@media (prefers-color-scheme: dark) {
-  .card {
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, .35),
-      0 8px 20px -6px rgba(0, 0, 0, .40),
-      0 24px 48px -22px rgba(0, 0, 0, .50),
-      inset 0 1px 0 rgba(255, 255, 255, .05);
-  }
-}
-.card > * { max-width: var(--measure); }   /* prose never runs slack across the full leaf */
-
-/* the broadsheet margin gutter, opening just above the phone breakpoint (30rem) so there is no
-   dead band where the spine would crowd the content edge. The gutter belongs to the reading spine;
-   the kicker keeps its own hairline rule in the text column. */
-@media (min-width: 30.01rem) {
-  .card { --gutter: 2.6rem; padding-left: calc(1.75rem + var(--gutter)); }
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* ---------- the reading spine: the signature. A thin sage margin rule running the full length of
-   the card, the way a reader draws a line down the margin of a passage they are giving their full
-   attention. It is a fixed rule, NOT a meter: same on every screen, no growth, no fill, no percent.
-   (An earlier version grew per screen; that read as a progress bar, which the goodwill thesis
-   forbids. A fair reading does not gamify.) The only per-screen change is the verdict temperament:
-   holds-up earns a small gilt cap, a suspicion shows one localized clay band. ---------- */
-.card::before {
-  content: "";
-  position: absolute;
-  left: 1.4rem;
-  top: 2rem;
-  bottom: 2rem;               /* full length, top and bottom inset equally: a margin rule, not a bar */
-  width: 2px;
-  background: var(--accent);
-  opacity: .45;
-  border-radius: 1px;
-}
-/* verdict temperaments, equal dignity: holds-up caps the spine with a single gilt tick (the one
-   gilt moment); a suspicion marks ONE localized clay band, so an accusation reads as "the line only
-   broke here", never a red X. Same spine, same length, same dignity either way. */
-.card.screen-verdict::before { opacity: .6; }
-.verdict-valid.card::before,
-.verdict-cynic.card::before {
-  border-top: 3px solid var(--gilt);   /* gilt appears exactly once, a hairline cap, never a fill */
-}
-.verdict-accuse.card::before {
-  background: linear-gradient(var(--accent) 0 46%, var(--suspect) 46% 54%, var(--accent) 54%);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card { animation: none; }
-  .btn, .tri, .family-opt { transition: none; }
-  .btn:active, .tri:hover, .family-opt:active { transform: none; }
-  .card .kicker, .card h1, .tri.on, #mascot-img { animation: none; }
-}
-
-/* ---------- kickers: the hairline-rule grammar ---------- */
-.kicker {
-  font-family: var(--font-text);
-  font-size: .74rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin: 0 0 .7rem;
-  padding-bottom: .5rem;
-  border-bottom: 1px solid var(--line);   /* a thin rule under every kicker */
-  font-variant-numeric: tabular-nums lining-nums;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .card .kicker { animation: draw .5s ease both; transform-origin: left; }
-  @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
-  .card h1 { animation: rise .45s ease .07s both; }   /* ~70ms stagger: the eye lands top-first */
-}
-
-/* headings + lede */
-.card h1 { font-size: 1.7rem; margin: 0 0 1rem; }
-.card h1.hero {
-  font-size: clamp(2.05rem, 6vw, 2.5rem);
-  font-variation-settings: "opsz" 96;
-  text-wrap: balance;
-  margin: 0 0 .6rem;
-}
-.card h1:focus { outline: none; }   /* programmatic focus target; the heading itself is the visible cue */
-.lede { color: var(--ink-soft); margin: 0 0 1.5rem; font-size: 1.06rem; }
-
-/* brand gloss under the "Steelman" wordmark kicker */
-.brand-note { color: var(--ink-soft); font-size: .85rem; margin: -.35rem 0 1.1rem; }
-
-/* ---------- START: the title page. One sage drop cap, exactly once in the whole app. The
-   `.invitation` class exists only on the start screen's lede, so it needs no screen qualifier. ---------- */
-.invitation::first-letter {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-variation-settings: "opsz" 96;
-  color: var(--accent-ink);
-  float: left;
-  font-size: 3.1em;
-  line-height: .8;
-  padding: .06em .12em 0 0;
-}
-
-/* the "for example, someone says" block: a quiet neutral rule (the sage spine in the gutter is the
-   app's one sage vertical; a second sage bar here would read as a doubled rule). Quote in Fraunces italic. */
-.example {
-  margin: 0 0 .9rem;
-  padding: .7rem .95rem;
-  border-left: 3px solid var(--line-strong);
-  background: var(--accent-soft);
-  border-radius: 0 8px 8px 0;
-}
-.example-label { display: block; font-size: .78rem; color: var(--ink-soft); margin-bottom: .2rem; }
-.example-quote { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1.05rem; font-variation-settings: "opsz" 24; }
-
-/* the writing surface */
-textarea {
-  width: 100%;
-  max-width: 100%;
-  min-height: 9rem;
-  resize: vertical;
-  padding: .9rem 1rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  background: var(--card);
   color: var(--ink);
-  font: inherit;
-  line-height: 1.55;
-}
-textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-
-/* ---------- buttons: ink, not candy ---------- */
-.btn {
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid var(--line-strong);
-  background: var(--card);
-  color: var(--ink);
-  border-radius: 999px;
-  padding: .65rem 1.2rem;
-  transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
-}
-.btn:hover { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }  /* ink deepens */
-.btn:active { transform: translateY(1px); }
-.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.btn-quiet {
-  border: none;
-  background: none;
-  color: var(--accent-ink);
-  padding: .5rem .25rem;
-  font-size: .92rem;
-}
-.btn-quiet:hover { background: none; box-shadow: none; text-decoration: underline; }
-.show-more {
-  display: block;
-  width: 100%;
-  min-height: 44px;
-  margin: .35rem 0 .25rem;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-  padding: .75rem 1.6rem;
-}
-.btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); box-shadow: none; }
-.btn-primary:active { background: var(--accent-deep); }
-@media (prefers-color-scheme: dark) {
-  .btn-primary { color: #15140f; }
-  .btn-primary:hover { color: #15140f; }
-}
-
-.answers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1.5rem;
-}
-.answers .btn { flex: 1 1 auto; min-width: 6rem; }
-
-.row {
-  display: flex;
-  gap: .75rem;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 1.25rem;
-}
-.row.end { justify-content: flex-end; }
-.row.between { justify-content: space-between; }
-
-/* ---------- argument recall: a margin-note in Fraunces italic ---------- */
-.recall {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1rem;
-  font-variation-settings: "opsz" 20;   /* low opsz: a small italic quote wants text contrast, not display */
-  color: var(--ink-soft);
-  border-left: 3px solid var(--line);   /* neutral: the sage spine in the gutter is the only sage rule */
-  padding: .3rem 0 .3rem .9rem;
-  margin: 0 0 1.5rem;
-  white-space: pre-wrap;
+  text-wrap: pretty;
   overflow-wrap: anywhere;
 }
-.recall.clamped {
-  position: relative;
+.rail-quote.clamped {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 8;
+  line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.recall.clamped::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 3rem;
-  height: 1.4em;
-  background: linear-gradient(90deg, transparent, var(--card));
-}
-.recall.clamped.open {
+.rail-quote.clamped.open {
   display: block;
   -webkit-line-clamp: none;
   line-clamp: none;
   overflow: visible;
 }
-.recall.clamped.open::after { content: none; }
-.recall-toggle { margin: -1rem 0 1.25rem; }
+.rail-note { font: 12px/1.4 var(--font-ui); color: var(--ink-2); margin-top: 10px; }
+.rail-expand { margin-top: 8px; }
 
-/* ---------- the double rule: signature separator above verdicts and the family list ---------- */
-.rule-double {
-  height: 0;
-  border: 0;
-  border-top: 2px solid var(--accent);
-  box-shadow: 0 3px 0 -1px var(--line);   /* the thin partner sits 2px below */
-  margin: calc(var(--lh) * 1.4) 0 var(--lh);
-}
-
-/* ---------- verdicts: the colophon ---------- */
-.verdict-title { font-size: clamp(1.9rem, 5vw, 2.2rem); margin: .1rem 0 .75rem; }
-h1.verdict-title { font-size: clamp(1.9rem, 5vw, 2.2rem); }
-.verdict-valid .verdict-title,
-.verdict-cynic .verdict-title { color: var(--valid); }
-.verdict-accuse .verdict-title { color: var(--suspect); }
-
-/* a faint tone shift so a verdict reads as its own page, never a saturated "correct answer" card.
-   The solid --card is a SEPARATE background-color declaration, so if a browser can't parse the
-   color-mix tint the card still keeps its opaque surface (text contrast never falls back to the
-   grainy paper). A flat top-anchored linear tone, not a centered radial bloom (a fine press does
-   not spotlight a page). */
-.verdict-valid.card,
-.verdict-cynic.card {
-  background-color: var(--card);
-  background-image: linear-gradient(color-mix(in oklab, var(--valid), transparent 93%), transparent 8rem);
-}
-.verdict-accuse.card {
-  background-color: var(--card);
-  background-image: linear-gradient(color-mix(in oklab, var(--suspect), transparent 94%), transparent 8rem);
-}
-
-.teaching {
-  background: var(--accent-soft);
-  border-radius: 10px;
-  padding: 1rem 1.15rem;
-  margin: 1.25rem 0;
-}
-.teaching .name { font-weight: 600; }
-.teaching .aside { color: var(--ink-soft); font-size: .92rem; }
-.check { font-style: italic; color: var(--ink); margin: 1rem 0 .25rem; }
-
-/* the premises: the user's own ticks echoed back as a pull-quote proof, in their words */
-.premises { margin: 1rem 0 .25rem; }
-.premises-lead { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .4rem; }
-.premise { margin: .35rem 0; padding-left: .9rem; border-left: 3px solid var(--accent-soft); }
-.premise-q { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 24; }
-.premise-a { color: var(--ink-soft); font-size: .92rem; font-variant-numeric: tabular-nums; }
-
-/* "Did it cross the line?": the honest logic readout. One suspicion bar for the leading candidate,
-   with a gilt threshold marked ON the track. The engine names a fallacy by a ratio threshold, not by
-   "biggest bar", so a real catch fills PAST the line and a sound argument sits short of it. This is
-   what actually decides the verdict, shown plainly. Calm and printed, never a dashboard. */
-.weigh { margin: 1.25rem 0 .5rem; }
-.weigh-lead { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .7rem; }
-.weigh-bar {
-  display: grid;
-  grid-template-columns: minmax(6rem, 9rem) 1fr 3.2rem;
-  align-items: center;
-  gap: .7rem;
-  margin: .45rem 0;
-}
-.weigh-name { font-family: var(--font-display); font-size: .98rem; color: var(--ink-soft); }
-.weigh.crossed .weigh-name,
-.weigh-bar.crossed .weigh-name { color: var(--suspect); }
-.weigh-track { position: relative; height: 14px; background: var(--accent-soft); border-radius: 7px; overflow: hidden; }
-.weigh-fill {
-  display: block; height: 100%; border-radius: 7px; background: var(--ink-soft);
-  transition: width .5s cubic-bezier(.4, 0, .2, 1);
-}
-.weigh.crossed .weigh-fill,
-.weigh-bar.crossed .weigh-fill { background: var(--suspect); }
-/* the threshold marker sits ON the track: a gilt hairline the bar must cross to name a weak spot */
-.weigh-mark {
-  position: absolute; top: -2px; bottom: -2px; width: 2px;
-  background: var(--gilt); border-radius: 1px; transform: translateX(-1px);
-}
-.weigh-verdict {
-  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--ink-soft); text-align: right;
-}
-.weigh.crossed .weigh-verdict,
-.weigh-bar.crossed .weigh-verdict { color: var(--suspect); }
-.weigh-thresh { color: var(--ink-soft); font-size: .88rem; margin: .5rem 0 0; }
-.weigh.crossed .weigh-thresh { color: var(--suspect); }
-.weigh-rest { color: var(--ink-soft); font-size: .85rem; margin: .55rem 0 0; font-style: italic; }
-
-.muted { color: var(--ink-soft); font-size: .92rem; }
-.error { color: var(--suspect); }
-
-/* ---------- footer ---------- */
-.site-foot[hidden] { display: none; }
-.site-foot {
-  font-size: .82rem;
-  color: var(--ink-soft);
-  display: flex;
-  gap: .5rem;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-variant-numeric: tabular-nums;
-}
-.site-foot a { color: var(--accent-ink); text-decoration: none; }
-.site-foot a:hover { text-decoration: underline; }
-.site-foot .dot { opacity: .5; }
-
-/* ---------- family picker: a table of contents, auto-numbered by CSS ---------- */
-.family-list {
+.rail-foot {
+  margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin: var(--lh) 0;
-  border-top: 1px solid var(--line);
-  counter-reset: toc;
+  border-top: 1px solid var(--hair);
+  padding-top: 16px;
 }
-.family-opt {
-  position: relative;
-  font: inherit;
-  text-align: left;
+.receipt {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 0;
+}
+.receipt.is-future { opacity: .45; }
+.receipt-num { font: 600 11px/1 var(--font-mono); color: var(--ink); flex: none; }
+.receipt.is-now .receipt-num { color: var(--rust); }
+.receipt.is-done .receipt-num { color: var(--green); }
+.receipt-label { font: 400 13px/1.3 var(--font-ui); color: var(--ink); }
+.receipt.is-now .receipt-label { font-weight: 600; }
+.receipt-value {
+  margin-left: auto;
+  font: 600 12px/1.3 var(--font-ui);
+  color: var(--ink);
+  text-align: right;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.receipt-value.is-now-tag { font-weight: 400; font-size: 11px; color: var(--rust); }
+.rail-restart { margin-top: 14px; align-self: flex-start; color: var(--ink-2); font-size: 13px; }
+
+/* ---------- the right pane ---------- */
+.pane {
+  flex: 1;
+  min-width: 0;
+  padding: 44px 48px 56px;
+}
+
+.kicker {
+  font: 600 11px/1 var(--font-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+}
+
+.pane-title {
+  font: 480 30px/1.2 var(--font-display);
+  font-variation-settings: "opsz" 60;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin: 0 0 8px;
+  max-width: 44rem;
+}
+.pane-title:focus { outline: none; }   /* programmatic focus target; the heading text is the cue */
+.pane-title--big {
+  font-size: 34px;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -.012em;
+  margin-bottom: 18px;
+  text-wrap: balance;
+}
+.pane-title--hero {
+  font-size: 36px;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -.012em;
+  line-height: 1.18;
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+.title-accuse { color: var(--rust); }
+.title-valid { color: var(--green); }
+
+.pane-intro { font: 14px/1.5 var(--font-ui); color: var(--ink-2); margin: 0 0 24px; max-width: 44rem; }
+.pane-intro--wide { font-size: 15px; line-height: 1.55; margin-bottom: 8px; max-width: 42rem; }
+.pane-gloss { font: 13px/1.5 var(--font-ui); color: var(--ink-3); margin: 0 0 24px; max-width: 42rem; }
+.pane-body { font: 15px/1.55 var(--font-ui); color: var(--ink); margin: 0 0 22px; max-width: 42rem; }
+.pane-body--muted { font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+.pane-note { font: 12px/1.5 var(--font-ui); color: var(--ink-3); }
+
+/* ---------- start: the example callout + writing surface ---------- */
+.example {
+  max-width: 42rem;
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-left: 2px solid var(--gilt);
+  background: var(--suggest);
+}
+.example-label {
+  display: block;
+  font: 11px/1 var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+.example-quote {
+  font: italic 500 16px/1.45 var(--font-display);
+  font-variation-settings: "opsz" 24;
+  color: var(--ink);
+}
+
+.paste {
+  display: block;
+  width: 100%;
+  max-width: 42rem;
+  min-height: 10rem;
+  resize: vertical;
+  padding: 16px 18px;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  font: italic 500 18px/1.5 var(--font-display);
+  font-variation-settings: "opsz" 30;
+}
+.paste::placeholder { color: var(--ink-3); }
+.paste:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 2px; border-color: var(--ink-2); }
+.paste.is-invalid { outline: 2px solid var(--rust); outline-offset: 2px; border-color: var(--rust); }
+
+.error { font: 600 13px/1.4 var(--font-ui); color: var(--rust); max-width: 42rem; margin: 10px 0 0; }
+
+/* ---------- buttons ---------- */
+.btn {
+  font: 600 14px/1 var(--font-ui);
+  border: none;
+  border-radius: var(--radius);
+  padding: 14px 24px;
   cursor: pointer;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.btn-primary { background: var(--ink); color: var(--page); }
+.btn-primary:hover { background: #322f28; }
+.btn-rust { background: var(--rust); color: #fff; }
+.btn-rust:hover { background: #75291d; }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--edge); padding: 13px 23px; }
+.btn-secondary:hover { background: var(--suggest); border-color: var(--ink-2); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* underlined text buttons: back links, toggles, start-over, expand */
+.link {
+  font: 14px/1 var(--font-ui);
+  background: none;
+  border: none;
+  padding: 8px 0;
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--ink-2);
+}
+.link:hover { text-decoration: underline; }
+.link:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 2px; }
+.link-back { color: var(--ink-2); }
+.link-toggle { font-size: 13px; color: var(--green-ink); padding: 14px 8px; min-height: 44px; }
+.rail-expand { font-size: 13px; color: var(--green-ink); padding: 4px 0; }
+
+/* footers + action groups */
+.pane-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  max-width: 46rem;
+}
+.pane-foot--end { justify-content: flex-end; }
+.action-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 20px; }
+.action-lead { font: 13px/1.5 var(--font-ui); color: var(--ink-2); max-width: 42rem; margin: 0 0 10px; }
+
+/* ---------- the ruled list (family pick, bucket families, move pick) ---------- */
+.picker {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--hair);
+  max-width: 52rem;
+  margin: 0;
+}
+.pick-row {
+  display: grid;
+  grid-template-columns: 24px 230px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  text-align: left;
+  width: 100%;
+  padding: 13px 8px;
+  border: none;
+  border-bottom: 1px solid var(--sep);
   background: transparent;
   color: var(--ink);
-  padding: .95rem 0 .95rem 2rem;   /* room for the hanging numeral */
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
+  font: 14px/1.45 var(--font-ui);
+  cursor: pointer;
   transition: background .15s ease;
 }
-/* the hanging oldstyle numeral (the "contents" number). Skips the goodwill "it's fine" row. */
-.family-opt:not(.family-opt-fine)::before {
-  counter-increment: toc;
-  content: counter(toc);
-  position: absolute;
-  left: 0;
-  top: .95rem;
-  font-family: var(--font-display);
-  font-variant-numeric: oldstyle-nums;
-  font-size: 1rem;
-  color: var(--ink-soft);
-}
-.family-opt:hover { background: var(--accent-soft); }
-.family-opt:active { transform: translateY(1px); }
-.family-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.family-opt-title { font-family: var(--font-display); font-weight: 480; font-size: 1.08rem; }
-.family-opt-sub { font-size: .92rem; color: var(--ink-soft); }
-/* suggested: a quiet sage tick beside its numeral (inside the option's own padding, so it never
-   hangs into the spine gutter or clips at the card corner on mobile) + a sage title. Not a box. */
-.family-opt.suggested .family-opt-title { color: var(--accent-ink); }
-.family-opt.suggested::after {
-  content: "";
-  position: absolute;
-  left: 1.1rem;
-  top: 1.15rem;
-  width: 3px;
-  height: 1.1rem;
-  background: var(--accent);
-  border-radius: 1px;
-}
-.family-opt.suggested .family-opt-title::after {
-  content: " · suggested";
-  font-family: var(--font-text);
-  font-weight: 400;
-  font-size: .8rem;
-  color: var(--accent-ink);
-}
-/* the "it holds up" escape: a kind exit, dashed rule, green title */
-.family-opt-fine { border-bottom-style: dashed; }
-.family-opt-fine .family-opt-title { color: var(--valid); }
+.pick-row:hover { background: var(--suggest); }
+.pick-row:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.pick-row--suggested { background: var(--suggest); }
+.pick-row--suggested:hover { background: var(--suggest-hover); }
+.pick-row--fine { border-bottom: 1px dashed var(--hair); }
+.pick-row--fine:hover { background: #e9efe6; }
+.pick-num { font: 600 12px/1 var(--font-mono); color: var(--ink-3); }
+.pick-row--suggested .pick-num { color: var(--rust); }
+.pick-row--fine .pick-num { color: var(--green); }
+.pick-title { font: 600 14px/1.35 var(--font-ui); color: var(--ink); }
+.pick-row--fine .pick-title { color: var(--green); }
+.pick-badge { font: 600 11px/1 var(--font-ui); color: var(--rust); }
+.pick-sub { color: var(--ink-2); }
 
-/* ---------- virtue checklist: the marked-up proof ---------- */
-.checklist {
+/* ---------- the checks: white cards with a text-only segmented control ---------- */
+.checks {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin: var(--lh) 0;
+  gap: 14px;
+  max-width: 46rem;
+  margin: 0;
 }
-.check-row {
+.check-card {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  padding: .9rem 0;
-  border-bottom: 1px solid var(--line);
+  gap: 20px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
 }
-.check-row:last-child { border-bottom: none; }
-.check-text { flex: 1; line-height: 1.45; }
-.tri-group { display: flex; gap: .4rem; flex: none; }
-.tri {
-  font: inherit;
+.check-q { flex: 1; min-width: 14rem; font: 15px/1.45 var(--font-ui); color: var(--ink); }
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  overflow: hidden;
+  flex: none;
+}
+.seg-btn {
+  font: 600 13px/1 var(--font-ui);
+  padding: 12px 16px;
+  min-height: 44px;
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
   cursor: pointer;
-  display: flex;
-  flex-direction: column;   /* icon over an always-visible label, no hover-only legend */
+  transition: background .15s ease, color .15s ease;
+}
+.seg-btn + .seg-btn { border-left: 1px solid var(--edge); }
+.seg-btn:hover { background: rgba(33, 31, 26, .04); }
+.seg-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.seg-yes.on { background: var(--green); color: #fff; }
+.seg-no.on { background: var(--rust); color: #fff; }
+.seg-na.on { background: var(--ink-2); color: #fff; }
+.seg-btn.on:hover { color: #fff; }
+
+/* ---------- the line scale ---------- */
+.scale { max-width: 44rem; margin: 0 0 26px; }
+.scale-lead { font: 13px/1.5 var(--font-ui); color: var(--ink-2); margin: 0 0 4px; }
+.scale-row {
+  display: grid;
+  grid-template-columns: minmax(6rem, 10rem) 1fr 4.5rem;
   align-items: center;
-  justify-content: center;
-  gap: .15rem;
-  min-width: 4.4rem;
-  min-height: 44px;         /* HIG/WCAG 2.5.8 touch target */
-  padding: .5rem .45rem;
-  border-radius: 8px;       /* chip, not pill */
-  border: 1px solid var(--line-strong);
-  background: var(--card);
-  color: var(--ink-soft);
-  transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  gap: 12px;
+  margin: 10px 0;
 }
-.tri-icon { font-size: 1.1rem; line-height: 1; }
-.tri-label { font-size: .7rem; line-height: 1.15; text-align: center; text-wrap: balance; }
-.tri:hover { transform: translateY(-1px); border-color: var(--accent); }
-.tri:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-/* "Yes, it does" is an affirmation, so it fills warm green (the app is glad to note a virtue).
-   "No, it doesn't" is just a careful observation, not a wrong answer, so it stays QUIET: a clay
-   outline on a faint clay tint, never a solid buzzer block. Marking a shortfall must not feel like
-   being buzzed for the wrong choice (that would pre-load the accusation the engine hasn't reached). */
-.tri-has.on { background: var(--valid); border-color: var(--valid); color: #fff; }
-.tri-lacks.on {
-  background: color-mix(in oklab, var(--suspect), transparent 88%);
-  border-color: var(--suspect);
-  color: var(--suspect);
-  font-weight: 600;
+.scale-name { font: 600 13px/1.3 var(--font-ui); color: var(--ink-2); }
+.scale-named .scale-name { color: var(--rust); }
+.scale-track { position: relative; height: 26px; display: block; }
+.scale-line { position: absolute; left: 0; right: 0; top: 12px; height: 2px; background: var(--hair); }
+.scale-tick {
+  position: absolute; left: 66%; top: 4px; width: 3px; height: 18px;
+  background: var(--gilt); border-radius: 1px;
 }
-.tri-na.on { background: var(--accent-soft); border-color: var(--ink-soft); color: var(--ink-soft); }
-@media (prefers-reduced-motion: no-preference) {
-  .tri.on { animation: bloom .18s ease both; }
-  @keyframes bloom { from { transform: scale(.94); } to { transform: none; } }
+.scale-dot {
+  position: absolute; top: 6px; width: 14px; height: 14px;
+  transform: translateX(-50%); border-radius: 50%;
 }
-@media (prefers-color-scheme: dark) {
-  .tri-has.on { color: #15140f; }
+.scale-named .scale-dot { background: var(--rust); box-shadow: 0 0 0 4px rgba(138, 51, 36, .18); }
+.scale-held .scale-dot { background: var(--green); box-shadow: 0 0 0 4px rgba(63, 107, 69, .16); }
+.scale-partway .scale-dot { background: var(--ink-2); box-shadow: 0 0 0 4px rgba(109, 103, 90, .14); }
+.scale-end {
+  font: 600 10px/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-align: right;
 }
-@media (max-width: 30rem) {
-  .card { padding: 1.5rem 1.15rem; }        /* reclaim room on ~360px screens */
-  .invitation::first-letter { font-size: 2.8em; }
-  .check-row { flex-wrap: wrap; }
-  .tri-group { width: 100%; justify-content: flex-end; }
+.scale-named .scale-end { color: var(--rust); }
+.scale-ends {
+  display: grid;
+  grid-template-columns: minmax(6rem, 10rem) 1fr 4.5rem;
+  margin-top: -2px;
+}
+.scale-ends-mid { grid-column: 2; display: flex; justify-content: space-between; }
+.scale-ends-mid span {
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.scale-note { font: 13px/1.5 var(--font-ui); color: var(--ink-2); margin: 8px 0 0; }
+
+/* ---------- the premises: the user's own ticks echoed back ---------- */
+.premises {
+  max-width: 44rem;
+  border-left: 2px solid var(--hair);
+  padding-left: 18px;
+  margin: 0 0 22px;
+}
+.premises-lead { font: 13px/1.5 var(--font-ui); color: var(--ink-2); margin: 0 0 8px; }
+.premise {
+  font: italic 15px/1.5 var(--font-display);
+  font-variation-settings: "opsz" 24;
+  color: var(--ink);
+  margin: 4px 0;
+}
+.premise-call { font: 600 12px/1 var(--font-ui); font-style: normal; }
+.premise-call--no { color: var(--rust); }
+.premise-call--yes { color: var(--green); }
+
+/* ---------- teaching ---------- */
+.teach { max-width: 44rem; margin: 0 0 22px; font: 14px/1.55 var(--font-ui); color: var(--ink); }
+.teach-summary { cursor: pointer; font: 600 13px/1 var(--font-ui); color: var(--green-ink); }
+.teach-body { color: var(--ink-2); margin: 10px 0 0; }
+.teach-aside { color: var(--ink-3); }
+.teach-check {
+  font: italic 16px/1.5 var(--font-display);
+  font-variation-settings: "opsz" 24;
+  color: var(--ink);
+  max-width: 44rem;
+  margin: 0 0 20px;
 }
 
-/* ---------- mascot (Steely): persistent host above the card ---------- */
-#mascot-canvas {
-  width: 96px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-  z-index: 2;
-  min-height: 0;
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .link, .pick-row, .seg-btn { transition: none; }
 }
-#mascot-canvas:has(#mascot-img:not([hidden])) {
-  min-height: 84px;
-  margin-bottom: -0.5rem;
+
+/* ---------- mobile: the sidebar becomes a pinned top header (<= 720px) ---------- */
+@media (max-width: 720px) {
+  .desk { flex-direction: column; }
+  .rail {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--hair);
+    padding: 16px 20px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  .rail-brand { flex-direction: row; justify-content: space-between; align-items: baseline; }
+  .rail-mark { font-size: 10px; }
+  .rail-tag { display: none; }
+  .rail-step { display: inline; font: 600 11px/1 var(--font-mono); color: var(--ink-2); }
+  .rail-quote { font-size: 17px; line-height: 1.35; margin-top: 8px; font-variation-settings: "opsz" 30; }
+  .rail-quote.clamped { -webkit-line-clamp: 2; line-clamp: 2; }
+  .rail-note { display: none; }
+  .rail-foot { display: none; }
+
+  .pane { padding: 22px 20px 40px; }
+  .pane-title { font-size: 23px; }
+  .pane-title--big { font-size: 25px; margin-bottom: 14px; }
+  .pane-title--hero { font-size: 26px; }
+  .pane-intro, .pane-intro--wide, .pane-gloss, .pane-body, .example, .paste { max-width: 100%; }
+
+  /* list rows go full-width single-column: title over description, numeral dropped */
+  .pick-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 14px 4px;
+  }
+  .pick-num { display: none; }
+
+  /* segmented control splits the row width */
+  .check-card { gap: 12px; }
+  .check-q { min-width: 0; flex: 1 1 100%; }
+  .seg { width: 100%; }
+  .seg-btn { flex: 1; padding: 12px 8px; }
+
+  .scale-row { grid-template-columns: minmax(4.5rem, 8rem) 1fr 3.6rem; gap: 8px; }
+  .scale-ends { grid-template-columns: minmax(4.5rem, 8rem) 1fr 3.6rem; }
+  .pane-foot { max-width: 100%; }
 }
-#mascot-img {
-  display: block;
-  width: 84px;
-  height: 84px;
-  object-fit: contain;
-  animation: mascot-in .5s ease both;
-}
-#mascot-img[hidden] { display: none; }
-@keyframes mascot-in {
-  from { opacity: 0; transform: translateY(6px) scale(.96); }
-  to   { opacity: 1; transform: none; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  #mascot-img { animation: mascot-in .5s ease both, mascot-float 2.8s ease-in-out .5s infinite; }
-}
-@keyframes mascot-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
