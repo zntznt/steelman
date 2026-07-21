@@ -1,7 +1,7 @@
 # Adding a fallacy
 
 **You do not touch any code.** Steelman reads everything from `data/*.json`. Adding a fallacy
-is append-only JSON across **four files**. The engine validates your edits at load, and four test
+is append-only JSON across **four files**. The engine validates your edits at load, and five test
 suites fail loudly if you break a goodwill guarantee or leave the fallacy unreachable — that's the
 safety net, lean on it.
 
@@ -158,7 +158,7 @@ cheap insurance and documents the fallacy by example.
 
 ---
 
-## Run the tests — all four must pass
+## Run the tests: all five must pass
 
 ```bash
 node tests/engine.test.js        # engine math (independent of your data)
@@ -166,6 +166,8 @@ node tests/checklist.test.js     # THE LIVE FLOW: your fallacy reachable, ≥2 d
                                   #   tells valid, never misaccuses, suggestFamily routes
 node tests/coverage.test.js      # sequential reachability (aggregate catch floor)
 node tests/calibration.test.js   # sequential fixtures: 0 false accusations
+node tests/suggestmoves.test.js  # if your fallacy has pick_label/pick_example, its cues surface it
+                                  #   in "which move is it?" against the real catalog
 ```
 
 **`checklist.test.js` is the one that guards routine additions now.** What its messages mean:
@@ -210,5 +212,5 @@ edits the data.
                      VALID row 0.6/1.4; tag ≥2 of them ["entry"]
 □ families.json:   + ≥2 tells (positive virtues → its distinctive qids); new family? + metadata + ≥3 cues
 □ fixtures.json:   + one fallacious + one sound near-miss   (recommended)
-□ all four tests green   (engine, checklist, coverage, calibration)
+□ all five tests green   (engine, checklist, coverage, calibration, suggestmoves)
 ```

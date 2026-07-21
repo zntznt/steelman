@@ -4,10 +4,15 @@ A static site. No build step, no framework, no dependencies, no server, no AI at
 entirely in the browser and is hosted on GitHub Pages. Everything the engine knows lives in
 `data/*.json`; the engine itself is ~400 lines of pure functions.
 
-> **The live flow is the positive-first checklist (v2).** The UI (`src/ui.js`) drives:
-> paste → `suggestFamily()` scans for keyword cues and suggests a family (user overrides freely) →
-> the user picks a family (or "Nothing — it seems sound") → a checklist of that family's **virtues**
-> (what a sound argument does), each marked ✓ it does this / ✗ it falls short / skip →
+> **The live flow is the positive-first checklist (v2), presented as a two-pane "Reading Desk"** (a
+> pinned sidebar with the argument and step receipts, plus a right pane running the flow; see
+> `src/styles.css` and `src/ui.js`). The UI drives:
+> paste → `suggestBucket()`/`suggestFamily()` scan for keyword cues and suggest a bucket or family
+> (user overrides freely) → the user picks a bucket, then a family within it (or "Nothing, it seems
+> sound") → for families with authored move content, `suggestMoves()` surfaces the 2-3 likely sibling
+> fallacies as a "which of these is it doing?" pick before the checks; families without move content
+> go straight to the checklist → a checklist of that family's (or picked move's) **virtues** (what a
+> sound argument does), each marked "Yes, it does" / "No, it doesn't" / "Doesn't apply" →
 > `scoreChecklist()` feeds the Bayesian engine and returns a tentative+teaching verdict.
 >
 > The sequential, Akinator-style interview (`status()`/`pickNextQuestion()`/`answer()`) is still in
@@ -15,39 +20,78 @@ entirely in the browser and is hosted on GitHub Pages. Everything the engine kno
 > (~6/13 reliably); the checklist catches 13/13 on two denied virtues because the user routes and all
 > evidence enters at once. See `tests/checklist.test.js` for the live contract.
 >
-> **Positive validation is the goodwill thesis realized:** marking a virtue ✓ is evidence FOR the
-> argument (the engine answers that question "no"); marking it ✗ is evidence for the fallacy ("yes");
-> skipping is no signal. The user confirms soundness like a fair juror and can actively defend an
-> argument — guilt only emerges where a virtue is marked absent. `data/families.json` holds the
-> family metadata, routing cues, and per-fallacy virtue "tells" (each mapped to a question id).
+> **Positive validation is the goodwill thesis realized:** marking a virtue "Yes, it does" is evidence
+> FOR the argument (the engine answers that question "no"); marking it "No, it doesn't" is evidence
+> for the fallacy ("yes"); "Doesn't apply" (like skipping) is no signal. The user confirms soundness
+> like a fair juror and can actively defend an argument, guilt only emerges where a virtue is marked
+> absent. `data/families.json` holds the bucket/family metadata, routing cues, and per-fallacy virtue
+> "tells" (each mapped to a question id); each fallacy's own move-pick content
+> (`pick_label`/`pick_example`/`move_keywords`/`cues`) lives alongside it in `data/fallacies.json`.
 
 ## File map
 
 ```
 steelman/
-├── index.html              # shell: one <main> the UI renders into
+├── index.html              # shell: a <div id="app"> the UI renders into
 ├── .nojekyll               # tells GitHub Pages to serve files raw (no Jekyll preprocessing)
 ├── data/
-│   ├── fallacies.json      # the fallacy catalog (definitions, teaching copy, confirm checks)
+│   ├── fallacies.json      # the fallacy catalog (definitions, teaching copy, confirm checks,
+│   │                       #   each fallacy's own move-pick content)
 │   ├── questions.json      # the diagnostic questions + their lr weight tables
-│   └── fixtures.json       # labeled sound/fallacious arguments for the calibration test
+│   ├── families.json       # bucket/family metadata, routing cues, per-fallacy checklist "tells"
+│   ├── fixtures.json       # labeled sound/fallacious arguments for the calibration test
+│   ├── taxonomy.json       # tooling input for tools/merge-catalog.mjs; not fetched at runtime
+│   └── blind-corpus.json   # tooling input for tools/wrongroom-sweep.mjs; not fetched at runtime
 ├── src/
 │   ├── engine.js           # ALL the reasoning. Pure functions. Imported by UI + tests.
 │   ├── ui.js               # render-from-state controller. No reasoning lives here.
-│   └── styles.css          # the calm aesthetic
+│   ├── styles.css          # the calm aesthetic
+│   └── mascot.js           # optional mascot image-swapper; currently unwired, index.html
+│                            #   doesn't load it (see mascot/README.md)
 ├── tests/
-│   ├── engine.test.js      # the math, vs ENGINE-SPEC.md traces, on a fixed tiny bank
-│   └── calibration.test.js # the real data/: 0 false accusations + catch-rate floor (G10)
-└── guidance/               # these docs
+│   ├── engine.test.js       # the math, vs ENGINE-SPEC.md traces, on a fixed tiny bank
+│   ├── checklist.test.js    # the live checklist flow, on the real catalog
+│   ├── coverage.test.js     # sequential-engine reachability & catch floor (auto-derived paths)
+│   ├── calibration.test.js  # sequential-engine fixtures: 0 false accusations + catch-rate floor (G10)
+│   └── suggestmoves.test.js # the "which move is it?" surfacing, on the real catalog
+├── tools/                  # dev scripts, not shipped to the app
+│   ├── merge-catalog.mjs    # merges a catalog-expansion result into data/{fallacies,questions,families}.json
+│   ├── routing-measure.mjs  # measures suggestFamily/suggestBucket/suggestMoves accuracy on a labeled corpus
+│   └── wrongroom-sweep.mjs  # checks no family/answer combination ever misaccuses
+└── guidance/               # these docs (plus dated panel/audit reports and investigation
+                             #   writeups not listed here; see the guidance/ folder directly)
     ├── HOW-IT-DECIDES.md     # plain walkthrough of the verdict (the WHAT, for humans)
     ├── WHY-THESE-WEIGHTS.md  # the rationale behind the lr weight values
-    ├── ENGINE-SPEC.md        # the canonical contract (the WHAT — math, schema, guardrails)
+    ├── ENGINE-SPEC.md        # the canonical contract (the WHAT: math, schema, guardrails)
     ├── DESIGN-PRINCIPLES.md  # the WHY (read this first)
     ├── ADDING-FALLACIES.md   # the HOW (extend via data, no code)
     └── ARCHITECTURE.md       # this file (the MAP)
 ```
 
 ## Data flow
+
+**The live checklist flow (what `ui.js` actually calls):** a one-shot pipeline per screen, not a
+stateful loop. Each `render*()` function calls straight into the engine and mounts the result; there
+is no persistent session object being mutated across an interactive question-answer cycle.
+
+```
+data/*.json ──fetch──▶ engine.loadData() ──▶ DATA (validated, categoricals precomputed)
+                                                  │
+                                     ui.boot() renders the start screen
+                                                  │
+                user pastes → suggestBucket()/suggestFamily() suggest, user picks a bucket then family
+                                                  │
+                (families with move content) suggestMoves() suggests, user picks a move
+                                                  │
+                user marks each check "Yes, it does" / "No, it doesn't" / "Doesn't apply"
+                                                  │
+                                scoreChecklist() ──▶ {kind, fallacy?, leanFallacy?, beliefs}
+                                                  │
+                                       ui renders the verdict screen
+```
+
+**The sequential engine's internal loop (still in the engine, still tested, not called by the live
+UI):**
 
 ```
 data/*.json ──fetch──▶ engine.loadData() ──▶ data object (validated, categoricals precomputed)
@@ -65,9 +109,9 @@ data/*.json ──fetch──▶ engine.loadData() ──▶ data object (valida
                                         (loops until a terminal verdict)
 ```
 
-The UI never decides what happens next. It calls `status(state)`, gets back either a question to
-show or a verdict to render, and that's it. Every goodwill guarantee lives in the engine, which is
-why the engine — not the UI — is what the tests cover.
+Neither flow lets the UI decide what happens next: it calls into the engine and renders whatever
+comes back. Every goodwill guarantee lives in the engine, which is why the engine, not the UI, is
+what the tests cover.
 
 ## The engine in one paragraph
 
@@ -83,15 +127,26 @@ math in [ENGINE-SPEC.md](ENGINE-SPEC.md).
 ## The engine's public API
 
 ```js
-loadData(fallaciesJSON, questionsJSON, fixturesJSON?) // validate + precompute → data
+loadData(fallaciesJSON, questionsJSON, fixturesJSON?, familiesJSON?) // validate + precompute → data
+
+// called by the live UI:
+suggestBucket(data, text)   // → {top, ...} likely bucket, or top:null if the scan is unsure
+suggestFamily(data, text)   // → {top, ...} likely single family (the fast path), or top:null
+suggestMoves(data, familyId, text) // → {surfaced, allZero} likely sibling fallacies in a family
+scoreChecklist(data, {familyId, affirmed?, denied?}) // → {kind, fallacy?, leanFallacy?, beliefs}
+CONFIG.CHECKLIST_RATIO_VALID // the ratio threshold scoreChecklist uses to decide when to accuse
+
+// still in the engine, still tested, no longer called by the live UI:
 newSession(data, seed?)                               // → state (seed optional, for replay)
 status(state)        // → {stop:false, nextQuestion, beliefs} | {stop:true, kind, ...}
 answer(state, qid, a)// a ∈ {yes,no,maybe,unsure}; mutates + returns state
 confirmVerdict(state, accepted) // user's final call on a tentative accusation
-beliefs(state)       // → {hypothesis: probability} snapshot (used by tests/UI)
+beliefs(state)       // → {hypothesis: probability} snapshot (used by tests)
 ```
 
-`status().kind` ∈ `accuse` · `valid_earned` · `cynic_valid` · `cynic_unsure` · `inconclusive_lean`.
+`status().kind` (sequential path) ∈ `accuse` · `valid_earned` · `cynic_valid` · `cynic_unsure` ·
+`inconclusive_lean`. `scoreChecklist().kind` (live path) ∈ the same set minus `cynic_unsure`, which
+only the interactive sequential loop can reach.
 
 ## Running it
 
@@ -109,9 +164,11 @@ a blank page — that failure is handled, not swallowed.)
 **Tests** — plain Node, no framework:
 
 ```bash
-node tests/engine.test.js       # the inference math (fixed tiny bank)
-node tests/coverage.test.js     # every fallacy is reachable & catchable (auto-derived paths)
-node tests/calibration.test.js  # hand-written sound/fallacious fixtures: 0 false accusations
+node tests/engine.test.js        # the inference math (fixed tiny bank)
+node tests/checklist.test.js     # the live checklist flow, on the real catalog
+node tests/coverage.test.js      # every fallacy is reachable & catchable (sequential path, auto-derived paths)
+node tests/calibration.test.js   # hand-written sound/fallacious fixtures: 0 false accusations (sequential path)
+node tests/suggestmoves.test.js  # the "which move is it?" surfacing, on the real catalog
 ```
 
 **Hosting** — push to GitHub and enable Pages on the default branch. `.nojekyll` is already there.

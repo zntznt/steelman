@@ -52,6 +52,7 @@ node tests/engine.test.js        # the inference math
 node tests/coverage.test.js      # every fallacy is reachable & catchable
 node tests/calibration.test.js   # 0 false accusations on sound arguments + catches real fallacies
 node tests/checklist.test.js     # the live positive-first checklist flow
+node tests/suggestmoves.test.js  # the "which move is it?" surfacing
 ```
 
 ## License

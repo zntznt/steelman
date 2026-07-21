@@ -97,12 +97,11 @@ works in three moves:
    beat a few near-neighbors, not a crowd. (A typed argument also runs a keyword scan to *suggest* a
    family — but it only suggests; it never decides. See `suggestFamily`.)
 
-2. **You answer each "Does it…?" question** with 👍 (yes, it does this good thing), 👎 (no, it
-   doesn't), or "doesn't apply"/skip (no signal). Each question is framed as a *virtue a healthy
-   argument has*, so:
-   - 👍 = "it does the good thing" = evidence *against the specific fallacy this question targets* —
-     not, by itself, that the argument is fine overall.
-   - 👎 = "it doesn't" = evidence *for* that fallacy.
+2. **You answer each "Does it…?" question** with "Yes, it does" (the good thing), "No, it doesn't",
+   or "Doesn't apply" (no signal). Each question is framed as a *virtue a healthy argument has*, so:
+   - "Yes, it does" = evidence *against the specific fallacy this question targets*, not, by itself,
+     that the argument is fine overall.
+   - "No, it doesn't" = evidence *for* that fallacy.
 
 3. **Each fallacy is scored in its own private two-way contest** — just *that fallacy vs. VALID*,
    using only *its own* questions (`scoreFallacy`). This is the important subtlety: if you honestly
@@ -153,9 +152,10 @@ if nothing beats innocence, the argument **holds up**.
 
 ## Why a fallacy can fail to "trip" — and that's correct
 
-People expect "I marked a lot of red, why isn't it a fallacy?" The answer: marking many 👎 spread
-across *different* fallacies doesn't make any *single* one dominate — so the app honestly says "not
-sure," not a confident accusation. Suspicion has to **concentrate** on one fallacy to name it.
+People expect "I marked a lot of shortfalls, why isn't it a fallacy?" The answer: marking many "No,
+it doesn't" answers spread across *different* fallacies doesn't make any *single* one dominate, so the
+app honestly says "not sure," not a confident accusation. Suspicion has to **concentrate** on one
+fallacy to name it.
 
 Two different things are going on here, and only one of them is courtroom-like:
 

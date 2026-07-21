@@ -1,5 +1,12 @@
 # Steely — mascot spec (the contract the p5 sketch implements)
 
+**Status:** this spec describes a p5.js canvas approach that was never shipped; `src/mascot.js` as it
+actually exists is a plain image-swapper over static PNGs, not a p5 sketch (see `mascot/README.md`).
+On top of that, the Reading Desk redesign disconnected the mascot entirely: `index.html` no longer
+loads `src/mascot.js` or hosts an image element, so `window.steely?.setStage(name)` is never called
+and nothing here currently runs. Treat this as a design brief for a future mascot pass, not a
+description of live behavior.
+
 Steely is the app's mascot: an anthropomorphic steel **I-beam** that *holds an argument up to the
 light* so you can both see if it stands. A fair juror, never a prosecutor. Rendered in `src/mascot.js`
 (p5.js, isolated — a load failure falls back to the static `src/mascot.svg` or nothing; it can never
@@ -39,7 +46,9 @@ argument). Exactly one tiny amber mark — the only amber in the whole set.
 
 ## Color
 - Body: warm steel grey-taupe (#9aa0a0–#8a9090), soft 1px strokes.
-- Accent: sage green (the app's `--accent`) — mouth/eye-arcs, holds-up glow.
+- Accent: sage green, used on the mouth/eye-arcs and the holds-up glow. This predates the current app palette (rust
+  `#8a3324`, green `#3f6b45`, gilt `#a9884e`; there is no `--accent` variable or sage tone in
+  `src/styles.css` anymore), so reconcile the accent with the current palette if this spec is revived.
 - Amber: ONLY the gap-found marker, tiny, nowhere else.
 - Sits on the paper background.
 

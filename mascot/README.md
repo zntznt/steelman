@@ -1,8 +1,11 @@
 # Steely — mascot art spec
 
-The mascot is **parked**: the app runs fine with no art, showing nothing where the mascot goes. Drop
-the hand-made image files described below into this folder and they appear automatically — no code
-change needed. (Wiring lives in `src/mascot.js`; layout in `src/styles.css` under "mascot".)
+The mascot is currently **disconnected**, not just missing art: `index.html` no longer loads
+`src/mascot.js` or hosts an image element for it (both were removed in the Reading Desk redesign), so
+dropping art files into this folder won't make anything appear until the mascot is rewired. The
+wiring code still exists in `src/mascot.js` and the routing table below still describes the intended
+six expressions, but reconnecting it needs a script tag, a host element, and CSS in `src/styles.css`
+(which no longer has a "mascot" section) before art can show up again.
 
 ## TL;DR for the artist
 
@@ -24,11 +27,16 @@ missing expression simply shows nothing for that stage.
 
 ## Where it fits
 
-A single image sits **centered, just above the main card**, slightly overlapping its top edge — the
-same slot the old animated mascot used. It is decorative (`aria-hidden`), so it never carries meaning
-the copy doesn't already give.
+This describes the slot from the old single-card layout: a single image sat **centered, just above
+the card**, slightly overlapping its top edge. That layout is gone (the app is now a two-pane
+"Reading Desk": a fixed sidebar plus a right pane, with no centered card), so this slot no longer
+exists. Reconnecting the mascot would mean choosing a new spot in the current layout, most likely
+somewhere in the sidebar. It was decorative (`aria-hidden`), and that should hold either way: it
+should never carry meaning the copy doesn't already give.
 
-- **Displayed size:** 84 × 84 CSS px (`#mascot-img` in `styles.css`).
+- **Displayed size:** was 84 × 84 CSS px via `#mascot-img` in `styles.css`; that rule was removed
+  along with the rest of the mascot CSS, so this would need to be re-added at whatever size fits the
+  new slot.
 - **The app gently floats it** up/down ~3px (suppressed under `prefers-reduced-motion`). Your art
   should be a still pose — the motion is added by CSS, don't bake it in.
 
@@ -48,17 +56,20 @@ wired — PNG is the canonical path. If you want WebP served preferentially late
 one-line change in `src/mascot.js`.
 
 ### Dark mode
-The app has a dark theme. A single PNG with a light face + mid-grey body reads fine on both (the old
-mascot did). If you want a dedicated dark variant, we can add `steely-<expr>-dark.png` support — ask
-and it's a small change. Default: ship one set that works on both.
+The app is light-only now (the Reading Desk redesign dropped the dark theme), so there's no second
+palette to design against. If a dark theme comes back later, a single PNG with a light face + mid-grey
+body should still read fine on both; treat this note as no longer applicable until then.
 
 ---
 
 ## The 6 expressions
 
 Steely is a friendly **steel I-beam** character: warm steel-grey body, paper-white face, sage-green
-accents. **Open `mascot/_retired-steely.svg` in a browser to see the previous take on each pose** —
-it's the visual brief, not a thing to match pixel-for-pixel.
+accents. That sage-green accent predates the current app palette (now rust `#8a3324`, green
+`#3f6b45`, and gilt `#a9884e` on a warm-paper base, with no sage tone anywhere in `src/styles.css`),
+so reconcile the accent color with the current palette rather than matching this brief literally.
+**Open `mascot/_retired-steely.svg` in a browser to see the previous take on each pose**: it's the
+visual brief, not a thing to match pixel-for-pixel.
 
 The whole emotional arc is **goodwill-first**: Steely is on the user's side, never smug, never a
 "gotcha." Even the "weak spot" pose is concerned-*with*-you, not accusing.
@@ -94,9 +105,14 @@ So 6 images cover all ~10 stages. If you ever want a distinct pose for, say, `co
 
 ---
 
-## How it behaves once art is added
+## How it behaves once art is added (and the mascot is reconnected)
 
 - On load and at every stage change, `src/mascot.js` sets `<img src="mascot/steely-<expr>.png">`.
-- It **preloads** all six up front and only reveals one once its file is confirmed to load — so a
+- It **preloads** all six up front and only reveals one once its file is confirmed to load, so a
   missing file shows nothing (no broken-image icon), and a present one appears the moment it's ready.
 - No build step, no manifest to edit, no cache-busting needed for first drop. Just add the files.
+- **One more wiring gap beyond the script tag and host element:** `src/mascot.js` only advances past
+  its first pose when something calls `window.steely.setStage(name)`. Before the redesign, `ui.js`
+  called this at every screen (a `steelyStage()` helper); that helper and all its call sites were
+  removed. So reconnecting the script and element alone would show the "input" pose forever, frozen.
+  Restoring the per-screen `setStage()` calls in `ui.js` is a separate step from restoring the art.

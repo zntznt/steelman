@@ -67,11 +67,12 @@ These are guarantees, not good intentions. The data **cannot** be edited into a 
 
 ## The tone follows the math
 
-The copy is warm, plain, and unhurried; the UI is calm (soft paper, serif, lots of air) rather
-than gamey. This isn't decoration — a triumphant "GOTCHA!" reveal would undercut a tentative
-suspicion. The teaching notes always say when something is *not* a fallacy. The verdicts treat "it
-holds up" as a real, satisfying result. The visual and verbal register exist to make goodwill feel
-like the natural posture, the same way the engine makes it the mathematical default.
+The copy is warm, plain, and unhurried; the UI is calm (warm paper tones, flat surfaces, a display
+serif for headings, lots of air) rather than gamey. This isn't decoration: a triumphant "GOTCHA!"
+reveal would undercut a tentative suspicion. The teaching notes always say when something is *not* a
+fallacy. The verdicts treat "it holds up" as a real, satisfying result. The visual and verbal
+register exist to make goodwill feel like the natural posture, the same way the engine makes it the
+mathematical default.
 
 ## When you extend this
 
