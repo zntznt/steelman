@@ -1,0 +1,1487 @@
+{
+  "version": 2,
+  "authored_blind": true,
+  "note": "Authored without reading families.json, questions.json, blind-corpus.json, or engine code. Fallacy definitions (teaching + pick_example) only. For routing measurement.",
+  "author_agent": "Agent A (8 sub-agents, firewalled)",
+  "cases": [
+    {
+      "id": "ad_hominem_n",
+      "label": "ad_hominem",
+      "argument": "So here is what happened. My neighbor Sarah brought up at the HOA meeting that the playground equipment is rusting and needs replacing before a kid gets hurt. Instead of anyone addressing the actual safety issue, Kevin immediately jumps in with 'Sarah, you've lived here less than two years and you don't even have children. Why should we listen to you about playgrounds?' The rust is visible to anyone with eyes. Whether she has kids or just moved in has nothing to do with whether the equipment is dangerous. But the whole conversation shifted to defending Sarah's right to speak instead of the rusted bolts."
+    },
+    {
+      "id": "ad_hominem_t",
+      "label": "ad_hominem",
+      "argument": "During our sprint retrospective, the junior developer pointed out that our CI pipeline has been running integration tests against a stale database snapshot for at least three weeks, meaning several merged PRs passed tests that would have failed against production data. Our tech lead dismissed it with 'You've only been on this team for six months, so you probably don't understand that we intentionally pinned that snapshot version for stability reasons.' The problem is, whether intentional or not, testing against stale data defeats the purpose of the integration suite. The developer's tenure has nothing to do with whether the database snapshot is current."
+    },
+    {
+      "id": "ad_hominem_d",
+      "label": "ad_hominem",
+      "argument": "You: 'I think the company should review its remote work policy. Productivity is down across three departments since the mandate.' Your manager: 'You've been late to standup four times this month and missed the Q2 deadline by a week. Maybe focus on your own performance before lecturing leadership about policy.' The manager never addresses the productivity data across three departments. Your punctuality doesn't change whether the numbers are accurate. It's a complete sidestep of the actual claim."
+    },
+    {
+      "id": "strawman_a",
+      "label": "strawman",
+      "argument": "Consider the following. The city councilmember proposed that the police department budget be held flat for one fiscal year while an independent audit reviews overtime spending patterns, which have increased forty percent in two years. The police union's response: 'Councilmember Chen wants to defund the police and leave our neighborhoods without protection.' But holding a budget flat is not defunding. It means spending the same amount. And an audit is not abolition. It's reviewing where money goes. The union defeated a position nobody actually took while the real proposal about overtime transparency went unanswered."
+    },
+    {
+      "id": "strawman_t",
+      "label": "strawman",
+      "argument": "At the hospital pharmacy committee, I recommended we add a mandatory second-pharmacist verification step for high-risk IV compounded medications, citing two recent near-miss events in our own facility and updated ISMP guidelines from last year. The director of nursing responded: 'Dr. Patel wants to slow down every IV delivery in the hospital. Patients in the ICU can't wait an extra forty minutes for their drips while pharmacists double-check each other's math.' I never proposed verifying every IV. Only high-risk compounded preparations, which represent roughly five percent of all IV orders. The director argued against a fiction."
+    },
+    {
+      "id": "strawman_e",
+      "label": "strawman",
+      "argument": "I agree with the environmental working group that carbon emissions need to come down, and I support the renewable energy targets they've laid out. But when they say we should phase out natural gas peaker plants over the next decade, my colleagues in the opposition immediately respond as if the group proposed shutting down the entire electrical grid tomorrow and sending us back to candles and wood stoves. Nobody said anything about eliminating baseload power. The actual proposal includes a detailed transition plan with battery storage milestones and grid modernization timelines. Argue against that, not the apocalypse fantasy."
+    },
+    {
+      "id": "tu_quoque_d",
+      "label": "tu_quoque",
+      "argument": "You: 'You really need to stop interrupting people during meetings. It shuts down discussion and several team members have mentioned it to me privately.' Me: 'Oh, that's rich coming from you. You cut Marcus off twice in the all-hands last month, and I'm pretty sure Elena was mid-sentence when you jumped in during the design review. So maybe clean up your own act before policing mine.' The question is whether my interruptions are a problem, not whether you've also interrupted people. My behavior, even if identical, doesn't make your interruptions any less disruptive."
+    },
+    {
+      "id": "tu_quoque_n",
+      "label": "tu_quoque",
+      "argument": "The mayor held a press conference calling for ethics reform after three city council members were caught steering contracts to relatives. Within hours, one of those council members released a statement: 'The mayor accepted a five-hundred-dollar dinner from a developer two years ago and didn't report it until the newspaper asked about it. So he has no standing to lecture anyone about ethics.' A five-hundred-dollar unreported dinner is a real problem, but it doesn't make contract-steering acceptable. The council member answered a corruption charge by pointing at a disclosure violation. Two different scales, and the original allegation remains unanswered."
+    },
+    {
+      "id": "tu_quoque_t",
+      "label": "tu_quoque",
+      "argument": "Your accounting firm flagged eighteen material weaknesses in our client's internal controls over financial reporting, recommending a full remediation plan before the next audit cycle. The CFO shot back: 'Your own firm paid a two-million-dollar fine to the SEC for audit independence violations three years ago, so spare me the lecture on controls.' Whether the auditing firm itself had a regulatory issue is separate from whether the eighteen material weaknesses actually exist in this client's ICFR. One doesn't cancel out the other. The balance sheet doesn't care about the auditor's past."
+    },
+    {
+      "id": "poisoning_the_well_e",
+      "label": "poisoning_the_well",
+      "argument": "I normally believe in hearing from all stakeholders before making a decision, and I respect that Dr. Fischer has published extensively on vaccine policy. But before you listen to her presentation today, you should know that her research institute has accepted over twelve million dollars from a naturopathic supplement manufacturer with a direct financial interest in undermining vaccination requirements. I'm not saying her data is wrong, but you should keep that funding in mind. Actually, just keep it in mind before she even starts speaking. Her conclusions are probably already aligned with her donors' interests rather than the science."
+    },
+    {
+      "id": "poisoning_the_well_n",
+      "label": "poisoning_the_well",
+      "argument": "So the board meeting was about to start, and right before the former CEO was scheduled to present his analysis of our new strategy, the current chair leaned over and said to everyone: 'Look, David is going to give you a very polished presentation with charts and projections. Just remember, this is the same guy who missed revenue targets for seven straight quarters and left us with a seventy-million-dollar lawsuit. Take everything he says with a grain of salt.' Then David walked in and the chair smiled and said 'David, great to see you.' Nobody at that table could hear David's actual numbers with fresh ears after that setup. The well was thoroughly poisoned."
+    },
+    {
+      "id": "poisoning_the_well_d",
+      "label": "poisoning_the_well",
+      "argument": "Manager: 'Alright team, Lisa from the design department is going to walk us through the new UI mockups. Fair warning though. Lisa has opposed every single change we've proposed in the last year, so just be prepared for another round of negativity and obstruction. Go ahead, Lisa.' Lisa: 'Actually, I wanted to show some data from user testing that supports...' Team: [already checked out]. This is the textbook setup. The manager didn't argue against anything Lisa might say. He just labeled her before she could speak so anything she offers arrives pre-rejected."
+    },
+    {
+      "id": "genetic_fallacy_a",
+      "label": "genetic_fallacy",
+      "argument": "Consider the following chain of reasoning. The proposal for a municipal broadband network comes from a policy paper authored by a think tank that also receives funding from a major telecom lobby. Because that think tank has taken telecom money, the municipal broadband proposal must be flawed and self-serving. But this line of thought never examines the actual proposal. The cost estimates, the coverage maps, the comparisons to cities like Chattanooga that built successful public networks. The origin of an idea can be a red flag worth investigating, but it doesn't constitute a refutation. A sound idea from a compromised source is still sound."
+    },
+    {
+      "id": "genetic_fallacy_t",
+      "label": "genetic_fallacy",
+      "argument": "The surgical protocol for laparoscopic cholecystectomy that Dr. Nakamura is advocating was first developed at a hospital in Thailand. Because the techniques originated in a country with different regulatory standards than ours, we should not adopt them. This conclusion jumps from origin directly to dismissal without evaluating the protocol on its own terms. The complication rates in the published case series, the randomized trial data from three independent centers, or the fact that the American College of Surgeons has already reviewed and endorsed a substantially similar version. Where it was first developed is not the same as whether it works."
+    },
+    {
+      "id": "genetic_fallacy_d",
+      "label": "genetic_fallacy",
+      "argument": "You: 'Check out this analysis showing that corporate tax cuts in Kansas led to slower GDP growth than neighboring states that kept their rates.' Me: 'That study was published by the Center for Budget and Policy Priorities, which is a left-leaning organization. Anything they produce is going to be slanted, so the whole analysis is probably cherry-picked.' The political lean of the publisher doesn't tell us whether the data was fabricated, whether the methodology was solid, or whether the comparison states were fairly chosen. You deal with the study itself, not the address of the organization that published it."
+    },
+    {
+      "id": "false_dilemma_d",
+      "label": "false_dilemma",
+      "argument": "You keep saying you're unhappy with the new product roadmap. Fine. You have two choices: get on board with the direction we've set, or find a different team whose roadmap you can support. Those are the only options here. We're not going to re-litigate six months of planning because one senior engineer has reservations, and we're certainly not going to maintain two parallel roadmaps. But there are actually more options. Suggesting modifications at the next quarterly review, running a limited pilot of an alternative approach, documenting concerns formally for the steering committee, or proposing a phased rollout that tests assumptions. This frames dissent as quitting."
+    },
+    {
+      "id": "false_dilemma_n",
+      "label": "false_dilemma",
+      "argument": "The school board meeting was down to the wire. The budget gap was two-point-four million dollars. The superintendent put up two slides: one showed cutting all middle school sports, the other showed eliminating the instrumental music program district-wide. 'We have to pick one,' she said, 'because we're out of time and these are the only programs large enough to close the gap in a single cut.' A parent raised her hand and asked about reducing the administrative travel budget, freezing superintendent-level salary increases, and deferring the planned stadium renovation. Together those added up to two-point-six million. The superintendent said those had already been 'ruled out.' By whom, she never said."
+    },
+    {
+      "id": "false_dilemma_t",
+      "label": "false_dilemma",
+      "argument": "In treating your chronic hypertension, you essentially have two paths: start a daily ACE inhibitor regimen, or accept the progressive cardiovascular risks associated with uncontrolled Stage 2 hypertension, including a significantly elevated chance of myocardial infarction or stroke within the next decade. There isn't a neutral third option here. But this ignores lifestyle interventions like dietary sodium reduction, structured exercise programs, stress management protocols, weight loss, and limiting alcohol. All of which are first-line recommendations in the AHA/ACC guidelines before or alongside pharmacotherapy. The doctor presented medication versus catastrophe as if nothing else existed."
+    },
+    {
+      "id": "false_equivalence_a",
+      "label": "false_equivalence",
+      "argument": "Let's examine what each side did wrong. The city council approved a permit application that omitted a required environmental impact addendum, which delayed the project by three weeks and cost the developer about forty thousand dollars in holding costs. Meanwhile, the developer's CEO was convicted of bribing two state regulators with envelopes of cash totaling one hundred eighty thousand dollars to fast-track approvals on unrelated projects. Both sides clearly made mistakes in the permitting process, so it seems fair to say there's blame to go around on all sides. A bureaucratic paperwork omission is not remotely equivalent to felony bribery. Equating them erases the difference in scale, intent, and illegality."
+    },
+    {
+      "id": "false_equivalence_e",
+      "label": "false_equivalence",
+      "argument": "I agree that both major-party candidates have made statements they probably regret, and I understand why voters find the whole thing exhausting. But treating the candidate who exaggerated the attendance numbers at three rallies the same as the candidate who knowingly spread election fraud claims that led to the certification hearing being stormed. Those are not comparable things. One is standard political puffery. The other is a direct assault on the democratic transfer of power. When we say 'both sides have their problems,' we flatten a qualitative difference into a quantitative one, and the comparison itself becomes dishonest."
+    },
+    {
+      "id": "false_equivalence_n",
+      "label": "false_equivalence",
+      "argument": "My coworker told me this story like it proved some deep point. 'My daughter got suspended for three days because she shared her prescribed Adderall with a friend who was struggling to study. Meanwhile, the kid who sold opioids in the parking lot got the same three-day suspension. Same punishment for both. That's how you know the system is broken. They treat all drugs the same.' But the issue isn't whether the school treats all drugs the same. Sharing prescription stimulants is a federal crime, and the school's discipline code doesn't require a graduated scale based on street value. Equating those two situations because they got the same consequence misses that they're fundamentally different offenses with different legal frameworks."
+    },
+    {
+      "id": "perfect_solution_t",
+      "label": "perfect_solution",
+      "argument": "The proposed patch fixes the SQL injection vulnerability in the login endpoint by parameterizing all user-supplied input in the authentication module. But it doesn't address the same pattern in the search API, the user profile update endpoint, or the reporting export function. If we're going to ship a security fix, we should do it comprehensively. Otherwise we're just giving ourselves a false sense of security. Let's hold this patch until we can deliver a full parameterization refactor across all endpoints, which should take about three more sprints. This leaves the most exploited entry point, the login form, wide open for three months because the perfect fix isn't ready. A partial improvement that closes the most critical gap is better than no improvement."
+    },
+    {
+      "id": "perfect_solution_d",
+      "label": "perfect_solution",
+      "argument": "You: 'I signed us up for the community composting program. It keeps about thirty percent of our kitchen waste out of the landfill and the pickup fee is only twelve dollars a month.' Me: 'Thirty percent is barely anything. We'd still be sending most of our trash to the same dump. Plus the truck that picks up the compost runs on diesel anyway, so we're probably just shifting emissions around. What's the actual net carbon reduction if you factor in the pickup logistics? Unless it's solving the whole problem, it's just feel-good consumerism.' A thirty-percent reduction in landfill-bound waste from one household is a meaningful improvement, and dismissing it because it doesn't solve the entire solid-waste crisis is irrational."
+    },
+    {
+      "id": "perfect_solution_a",
+      "label": "perfect_solution",
+      "argument": "Consider the proposal to require ignition interlock devices for all first-time DUI offenders. The evidence from eighteen states shows it reduces repeat offenses by roughly forty percent. But approximately fifteen percent of offenders circumvent the device by borrowing another vehicle, and the device doesn't prevent someone from driving a friend's car while impaired. So roughly one in seven offenders can bypass the intervention entirely. If a measure fails for fifteen percent of cases, it's not really solving the problem of drunk driving. It's just creating an inconvenience for the eighty-five percent who were unlikely to reoffend anyway. This rejects a forty-percent reduction in repeat drunk driving because it isn't a hundred percent."
+    },
+    {
+      "id": "middle_ground_n",
+      "label": "middle_ground",
+      "argument": "The two departments had been fighting over the Q4 budget for weeks. Marketing wanted four hundred thousand dollars for a national campaign. Engineering wanted eighty thousand for new test equipment. They went back and forth with spreadsheets and ROI projections until the VP got tired of it and said 'Alright, here's what we're going to do. Marketing gets two hundred forty thousand and Engineering gets forty thousand. That's a sixty-forty split down the middle of what each of you asked for. Problem solved.' Nobody asked whether the midpoint between two numbers had any relationship to the actual needs of either department. Marketing's campaign is now underfunded to the point of ineffectiveness, and Engineering can't buy even one of the two test rigs they needed."
+    },
+    {
+      "id": "middle_ground_a",
+      "label": "middle_ground",
+      "argument": "One consulting firm estimates the new distribution center will increase operating costs by eight million dollars annually due to higher logistics expenses and labor costs in the proposed region. Another firm, hired by the local development authority, projects it will save six million annually through tax incentives and lower real estate costs. Both firms have solid credentials and reasonable methodologies, so the CFO recommends budgeting for a net annual cost increase of roughly one million, splitting the difference. But this assumes both estimates are equally likely to be correct. If the first firm's logistics model accounts for variables the second firm omitted, the midpoint is no more valid than either endpoint."
+    },
+    {
+      "id": "middle_ground_e",
+      "label": "middle_ground",
+      "argument": "I appreciate that both sides of the fluoride-in-water debate have passionate supporters and have presented studies supporting their views. One group argues that community water fluoridation reduces childhood dental caries by about twenty-five percent with minimal risk. The other group claims fluoride at current levels causes measurable IQ deficits in developing children. Obviously the truth must lie somewhere between these two positions. Maybe some fluoride but at lower concentrations than we currently use, or maybe targeted fluoride treatments instead of water supply dosing. But this presumes both sets of evidence are of equal quality. If the IQ-deficit studies have methodological flaws that the caries-prevention studies do not, the middle isn't a compromise. It's just a wrong number with better branding."
+    },
+    {
+      "id": "bc2_slippery_slope_1_n",
+      "label": "slippery_slope",
+      "argument": "So here is what happened. Last semester, the department voted to let students bring laptops to seminar. A few months later, a proposal went around to make all exams open-book. Now there is talk of replacing in-person lectures with recorded videos entirely. It started with one small accommodation, and look where we are heading. Once you crack the door, the whole structure comes down. If we let them use laptops next year too, I guarantee within two years we will not have a classroom left to teach in. That is just how these things go."
+    },
+    {
+      "id": "bc2_slippery_slope_1_a",
+      "label": "slippery_slope",
+      "argument": "Consider the logic. Step one, the city rezones a single block for mixed-use development. Step two, developers flood the area with high-rises. Step three, long-time residents are priced out. Step four, the neighborhood loses all character and becomes a sterile commercial zone. The first rezoning inevitably triggers the cascade. There is no realistic stopping point once the zoning board opens that door, because each new permit creates precedent for the next. If we let this first rezoning through, we are effectively voting to demolish the neighborhood."
+    },
+    {
+      "id": "bc2_slippery_slope_1_d",
+      "label": "slippery_slope",
+      "argument": "You: The school should relax the dress code a little, just let kids wear jeans instead of uniforms on Fridays. Me: Right, and next semester it will be casual every day, then ripped jeans and hoodies, then kids showing up in pajamas with zero respect for the learning environment. You: That is a huge exaggeration. Me: Is it? I have seen it play out at three other schools in this district. Give them an inch and they take the whole dress code. Friday becomes casual Monday becomes anything-goes. You cannot draw a line once you erase the first one."
+    },
+    {
+      "id": "bc2_hasty_generalization_1_e",
+      "label": "hasty_generalization",
+      "argument": "I agree that the new manager has made a couple of solid decisions in her first month, particularly on the vendor contract. But you have to look at the full picture. In her previous role at Crestview, she drove that team into the ground within a year — missed deadlines, three people quit, and the client satisfaction score dropped twenty points. Based on her track record, I am not optimistic. People do not change their stripes that fast, and one good month does not undo what she proved she is capable of. We should start planning contingencies now."
+    },
+    {
+      "id": "bc2_hasty_generalization_1_t",
+      "label": "hasty_generalization",
+      "argument": "In the A/B test we ran last week, the blue button variant got 14% higher click-through than the green one across a sample of 200 users. That settles it — blue buttons outperform green across all our user segments, on all devices, in all contexts. We should roll out the blue treatment globally and update the design system immediately. I do not need to wait for more data. The signal was clear and the sample was large enough to generalize. Every product team I have been on makes decisions on smaller samples than this."
+    },
+    {
+      "id": "bc2_hasty_generalization_1_n",
+      "label": "hasty_generalization",
+      "argument": "So I tried that new Mediterranean place on Fourth Street last Tuesday, and the falafel was dry and the hummus tasted like it came from a can. My brother went there on Thursday and said his lamb was overcooked. That is two strikes out of two visits. Clearly the whole restaurant is overrated, their kitchen does not know what they are doing, and honestly Mediterranean food in this city just is not worth the money. We are sticking with the taco spot from now on."
+    },
+    {
+      "id": "bc2_false_cause_1_a",
+      "label": "false_cause",
+      "argument": "Look at the data. The district implemented the new reading curriculum in September, and by November, third-grade test scores had ticked up by four percentage points. The timeline lines up perfectly: new program goes in, scores go up. The only reasonable inference is that the curriculum caused the improvement. There were no other major changes in staffing, funding, or student demographics during that window. When you see an outcome follow a change that closely, the causal arrow writes itself."
+    },
+    {
+      "id": "bc2_false_cause_1_t",
+      "label": "false_cause",
+      "argument": "After we migrated the authentication service to Kubernetes last quarter, our p99 latency dropped from 480ms to 210ms. The container orchestration layer clearly reduced request processing overhead by distributing load more efficiently across the pod pool. I recommend we containerize the remaining monolith services on the same timeline — the data shows Kubernetes directly improved our response times and the engineering team should double down on that correlation."
+    },
+    {
+      "id": "bc2_false_cause_1_d",
+      "label": "false_cause",
+      "argument": "You: Ever since the team started the daily standup meetings, our velocity has doubled. Clearly the standups are making us more productive. Me: Could it not be that we also hired two senior engineers at the same time? You: Those hires have not even shipped code yet, they are still onboarding. The standup is the only thing that changed, and the numbers do not lie. Me: But there was also the new CI pipeline. You: Look, I am telling you, it is the standups. Every morning we sync up and suddenly we ship faster. That is not a coincidence."
+    },
+    {
+      "id": "bc2_appeal_to_authority_1_d",
+      "label": "appeal_to_authority",
+      "argument": "You: I think this investment strategy is too risky. We should diversify more. Me: Warren Buffett has been buying heavily into exactly this sector for the past two quarters. You: That does not mean it is right for our portfolio size. Me: With respect, are you seriously telling me you know better than Warren Buffett? The man has a sixty-year track record. If he says this is where the value is, I am going to trust his judgment over our spreadsheet model any day."
+    },
+    {
+      "id": "bc2_appeal_to_authority_1_e",
+      "label": "appeal_to_authority",
+      "argument": "I will grant that there is not a lot of published research on this supplement yet. But you have to consider who is recommending it. Dr. Patel — the one with the morning show and the bestselling book — has been personally taking it for two years and says it transformed her energy levels and cognition. She would not put her reputation on the line for something that does not work. When someone with her platform and credentials stakes their name on a product, that carries weight independent of whether there is a double-blind trial behind it."
+    },
+    {
+      "id": "bc2_appeal_to_authority_1_t",
+      "label": "appeal_to_authority",
+      "argument": "The architectural decision to move from a relational database to a document store was made by our CTO, who previously scaled three unicorns and literally wrote the book on distributed systems. I understand the backend team has concerns about data consistency and query complexity, but when someone of that caliber makes a technology call, it is not really open for debate at the engineering level. He has seen things at scale we have not. The decision is the decision."
+    },
+    {
+      "id": "bc2_bandwagon_1_n",
+      "label": "bandwagon",
+      "argument": "So I was on the fence about switching to this project management tool until I noticed every team in our division had already moved over. Marketing, engineering, product — all of them. Then I checked the internal Slack poll and 83% of employees said they prefer it over the old system. At that point, what else do you need? When that many people independently arrive at the same tool, it is because the tool is better. I made the switch last Friday. If the majority is already there, you are not being principled by holding out. You are just being slow."
+    },
+    {
+      "id": "bc2_bandwagon_1_a",
+      "label": "bandwagon",
+      "argument": "Consider the market evidence: over sixty percent of Fortune 500 companies have adopted this compliance framework in the past eighteen months. A supermajority of large enterprises would not invest millions in restructuring their reporting processes unless the framework delivered measurable value. Adoption at this scale is itself proof of quality — markets do not work that efficiently on hype alone, especially in regulated industries where switching costs are high. The reasonable conclusion is that the framework is effective, and we should follow suit."
+    },
+    {
+      "id": "bc2_bandwagon_1_e",
+      "label": "bandwagon",
+      "argument": "I understand the argument that we should evaluate the curriculum on its pedagogical merits, not on how many districts use it. Fair point. But when I look at the numbers — forty-two states, over two thousand school districts, and independent adoption by some of the highest-performing systems in the country — that kind of consensus does not form around a bad curriculum. Good programs spread because they work. The sheer breadth of adoption is the strongest signal we have that this is the right direction for our district too."
+    },
+    {
+      "id": "bc2_appeal_to_tradition_1_t",
+      "label": "appeal_to_tradition",
+      "argument": "The firm has processed client settlements through the same mainframe batch system since 1987. Every compliance audit for four decades has passed without a single material finding. The system is battle-tested across multiple regulatory regimes, market crashes, and technology cycles. You are proposing we replace it with a cloud-native alternative that has not been through a single audit cycle. I appreciate the modernization impulse, but when a process has delivered flawless results for thirty-nine years, the burden of proof is on the replacement, not on the incumbent."
+    },
+    {
+      "id": "bc2_appeal_to_tradition_1_d",
+      "label": "appeal_to_tradition",
+      "argument": "You: I think we should move Thanksgiving dinner to my house this year. Me: But we have done it at Mom's house every Thanksgiving for twenty-three years. You: So? My house is bigger and the kitchen is better. Me: That is not the point. Thanksgiving at Mom's is what we do. It is what we have always done. The whole family knows the routine, the seating arrangement, who brings what. You start messing with traditions and pretty soon nothing feels like the holidays anymore. Let us not fix what is not broken."
+    },
+    {
+      "id": "bc2_appeal_to_tradition_1_n",
+      "label": "appeal_to_tradition",
+      "argument": "My grandfather ran this farm one way, my father ran it the same way, and I am not about to be the one who changes it. We plant in April, we harvest in September, we rotate the fields the same pattern, and we have done fine for three generations. The soil consultant came by with his soil maps and his cover-crop recommendations and his fancy data, but I sent him off. This land has fed my family since before he was born. Three generations did not need a consultant to know how to farm this piece of ground, and neither do I."
+    },
+    {
+      "id": "bc2_appeal_to_novelty_1_a",
+      "label": "appeal_to_novelty",
+      "argument": "The new framework departs from the legacy architecture in several key ways: it uses serverless compute instead of provisioned instances, it adopts event-driven messaging instead of polling, and it ships with native observability instead of bolted-on monitoring. Each of these design choices reflects the current state of the art, not the best practices of five years ago. Technology advances for a reason. The fact that the framework is newer necessarily means it incorporates the lessons and shortcomings of everything that came before it. Adopting the older approach is betting against progress itself."
+    },
+    {
+      "id": "bc2_appeal_to_novelty_1_e",
+      "label": "appeal_to_novelty",
+      "argument": "I will grant that the current onboarding process has worked adequately for the past few years. Adequately. But there is a brand-new platform that just launched with AI-driven personalization, real-time progress tracking, and a mobile-first design. It was built this year, by a team that studied every shortcoming of the legacy systems. Old tools carry old assumptions. New tools carry new thinking. The fact alone that this platform was built in 2026 instead of 2019 means it reflects how people actually work now, not how they worked before remote and hybrid became the norm. We owe it to new hires to give them something built for today."
+    },
+    {
+      "id": "bc2_appeal_to_novelty_1_t",
+      "label": "appeal_to_novelty",
+      "argument": "The new biomarker panel was released last quarter by GenoScreen. It uses next-generation sequencing instead of the immunoassay approach we have relied on for a decade. I do not need to see the head-to-head validation data to know it is superior; the underlying technology is simply more advanced. Immunoassays are last-generation diagnostics — they are slower, less sensitive, and more prone to cross-reactivity artifacts. The newer platform reflects where the field has moved. We should transition our lab workflow before we fall further behind the standard of care."
+    },
+    {
+      "id": "bc2_snob_appeal_1_n",
+      "label": "snob_appeal",
+      "argument": "So I was at this dinner party last month, and the host poured a coffee from some small roaster in Portland that only sells to a handful of accounts. The kind of place that does not even have a website. And I am telling you, it ruined grocery-store coffee for me forever. Everyone at that table — and these are people who know food, one of them runs a Michelin-starred kitchen — everyone agreed it was the best they had ever had. When serious food people all converge on something, you pay attention. Mass-market anything is a compromise. The real stuff is what the real connoisseurs drink."
+    },
+    {
+      "id": "bc2_snob_appeal_1_d",
+      "label": "snob_appeal",
+      "argument": "You: I am thinking of getting the Sony headphones. They reviewed really well and they are on sale. Me: Sony. Really. You: What is wrong with Sony? Me: Nothing, if you want the headphones everyone at the gym wears. But you have heard me talk about the Audeze planars. You: Those are like four times the price. Me: And there is a reason for that. The people who actually care about sound — the engineers who master the records you listen to — they do not use Sony. They use Audeze. It is a completely different tier of listening. Once you hear the difference, you cannot go back."
+    },
+    {
+      "id": "bc2_snob_appeal_1_a",
+      "label": "snob_appeal",
+      "argument": "The policy argument for public transit is well-rehearsed, but I would draw your attention to something subtler. In cities with genuinely world-class transit — Tokyo, Zurich, Copenhagen — you will notice that the professional and creative classes use it daily, not out of necessity but out of preference. That is the signal. When the people with options consistently choose the train over the car, you know the system has achieved a quality that transcends the utilitarian case. We should benchmark against the standards of cities whose citizens actually choose transit, not just those who use it because they have to."
+    },
+    {
+      "id": "bc3_circular_reasoning_1_a",
+      "label": "circular_reasoning",
+      "argument": "Consider the following reasoning. The Bible is the word of God because the Bible itself says it is divinely inspired. And we know the Bible is a reliable source because it is the word of God. Whatever the word of God says must be true. Therefore the Bible is true because it says so, and it says so because it is true. This forms a closed loop where the conclusion validates the premise and the premise validates the conclusion. There is no external evidence offered, no historical corroboration, no independent testimony — just the book vouching for itself."
+    },
+    {
+      "id": "bc3_circular_reasoning_1_d",
+      "label": "circular_reasoning",
+      "argument": "You: Why should I trust this investment strategy? Me: Because it's the strategy that works. You: But how do you know it works? Me: Well, look at the returns. You: The returns could be luck or market conditions. Me: No, the returns prove the strategy is sound, and the strategy produces those returns because it's sound. You: That's just going in circles. Me: It's not a circle — it's a proven system that proves itself through its own results."
+    },
+    {
+      "id": "bc3_circular_reasoning_1_e",
+      "label": "circular_reasoning",
+      "argument": "I agree that we need to be careful about how we evaluate evidence in this case. But the reason the defendant's testimony should be believed is straightforward: he is a credible witness. How do we know he is credible? Because his testimony is consistent and believable. And why is it believable? Because a credible witness like him wouldn't lie. His credibility establishes the truth of his account, and the truth of his account establishes his credibility. There is no need to look beyond this."
+    },
+    {
+      "id": "bc3_argument_from_incredulity_1_n",
+      "label": "argument_from_incredulity",
+      "argument": "So my neighbor came over last week going on about how researchers trained an AI to diagnose skin cancer better than dermatologists. I just sat there listening, and honestly I cannot wrap my head around it. How does a computer look at a photo and somehow know more than a doctor who spent twelve years in medical training? The whole thing falls apart the moment you think about it. A machine doesn't have intuition, doesn't feel anything, doesn't understand what a lesion actually is. If I can't even picture how the algorithm reaches its conclusion, then there's no way it's actually outperforming human physicians. It just doesn't add up."
+    },
+    {
+      "id": "bc3_argument_from_incredulity_1_a",
+      "label": "argument_from_incredulity",
+      "argument": "Consider the following reasoning. The universe exhibits complex, information-rich structures at every scale, from DNA to galactic clusters. I simply cannot conceive of how such ordered complexity could arise from unguided physical processes alone. No natural mechanism I have ever studied or imagined can account for the origin of biological information. Since no plausible natural pathway presents itself to my understanding, the conclusion follows that a designing intelligence must be responsible. This is not an argument from ignorance — it is an inference to the best explanation, grounded in the fact that no other explanation survives even casual scrutiny."
+    },
+    {
+      "id": "bc3_argument_from_incredulity_1_t",
+      "label": "argument_from_incredulity",
+      "argument": "The quantum entanglement experiments showing instantaneous correlation across arbitrary distances don't make any sense to me. As a software engineer, I understand state machines, deterministic logic, and signal propagation. The idea that measuring one particle instantly determines the state of another light-years away with no signal passing between them — I cannot grasp how that works physically. Every protocol I have ever designed relies on messages having travel time. So when physicists claim this 'spooky action' is real and verified, I have to conclude they are misinterpreting their data. If the mechanism is inconceivable within every framework I know, it probably isn't happening."
+    },
+    {
+      "id": "bc3_complex_question_1_d",
+      "label": "complex_question",
+      "argument": "You: I think we should reconsider the budget allocation for the outreach program. Me: So when did you decide that helping vulnerable families isn't a priority anymore? You: I never said that. I just want to review the numbers. Me: Look, if you're going to cut funding for the neediest people in our community, at least own the decision. You: I haven't proposed cutting anything yet. Me: Then why are you suddenly questioning a program that has served this community for six years?"
+    },
+    {
+      "id": "bc3_complex_question_1_n",
+      "label": "complex_question",
+      "argument": "At the town hall last Tuesday, Councilwoman Perez stood up and asked the police chief, 'Have you finally stopped using racial profiling in traffic stops, or is that still departmental policy?' The chief tried to answer but every word he said just dug the hole deeper. He said they've never had such a policy, and she shot back, 'So you're admitting the profiling happens without any policy to stop it?' He said he wasn't admitting anything, and she said, 'Then you're denying there's a problem at all?' The room got very quiet. There was literally no answer he could give that wouldn't make him look guilty."
+    },
+    {
+      "id": "bc3_complex_question_1_t",
+      "label": "complex_question",
+      "argument": "During the code review, the senior architect asked the junior developer: 'Have you fixed the memory leak in the authentication module, or are we still shipping with known vulnerabilities?' The junior dev looked confused and said the module had passed all unit tests and valgrind showed no leaks. The architect replied, 'So you're saying the QA team fabricated their report? Because they flagged a leak in that module last sprint.' The junior dev tried to explain the bug was in a different branch, but the architect cut him off: 'Either you fixed it or you didn't. Which is it?' The question assumed the leak existed in the first place, and the junior dev's deployment was held up for three days."
+    },
+    {
+      "id": "bc3_no_true_scotsman_1_n",
+      "label": "no_true_scotsman",
+      "argument": "I was at a party last weekend and someone brought up that their cousin, who's been a vegan for three years, started eating eggs from her own backyard chickens. Immediately this guy Jason jumps in and says, 'Well then she was never really a vegan.' I pointed out she followed a strict plant-based diet for years, no leather, no animal products at all. Jason shook his head. 'Doesn't matter. A true vegan understands the ethical framework. If you go back to eating any animal product, you never genuinely held the conviction in the first place.' He just couldn't let the counterexample stand — he had to rewrite the definition to protect his idea of what a vegan is."
+    },
+    {
+      "id": "bc3_no_true_scotsman_1_d",
+      "label": "no_true_scotsman",
+      "argument": "You: Plenty of Christians support marriage equality actually. Me: Those aren't real Christians. You: They go to church every Sunday, they've been baptized, they read scripture. Me: Reading scripture isn't the same as following it. A genuine Christian submits to biblical authority. You: But they believe they are following scripture. They just interpret it differently. Me: If you reject the plain teaching of the Bible, you're not a Christian in any meaningful sense. You: That seems like you're just defining away the counterexamples. Me: I'm distinguishing authentic faith from cultural labeling."
+    },
+    {
+      "id": "bc3_no_true_scotsman_1_t",
+      "label": "no_true_scotsman",
+      "argument": "The claim that unit tests caught a regression in production is false. We had a full test suite, and the bug still shipped. The QA lead responded that no legitimate testing strategy would have missed this particular race condition. When I pointed out that the team followed the testing strategy they were trained on — Arrange, Act, Assert for every method — he said, 'Then that wasn't a proper testing strategy. Real test-driven development includes integration and stress tests under concurrent load.' He dismissed the entire team's testing approach as 'not real TDD' the moment it produced a counterexample, rather than acknowledging that even good testing can miss edge cases."
+    },
+    {
+      "id": "bc3_suppressed_correlative_1_a",
+      "label": "suppressed_correlative",
+      "argument": "Consider the following reasoning. All human behavior is ultimately selfish. When a mother sacrifices sleep to feed her newborn, she does it because the sound of crying distresses her and she seeks the relief of quiet. When a philanthropist donates millions anonymously, they do it for the internal satisfaction it brings. When a soldier jumps on a grenade, they do it to avoid the shame of cowardice or to secure a legacy. Since every action can be traced back to some internal motivation or preference, no act is truly altruistic. The word 'selfish' has been stretched to cover everything a person ever does, leaving 'selfless' with no territory at all."
+    },
+    {
+      "id": "bc3_suppressed_correlative_1_n",
+      "label": "suppressed_correlative",
+      "argument": "My philosophy professor pulled this one on us freshman year. He walks in, writes 'Nothing is truly original' on the board, and spends the next hour proving it. Shakespeare borrowed plots from Holinshed. The Beatles lifted chord progressions from Chuck Berry. Every startup founder 'stole' an idea from some earlier company that failed. Even the wheel — someone just looked at a rolling log and copied the principle. By the end, 'original' had been defined so narrowly that literally nothing qualified, and 'derivative' had been inflated to swallow every creative act in human history. Half the class nodded along like he'd solved something profound."
+    },
+    {
+      "id": "bc3_suppressed_correlative_1_d",
+      "label": "suppressed_correlative",
+      "argument": "You: I think this policy is actually quite moderate. Me: There's no such thing as moderate. You: What do you mean? It's a compromise between two extremes. Me: Every position is extreme to someone. Your 'moderate' tax rate looks radical to a libertarian and cowardly to a socialist. You: But we can define moderate relative to the center of public opinion. Me: Public opinion is just a collection of extreme positions averaging out. There is no middle ground, only different flavors of extremity. You're just calling your own preference moderate to make it sound reasonable."
+    },
+    {
+      "id": "bc3_appeal_to_emotion_1_n",
+      "label": "appeal_to_emotion",
+      "argument": "When the city council voted on the new housing development last month, one resident stood up during public comment. She didn't mention zoning laws or traffic studies or affordable housing percentages. Instead she held up a photo of her daughter's kindergarten class playing under the oak trees that would be cut down. Her voice cracked as she described how those trees had shaded three generations of her family. By the time she sat down, three council members were wiping their eyes. The development passed anyway, but her testimony had nothing to do with whether the project was good policy — it was pure emotional theater, and it nearly worked."
+    },
+    {
+      "id": "bc3_appeal_to_emotion_1_d",
+      "label": "appeal_to_emotion",
+      "argument": "You: The data shows that remote work increases productivity by about 13 percent across most sectors. Me: You know what I see when I look at those statistics? I see empty office hallways where junior employees used to learn by watching senior colleagues. I see the Wednesday potlucks that built friendships and mentorship disappearing. I see new hires who've never shaken their manager's hand. You: That's not really a response to the productivity numbers. Me: Numbers don't capture what makes a workplace human. You can't measure belonging on a spreadsheet."
+    },
+    {
+      "id": "bc3_appeal_to_emotion_1_e",
+      "label": "appeal_to_emotion",
+      "argument": "I agree with most of what the budget committee recommended — the fiscal projections are sound and the debt reduction targets are necessary. But when I think about cutting the after-school music program, I can't help picturing my nephew Marcus. He was a shy kid who barely spoke until his middle school band teacher handed him a trumpet. That program gave him confidence, friends, a reason to show up. Now the committee says it's an easy line item to trim because 'enrichment isn't core curriculum.' Maybe the numbers work, but if you had seen what I've seen, you'd find another way."
+    },
+    {
+      "id": "bc3_appeal_to_fear_1_n",
+      "label": "appeal_to_fear",
+      "argument": "My uncle forwarded me this email chain last night — all caps, red text, the works. It claimed the government is about to pass a digital currency bill that will let them freeze your bank account if you post something they don't like online. There were screenshots of some congressional hearing and a blurry photo of a Chinese citizen supposedly locked out of their own savings. The email ended with 'THIS IS HAPPENING RIGHT NOW. FORWARD TO EVERYONE YOU KNOW BEFORE IT'S TOO LATE.' There was zero evidence the bill does anything like what the email describes, but that didn't matter — the fear was the whole argument."
+    },
+    {
+      "id": "bc3_appeal_to_fear_1_a",
+      "label": "appeal_to_fear",
+      "argument": "Consider the immigration patterns of the last decade. If current demographic trends continue unchecked, native-born citizens will become a minority in their own country within two generations. Think about what that means: your grandchildren growing up in a nation where the cultural traditions you cherish are no longer the norm, where the language your family has spoken for centuries becomes secondary, where the values you hold dear are voted out of relevance by a new majority with no connection to this nation's founding principles. This is not alarmism — it is arithmetic. The numbers do not lie. We must act now to preserve what remains."
+    },
+    {
+      "id": "bc3_appeal_to_fear_1_t",
+      "label": "appeal_to_fear",
+      "argument": "As a cybersecurity professional with fifteen years of experience, I need to be blunt about the quantum computing threat horizon. When sufficiently powerful quantum computers arrive — and the consensus timeline has shortened from decades to perhaps five to eight years — every encrypted financial transaction, every stored password hash, every classified document protected by current RSA and ECC standards will be retroactively decryptable. Your bank records, medical history, private communications — all of it laid bare. The only responsible course is to migrate all critical infrastructure to post-quantum cryptographic standards immediately. Delay is not an option."
+    },
+    {
+      "id": "bc3_appeal_to_pity_1_n",
+      "label": "appeal_to_pity",
+      "argument": "I served on the academic integrity panel last semester, and one case has stuck with me. This senior, Angela, was caught plagiarizing half her capstone paper. She came to the hearing alone — no parents, no advisor. She explained she'd been working two jobs since her mom's cancer diagnosis drained the family savings. She wasn't sleeping, wasn't eating right, and in a moment of desperation she copied passages from a journal article. She said if she failed the course she'd lose her graduation, her job offer, everything. The panel gave her a warning and let her resubmit. The plagiarism was clear, but no one could bring themselves to enforce the policy."
+    },
+    {
+      "id": "bc3_appeal_to_pity_1_d",
+      "label": "appeal_to_pity",
+      "argument": "You: The rent increase is only eight percent, which is actually below market rate for the area. Me: Please, you have to understand my situation. I've lived in this building for eleven years. My daughter was born in that apartment. Her school is three blocks away. My wife's medical specialists are all within walking distance. You: I sympathize, but the building's expenses have gone up too. Me: I'm a disabled veteran on a fixed income. Every dollar you raise the rent comes out of my daughter's college fund, or our grocery budget, or the co-pays for my wife's medication. You: The increase is already approved by the board. Me: Then take it up with the board. Tell them you've got a tenant who served his country and just needs a little humanity."
+    },
+    {
+      "id": "bc3_appeal_to_pity_1_e",
+      "label": "appeal_to_pity",
+      "argument": "I understand the university's policy is clear — a 2.0 GPA minimum to maintain athletic eligibility. And yes, Marcus knew the rules when he accepted the scholarship. But consider what you're asking me to sign off on. Marcus grew up in a household without books, in a neighborhood where graduating high school makes you the exception. He came here at seventeen, first in his family to attend college, and spent his freshman year navigating a world he had no preparation for. His 1.9 GPA isn't laziness — it's a kid drowning in circumstances he didn't choose. The policy is the policy, but I'm asking you to look at the whole picture before ending his dream."
+    },
+    {
+      "id": "bc3_appeal_to_ridicule_1_d",
+      "label": "appeal_to_ridicule",
+      "argument": "You: I've been reading about the simulation hypothesis — the idea that our universe might be a computational simulation. Me: Oh, fantastic. Are we also going to discuss whether we're all just brains in vats hooked up to a cosmic PlayStation? You: There are serious physicists who take the idea seriously. Me: Sure, and there are serious physicists who believe in eleven dimensions of vibrating string that nobody can ever measure. Next you'll tell me the Earth is actually a hologram projected from the edge of a black hole. You: I'm just saying it's an interesting philosophical question. Me: It's interesting in the same way arguing about how many angels can dance on the head of a pin is interesting."
+    },
+    {
+      "id": "bc3_appeal_to_ridicule_1_n",
+      "label": "appeal_to_ridicule",
+      "argument": "The wellness influencer went on this morning show to promote her new book about 'lunar cycle productivity scheduling.' She had these elaborate charts showing how Mercury's retrograde affects quarterly earnings and why you should never sign contracts during a waning crescent. The host let her go on for about three minutes, nodding politely, and then just started laughing. Not a mean laugh — more like the laugh you give a toddler who insists they're a dinosaur. 'So let me get this straight,' he said, still chuckling, 'I should tell my shareholders that Q3 projections are down because the moon was in the wrong phase?' The audience roared. She never recovered."
+    },
+    {
+      "id": "bc3_appeal_to_ridicule_1_t",
+      "label": "appeal_to_ridicule",
+      "argument": "At the engineering standup, the new product manager proposed we adopt a reactivity-first isomorphic rendering framework with a virtual DOM abstraction layer, because it would let us write 'declarative state machines that compile to native render targets.' The lead engineer looked up from his coffee and said, 'So you want us to rewrite the entire front end in a library that has fourteen GitHub stars, was last updated in February, and was built by someone whose README describes it as a paradigm-shifting exploration of the platonic form of user interfaces? Should we also schedule a séance to consult the spirit of Alan Kay while we're at it?' The PM didn't bring it up again."
+    },
+    {
+      "id": "bc3_appeal_to_spite_1_n",
+      "label": "appeal_to_spite",
+      "argument": "The neighborhood association vote on the community garden expansion was basically decided before anyone walked in the room. The proposal came from Diane — same Diane who reported three neighbors for fence height violations last year and called the city about unpermitted shed installations. When her name was on the agenda item, you could see the room shift. People who normally care deeply about green space and community projects were suddenly finding reasons to vote no. 'It's not the right location.' 'The maintenance budget is too vague.' Nobody said the quiet part out loud: they just didn't want Diane to get another win."
+    },
+    {
+      "id": "bc3_appeal_to_spite_1_e",
+      "label": "appeal_to_spite",
+      "argument": "I'll grant that his tax proposal is well-researched and the revenue projections are plausible. The modeling is solid. But let's not forget who we're dealing with here. This is the same person who spent the last three years blocking every infrastructure bill this council proposed — the bills that would have funded the very roads and bridges his constituents now complain about. He tanked the school bond measure twice. And now he wants us to take his fiscal plan seriously? He gets to play the responsible statesman after sabotaging everything? I don't care how good the numbers look. Let him earn back some trust before we hand him another platform."
+    },
+    {
+      "id": "bc3_appeal_to_spite_1_t",
+      "label": "appeal_to_spite",
+      "argument": "The architecture review board is considering adopting the microservices framework that Marcus's team developed. Technically, it's a solid piece of engineering — clean API contracts, good observability hooks, well-documented failure modes. But I'm voting against it. Marcus spent eighteen months undermining every proposal my team put forward, calling our monolith approach 'technical debt factory' in all-hands meetings and going behind my back to whisper to the CTO about our alleged 'velocity problems.' Now he wants cross-team adoption of his baby? No. Let him eat the maintenance burden of his own architecture decisions. He earned every pull request at 2 AM."
+    },
+    {
+      "id": "bc2_appeal_to_nature_1_n",
+      "label": "appeal_to_nature",
+      "argument": "My sister switched to a raw milk diet last year after years of chronic sinus problems. The doctors kept prescribing antibiotics but nothing really worked long-term. She found a farm that sells unpasteurized milk straight from grass-fed cows and started drinking it every morning. Within three months her sinus issues cleared up completely and she hasn't had a single infection since. The stuff is completely unprocessed — no pasteurization, no homogenization, just milk the way nature intended it. That's exactly why it works so much better than anything you get at the supermarket."
+    },
+    {
+      "id": "bc2_appeal_to_nature_1_a",
+      "label": "appeal_to_nature",
+      "argument": "Consider the evidence. Our bodies evolved over millions of years eating foods in their natural state. The human digestive system is adapted to handle compounds found in whole, unprocessed foods. When we introduce synthetic preservatives, artificial sweeteners, and industrially processed ingredients, we are subjecting our biology to substances it never evolved to metabolize. Therefore, natural foods are inherently healthier for human consumption and the burden of proof should be on anyone claiming otherwise."
+    },
+    {
+      "id": "bc2_appeal_to_nature_1_d",
+      "label": "appeal_to_nature",
+      "argument": "You keep defending those meal replacement shakes. I mean look at the ingredient list — you cannot pronounce half of those chemicals. Real food does not need a chemistry degree to understand what you are eating. An apple has one ingredient: apple. Your protein shake has thirty compounds manufactured in a lab somewhere. How can you seriously argue that is just as healthy as eating actual food?"
+    },
+    {
+      "id": "bc2_appeal_to_force_1_n",
+      "label": "appeal_to_force",
+      "argument": "At the team meeting, Marcus raised concerns about the new deployment schedule. He pointed out that rushing would compromise testing and almost certainly cause production issues. Our manager listened for about thirty seconds, then leaned back and said, 'Look, this timeline comes from the VP. If you want to keep leading the backend team, I would suggest getting comfortable with the schedule as written.' Marcus has not brought it up since. Everyone got the message loud and clear — the schedule is fine because disagreeing has consequences that nobody wants to face."
+    },
+    {
+      "id": "bc2_appeal_to_force_1_e",
+      "label": "appeal_to_force",
+      "argument": "I understand why you think the new policy is unfair, and you make some valid points about workload distribution. But I should mention that the regional director personally approved this restructuring, and she has a reputation for remembering who supported her initiatives and who fought them. People who got on the wrong side of that have found their careers plateau in this organization. So yes, you have a case, but I would think carefully about whether this is the hill you want to die on."
+    },
+    {
+      "id": "bc2_appeal_to_force_1_d",
+      "label": "appeal_to_force",
+      "argument": "You: I am not signing off on these expense reports. They do not match policy. Me: That is your call, but I would remind you that audit committee seats are up for rotation next month and your reappointment depends on demonstrated collegiality. You: Are you threatening my committee position? Me: I am just helping you see the bigger picture. Sometimes rigid policy interpretation is not in anyone's best interest."
+    },
+    {
+      "id": "bc2_appeal_to_flattery_1_n",
+      "label": "appeal_to_flattery",
+      "argument": "The consultant came in and spent the first ten minutes telling the board how impressed he was with their strategic vision. He said in thirty years of consulting he had rarely seen a leadership team with such sophisticated market understanding. By the time he finally got to his proposal — a complete restructuring that would triple his contract value — everyone was nodding along. Nobody asked for the data behind his projections. He had told them they were brilliant, and brilliant people do not need spreadsheets to recognize a good idea when they hear one."
+    },
+    {
+      "id": "bc2_appeal_to_flattery_1_d",
+      "label": "appeal_to_flattery",
+      "argument": "You: I still have questions about the investment returns you are projecting. Me: I appreciate that analytical mind of yours — honestly, it is refreshing. Most people just sign whatever I put in front of them without a second thought. But someone with your level of financial sophistication is going to see immediately that these projections are conservative. You are exactly the kind of investor who recognizes an opportunity when it is right in front of them. You: Well, when you put it that way."
+    },
+    {
+      "id": "bc2_appeal_to_flattery_1_t",
+      "label": "appeal_to_flattery",
+      "argument": "I have reviewed the candidate's portfolio, and to be frank, someone of your design caliber does not need me walking through the pixel-level details. You have shipped products that defined entire categories. Your work on the Horizon dashboard alone demonstrates judgment that most design leads will not achieve in a lifetime. Given that discernment, I am confident you will see this hire is the right move for the team. I trust your eye implicitly."
+    },
+    {
+      "id": "bc2_appeal_to_wealth_1_n",
+      "label": "appeal_to_wealth",
+      "argument": "When we renovated the kitchen, my wife insisted on the premium quartz countertops. The mid-range option was identical in durability ratings and came with the same twenty-five-year warranty, but she would not hear it. 'The more expensive one is clearly superior,' she said. 'Why would it cost sixty percent more if it were not better?' We ended up spending an extra four thousand dollars. I later found out from a contractor friend that both slabs come from the same quarry and the price difference is entirely in the brand markup."
+    },
+    {
+      "id": "bc2_appeal_to_wealth_1_a",
+      "label": "appeal_to_wealth",
+      "argument": "Let us examine the pricing data. Brand A headphones retail at five hundred and fifty dollars, Brand B at one hundred and twenty. The higher price point signals superior components, more rigorous quality control, and better acoustic engineering. You do not command a premium price in a competitive market without delivering a premium product. Therefore, Brand A will provide better sound quality. The market has already done the comparison work for us through price discovery."
+    },
+    {
+      "id": "bc2_appeal_to_wealth_1_e",
+      "label": "appeal_to_wealth",
+      "argument": "I agree that some luxury goods are overpriced for what they are — handbags and watches come to mind. But when you look at financial advisors, the fee structure tells you everything you need to know. The advisor charging two percent is managing generational wealth for people who could choose anyone. The advisor charging half a percent is taking whoever walks in the door. If the cheaper one were just as good, the wealthy families would use them. The fact that they do not tells you which one delivers results."
+    },
+    {
+      "id": "bc2_appeal_to_common_sense_1_n",
+      "label": "appeal_to_common_sense",
+      "argument": "At the town hall, someone asked why we need climate scientists when the winters are still cold. The guy next to me rolled his eyes and practically shouted, 'It is just common sense — if the planet were really warming, we would not be shoveling snow in February.' Half the room nodded along. Nobody bothered to explain that global average temperature and local weather are different things. Common sense had settled the matter before any actual reasoning could get a word in. The conversation just moved on to the next topic."
+    },
+    {
+      "id": "bc2_appeal_to_common_sense_1_d",
+      "label": "appeal_to_common_sense",
+      "argument": "You: I have been reading about universal basic income and some of the pilot studies show interesting results on employment rates. Me: Come on, use your head. If you pay people to do nothing, they will do nothing. You do not need studies to tell you that. It is basic human nature. A five-year-old could figure this out — you do not get paid for not working. I do not understand why we need to waste millions on experiments to verify something that is just obvious."
+    },
+    {
+      "id": "bc2_appeal_to_common_sense_1_t",
+      "label": "appeal_to_common_sense",
+      "argument": "The proposal calls for microservices architecture and event sourcing, but common sense tells you that adding network hops between components that currently share memory is going to degrade performance. You do not need a benchmark suite to know that inter-process communication is slower than in-process calls. Any engineer who has spent real time in production knows this intuitively. We are overcomplicating something that has a straightforward answer anyone with practical experience would recognize immediately."
+    },
+    {
+      "id": "bc2_red_herring_1_n",
+      "label": "red_herring",
+      "argument": "We were discussing the quarterly revenue miss and whether the sales team had adequate territory coverage. About two minutes in, Jim jumped in: 'You know what we really should be talking about? The office layout. I have been saying for months that the open plan is killing productivity. Susan from marketing cannot concentrate, Raj had to buy noise-canceling headphones, and three people have mentioned it in their engagement surveys. That is the real issue here.' By the time we got back to the quarterly numbers, the meeting was over and nothing about sales coverage had been decided."
+    },
+    {
+      "id": "bc2_red_herring_1_a",
+      "label": "red_herring",
+      "argument": "The question before us is whether the zoning change should be approved. I would like to shift focus to the broader matter of developer transparency in this county. Over the past decade, we have seen twelve zoning applications fast-tracked without adequate community consultation. The integrity of our planning process is what is really at stake here, not the specific acreage of this particular parcel. The systemic pattern demands our attention far more than any individual application."
+    },
+    {
+      "id": "bc2_red_herring_1_d",
+      "label": "red_herring",
+      "argument": "You: Can you explain why the patient was discharged without a follow-up appointment scheduled? Me: I think the bigger question is why we are still using fax machines in this department when every other unit has switched to electronic referrals. You: That is a valid concern but I am asking about this specific discharge. Me: Well, the systemic issues are what cause individual errors, so let us focus on what really matters here rather than getting lost in one case file."
+    },
+    {
+      "id": "bc2_whataboutism_1_n",
+      "label": "whataboutism",
+      "argument": "At the press conference, a reporter asked the senator about the unreported campaign contributions. The senator straightened his tie and said, 'I find it interesting that your newspaper has not covered the opposition candidate's offshore accounts, which are a matter of public record. Why do you not ask her about those before you come to me about filing deadlines?' The original question was never answered. The reporter tried to follow up but the senator had already moved on to another journalist."
+    },
+    {
+      "id": "bc2_whataboutism_1_d",
+      "label": "whataboutism",
+      "argument": "You: Your department went forty percent over budget this quarter. Me: What about your department's hiring freeze that left us understaffed and scrambling? You: We are talking about the budget variance right now. Me: But how can we discuss my budget without acknowledging the staffing constraints your decisions imposed? You still have not explained why the hiring freeze was necessary when we were already at minimum staffing levels for the workload."
+    },
+    {
+      "id": "bc2_whataboutism_1_t",
+      "label": "whataboutism",
+      "argument": "The code review flagged your pull request for missing unit tests on the authentication module. What about the payment service that shipped last sprint with zero integration tests and still got approved? That code is handling actual money in production. If we are going to enforce testing standards, let us start with the parts of the system where failures have real financial liability instead of singling out my auth changes while ignoring far riskier gaps that already got a pass."
+    },
+    {
+      "id": "bc2_moving_the_goalposts_1_n",
+      "label": "moving_the_goalposts",
+      "argument": "I told my supervisor I needed proof that the new scheduling system improved efficiency. She came back with data from six departments showing an average twelve percent reduction in overtime hours. I looked at it and said, 'That is just overtime — show me that patient satisfaction scores also improved, because efficiency without quality is not meaningful.' She came back two weeks later with patient surveys showing a four-point increase. I told her, 'Four points could be noise. I need to see multi-year trend data before I am convinced.' She eventually stopped bringing me data at all."
+    },
+    {
+      "id": "bc2_moving_the_goalposts_1_e",
+      "label": "moving_the_goalposts",
+      "argument": "I appreciate you running the A/B test and I can see the treatment group had a statistically significant lift. That is genuinely good work. But a single experiment, even a well-designed one, does not establish that the effect generalizes across our entire user base. Before I recommend rolling this out, I would need to see the same result replicated across our other three markets, ideally with a longer observation window to check for novelty effects and seasonal confounding."
+    },
+    {
+      "id": "bc2_moving_the_goalposts_1_d",
+      "label": "moving_the_goalposts",
+      "argument": "You: Here are five peer-reviewed studies showing the intervention reduces symptoms. Me: Those are all from the same research group though. Find me independent replication. — You: Here are three independent labs confirming the effect. Me: They all used the same dosage protocol. I would want to see studies that varied the dosage before I accept this as established. — You: That was never part of the original standard you asked for. Me: Good science is about being rigorous."
+    },
+    {
+      "id": "bc2_non_sequitur_1_n",
+      "label": "non_sequitur",
+      "argument": "The hiring committee interviewed a candidate who graduated from an Ivy League school with honors and had worked at two Fortune 500 companies. The committee chair summed up: 'This person clearly has the intellectual horsepower we need for the engineering lead role.' Nobody pointed out that the candidate's degree was in art history and their corporate roles were in marketing. The credentials sounded impressive so the conclusion felt right, even though there was no logical connection between an art history degree and running a software engineering team."
+    },
+    {
+      "id": "bc2_non_sequitur_1_a",
+      "label": "non_sequitur",
+      "argument": "Let us consider the facts. Our competitor just raised two hundred million dollars in Series C funding. Their office is in a premium downtown location with a rooftop terrace. They have five hundred employees. Given these indicators of market dominance, it follows that their product architecture is technically superior to ours. The sheer scale and resources of their operation prove they have built something fundamentally better than what we have."
+    },
+    {
+      "id": "bc2_non_sequitur_1_d",
+      "label": "non_sequitur",
+      "argument": "You: Why do you think we should promote Jamie to department head? Me: She has been here the longest, she never takes sick days, and her desk is always organized. You: None of those things speak to management ability. Me: They show dedication and discipline. Those are exactly the qualities you need in a leader. You: I am asking about specific management skills. Me: Discipline is a management skill."
+    },
+    {
+      "id": "bc2_appeal_to_consequences_1_n",
+      "label": "appeal_to_consequences",
+      "argument": "When my uncle was diagnosed, the oncologist gave him about eight months. But my aunt refused to accept it. 'I cannot believe that,' she said. 'If that is true, our grandchildren will not remember him. He will not see my daughter graduate. The universe would not be that cruel.' She found a clinic that gave her a more optimistic timeline and switched his care there. I understood why — believing the prognosis meant accepting a future she could not bear to face, so the prognosis itself had to be wrong."
+    },
+    {
+      "id": "bc2_appeal_to_consequences_1_a",
+      "label": "appeal_to_consequences",
+      "argument": "If the allegations of systemic discrimination in hiring are true, then our institution's reputation, which we have spent decades building, would be irreparably damaged. Generations of students would question the legitimacy of their own admissions. Such a conclusion is catastrophic in its implications and therefore cannot be correct. The very severity of the consequences proves that the premise must be flawed, because an outcome this terrible cannot be the reality we live in."
+    },
+    {
+      "id": "bc2_appeal_to_consequences_1_d",
+      "label": "appeal_to_consequences",
+      "argument": "You: The data shows this investment strategy underperforms index funds over any twenty-year period. Me: But if everyone believed that and stopped actively managing, the entire market efficiency mechanism would collapse. There would be no price discovery. I cannot accept that conclusion because it would mean the financial system as we know it is fundamentally broken. You: That does not make the data wrong. Me: It makes the interpretation incomplete, because any interpretation that leads to absurdity must itself be flawed."
+    },
+    {
+      "id": "bc2_appeal_to_motive_1_n",
+      "label": "appeal_to_motive",
+      "argument": "During the board meeting, the CFO argued against the acquisition, laying out a detailed analysis of the target company's debt structure and integration risks. After she finished, the CEO leaned over to the chairman and whispered, loud enough for several people to hear, 'Of course she opposes it — if the acquisition goes through, her department gets folded into the parent company's finance group and she loses her VP title.' The CFO's numbers were never discussed. Her entire argument was killed by attributing it to self-interest without anyone examining the data she had prepared."
+    },
+    {
+      "id": "bc2_appeal_to_motive_1_t",
+      "label": "appeal_to_motive",
+      "argument": "The security researcher's disclosure about the vulnerability in our authentication flow is clearly motivated by their consulting firm's interest in selling us remediation services. Their report recommends a third-party audit, which conveniently aligns with their business model. Given this obvious financial incentive, we should treat their findings as a sales pitch rather than a legitimate technical concern requiring immediate engineering attention. Their bottom line depends on us believing there is a problem."
+    },
+    {
+      "id": "bc2_appeal_to_motive_1_d",
+      "label": "appeal_to_motive",
+      "argument": "You: I think we should increase the minimum wage — the economic evidence suggests it reduces poverty without significant employment effects. Me: You are a graduate student living on a stipend. Of course you want higher wages, you would benefit directly. You: I cited five published studies. Me: Studies you went looking for because you wanted a particular answer. Your personal financial circumstances are driving your position, not the other way around."
+    },
+    {
+      "id": "bc2_two_wrongs_1_n",
+      "label": "two_wrongs",
+      "argument": "When HR called me in about the negative Glassdoor review I had posted, I pointed out that management had been bad-mouthing employees in their private Slack channels for years. Screenshots of executives calling staff 'lazy' and 'entitled' had been circulating for months, and nobody in leadership faced any consequences. So yes, I wrote a critical review. But they set the standard for how we talk about each other in this company. You cannot police my anonymous post while letting directors mock their teams in writing with zero accountability."
+    },
+    {
+      "id": "bc2_two_wrongs_1_e",
+      "label": "two_wrongs",
+      "argument": "I accept that deleting files from the shared drive was inappropriate and I should not have done it. But I would ask the committee to consider that when I returned from parental leave, my project had been reassigned without notice, my direct reports had been redistributed, and nobody had informed me of three months of team decisions. That was also wrong. Dismissing me for my reaction while the provocation goes completely unexamined seems disproportionate and frankly selective in its enforcement of workplace standards."
+    },
+    {
+      "id": "bc2_two_wrongs_1_d",
+      "label": "two_wrongs",
+      "argument": "You: You breached the non-compete by soliciting our clients. Me: Your company poached three of my former colleagues last year by offering them signing bonuses they did not have to pay back if they brought their client lists with them. You: That is a separate matter. Me: It is the exact same conduct. You set the rules of engagement. Now you are shocked I am playing by them? If raiding clients is how this industry works, then nobody gets to claim the high ground."
+    },
+    {
+      "id": "bc2_ad_hominem_circumstantial_1_n",
+      "label": "ad_hominem_circumstantial",
+      "argument": "At the parent association meeting, a father who owns a construction company argued against the proposed renovation budget, pointing out inflated line items and unnecessary project management fees. The principal smiled thinly and said, 'I think we should note for the record that Mr. Chen runs a competing construction firm that bid on this project and was not selected.' The specific budget issues he raised were never examined. His circumstances — being a contractor who lost the bid — were treated as sufficient reason to disregard his entire argument."
+    },
+    {
+      "id": "bc2_ad_hominem_circumstantial_1_a",
+      "label": "ad_hominem_circumstantial",
+      "argument": "The defendant's expert witness testified that the soil composition made the landslide unavoidable regardless of construction practices. However, the expert has testified for this same developer in eleven previous cases over the past six years, generating approximately four hundred thousand dollars in consulting fees. This financial dependency on the defendant must be weighed when evaluating the expert's conclusions about soil mechanics and whether they constitute neutral scientific testimony."
+    },
+    {
+      "id": "bc2_ad_hominem_circumstantial_1_t",
+      "label": "ad_hominem_circumstantial",
+      "argument": "Of course the cloud architect recommends a full AWS migration with managed services. He holds five AWS certifications and his entire professional identity is built on that ecosystem. If he recommended an on-premise solution or even Azure, he would be undermining the very expertise that justifies his role and salary. His recommendation is not a neutral engineering assessment — it is a career-preservation strategy dressed up as technical analysis, and the committee should evaluate it through that lens."
+    },
+    {
+      "id": "bc5_appeal_to_consequences_n",
+      "label": "appeal_to_consequences",
+      "argument": "So here is what happened at our family meeting. My cousin brought up the genetic test results showing a 60% elevated risk for early-onset dementia on our mother's side. My aunt stood up and said, 'I refuse to believe that. If we accept this, half the family will spend their thirties terrified. The anxiety alone would destroy us. It can't be accurate because the consequences are too cruel.' She wasn't arguing about the test methodology or the lab's error rate—she was dismissing the finding because accepting it would be painful. That's not how truth works."
+    },
+    {
+      "id": "bc5_appeal_to_consequences_a",
+      "label": "appeal_to_consequences",
+      "argument": "Consider the following line of reasoning. The city council's traffic study predicts that the new bypass will increase noise levels by 8 decibels in the residential corridor. If we accept this finding as true, property values will drop and the neighborhood will suffer. Therefore, the traffic study must be flawed. This argument evaluates the truth of the study's prediction based entirely on the desirability of its implications. A study's accuracy does not depend on whether we like what it says—a methodologically sound study can deliver unwelcome news."
+    },
+    {
+      "id": "bc5_appeal_to_consequences_d",
+      "label": "appeal_to_consequences",
+      "argument": "You: The employment data clearly shows that minimum wage increases in Seattle did not reduce job growth. That's what the University of Washington study found. Me: You have to understand, if that turns out to be true, then every small business lobbyist will use it to block wage protections in other cities. We can't let that happen. You're not engaging with the data—you're telling me we should reject the finding because accepting it would have bad political consequences down the line. The study is either well-designed or it isn't, regardless of who benefits from the result."
+    },
+    {
+      "id": "bc5_appeal_to_motive_e",
+      "label": "appeal_to_motive",
+      "argument": "I agree with most of what she said about district rezoning—the overcrowding numbers are real and something needs to change. But we should recognize that her proposed solution just happens to move the boundary line so her own children would transfer to the school with the new STEM lab. She's not making this proposal because the data supports it; she's making it because her kids benefit. The rezoning plan might still be the right one, but we can set it aside given where it's coming from."
+    },
+    {
+      "id": "bc5_appeal_to_motive_t",
+      "label": "appeal_to_motive",
+      "argument": "Consider the Lancet paper by Nakamura et al. arguing that statin therapy should be discontinued for patients over 75. It is worth noting that Nakamura holds three patents on alternative cholesterol-management nutraceuticals and serves on the board of a supplement company that would directly gain market share if statins were deprescribed. The thrust of the paper can therefore be dismissed without further scrutiny. The argument's validity is set aside not on the basis of the data, but because the author stands to profit from its conclusion."
+    },
+    {
+      "id": "bc5_appeal_to_motive_n",
+      "label": "appeal_to_motive",
+      "argument": "At the community board meeting last Tuesday, the landlord on Cedar Street argued that rent stabilization hurts tenants because it discourages property maintenance. He spoke for ten minutes with charts and everything. Then someone pointed out he owns twelve buildings in the neighborhood. A tenant stood up and said, 'Of course he says rent control is bad—he collects the rent checks. We don't need to address his argument because why he's making it is obvious.' The room applauded and moved on. But the charts were still sitting there, unanswered."
+    },
+    {
+      "id": "bc5_two_wrongs_d",
+      "label": "two_wrongs",
+      "argument": "You: The contract says you can't share client data with third parties, and you forwarded the spreadsheet to your subcontractor without permission. That's a breach. Me: Are you serious? Your sales team takes prospects out to dinners worth hundreds of dollars and calls it 'relationship building' when the employee handbook caps gifts at fifty. If the company ignores one rule when it's convenient, I don't see why I'm getting singled out for bending another. Everyone cuts corners around here."
+    },
+    {
+      "id": "bc5_two_wrongs_a",
+      "label": "two_wrongs",
+      "argument": "Consider the EU's complaint against Google for favoring its own shopping service in search results. The defense offered is straightforward: Amazon does the same thing on its platform—search for any product and Amazon's private-label version appears first. Booking.com ranks its own listings above independent hotels. If these competitors engage in identical self-preferencing without sanction, then Google's behavior cannot be treated as anti-competitive. The reasoning here does not establish that Google's conduct is lawful; it merely notes that others break the same rule unpunished."
+    },
+    {
+      "id": "bc5_two_wrongs_t",
+      "label": "two_wrongs",
+      "argument": "In the peer code review, I flagged that the authentication module was storing session tokens in localStorage, which is vulnerable to XSS. The developer's response: 'I get that it's not best practice, but the payments module has been doing the same thing for eighteen months and nobody opened a ticket. The lead architect even approved that PR. If it was a real problem, someone would have flagged it back then.' Whether a security vulnerability was missed in the past has no bearing on whether the current code should follow the standard today."
+    },
+    {
+      "id": "bc5_ad_hominem_circumstantial_t",
+      "label": "ad_hominem_circumstantial",
+      "argument": "The DevOps team is recommending we migrate from our self-hosted GitLab instance to GitHub Enterprise. But let's be realistic here—three of the four DevOps engineers have 'GitHub Actions certified' on their LinkedIn profiles, and the team lead gave a talk at GitHub Universe last year. Their entire professional identity is wrapped up in the GitHub ecosystem. We don't need to evaluate their cost analysis or their uptime comparison; their recommendation is what you'd expect from people whose careers depend on GitHub's continued dominance."
+    },
+    {
+      "id": "bc5_ad_hominem_circumstantial_e",
+      "label": "ad_hominem_circumstantial",
+      "argument": "I'll grant you that his analysis of county traffic patterns is thorough and his proposed roundabout design would reduce the accident rate at that intersection. But here's the thing—he owns the commercial property on the northeast corner, and that roundabout would funnel an extra four hundred cars per day past his storefront. A person in that position would naturally advocate for any traffic design that increases his footfall. We can set aside his engineering recommendation without needing to find a flaw in the modeling."
+    },
+    {
+      "id": "bc5_ad_hominem_circumstantial_n",
+      "label": "ad_hominem_circumstantial",
+      "argument": "Last spring the faculty senate debated whether to keep the foreign language requirement for graduation. Professor Okonkwo from the linguistics department gave a compelling presentation with retention data showing that students who take language courses have better long-term academic outcomes. After she sat down, a history professor leaned over and whispered, 'Of course she defends the language requirement—if it's eliminated, her department shrinks by half. She's just protecting her own budget lines.' The retention data was never discussed again in that meeting."
+    },
+    {
+      "id": "bc5_begging_the_question_a",
+      "label": "begging_the_question",
+      "argument": "Consider the following reasoning about why deregulation stimulates growth. When government removes unnecessary bureaucratic constraints on business, the economy expands because the private sector is freed from the artificial barriers that inhibit productive activity. The argument simply assumes that the removed regulations are 'unnecessary' and 'artificial barriers'—which is exactly the point in dispute. The conclusion that deregulation stimulates growth follows only if we have already accepted that the regulations serve no legitimate purpose."
+    },
+    {
+      "id": "bc5_begging_the_question_n",
+      "label": "begging_the_question",
+      "argument": "The hiring committee met for three hours on Thursday. The chair opened by saying we need to find a candidate who fits the company culture, because cultural fit is essential for team cohesion. By the end, they had rejected the two most qualified applicants. When I asked why, the chair said both lacked cultural fit. I asked what that meant specifically, and she said they wouldn't integrate well with the team. The reasoning was a closed loop—the candidates were rejected for lacking something that was defined only by the fact that they'd been rejected for lacking it."
+    },
+    {
+      "id": "bc5_begging_the_question_d",
+      "label": "begging_the_question",
+      "argument": "You: Why do you say the new encryption standard is secure? Me: Because it was designed by people who understand cryptography. You: But how do we know they produced a secure algorithm? Me: Well, they wouldn't have implemented it if it weren't secure. You're just restating the conclusion as a premise. The claim that the algorithm is secure is being defended by the claim that the designers only produce secure algorithms—which assumes the very thing you're trying to establish about this specific algorithm."
+    },
+    {
+      "id": "bc5_loaded_question_t",
+      "label": "loaded_question",
+      "argument": "During the morbidity and mortality conference, the chief resident asked the attending: 'Given that the delayed administration of antibiotics contributed to the patient's deterioration, what changes are you implementing in your triage protocol?' The attending had not agreed that the delay caused the deterioration—that was the central question under review. But the way the question was framed, answering it required accepting the causal link as established fact. The attending could not describe protocol changes without implicitly conceding the premise."
+    },
+    {
+      "id": "bc5_loaded_question_n",
+      "label": "loaded_question",
+      "argument": "At Wednesday's press briefing, a journalist asked the police commissioner, 'Now that body camera footage has confirmed the department's pattern of escalating routine traffic stops, how do you plan to retrain officers?' The commissioner froze for a moment. The footage in question was from a single incident and was still under internal review—no pattern had been established. But denying the premise meant looking evasive, and answering meant accepting that a pattern existed. The question itself built in the conclusion the journalist wanted."
+    },
+    {
+      "id": "bc5_loaded_question_d",
+      "label": "loaded_question",
+      "argument": "You: How long did you know the quarterly projections were inflated before you notified the audit committee? Me: I'm not going to answer that—the premise of your question is that the projections were inflated, and that hasn't been established. You: So you're refusing to say when you found out? Me: I'm refusing to accept the framing. You're asking 'when' as if the fact of inflation is settled. That's the exact thing the audit is investigating. You can't package the conclusion as a timestamp question and demand I fill in the date."
+    },
+    {
+      "id": "bc5_appeal_to_ignorance_e",
+      "label": "appeal_to_ignorance",
+      "argument": "I accept that the systematic review hasn't found clear evidence linking the preservative to long-term health effects. But that's exactly the point—no study has demonstrated it's safe either. In the absence of definitive proof of harmlessness, we should assume the preservative is dangerous and remove it from the food supply. The burden here is being placed on the wrong side of the evidence gap. A lack of proof of safety is being treated as proof of danger."
+    },
+    {
+      "id": "bc5_appeal_to_ignorance_n",
+      "label": "appeal_to_ignorance",
+      "argument": "My neighbor swears her house is haunted. She's been telling everyone in the neighborhood for years. The interesting thing is that she's invited three different paranormal investigation teams, and not one of them has been able to debunk her claims. No one can explain the cold spots or the sounds she records. She treats this as confirmation—if the experts can't prove it's not a ghost, then it probably is. But the inability to disprove a supernatural explanation doesn't make it any more likely than a loose pipe or a drafty window."
+    },
+    {
+      "id": "bc5_appeal_to_ignorance_t",
+      "label": "appeal_to_ignorance",
+      "argument": "In the pipeline integrity review, three independent engineering firms examined the weld radiographs from the 2018 construction phase and found no evidence of hydrogen-induced cracking. Since no defect has been found after exhaustive non-destructive testing, we can treat the welds as sound and proceed with the pressure increase. The absence of evidence of cracking is being converted into evidence of absence—but NDT has known sensitivity limits, and micro-cracks below the detection threshold remain a genuine possibility that is not ruled out by a null finding."
+    },
+    {
+      "id": "bc5_shifting_burden_of_proof_d",
+      "label": "shifting_burden_of_proof",
+      "argument": "You: I believe the warehouse fire was arson, not an electrical fault. The insurance adjuster needs to investigate. Me: Fine—prove it wasn't arson. Show me the electrical inspection reports. You made the claim that it's not arson, so it's on you to back that up. Wait, no—I'm the one claiming arson. I'm the one asserting a crime occurred. The person making the positive claim carries the burden. I can't just toss the assertion out there and demand you disprove it."
+    },
+    {
+      "id": "bc5_shifting_burden_of_proof_n",
+      "label": "shifting_burden_of_proof",
+      "argument": "During the town hall about the proposed cellular tower, a resident stood up and declared that the radio frequency emissions cause childhood leukemia. The planning commissioner asked if she had a study. She didn't, but she told the commissioner, 'You're the one who wants to build this thing next to a school—you prove to me that it's safe. Show me the long-term pediatric exposure data. Until you do, this tower doesn't go up.' The claim was hers, but the demand for evidence was placed entirely on the other side."
+    },
+    {
+      "id": "bc5_shifting_burden_of_proof_a",
+      "label": "shifting_burden_of_proof",
+      "argument": "Consider the assertion that the artifact recovered from the excavation site is a forgery planted by a rival archaeology team. The claim is advanced without documentation—no receipt, no whistleblower, no forensic report. Yet when challenged, the proponent shifts the ground: 'Prove that it isn't a forgery. Show me the provenance chain. If you can't establish complete provenance, then forgery is the default assumption.' This inverts the normal epistemic order. The positive claim of forgery requires support; a gap in provenance does not make forgery the null hypothesis."
+    },
+    {
+      "id": "bc5_argument_from_silence_t",
+      "label": "argument_from_silence",
+      "argument": "The Annals of the Four Masters is the principal chronicle of medieval Irish history, covering events from the Deluge to 1616 CE. There is no entry in the Annals for a large-scale Viking settlement at what is now Limerick city prior to 922 CE. If such a settlement had existed, the annalists would certainly have recorded it, given their meticulous documentation of Norse activity elsewhere. Therefore, we can conclude that Limerick was not a significant Viking site before 922. This inference turns on whether the annalists' silence is truly probative."
+    },
+    {
+      "id": "bc5_argument_from_silence_n",
+      "label": "argument_from_silence",
+      "argument": "We went through every commit log, every pull request discussion, and every Slack channel archive from the six months before the launch. Nobody mentioned the database migration script even once. Not during standup, not in code review, not in the retrospective notes. If the migration had actually been run before the launch, someone on a team of fourteen engineers would have referenced it somewhere in those thousands of messages. The fact that it never comes up means it simply didn't happen."
+    },
+    {
+      "id": "bc5_argument_from_silence_d",
+      "label": "argument_from_silence",
+      "argument": "You: The board must have approved the acquisition in their December meeting. Me: But the December minutes are twenty-three pages long and don't mention the acquisition once. You: Exactly—if there had been any objection or controversy, it would be in the minutes. The silence means the vote was unanimous and routine. Me: That's a wild inference. Maybe the discussion happened in executive session and the minutes were sealed. Or maybe it was tabled entirely. The absence of a mention doesn't tell you which of several possible things happened."
+    },
+    {
+      "id": "bc2_anecdotal_1_n",
+      "label": "anecdotal",
+      "argument": "My cousin's kid was diagnosed with ADHD at seven, and the school immediately wanted medication. My cousin refused, changed the kid's diet — cut out processed sugar and food dyes — and within three months the teachers said they couldn't tell the difference from a medicated child. The focus improved, the fidgeting stopped, and the homework battles ended. So I'm saying these stimulant prescriptions are unnecessary, and we're over-medicating kids who just need better nutrition. One family, one kid, dramatic turnaround — why would I need a double-blind trial when the result was that clear?"
+    },
+    {
+      "id": "bc2_anecdotal_1_a",
+      "label": "anecdotal",
+      "argument": "The evidence against rent control is straightforward. A building owner I know in Queens held a rent-stabilized unit for twenty years. Every year the allowable increase lagged behind inflation and maintenance costs. By year fifteen, he'd stopped doing anything beyond legally required repairs — peeling paint, a stove that took ten minutes to heat, a bathroom ceiling stain that spread for three years. The unit deteriorated, the tenant complained about conditions, and the landlord pointed to the rent cap as the reason he couldn't invest. Rent control doesn't preserve affordable housing; it destroys the housing stock. One long-running example proves the structural problem."
+    },
+    {
+      "id": "bc2_anecdotal_1_d",
+      "label": "anecdotal",
+      "argument": "You say the job market is recovering? Tell that to my brother. Laid off from a tech firm in March, applied to over forty positions, got two callbacks, zero offers. He's got a master's in CS and ten years of experience. I don't care what the Bureau of Labor Statistics says about the unemployment rate dropping to four percent. The market is brutal out there, and until you can explain how my brother — with a stacked résumé and no red flags — can't land a single interview, the aggregate numbers don't mean anything to me."
+    },
+    {
+      "id": "bc2_cherry_picking_1_e",
+      "label": "cherry_picking",
+      "argument": "I'll grant you that intermittent fasting has produced mixed results in some of the larger meta-analyses. But when you focus on the studies that used a clean 16:8 protocol with only water and black coffee during the fasting window — the ones by Peterson's group in 2019, Varady's 2020 trial, and that German replication from last year — every single one showed significant reductions in visceral fat and insulin resistance. The protocols that failed were sloppy about what subjects consumed during the fast. So if you do it right, the science is actually unanimous."
+    },
+    {
+      "id": "bc2_cherry_picking_1_t",
+      "label": "cherry_picking",
+      "argument": "Looking at our A/B test dashboard, the new checkout flow outperformed the legacy flow in every cohort we deployed to. The US, UK, and Australia all showed a six-to-eight percent lift in conversion with p-values comfortably below 0.05. Germany registered a one-point dip but that's within the margin of error for a sample that small, so it's effectively noise. We're excluding Brazil because the local ops team botched the rollout entirely — wrong tracking pixels, wrong variant assignment. The data we can trust is conclusive: ship the new flow globally."
+    },
+    {
+      "id": "bc2_cherry_picking_1_n",
+      "label": "cherry_picking",
+      "argument": "We switched to agile two years ago and the transformation has been dramatic. The marketing team's sprint velocity went up thirty percent in the first quarter. Engineering shipped the mobile app rewrite in half the projected timeline. Even HR adopted daily stand-ups and cut their onboarding process from six weeks to four. Every department that actually committed to the framework saw measurable improvement. People who complain that agile doesn't work are just doing it wrong — when you look at the teams that embraced it properly, the results speak for themselves."
+    },
+    {
+      "id": "bc2_sampling_bias_1_a",
+      "label": "sampling_bias",
+      "argument": "We ran a user survey about the proposed subscription pricing model and it came back overwhelmingly positive. Ninety-two percent of respondents said they'd pay $14.99 a month for the premium tier, and eighty percent chose it over the freemium option. The survey link was sent to our active newsletter list — 40,000 subscribers who've been using our product for an average of three years. These are people who already rely on the tool daily. The market clearly wants a subscription model, and this data gives us the confidence to make the switch."
+    },
+    {
+      "id": "bc2_sampling_bias_1_d",
+      "label": "sampling_bias",
+      "argument": "What do you mean nobody likes the new office policy? I talked to at least a dozen people about it. Sarah from accounting thinks it's great. Mark, Jen, and Tom on my floor all said they prefer coming in three days a week. Kevin in IT said the flexibility actually improved his productivity. I haven't heard a single complaint from anyone I speak to regularly. If you're hearing pushback, maybe it's just coming from the loud minority who'd complain about anything management does."
+    },
+    {
+      "id": "bc2_sampling_bias_1_t",
+      "label": "sampling_bias",
+      "argument": "The clinical trial for the new anxiolytic compound enrolled 480 participants and demonstrated a 41 percent reduction in GAD-7 scores at eight weeks relative to placebo. Screening criteria required participants to be between 22 and 35, without comorbidities, not taking any concurrent medications, and with a BMI under 27. Recruitment flyers were posted in university wellness centers and yoga studios. Based on these results, the press release states the drug is effective for generalized anxiety disorder in adults — a claim made without qualification about age, health status, or polypharmacy."
+    },
+    {
+      "id": "bc2_overgeneralization_1_n",
+      "label": "overgeneralization",
+      "argument": "I will never use a freelance platform again. Last month I posted a logo design job on Upwork with a clear brief and a 300-dollar budget. What I got back was twenty proposals, and nineteen of them were clearly templates with my company name swapped in. One guy submitted a design that was a slightly recolored version of a logo I found on a stock image site. If that's what the platform attracts for a straightforward design job, imagine what you'd get for anything more complex. The entire freelance economy is just scammers and people running clip art through Canva."
+    },
+    {
+      "id": "bc2_overgeneralization_1_e",
+      "label": "overgeneralization",
+      "argument": "I understand that some online courses are well-produced and platforms like Coursera partner with real universities. But every single course I've enrolled in has been a disappointment. The instructors read slides verbatim, the quizzes are multiple-choice trivia you can guess through, and the discussion forums are ghost towns where nobody responds for weeks. Online education is fundamentally a pale imitation of classroom learning. You cannot replicate a real seminar with a professor who knows your name through pre-recorded lectures and automated grading scripts."
+    },
+    {
+      "id": "bc2_overgeneralization_1_a",
+      "label": "overgeneralization",
+      "argument": "Look at the evidence: Theranos, FTX, WeWork, Nikola. Each one a fast-growing startup that reached unicorn status on venture capital, each one revealed as a hype machine with no sustainable business underneath. The pattern is universal — the model isn't about building a real company, it's about telling a story that convinces the next funding round to mark up the valuation. By the time actual unit economics would matter, the founders have already cashed out. VC-backed startups are vehicles for extracting money from institutional investors, period. Every single one follows the same playbook."
+    },
+    {
+      "id": "bc2_post_hoc_1_n",
+      "label": "post_hoc",
+      "argument": "Our sales pipeline was dead for two quarters straight — we were missing quota by forty percent, morale was tanking, and the board was asking questions. Then we brought in that new CRM consultant in January. She reorganized the lead scoring model, redesigned the outreach cadence, and within three weeks our close rate jumped from twelve percent to twenty-two. Same team, same product, same market conditions — the only variable that changed was her system. That consultant's methodology is the reason this department is now the top-performing unit in the company."
+    },
+    {
+      "id": "bc2_post_hoc_1_d",
+      "label": "post_hoc",
+      "argument": "You seriously don't think the new attendance policy worked? Let me walk you through the timeline. March first we announced that every unexcused absence docks your quarterly bonus by three percent. By April, absenteeism had dropped forty percent. May was the lowest rate in three years of records. People can say it's heavy-handed or unsustainable all they want, but the policy did exactly what it was designed to do and the numbers prove it."
+    },
+    {
+      "id": "bc2_post_hoc_1_t",
+      "label": "post_hoc",
+      "argument": "After we migrated the monolith to microservices in Q3, our API error rate dropped from 0.7 percent to 0.09 percent and our p99 latency fell by 300 milliseconds. The deployment did coincide with a refactor of the authentication layer, but that was mostly cleanup work — the real change was the architecture. When you decouple services, you reduce cascading failures. The timing confirms it: error rates were flat for eighteen months prior, and they dropped the week after the migration completed."
+    },
+    {
+      "id": "bc2_single_cause_1_a",
+      "label": "single_cause",
+      "argument": "The reason the merger failed is straightforward: cultural mismatch. When a ninety-year-old family-run manufacturing firm tries to integrate with a Silicon Valley SaaS company, the different decision-making speeds, compensation structures, and communication norms create friction that no amount of synergy planning can overcome. Everything else — the regulatory delays, the talent exodus, the product roadmap disputes — was downstream of that one fundamental incompatibility. Fix the culture gap and the other problems would never have surfaced."
+    },
+    {
+      "id": "bc2_single_cause_1_e",
+      "label": "single_cause",
+      "argument": "I'll admit the school district is dealing with multiple pressures — aging buildings, shifting demographics, pension obligations that eat into the operating budget. But the test scores didn't start their decline until the board adopted that whole-language literacy curriculum in 2019. Before that, with the phonics-based approach, our third-grade reading proficiency was at seventy-eight percent. Two years after the switch, it dropped to sixty-one percent. Math scores held steady over the same period. The curriculum change is the variable that explains the decline; everything else is background noise."
+    },
+    {
+      "id": "bc2_single_cause_1_n",
+      "label": "single_cause",
+      "argument": "My aunt ran a thriving bakery for fifteen years in our town — lines out the door on weekends, catering contracts with three local offices, the whole thing. She opened a second location in 2022 and by the end of 2023 she'd closed both. She blames inflation and the labor shortage, but I watched the whole thing unfold from close up. Every problem traces back to that business partner she brought in. He insisted on expensive renovations, pushed out her longtime manager who knew every customer by name, alienated the wholesale accounts, and burned through the operating reserve in eight months. One bad hire sank the entire business."
+    },
+    {
+      "id": "bc2_correlation_causation_1_t",
+      "label": "correlation_causation",
+      "argument": "The quarterly earnings data across the S&P 500 reveals a striking pattern. Companies that increased their DEI headcount by more than ten percent year-over-year saw an average stock price decline of four percent in the following two quarters. The correlation coefficient between DEI staffing growth and subsequent market performance is negative 0.38, significant at p less than 0.01. Meanwhile, firms that kept DEI headcount flat or reduced it outperformed the index by an average of six percent over the same window. The data is telling us that diversity initiatives are a drag on shareholder value."
+    },
+    {
+      "id": "bc2_correlation_causation_1_d",
+      "label": "correlation_causation",
+      "argument": "You don't think social media is making teenagers anxious? Come on. The iPhone came out in 2007. Instagram launched in 2010. Now pull up the charts for adolescent anxiety diagnoses and suicide attempts over that same period — they're basically the same curve. Every single year that smartphone adoption goes up, teenage mental health metrics get worse. You can nitpick the studies and argue about confounding variables, but the trend is sitting right there in front of you and it's not subtle."
+    },
+    {
+      "id": "bc2_correlation_causation_1_n",
+      "label": "correlation_causation",
+      "argument": "I started having a glass of red wine with dinner about a year ago. At my last physical, my cholesterol numbers were the best they've been in a decade — LDL down twenty points, HDL up eight. I didn't change anything else. Same exercise routine, same diet, same stress levels, same sleep schedule. My doctor was impressed and didn't even ask what I'd been doing differently. I'm not saying it's a miracle cure, but the wine is clearly doing something good for my cardiovascular health. The numbers don't lie."
+    },
+    {
+      "id": "bc2_weak_analogy_1_d",
+      "label": "weak_analogy",
+      "argument": "You keep saying we need to run the full integration test suite on every single code change before it gets deployed. But think about how a chef works. Does a chef taste the soup at every intermediate stage, or does she rely on her experience and taste it at the end? If a chef can trust her instincts about how ingredients will combine, a senior developer should be able to trust their understanding of the codebase without running a twenty-minute pipeline for every typo fix. The principle is the same — experience replaces process."
+    },
+    {
+      "id": "bc2_weak_analogy_1_a",
+      "label": "weak_analogy",
+      "argument": "Running a government is fundamentally like running a household. A family cannot spend more than it earns indefinitely without going bankrupt, so neither can a country. When a household tightens its belt — fewer restaurant meals, no vacations, delaying a new car — it gets its finances in order without harming what really matters. By the same logic, cutting government programs that aren't strictly essential will balance the budget without damaging core services. The arithmetic is identical; only the zeros change."
+    },
+    {
+      "id": "bc2_weak_analogy_1_e",
+      "label": "weak_analogy",
+      "argument": "I agree that a constitution isn't meant to be frozen in time and that societies evolve. But think of it like the foundation of a house. You can repaint the walls, remodel the kitchen, even add a new wing — but you do not dig up and re-pour the foundation every time your taste in décor changes. The structural principles bear the entire weight of everything built on top of them. Changing those principles should require an overwhelming consensus, not a bare majority vote that could flip every election cycle."
+    },
+    {
+      "id": "bc2_false_analogy_1_n",
+      "label": "false_analogy",
+      "argument": "Our VP of sales pitched the new commission structure by comparing it to how professional athletes get paid — base salary plus performance bonuses. He said just like a quarterback gets rewarded for touchdowns, our reps will get rewarded for closed deals. It's the same principle: you pay for output and output improves. I get that a quarterback operates in a sport with fixed rules, a level playing field, and an objective scoreboard, but the underlying incentive model is universal. Align compensation with results and you get better results. It works in sports, and it'll work here."
+    },
+    {
+      "id": "bc2_false_analogy_1_t",
+      "label": "false_analogy",
+      "argument": "A neural network learns the same way a human child does — through exposure to examples and corrective feedback. A child doesn't need explicit rules of grammar to acquire language; she hears enough sentences and eventually produces correct ones entirely through pattern recognition. By the same logic, we don't need to hard-code grammatical rules into our language model. Feed it enough text and the patterns will emerge through gradient descent. The learning mechanism is fundamentally identical: repeated exposure drives abstraction."
+    },
+    {
+      "id": "bc2_false_analogy_1_a",
+      "label": "false_analogy",
+      "argument": "Governments should treat inflation the way a doctor treats a fever. A fever is the body's natural response to an underlying infection — you do not suppress the fever with Tylenol and call it cured; you identify and treat the infection. Inflation is the economy's natural response to an underlying imbalance — excessive money supply chasing constrained goods. Raising interest rates to suppress inflation is like prescribing antipyretics and discharging the patient. We should be addressing root causes: supply chain fragility, energy dependence, and housing undersupply. The analogy holds because both are systemic responses that get mistaken for the disease itself."
+    },
+    {
+      "id": "bc2_apples_to_oranges_1_d",
+      "label": "apples_to_oranges",
+      "argument": "You think Tesla is overvalued? Look at the raw numbers. Ford ships four million vehicles a year and trades at a P/E of 8. Tesla ships 1.8 million and trades at a P/E of 40. Ford is clearly the better deal — five times cheaper on earnings and more than double the production volume. Any rational comparison of the fundamentals says Ford is massively undervalued relative to Tesla, and the market will eventually correct this absurdity."
+    },
+    {
+      "id": "bc2_apples_to_oranges_1_t",
+      "label": "apples_to_oranges",
+      "argument": "Our team's story point velocity this sprint was 42 points, up from 35 last sprint. The other team delivered 28. Clearly we're the more productive engineering organization. The numbers don't lie — we're shipping nearly fifty percent more work per cycle. When it comes time for performance reviews and headcount allocation, these velocity metrics should be the primary input. Productivity is productivity, and ours is demonstrably higher."
+    },
+    {
+      "id": "bc2_apples_to_oranges_1_e",
+      "label": "apples_to_oranges",
+      "argument": "I understand that the UK and US have different healthcare financing models, different regulatory environments, and different population demographics. But at the end of the day, the UK's NHS spends roughly 4,500 dollars per capita on healthcare while the US spends over 12,000, and UK life expectancy is actually slightly higher. Whatever the structural differences, you cannot escape the basic arithmetic: we are paying nearly three times as much and getting objectively worse outcomes on the metric that matters most. Money in, lifespan out — the comparison is clean."
+    },
+    {
+      "id": "bc2_equivocation_1_n",
+      "label": "equivocation",
+      "argument": "My cousin and I were arguing about climate change over dinner. He said it's 'just a theory, not a fact.' I explained that in science, a theory is a well-substantiated explanatory framework, not a hunch. He nodded along and said, 'Exactly — if it's still called a theory and not a law, then scientists themselves admit they haven't proven it yet. So we shouldn't be overhauling the economy based on something unproven.' He took the scientific label 'theory' and treated it as if it meant the everyday sense of a guess, but used the scientific context to make the shift sound authoritative."
+    },
+    {
+      "id": "bc2_equivocation_1_t",
+      "label": "equivocation",
+      "argument": "In reviewing the clinical trial data, the treatment group showed a statistically significant reduction in symptom severity (p < 0.01). Given that the finding is significant, we should recommend this drug for widespread clinical adoption — because significant results are, by definition, results that matter to patient outcomes. The error is clear to anyone trained in methodology: statistical significance refers to the probability of the observed data under the null hypothesis, not to the magnitude or practical importance of the treatment effect. The word pivots from a narrow technical sense in the premise to a colloquial sense in the conclusion."
+    },
+    {
+      "id": "bc2_equivocation_1_d",
+      "label": "equivocation",
+      "argument": "'You can't call my hiring process discriminatory.' 'Why not? You have a formal process that discriminates between qualified and unqualified candidates — you just said so yourself.' 'Right, but that's not what discrimination means in an employment law context.' 'Of course it is. You discriminate. By your own description, your process is discriminatory. If you're going to lecture me about fair hiring practices, maybe get your own house in order first.' 'No — discrimination in the legal sense means treating people unfairly based on protected characteristics, not just making distinctions.' 'Now you're just redefining words to dodge the point. Words mean things.'"
+    },
+    {
+      "id": "bc2_amphiboly_1_n",
+      "label": "amphiboly",
+      "argument": "We got an email from the CEO on Thursday: 'I need the sales report from Q2 and the marketing projections finished by Monday.' The marketing team sent their projections Friday afternoon, and sales sent their Q2 report Monday morning. The CEO was furious — he meant both items were due Monday. But the sentence structure genuinely allows the reading that 'finished by Monday' attaches only to 'the marketing projections,' not to the Q2 sales report. When confronted, the CEO pointed to his own email and said, 'The grammar speaks for itself — everything is due Monday. You're being deliberately obtuse.' He was treating a grammatically ambiguous sentence as if it had only one possible reading and using that reading to discipline people."
+    },
+    {
+      "id": "bc2_amphiboly_1_a",
+      "label": "amphiboly",
+      "argument": "Consider the following agreement clause: 'The consultant shall provide services to the client and its affiliates covered by this agreement.' A dispute arose over whether 'covered by this agreement' modifies only 'affiliates' or both 'the client' and 'its affiliates.' If it modifies both, the consultant's obligations to the client itself are bounded by the scope clause. If only affiliates, the obligations to the client are unlimited. The consultant argued the plain text clearly supports the broader obligation, since 'covered by this agreement' naturally attaches to the nearest noun phrase. But the grammar is genuinely ambiguous — the sentence supports both parses equally. The conclusion about the scope of obligation only appears to follow because one syntactic reading is silently preferred over the other."
+    },
+    {
+      "id": "bc2_amphiboly_1_e",
+      "label": "amphiboly",
+      "argument": "I agree with most of what the policy committee put forward. The data retention rules make sense, and the new security protocols are overdue. But the section that says 'employees must report to their supervisor any violation of company policy they witness' is being read by HR as requiring self-reporting — meaning if you break a policy yourself, you must report it too. The sentence structure allows that reading, since 'they witness' could refer back to 'employees' as the witnesses, not restrict violations to those committed by others. They're using that reading to fire people who didn't self-report minor infractions, claiming the language is clear. But nobody reading that sentence in good faith would think it compels you to turn yourself in."
+    },
+    {
+      "id": "bc2_accent_1_d",
+      "label": "accent",
+      "argument": "'I read your review of my proposal. You said it was ambitious and well-researched.' 'I also said the timeline was unrealistic and the budget projections were incomplete. You can't just quote the complimentary part and ignore the rest.' 'But you did say it was ambitious and well-researched — those were your words. So you agree the proposal has merit.' 'I said far more than that. You're selectively quoting to create the impression that I endorsed it.' 'I'm quoting you directly. I'm not fabricating anything. Your own published words say positive things about the proposal. If you didn't mean it, you shouldn't have written it.' 'That's not how a full review works. The overall assessment was negative.' 'The overall assessment isn't what I'm citing. I'm citing the part where you praised it.'"
+    },
+    {
+      "id": "bc2_accent_1_t",
+      "label": "accent",
+      "argument": "The film critic's full review reads: 'If you can overlook the wooden acting and implausible plot twists, this film is a masterpiece of visual storytelling.' The studio's ad campaign quotes: '...a masterpiece of visual storytelling — The Times.' By excising the conditional clause and isolating the compliment, the fragment is made to express the opposite of what the original communicated. A reader encountering only the ad copy would reasonably conclude the critic gave a positive review, when in fact the full sentence was a qualified dismissal. The argument that the critic endorsed the film turns entirely on where the emphasis falls in a selectively truncated quotation."
+    },
+    {
+      "id": "bc2_accent_1_n",
+      "label": "accent",
+      "argument": "So I was watching the mayoral debate, and the challenger asked the incumbent whether she supported defunding the police. She said, 'I do not believe that reducing the police budget is the right approach at this time.' The next morning, the challenger's campaign put out a mailer with her photo and the headline: 'Mayor says reducing the police budget is the right approach.' They had dropped the words 'I do not believe that' and the trailing qualifier, flipping the meaning of her statement entirely. They didn't change any words — they just omitted the ones that supplied the negation — and presented the resulting fragment as her quote. The emphasis shifted from refusal to endorsement by selective omission."
+    },
+    {
+      "id": "bc2_definist_1_n",
+      "label": "definist",
+      "argument": "At the town hall, the developer argued his project wouldn't cause any environmental damage. When an environmental scientist asked how he defined the term, he explained: 'Environmental damage means an irreversible change to the ecosystem. Our project will alter some wetlands temporarily, but the mitigation plan restores the area after construction. Since the change is reversible, there is no environmental damage — by definition.' He built his conclusion into the definition itself by choosing a meaning of 'damage' that excludes the entire category of temporary harm. Under any standard ecological definition, filling wetlands for two years would count as damage regardless of eventual restoration, but his definition settled the dispute before it began."
+    },
+    {
+      "id": "bc2_definist_1_a",
+      "label": "definist",
+      "argument": "Define a 'tax increase' as an increase in the statutory tax rate that applies to a given income bracket. Given that definition, eliminating mortgage-interest deductions and the child tax credit while leaving the marginal rates unchanged is not, by definition, a tax increase. Therefore, this tax reform legislation contains no tax increases whatsoever. The reasoning is internally consistent given the definition, but the definition is loaded — it excludes any change in effective tax burden, which is what economists and ordinary taxpayers mean by a tax increase. The conclusion that 'taxes are not going up' is built into the choice of definition rather than derived from neutral premises."
+    },
+    {
+      "id": "bc2_definist_1_d",
+      "label": "definist",
+      "argument": "'Your company discriminates against older workers.' 'No, we don't. Age discrimination means treating someone differently because of their age, with intent to harm them on that basis.' 'Right. And you laid off everyone over fifty in the restructuring.' 'We laid off people in redundant positions. It's not age discrimination because discrimination requires malicious intent to harm someone because of their age. We restructured for operational efficiency — there was no prejudicial motive.' 'That's not what discrimination means under the law. Disparate impact counts.' 'Of course it doesn't. Discrimination is an intentional act of prejudice. Since we had no prejudicial intent, it can't be discrimination. By definition.'"
+    },
+    {
+      "id": "bc2_composition_1_n",
+      "label": "composition",
+      "argument": "Our basketball team recruited five transfers this offseason, and every single one of them shot over forty percent from three-point range last year at their previous schools. Each guy is a proven perimeter threat. So we are going to be the best three-point shooting team in the conference — there's no way around it. When every player on the floor can knock down threes at an elite clip, the team as a whole becomes an unstoppable outside shooting machine. You can't guard five snipers at once. Defenses will have to pick their poison, and we'll rain threes all night."
+    },
+    {
+      "id": "bc2_composition_1_t",
+      "label": "composition",
+      "argument": "Every stock in this mutual fund has individually outperformed the S&P 500 over the past five years. Each holding is a proven market-beater on its own. Therefore, the fund as a whole is guaranteed to beat the market going forward. If every component outperforms the benchmark, the aggregate portfolio must outperform the benchmark — that's just arithmetic. The fund's weighted average return across all positions will necessarily exceed the index return, since each position contributes positively to the total."
+    },
+    {
+      "id": "bc2_composition_1_a",
+      "label": "composition",
+      "argument": "Consider any chain of deductive reasoning. Each inferential step in the chain is individually plausible — let's assign it an 85% chance of being correct. There are eight steps in total. Since each link in the argument is solid on its own, the chain as a whole must be roughly 85% likely to yield a true conclusion. The strength of the overall argument equals the average strength of its component inferences. Anything less would imply that good reasoning, when combined, somehow becomes bad reasoning — which is absurd."
+    },
+    {
+      "id": "bc2_division_1_n",
+      "label": "division",
+      "argument": "My roommate signed up at this gym because he heard it produces the most competitive powerlifters in the region. I asked what that has to do with his personal training sessions, and he said, 'This gym is elite. How could an elite gym not have elite personal trainers? The quality of a gym is the quality of its staff. So whoever I get assigned to will be top-tier.' He got matched with a trainer who'd been certified two weeks earlier and injured his rotator cuff within a month. The gym's reputation came from a handful of world-class coaches who trained the competitive team — not from the general personal training staff."
+    },
+    {
+      "id": "bc2_division_1_t",
+      "label": "division",
+      "argument": "Google has the most capable engineering organization on the planet — their products serve billions of users, they solve distributed systems problems at unprecedented scale, and they consistently ship innovations that reshape entire industries. So any individual software engineer at Google must be exceptional. If I'm hiring and I see Google on a resume, I don't even need to interview them. The organization is world-class, which means its individual engineers are world-class. You can't have a great engineering culture without great engineers filling every seat."
+    },
+    {
+      "id": "bc2_division_1_d",
+      "label": "division",
+      "argument": "'This university has a top-five computer science program. So every CS professor here must be a top-tier researcher.' 'That doesn't follow. A great department can have a few stars and some mediocre faculty — the ranking doesn't mean every single professor is elite.' 'How is that possible? The department's ranking comes from its faculty's aggregate research output and citation counts. If the whole department is excellent, then each contributing member must be excellent individually. The overall quality is just the sum of the individual qualities.' 'Not really — a handful of highly-cited researchers can carry the numbers while others publish very little.' 'That makes no sense. The whole is made of its parts.'"
+    },
+    {
+      "id": "bc2_ecological_fallacy_1_n",
+      "label": "ecological_fallacy",
+      "argument": "My uncle was visiting for the weekend and noticed our neighborhood has a lot of Asian-American families. He said, 'You must have great math tutors around here — Asian students score the highest in math on average, it's a well-known fact.' I mentioned that our neighbor's son is Asian-American and really struggles with algebra, barely passing. My uncle waved it off: 'That can't be right. The statistics don't lie — Asian students as a group consistently test the highest in mathematics. There must be some mistake in his grades, or maybe he's not applying himself.' He applied a group-level statistic to an individual kid as if the average described every member of the group."
+    },
+    {
+      "id": "bc2_ecological_fallacy_1_t",
+      "label": "ecological_fallacy",
+      "argument": "The county health department's latest epidemiology report shows that zip code 90210 has the highest life expectancy in the region at 85.4 years. Mrs. Patterson resides in 90210. Based on these population-level data, her predicted lifespan is approximately 85 years. The reasoning is straightforward: her zip code's life expectancy is the best available estimate of her individual life expectancy, since she belongs to the population from which the statistic was calculated. The group average reliably describes each of its members."
+    },
+    {
+      "id": "bc2_ecological_fallacy_1_e",
+      "label": "ecological_fallacy",
+      "argument": "I appreciate the thoroughness of your demographic analysis, and I agree that neighborhoods with higher median incomes do show better cardiovascular health outcomes on average. But you can't turn around and tell Mr. Garcia — who lives in one of those neighborhoods — that his personal heart disease risk is low because his zip code's average is good. He works a high-stress sixty-hour week, smokes a pack a day, hasn't seen a doctor in five years, and eats fast food for most meals. His individual risk profile looks nothing like his neighborhood's average. The ecological data describes the group, not the man."
+    },
+    {
+      "id": "bc2_affirming_the_consequent_1_n",
+      "label": "affirming_the_consequent",
+      "argument": "My neighbor's car wouldn't start yesterday morning. He popped the hood, wiggled the battery cables, and said, 'If the battery is dead, the car won't start. Well, the car won't start. So the battery must be dead — that's the problem.' He walked half a mile to the auto parts store, bought a new battery for a hundred and eighty dollars, installed it himself in the driveway, turned the key, and nothing. Same silence. Turned out the starter motor had seized. The car not starting was consistent with a dead battery, but it was also consistent with a dozen other mechanical failures. He saw the expected outcome and concluded the single cause he had in mind must be the one."
+    },
+    {
+      "id": "bc2_affirming_the_consequent_1_d",
+      "label": "affirming_the_consequent",
+      "argument": "'If she's angry with me, she won't return my calls. She hasn't returned any of my calls all week. So she's definitely angry with me — the evidence is right there.' 'Or her phone is broken. Or she's traveling internationally. Or she's swamped at work and not returning anyone's calls.' 'Those are all possible, but not returning calls is exactly what happens when someone is upset. I predicted the outcome, and the outcome happened. That confirms the condition. You're reaching for alternative explanations because you don't want to admit the obvious.' 'I'm saying there are multiple reasons someone might not call back.' 'And I'm saying the most logical one is anger, given the circumstances.'"
+    },
+    {
+      "id": "bc2_affirming_the_consequent_1_t",
+      "label": "affirming_the_consequent",
+      "argument": "If a patient has acute appendicitis, they will present with right lower quadrant abdominal pain upon palpation. This patient presents with right lower quadrant abdominal pain. Therefore, this patient has acute appendicitis. Schedule the appendectomy. The reasoning follows a standard diagnostic pattern: the predicted clinical sign is observed, so the underlying condition is confirmed. While RLQ pain can also arise from ovarian cysts, kidney stones, mesenteric adenitis, or simple constipation, the presence of the expected symptom is taken as sufficient to establish the diagnosis without ruling out alternatives."
+    },
+    {
+      "id": "bc2_denying_the_antecedent_1_n",
+      "label": "denying_the_antecedent",
+      "argument": "My younger brother applied to an Ivy League school, and our dad told him throughout junior year, 'If you score above 1500 on the SAT, you'll get in. That's the ticket.' He ended up scoring a 1380. Our dad looked at the score report and said, 'Well, that settles it — you're not getting in. You didn't hit the number, so there's no chance. We should start looking at backup options now and not get your hopes up.' My brother got waitlisted and was eventually accepted in May, because admissions decisions depend on essays, extracurriculars, recommendations, and a dozen other factors — not just one test score. The SAT threshold was one route, not the only route."
+    },
+    {
+      "id": "bc2_denying_the_antecedent_1_d",
+      "label": "denying_the_antecedent",
+      "argument": "'If we lower the price, sales volume will go up.' 'But we decided not to lower the price.' 'Exactly. So sales volume won't go up this quarter. We can forecast flat demand.' 'That doesn't follow at all. Sales could go up because of the new advertising campaign we just launched, or the holiday shopping season, or our main competitor just raised their prices by fifteen percent.' 'Those are speculative. The most direct lever on demand is price. Without a price reduction in place, a sales increase doesn't make sense.' 'You're treating price as if it's the only factor that affects consumer demand. It's not.'"
+    },
+    {
+      "id": "bc2_denying_the_antecedent_1_e",
+      "label": "denying_the_antecedent",
+      "argument": "I'll grant you that consistent exercise is highly effective for weight loss. If someone maintains a regular workout routine — say, four sessions a week of moderate to vigorous activity — they will see a meaningful reduction in body weight over several months. But my brother doesn't exercise at all and never has. He's a sedentary person by nature. So he's not going to lose any weight. That's just the reality of the situation. He might try dieting or intermittent fasting here and there, but without the exercise piece being in place, the weight isn't coming off. People who don't exercise simply don't lose weight."
+    },
+    {
+      "id": "bc2_loaded_language_1_n",
+      "label": "loaded_language",
+      "argument": "So the planning commission held a hearing on the new apartment complex. The developer walked everyone through the floor plans, the traffic study, the 200 units of housing. Then the head of the neighborhood association stood up and said, \"What we're actually being asked to approve is a concrete eyesore that will cram transients into matchbox units and choke our streets with congestion.\" No one asked about setbacks or parking ratios after that. The room voted it down."
+    },
+    {
+      "id": "bc2_loaded_language_1_a",
+      "label": "loaded_language",
+      "argument": "Let's assess the policy on its merits. The proposal would allow businesses to deduct entertainment expenses at 50%. The opposition has labeled this a \"boondoggle for fat-cat executives to wine and dine on the public dime.\" That framing carries the conclusion before any numbers are examined — the word \"boondoggle\" assumes waste, \"fat-cat\" assumes undeserving recipients, and \"public dime\" assumes the deduction is a handout rather than a tax expenditure whose effect on investment should be measured against revenue forgone."
+    },
+    {
+      "id": "bc2_loaded_language_1_d",
+      "label": "loaded_language",
+      "argument": "\"You're telling me the corporate restructuring plan makes sense?\" \"It does. The spin-off creates two focused businesses with clearer accountability.\" \"Come on, this is textbook looting. They'll strip the profitable assets, load the husk with debt, and walk away with golden parachutes while the workers get pink slips.\" \"You haven't read the term sheet.\" \"Don't need to. I've seen this predator-capitalism playbook before.\""
+    },
+    {
+      "id": "bc2_weasel_words_1_n",
+      "label": "weasel_words",
+      "argument": "I attended a school board meeting where a parent argued against updating the science curriculum. She claimed \"research shows that hands-on learning actually produces worse test outcomes than direct instruction.\" Another parent asked which research. She said \"there are multiple studies\" and moved on. Later, someone brought up a meta-analysis of over two hundred studies showing the opposite, but by then the board had already voted to table the curriculum update indefinitely."
+    },
+    {
+      "id": "bc2_weasel_words_1_a",
+      "label": "weasel_words",
+      "argument": "The case for eliminating remote work rests on three pillars: collaboration, culture, and productivity. On the productivity question, it is widely acknowledged that in-office teams outperform distributed ones on complex projects. Many experts agree that spontaneous interactions cannot be replicated digitally. And data indicates that mentoring relationships suffer significantly when junior staff work remotely. These claims — widely acknowledged, many experts, data indicates — are presented as settled conclusions without specifying which studies or whose expert opinion backs them."
+    },
+    {
+      "id": "bc2_weasel_words_1_t",
+      "label": "weasel_words",
+      "argument": "A position paper on post-operative recovery protocols argues that patients should be mobilized within six hours of abdominal surgery. \"It is well known that early ambulation reduces the incidence of deep vein thrombosis,\" the paper states. \"Most surgeons concur that prolonged bedrest carries significant risk.\" But the paper cites no trial, no cohort study, and no registry data. The phrases \"it is well known\" and \"most surgeons concur\" are doing the work that a systematic review or randomized controlled trial would be expected to supply in a clinical guideline."
+    },
+    {
+      "id": "bc2_continuum_fallacy_1_n",
+      "label": "continuum_fallacy",
+      "argument": "My roommate argued we shouldn't bother recycling at all. He said, \"If you actually trace it, our recycling goes to a facility that rejects about twenty percent of it because of contamination. So why do we draw the line at twenty percent? Why not nineteen? Why not twenty-one? There's no principled cutoff, so the whole enterprise is arbitrary.\" By that logic, he concluded, we might as well toss everything in the trash, because you can't define exactly how clean a batch has to be to count as \"recycled.\""
+    },
+    {
+      "id": "bc2_continuum_fallacy_1_d",
+      "label": "continuum_fallacy",
+      "argument": "\"Obesity needs to be treated as a chronic disease.\" \"There's no objective boundary between overweight and obese. The BMI cutoff of 30 is arbitrary — plenty of people at 29.9 have worse metabolic health than someone at 30.1. You can't point to a single extra pound that makes someone suddenly diseased.\" \"So you're saying obesity doesn't exist?\" \"If you can't tell me exactly where it starts, then obesity is just a label we made up.\""
+    },
+    {
+      "id": "bc2_continuum_fallacy_1_t",
+      "label": "continuum_fallacy",
+      "argument": "A defense attorney argues, \"The statute criminalizes possession of a 'significant' quantity of a controlled substance. But the legislature never defined 'significant' in grams. Is five grams significant? Four? Four and a half? If the state cannot articulate the exact threshold, then 'significant' is unconstitutionally vague, and no conviction can ever rest on it.\" This reasoning treats the failure to specify a precise cutoff as proof that no meaningful threshold exists at all, ignoring that a kilogram is clearly significant and a trace residue clearly is not."
+    },
+    {
+      "id": "bc2_reification_1_n",
+      "label": "reification",
+      "argument": "At the investor call, the CFO explained the layoffs like this: \"The market has been demanding leaner operations, and the market doesn't wait. The market voted with its feet after our last earnings miss.\" He talked about the market the way you'd talk about a boss who could fire you. But a market isn't a person with a demand — it's thousands of unrelated trades whose aggregate went down. The board made a decision, then dressed it up as an impersonal force."
+    },
+    {
+      "id": "bc2_reification_1_a",
+      "label": "reification",
+      "argument": "The claim that \"nature selects for traits that maximize reproductive fitness\" is routinely presented as if nature possesses foresight and intentionality. But natural selection is the differential survival of organisms with varying traits in a given environment — no agent is doing the selecting. Attributing purpose to \"nature\" smuggles in a teleology that the mechanism doesn't warrant, and it leads people to ask what nature \"wants\" instead of what environmental pressures actually operate."
+    },
+    {
+      "id": "bc2_reification_1_t",
+      "label": "reification",
+      "argument": "Our architecture team keeps saying \"the algorithm prefers sparse representations.\" The algorithm doesn't prefer anything. It computes a weighted sum of activations against a regularization penalty. The objective function happens to yield sparse weight matrices under L1 regularization. Talking about what the algorithm \"prefers\" makes it sound like it has taste or judgment. When you reify the math into an agent with preferences, junior engineers stop questioning the loss function and start treating the output as if it made a considered choice."
+    },
+    {
+      "id": "bc2_base_rate_neglect_1_n",
+      "label": "base_rate_neglect",
+      "argument": "A friend took one of those direct-to-consumer genetic tests. It came back positive for a marker associated with a rare neurological condition — lifetime prevalence about one in ten thousand. She panicked, booked a neurologist, started reading caregiver support forums. The test company's own documentation says the false positive rate is around two percent. With a one-in-ten-thousand base rate, a two percent false positive rate means her odds of actually having the condition are about one in two hundred. But the word \"positive\" was all she could see."
+    },
+    {
+      "id": "bc2_base_rate_neglect_1_a",
+      "label": "base_rate_neglect",
+      "argument": "A hiring manager reviews a candidate assessment. The profile warns that the candidate scored in the bottom decile on a conscientiousness inventory that correctly identifies low-conscientiousness employees eighty percent of the time. The manager concludes the candidate is almost certainly unreliable. However, if genuinely low-conscientiousness people are only five percent of the applicant pool, then even with eighty percent accuracy the probability that a flagged candidate is actually low in conscientiousness is under eighteen percent — lower than a coin flip's chance of being wrong."
+    },
+    {
+      "id": "bc2_base_rate_neglect_1_d",
+      "label": "base_rate_neglect",
+      "argument": "\"We should install that AI fraud detection system. It catches ninety-five percent of fraudulent transactions.\" \"And its false positive rate?\" \"Three percent. That's excellent.\" \"Three percent of millions of transactions is tens of thousands of legitimate purchases flagged as fraud every month. Given that actual fraud is maybe a tenth of a percent of all transactions, almost every alert your system generates is going to be a false alarm. Your fraud team will spend all its time chasing ghosts.\""
+    },
+    {
+      "id": "bc2_gamblers_fallacy_1_n",
+      "label": "gamblers_fallacy",
+      "argument": "My uncle plays the same lottery numbers every week: 7, 14, 21, 28, 35, 42. Last month he switched them. He told me, \"Those numbers haven't come up in twelve years. They're overdue. But I've been thinking — if they're overdue, that also means they're cursed. So I'm switching to ones that have come up recently. A hot streak is more reliable than waiting for the universe to balance the books.\" He genuinely believes the ping-pong balls know his birthday."
+    },
+    {
+      "id": "bc2_gamblers_fallacy_1_a",
+      "label": "gamblers_fallacy",
+      "argument": "A trader notes that the S&P 500 has closed lower for five consecutive sessions. The probability of six consecutive down days under random walk assumptions is roughly 1.6 percent. The trader therefore allocates heavily to a long position, reasoning that the streak is statistically unlikely to continue. This reasoning treats the daily close as drawing from a finite deck rather than as independent draws from a roughly stationary distribution. The market does not owe a green candle."
+    },
+    {
+      "id": "bc2_gamblers_fallacy_1_e",
+      "label": "gamblers_fallacy",
+      "argument": "I agree that in a fair casino, roulette spins are independent. No argument there. But this isn't a casino — it's a manufacturing line. We've had zero defects for eighteen batches straight. Statistically, we're due for a bad one. The process hasn't changed, but probability can't keep bending in our favor forever. I'm scheduling a full maintenance check before batch nineteen. Yes, the events are technically independent, but at some point you have to respect the odds catching up."
+    },
+    {
+      "id": "bc2_regression_fallacy_1_n",
+      "label": "regression_fallacy",
+      "argument": "Our sales rep had a terrible Q2 — worst numbers in the region. The VP put her on a performance improvement plan with weekly coaching calls. By Q4, her numbers were back to the regional average, and the VP presented this at the all-hands as proof that performance improvement plans work. But the worst quarter in the region is almost always followed by a better one, regardless of intervention. Someone had to be at the bottom, and whoever it was would have regressed toward the mean on their own."
+    },
+    {
+      "id": "bc2_regression_fallacy_1_t",
+      "label": "regression_fallacy",
+      "argument": "A clinic adopts a new antihypertensive protocol and publishes a case series: ten patients with markedly elevated systolic blood pressure at baseline showed a mean reduction of 28 mmHg after six weeks on the protocol. The authors attribute this to the novel agent combination. But the patients were selected precisely because their baseline readings were extreme — a classic regression-to-the-mean scenario. Without a control group, the observed improvement is confounded with the statistical tendency of extreme measurements to move closer to the population mean on remeasurement."
+    },
+    {
+      "id": "bc2_regression_fallacy_1_d",
+      "label": "regression_fallacy",
+      "argument": "\"Ever since we started the after-school tutoring, Carl's grades have shot up.\" \"He got a D on the midterm and now he's getting B's. That's great. But the D was his lowest grade in two years. If you pick a student at their worst moment and give them anything — tutoring, a pep talk, a new backpack — their next score will almost always be better. That's just the numbers settling back.\" \"So you're saying tutoring does nothing?\" \"No, I'm saying you can't credit it without comparing to students who didn't get it.\""
+    },
+    {
+      "id": "bc2_survivorship_bias_1_n",
+      "label": "survivorship_bias",
+      "argument": "A tech blogger interviewed twelve startup founders who made it and wrote a book distilling their common habits: they all woke up before 6 AM, exercised daily, cold-emailed investors relentlessly. The thesis: do these three things and you'll build a unicorn. But the blogger never interviewed the hundred founders who woke up at 5 AM, ran marathons, sent thousands of cold emails, and still went bankrupt. The habits might be universal among startup founders, period. The ones who failed just aren't around to survey."
+    },
+    {
+      "id": "bc2_survivorship_bias_1_a",
+      "label": "survivorship_bias",
+      "argument": "An analysis of Fortune 500 companies finds that eighty-three percent underwent a major strategic pivot in their first five years. The consulting report concludes that pivoting early is a key driver of corporate longevity. This conclusion is drawn entirely from the survivors. Companies that pivoted and perished — and companies that never pivoted and perished — are absent from the sample. Without base rates on pivot outcomes, the correlation among survivors tells us nothing about the causal effect of pivoting on survival."
+    },
+    {
+      "id": "bc2_survivorship_bias_1_t",
+      "label": "survivorship_bias",
+      "argument": "A mutual fund prospectus highlights a ten-year track record showing the fund has beaten its benchmark by 2.3 percent annualized. The marketing copy frames this as evidence of superior stock-picking skill. What isn't mentioned: the fund family launched eighteen other funds in the same year, closed fourteen of them after underperformance, and merged the remaining assets into this survivor. The prospectus is studying the one coin that came up heads ten times in a row after flipping twenty coins and burying the tails."
+    },
+    {
+      "id": "bc2_texas_sharpshooter_1_n",
+      "label": "texas_sharpshooter",
+      "argument": "After the election, a pundit posted a map showing that counties along the I-35 corridor had swung toward the winner by an average of four points. He declared the \"I-35 Realignment\" a new political phenomenon and spent an hour on cable news explaining the cultural geography of interstate-adjacent voters. What he didn't mention: he looked at dozens of corridors — I-95, I-5, the Mississippi River counties, the Appalachian spine — and only the I-35 cluster showed a pattern worth talking about. The rest were noise."
+    },
+    {
+      "id": "bc2_texas_sharpshooter_1_a",
+      "label": "texas_sharpshooter",
+      "argument": "A researcher examines cancer incidence across 3,000 census tracts and identifies a cluster of twelve adjacent tracts with elevated rates of a rare leukemia. The cluster is statistically significant at p < 0.01 after Bonferroni correction, and the researcher hypothesizes an environmental exposure from a nearby industrial site. The problem: the researcher tested over a hundred spatial partitions and exposure radii before finding this one. The p-value assumes a single pre-specified hypothesis. The effective degrees of freedom consumed by the search are unaccounted for."
+    },
+    {
+      "id": "bc2_texas_sharpshooter_1_e",
+      "label": "texas_sharpshooter",
+      "argument": "I'll grant you that the cancer cluster looks alarming on the map, and I understand why residents are scared. But here's the thing. The health department didn't set out to study that specific four-block radius. They mapped every address in a city of two million, tried a dozen different clustering algorithms, adjusted for age, occupation, and water source in multiple model specifications, and then reported the one combination that yielded a significant result. When you fire enough statistical bullets and then draw a bullseye around the one that hit, you haven't discovered a target. You've just described where a bullet landed."
+    },
+    {
+      "id": "bc2_valid_1",
+      "label": "VALID",
+      "argument": "I'm not hiring that general contractor for the kitchen renovation. On his last three projects in this county, the permits office has records of him failing final electrical inspection twice and having a lien filed against him by a subcontractor he never paid. This isn't about whether I like the guy. I've never met him. The license board documents are the evidence, and they show a pattern of work that doesn't meet code. When the question is whether to hand someone a fifty-thousand-dollar renovation, their actual track record of doing the job correctly is the most relevant information available. That's due diligence, not a personal attack.",
+      "trap": "ad_hominem"
+    },
+    {
+      "id": "bc2_valid_2",
+      "label": "VALID",
+      "argument": "Before the advisory committee votes on the zoning variance, you should know that the traffic-impact study the developer submitted was prepared by a firm that the developer also hired to do the Phase 1 environmental assessment. Independent traffic studies are standard for variances of this scale, and using the same consultant for both creates a structural conflict. The firm has every incentive to produce traffic numbers that support the project their client wants approved. I'm not saying the numbers are automatically wrong because of who prepared them. I'm saying the study lacks the independence our ordinance requires, and the vote should be postponed until the city engineer can commission a separate review.",
+      "trap": "genetic_fallacy"
+    },
+    {
+      "id": "bc2_valid_3",
+      "label": "VALID",
+      "argument": "The lease agreement says I have until the end of business Friday to either sign the renewal at the stated rate increase of eight percent or vacate the premises. I asked about a month-to-month holdover at the current rate, a shorter renewal term, or negotiating the increase down to five percent. The property manager said the owner has standing instructions to accept only signed two-year renewals at the listed rate. Those really are my two options under this contract: sign or leave. It's not a false dilemma when the counterparty controls the available choices and has clearly ruled out everything else.",
+      "trap": "false_dilemma"
+    },
+    {
+      "id": "bc2_valid_4",
+      "label": "VALID",
+      "argument": "The wage stagnation in manufacturing over the last two decades maps almost perfectly onto the decline in private-sector union density over the same period, and the mechanism is well-documented: without collective bargaining, individual workers lose the leverage to capture productivity gains as wage increases. Comparing these two trends and treating them as causally linked isn't a false equivalence. It's the central finding of a substantial body of labor economics research by authors ranging from Card to Farber. The comparison holds because union density directly affects the bargaining power that drives wage outcomes.",
+      "trap": "false_equivalence"
+    },
+    {
+      "id": "bc2_valid_5",
+      "label": "VALID",
+      "argument": "Switching the municipal vehicle fleet to electric would eliminate roughly twenty-four hundred metric tons of CO2 equivalent annually based on our current fleet mileage and the regional grid's generation mix. The upfront capital cost is about three-point-four million dollars, but the total cost of ownership analysis, including fuel savings of roughly one hundred eighty thousand per year, reduced maintenance costs, and the available federal infrastructure grants, shows a break-even point in year seven. After that, the city saves approximately four hundred thousand dollars annually compared to maintaining the existing combustion fleet. The main risk is battery replacement cost in years ten through twelve, which should be budgeted as a separate capital reserve starting in year five.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_6",
+      "label": "VALID",
+      "argument": "The decision to move our database hosting from on-premise servers to a managed cloud provider came down to three factors that outweighed the higher monthly operating cost. First, our in-house DBA team has shrunk from three people to one, and recruiting replacements has taken over six months per position. Second, our last unplanned outage lasted eleven hours because the on-call engineer couldn't diagnose a RAID controller failure remotely. Third, the cloud provider's SOC 2 Type II certification satisfies the compliance requirements our enterprise customers have been demanding in RFPs. The cost difference is real at about eighteen percent more per year, but the reliability and compliance gains make it the right tradeoff.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_7",
+      "label": "VALID",
+      "argument": "In 2019, the county approved a variance to let a single developer build a condo complex two stories above the existing height limit. Within eighteen months, four more developers filed similar variance requests citing the precedent, and the zoning board approved every one because they could not legally justify approving the first and denying the rest. Property values in adjacent residential blocks dropped twelve percent as views were blocked and parking congestion worsened. The legal concept of precedent is not hypothetical here — zoning boards are bound by consistency requirements, and this board's own public minutes from the subsequent hearings explicitly cite the original variance as the basis for each approval. The causal chain from that first exception to the neighborhood impact is documented, not speculative.",
+      "trap": "slippery_slope"
+    },
+    {
+      "id": "bc2_valid_8",
+      "label": "VALID",
+      "argument": "Across the forty-seven stores where we piloted the new inventory management system, same-store sales grew 3.8% in the following quarter. Stores in the control group, matched on size, location, and historical performance, showed 0.2% growth over the same period. The p-value on the difference is 0.003. We controlled for seasonality, staffing changes, and local promotions. The system reduced stockouts by 22% and overstock by 18% — both independently verified through cycle counts. This is not coincidence or a small-sample artifact; it is a controlled quasi-experiment with a large enough sample to support the conclusion that the system caused the improvement.",
+      "trap": "false_cause"
+    },
+    {
+      "id": "bc2_valid_9",
+      "label": "VALID",
+      "argument": "The NIH consensus statement on statin therapy was issued after a systematic review of ninety-three randomized controlled trials encompassing over two hundred thousand patients. The panel was convened specifically to evaluate the evidence, and their report cites the specific trials, effect sizes, and confidence intervals that support each recommendation. This is not deferring to famous names; the report is a curated summary of the primary evidence, and the panel's methodology for selecting and weighing studies is fully transparent. Citing the NIH here is a shorthand for citing the body of research they reviewed, not an appeal to their institutional prestige.",
+      "trap": "appeal_to_authority"
+    },
+    {
+      "id": "bc2_valid_10",
+      "label": "VALID",
+      "argument": "The IEEE 802.11ax standard was not adopted because a lot of engineers liked it. It was adopted after years of technical working groups, interoperability testing, and comparative performance analysis across dozens of proposed designs. Every major chipset vendor now implements it not because of social pressure but because the standard specifies behaviors that solve real problems in dense deployments — OFDMA for multi-user efficiency, BSS coloring for co-channel interference, target wake time for IoT battery life. The fact that the entire industry converged on it is a consequence of the technical merits being demonstrated through an open standards process, not a popularity contest.",
+      "trap": "bandwagon"
+    },
+    {
+      "id": "bc2_valid_11",
+      "label": "VALID",
+      "argument": "State-level mask mandates during the 2020 respiratory virus season were followed by a 19% lower per-capita hospitalization rate for influenza-like illness compared to states without mandates, after adjusting for population density, age distribution, and baseline health system capacity. The effect persisted across multiple sensitivity analyses and was consistent with the known mechanism of respiratory droplet transmission. This is the kind of natural experiment that public health researchers look for when randomized trials are infeasible, and the results provide reasonable evidence that the mandates contributed to the reduction.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_12",
+      "label": "VALID",
+      "argument": "The city's decision to lower speed limits on residential streets from 30 mph to 20 mph was followed by a 40% reduction in pedestrian-involved collisions over the following two years. This aligns with established biomechanical research showing that pedestrian survival rates in vehicle collisions drop sharply above 20 mph due to the kinetic energy threshold at which internal injuries become unsurvivable. The engineering literature and the local collision data converge on the same conclusion: the policy change was effective and the mechanism is well understood.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_13",
+      "label": "VALID",
+      "argument": "I reached out to three independent structural engineers about the foundation crack. All three, working separately and without comparing notes, concluded that the settlement is within normal tolerances and does not require remediation. Their reports reference the same soil composition data from the original geotechnical survey, the same ASTM concrete standards, and the same deflection measurements I provided. That three unaffiliated professionals with no incentive to agree arrived at identical conclusions is not circular reasoning — it is independent corroboration of the same evidence base, each expert applying the same industry standards to the same measurements.",
+      "trap": "circular_reasoning"
+    },
+    {
+      "id": "bc2_valid_14",
+      "label": "VALID",
+      "argument": "In clinical trials for this antidepressant, we exclude participants who have taken any SSRI in the past six months. This isn't about moving the goalposts — we established this criterion before the first subject was enrolled because prior SSRI exposure is known to alter serotonin receptor density for months, which confounds the treatment effect measurement. A participant who took Prozac three months ago isn't being called 'not a real participant' after the fact — they simply fail an exclusion criterion that was specified in the pre-registered protocol. That's not redefining the group to dodge a counterexample; it's applying a pre-established definition consistently.",
+      "trap": "no_true_scotsman"
+    },
+    {
+      "id": "bc2_valid_15",
+      "label": "VALID",
+      "argument": "The hospital administrator argued against cutting the pediatric oncology unit's funding, and yes, she showed photos of the children receiving treatment. But that wasn't substituting emotion for evidence. Her presentation included a detailed cost-benefit analysis showing the unit's survival outcomes ranked in the ninety-fifth percentile nationally, that its research grants brought in three times the proposed cut in external funding, and that closing it would force families to travel an average of two hundred miles for equivalent care. The photos contextualized the data — they didn't replace it. The emotional response follows from the facts, not in place of them.",
+      "trap": "appeal_to_emotion"
+    },
+    {
+      "id": "bc2_valid_16",
+      "label": "VALID",
+      "argument": "The National Weather Service has issued a mandatory evacuation order for coastal zones A through F. This is not fearmongering. The hurricane is a Category Four with sustained winds of one hundred thirty miles per hour, a confirmed storm surge model projecting nine to twelve feet of inundation, and a track that has held steady across the last six model runs from three independent forecasting systems. The decision is based on specific, current meteorological data and well-validated predictive models — not on worst-case hypotheticals designed to scare people into compliance. When the concrete risk is this high, warning people is not an emotional fallacy; it is a public safety obligation.",
+      "trap": "appeal_to_fear"
+    },
+    {
+      "id": "bc2_valid_17",
+      "label": "VALID",
+      "argument": "Regular cardiovascular exercise reduces all-cause mortality by roughly thirty percent according to a meta-analysis of sixteen cohort studies covering over one million participants. The effect is dose-dependent and persists after controlling for age, smoking status, BMI, and baseline health markers. The physiological mechanisms are well-understood: improved endothelial function, reduced systemic inflammation, better glucose regulation, and favorable lipid profile changes. This is not a wellness trend or anecdotal — it is one of the most robust findings in epidemiological research, corroborated across multiple study designs and populations over decades.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_18",
+      "label": "VALID",
+      "argument": "The city should repave Oak Street before Elm Street. Oak carries roughly three times the daily traffic volume, services the only fire station in the quadrant, and has a pavement condition index of thirty-two compared to Elm's fifty-eight. The cost estimates are comparable — roughly four hundred thousand dollars each — but deferring Oak by even one more season will require full-depth reconstruction at triple the cost, whereas Elm can be maintained with crack sealing for at least two more budget cycles. This is a straightforward prioritization based on objective engineering criteria and lifecycle cost analysis, not favoritism or anecdotal preference.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_19",
+      "label": "VALID",
+      "argument": "I am choosing the cedar decking over the composite boards. The manufacturer's life-cycle assessment shows cedar from responsibly managed forests has a lower carbon footprint than petroleum-based composites, requires substantially less energy to produce, and at end of life it biodegrades rather than sitting in a landfill for centuries. The fact that it happens to be a natural material is not the argument here — the argument is that the environmental impact numbers are better across every metric we measured, from embodied energy to disposal.",
+      "trap": "appeal_to_nature"
+    },
+    {
+      "id": "bc2_valid_20",
+      "label": "VALID",
+      "argument": "If we do not file the patent application by Friday, we lose priority to the competitor who published their preprint last month. Under the first-to-file rules in the America Invents Act, that means our entire R&D investment in this technology becomes worthless because we will not be able to protect it. I am not threatening anyone here — I am describing the legal reality of patent law and the business consequence of missing a statutory deadline. The law does not care about our internal debates.",
+      "trap": "appeal_to_force"
+    },
+    {
+      "id": "bc2_valid_21",
+      "label": "VALID",
+      "argument": "I know we are here to discuss the quarterly ops review, but I need to raise the warehouse safety incident from Tuesday before we move on. It is directly relevant to our throughput numbers because the injured worker was on the picking line that accounts for forty percent of our quarterly volume, and the OSHA investigation that is now required will mandate a line shutdown for at least two weeks. That downtime directly explains the variance in the numbers you are about to present, so we cannot interpret the ops data without accounting for it.",
+      "trap": "red_herring"
+    },
+    {
+      "id": "bc2_valid_22",
+      "label": "VALID",
+      "argument": "You are criticizing our supplier diversity numbers, but I think it is fair to point out that your region's numbers are identical to ours — four point two percent — and you are operating in a metropolitan area with three times the minority-owned business density that we have access to. I am not deflecting. I am establishing that we are both facing the same structural challenge in our supply chains, which suggests the problem is not individual manager commitment. That shared context matters for designing a solution that will actually work across both regions.",
+      "trap": "whataboutism"
+    },
+    {
+      "id": "bc2_valid_23",
+      "label": "VALID",
+      "argument": "We should use TypeScript for this project rather than plain JavaScript. Our team has three junior developers joining next month, and the compile-time type checking will catch an entire class of bugs that would otherwise surface in production. The onboarding data from our last two projects shows that new hires shipping TypeScript had forty percent fewer bug reports in their first quarter compared to new hires on the JavaScript codebase. The initial setup cost is real, but the defect reduction pays for it within two months based on our historical cost-per-bug metrics.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_24",
+      "label": "VALID",
+      "argument": "The city should extend the bus rapid transit line to the east side. Currently, residents there have an average commute of fifty-two minutes compared to twenty-eight for the rest of the city, and the census data shows the area has the highest percentage of households without a car. A dedicated bus lane on the existing corridor would cost a fraction of building new rail and could be operational within eighteen months. The ridership projections from the transit authority estimate it would serve nine thousand daily trips and reduce vehicle miles traveled in that corridor by twelve percent.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_25",
+      "label": "VALID",
+      "argument": "I'm not dismissing the proposed curriculum changes because I'm the department chair whose course enrollments would drop under the new plan. I'm objecting because the proposal eliminates the statistics prerequisite for the data science track, and our own institutional data from the last five cohorts shows that students who skip that course fail the capstone at three times the rate of those who take it. The evidence is in the registrar's records, not in my self-interest. My position is relevant only insofar as it gave me access to the data that supports the objection on its own merits.",
+      "trap": "appeal_to_motive"
+    },
+    {
+      "id": "bc2_valid_26",
+      "label": "VALID",
+      "argument": "I'm not refusing to hire the contractor because he and I had a dispute fifteen years ago. I'm refusing because I checked the state licensing board and his license was suspended for six months in 2019 after a complaint about substandard electrical work that was upheld. I also found three homeowners on Nextdoor who hired him for kitchen remodels and ended up with water damage within the first year. This isn't about his character or our history—it's about a documented pattern of work that doesn't meet code. The past is relevant because it's evidence of professional competence in exactly the job I'm hiring for.",
+      "trap": "ad_hominem_circumstantial"
+    },
+    {
+      "id": "bc2_valid_27",
+      "label": "VALID",
+      "argument": "If we accept the standard legal definition that a binding contract requires offer, acceptance, and consideration, then this email exchange is not a binding contract because the buyer never provided consideration—he proposed a price but never made a deposit or incurred a detriment in reliance. The definition isn't being smuggled in as a hidden premise. It's derived from the Restatement (Second) of Contracts Section 17, which both parties stipulated governs their dispute. We're applying an agreed-upon legal framework to the facts, not assuming what we need to prove.",
+      "trap": "begging_the_question"
+    },
+    {
+      "id": "bc2_valid_28",
+      "label": "VALID",
+      "argument": "Given that the defendant's own text messages—entered into evidence as Exhibit 14—show him telling his brother he was at the warehouse at 11:30 PM, what is your explanation for why his phone records place him twelve miles away at that exact time? The premise here isn't loaded—the text messages are authenticated and in the record. I'm not asking a question that assumes an unproven fact; I'm asking you to reconcile two pieces of evidence that are already before the court. The foundation for the question has been laid, and you're free to challenge either piece of evidence in your answer.",
+      "trap": "loaded_question"
+    },
+    {
+      "id": "bc2_valid_29",
+      "label": "VALID",
+      "argument": "We've tested every soil sample from the construction site—all forty-seven cores taken across two acres—and not one showed petroleum hydrocarbon levels above the detection threshold of 0.5 parts per million. We also reviewed the historical aerial photography from 1950 to 2020 and found no evidence of above-ground storage tanks or fueling operations on the parcel. This isn't an argument from ignorance. We conducted a reasonable and thorough search of the kind that would be expected to detect contamination if it existed, and we found nothing. The absence of evidence here is weak but admissible evidence of absence because the search was genuinely capable of finding the thing.",
+      "trap": "appeal_to_ignorance"
+    },
+    {
+      "id": "bc2_valid_30",
+      "label": "VALID",
+      "argument": "I've submitted the structural engineer's report, the seismographic data from the past decade, and the county's own infrastructure assessment showing the bridge has a sufficiency rating of 48 out of 100, which is below the federal threshold for replacement eligibility. I'm not asking you to disprove my claim that the bridge is unsafe—I've already supported it with three independent sources. What I'm asking is whether you have any countervailing evidence that would justify delaying the repairs. At this point, the burden has been met, and shifting it isn't fallacious—it's asking whether the other side has a response to a case that has already been made.",
+      "trap": "shifting_burden_of_proof"
+    },
+    {
+      "id": "bc2_valid_31",
+      "label": "VALID",
+      "argument": "The property survey from 1987 clearly marks the drainage easement as running along the northern property line for a distance of 210 feet. If the current owner believes the easement was extinguished, she would need to produce a subsequent survey or a court order—because the recorded easement creates a presumption that is hers to rebut. The easement isn't a myth just because nothing has been done with it for thirty years.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_32",
+      "label": "VALID",
+      "argument": "We should implement two-factor authentication for all administrative accounts. Last quarter alone we had three successful credential-stuffing attacks on accounts without 2FA enabled, and zero on accounts with it. The incident response team spent a combined forty hours containing those three breaches. The data supports the recommendation directly.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_33",
+      "label": "VALID",
+      "argument": "We should take the reports of brake failure in the 2023 Corolla seriously, even though Toyota says it's only a handful of cases. My neighbor's car lost braking power merging onto the highway last week, and when the mechanic pulled the ABS module, the same component failure pattern showed up that triggered the Hyundai recall two years ago. One verified case with a known failure mechanism is sufficient to warrant an investigation — that is exactly how the Hyundai issue was caught before it became a wider safety crisis.",
+      "trap": "anecdotal"
+    },
+    {
+      "id": "bc2_valid_34",
+      "label": "VALID",
+      "argument": "The exit poll data from Tuesday's primary is actually quite reliable, despite what the campaign is saying. We surveyed voters at forty precincts distributed proportionally across urban, suburban, and rural counties, stratified by historical turnout. Our sampling frame mirrored the registered voter demographics for age, income, and party registration within two percentage points. The 1,200 completed surveys give us a margin of error of plus or minus 2.8 percent at the 95 percent confidence level. This is not a convenience sample — it's a properly weighted random sample designed by a statistical consulting team.",
+      "trap": "sampling_bias"
+    },
+    {
+      "id": "bc2_valid_35",
+      "label": "VALID",
+      "argument": "Every time we've deployed a kernel patch on the staging cluster before pushing to production, we've avoided a Sev-1 incident for the subsequent quarter. The last three outages we had all occurred during quarters where we skipped the staging step. I'm not claiming the staging environment is magical — we have documented each case. The staging cluster caught a memory leak in the February patch under load, a connection pooling regression in May that would have throttled traffic, and a TLS handshake timeout in August affecting the payment gateway. Skipping staging means those bugs ship to production. The causal chain is visible in our monitoring logs and incident postmortems.",
+      "trap": "post_hoc"
+    },
+    {
+      "id": "bc2_valid_36",
+      "label": "VALID",
+      "argument": "The epidemiological data linking processed meat consumption to colorectal cancer is not just a correlation study. Researchers have identified a specific mechanism: heme iron in red and processed meat catalyzes the formation of N-nitroso compounds in the gut, which are established carcinogens. The dose-response relationship holds across multiple cohort studies with different populations, different baseline diets, and different follow-up periods. When you have a plausible biological pathway, consistent observational data across independent samples, and a clear dose-response gradient, you have moved well past mere correlation into a causal case.",
+      "trap": "correlation_causation"
+    },
+    {
+      "id": "bc2_valid_37",
+      "label": "VALID",
+      "argument": "Comparing the human immune system to a standing army is not just a loose metaphor. Both operate on the same strategic principles: a standing force that patrols for generic threats, an intelligence-gathering apparatus that profiles new pathogens and presents identifying markers, and a specialized response unit that develops targeted weapons for specific invaders. The analogy has genuine predictive value — military logistics models were adapted to optimize vaccine distribution networks during the pandemic, and the approach measurably reduced waste and improved coverage rates.",
+      "trap": "weak_analogy"
+    },
+    {
+      "id": "bc2_valid_38",
+      "label": "VALID",
+      "argument": "A software monolith and a tightly coupled mechanical assembly are alike in the ways that matter for this discussion. Both concentrate failure risk at single points where one seized component stops the entire system. Both require a full shutdown to replace any one part. Both accumulate technical debt in the same structural pattern — each new piece gets bolted onto what already exists rather than being designed to interface cleanly. The engineering principle is identical: modularity reduces blast radius. That is not a forced comparison; it is the same architectural constraint manifesting in two different substrates.",
+      "trap": "false_analogy"
+    },
+    {
+      "id": "bc2_valid_39",
+      "label": "VALID",
+      "argument": "The board should approve the capital expenditure for the new manufacturing line. Our current equipment has an average downtime of fourteen hours per month due to part failures, and the vendor has announced end-of-life for replacement components by Q2 of next year. At our current throughput, those lost production hours represent roughly 340,000 dollars in monthly revenue. The new line costs 2.8 million installed, which at that monthly recovery rate gives us a payback period of just over eight months. After that, the additional capacity lets us take on the Baxter contract we had to turn down last year.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_40",
+      "label": "VALID",
+      "argument": "I recommend we adopt the four-day workweek pilot based on the results from the Cambridge study and the Microsoft Japan trial. Both showed productivity holding steady or improving while employee satisfaction and retention rose significantly. Our own engagement survey shows that schedule flexibility is the number one request across every department, and our voluntary turnover rate hit eighteen percent last year — well above the industry average of twelve. The evidence is not definitive for every industry, but for a knowledge-work company our size, the case is strong enough to run a six-month trial with clear metrics.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_41",
+      "label": "VALID",
+      "argument": "Every time a politician announces a 'reform' of a public program, what they actually mean is they're going to cut its funding — I've tracked this pattern across three different administrations now. Reform is the word you use when you want to shrink government without saying so. So when the governor announced education reform last Tuesday, I knew what was coming, and sure enough, the budget proposal just released cuts per-pupil spending by eleven percent. Call it whatever you want; the pattern is consistent and the evidence bears it out every single time.",
+      "trap": "equivocation"
+    },
+    {
+      "id": "bc2_valid_42",
+      "label": "VALID",
+      "argument": "Your company's policy defines harassment as 'unwelcome conduct of a sexual nature that a reasonable person would find severe or pervasive.' But you're applying that definition to terminate someone for telling a single off-color joke at a holiday party ten years ago — an incident that was never repeated, never escalated, and was not directed at any specific individual. A single joke, while perhaps inappropriate, does not meet the 'severe or pervasive' standard built into your own definition. You cannot define a term one way in writing and then enforce it another way in practice. That's not how definitions work.",
+      "trap": "definist"
+    },
+    {
+      "id": "bc2_valid_43",
+      "label": "VALID",
+      "argument": "Every steel beam in this bridge is independently rated to support forty tons of load. The bridge deck is supported by twelve such beams running in parallel. Therefore, the bridge can support approximately four hundred and eighty tons of total load. This is not a naive leap from parts to whole — structural engineering tells us that when beams are arranged in parallel, the total load capacity is the sum of the individual capacities, less a standard safety factor. The property is additive by the physics of the arrangement, and the reason is stated explicitly.",
+      "trap": "composition"
+    },
+    {
+      "id": "bc2_valid_44",
+      "label": "VALID",
+      "argument": "The county-level immunization data shows that Blue County has the highest rate of unvaccinated children in the state at fourteen percent. I'm moving there next month with my infant daughter, and I'm genuinely worried. While this statistic doesn't tell me which specific families are unvaccinated, it does tell me that any public space we enter — the park, the library story hour, the pediatrician's waiting room — carries a meaningfully higher probability of containing an unvaccinated child than comparable spaces where I currently live. My daughter's individual risk of exposure is higher because the community base rate in her environment is higher. That's a probabilistic claim about her environment, not a claim about any specific neighbor.",
+      "trap": "ecological_fallacy"
+    },
+    {
+      "id": "bc2_valid_45",
+      "label": "VALID",
+      "argument": "If a patient has malaria caused by Plasmodium falciparum, a properly prepared blood smear will show the characteristic ring-form parasites within red blood cells. This patient's blood smear, reviewed by two independent pathologists, shows the characteristic ring-form Plasmodium falciparum parasites. Therefore, this patient has malaria. In a vacuum the logical form looks like affirming the consequent, but the presence of the parasite in the blood is pathognomonic — the parasite is the disease agent itself. There is no alternative cause for finding Plasmodium falciparum in a patient's bloodstream other than having malaria. The inference is medically definitive.",
+      "trap": "affirming_the_consequent"
+    },
+    {
+      "id": "bc2_valid_46",
+      "label": "VALID",
+      "argument": "If the municipal power grid is operational, the streetlights on Cedar Avenue will be illuminated after dusk. The power grid is confirmed down across the entire county due to the substation failure — the utility company has publicly stated there is no electricity being delivered anywhere in the service area. Therefore, the streetlights on Cedar Avenue will not be illuminated tonight. This is not fallacious because these particular streetlights have no battery backup, no solar panels, no generators, and no independent power source of any kind. The grid is the sole and exclusive source of electricity for these fixtures. When you remove the only possible cause, the effect is necessarily removed as well.",
+      "trap": "denying_the_antecedent"
+    },
+    {
+      "id": "bc2_valid_47",
+      "label": "VALID",
+      "argument": "The city council's proposal to add protected bike lanes on Oak Street should be approved. The city's own traffic study shows that since the parallel route on Maple Street received protected bike lanes two years ago, cyclist injuries along that corridor have dropped by forty percent while average car travel times increased by only twelve seconds. The Oak Street corridor has nearly identical traffic volumes, lane widths, adjacent land use, and intersection density. The evidence from a directly comparable intervention in the same city strongly supports extending the policy. Delaying the decision for another study cycle would mean another year of preventable injuries.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_48",
+      "label": "VALID",
+      "argument": "We should migrate our production application from a single large cloud instance to a cluster of smaller, redundant instances distributed across two availability zones. When our primary server went down last month due to a hardware failure in the host machine, the entire customer-facing application was offline for six hours. That single point of failure cost us an estimated forty thousand dollars in lost transactions and immeasurable reputational harm with our enterprise clients. A clustered setup with automatic failover would have kept at least partial capacity available throughout the outage and would have more than paid for the additional infrastructure cost within a single incident.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_49",
+      "label": "VALID",
+      "argument": "I'm not voting for the school budget increase, and here's why: the proposal funnels sixty percent of the new money into administrative salaries, not classrooms. It funds a new deputy superintendent position while cutting the art teacher to half-time. If \"bloated administration\" sounds like loaded language to you, fine — but the line items are public. Look at pages fourteen through seventeen of the budget and tell me where I'm wrong.",
+      "trap": "loaded_language"
+    },
+    {
+      "id": "bc2_valid_50",
+      "label": "VALID",
+      "argument": "There is a broad scientific consensus — and I can give you the names — that anthropogenic climate change is real. The IPCC Fifth Assessment Report was authored by over eight hundred scientists from eighty-five countries, reviewed by thousands more, and endorsed by the national academies of science of every G7 nation. When I say \"the scientific community agrees,\" I'm not gesturing vaguely. I'm pointing to a document, its authors, its reviewers, and its endorsing institutions. You can verify each one.",
+      "trap": "weasel_words"
+    },
+    {
+      "id": "bc2_valid_51",
+      "label": "VALID",
+      "argument": "We've had three safety incidents on this rig in the past two months. I know the odds of any individual shift having an incident are independent in a narrow statistical sense, but here's what independence doesn't capture: fatigue from extended shifts, a maintenance backlog that grew after the first two incidents pulled crews away from preventive work, and the fact that the third incident involved the same valve assembly that was flagged but not yet repaired after the second. These aren't independent dice rolls — they're causally linked through deferred maintenance and exhausted workers.",
+      "trap": "gamblers_fallacy"
+    },
+    {
+      "id": "bc2_valid_52",
+      "label": "VALID",
+      "argument": "The stock was trading at eighteen dollars after the CFO resignation, and now it's at twenty-six. Some say it's just mean reversion — that stocks recover from bad news on their own. But that argument ignores that the new CFO restructured four hundred million in debt, closed two unprofitable divisions, and renegotiated the supply contracts that were bleeding margins. We have a documented chain of concrete actions between the low and the recovery. You can call it regression if you want, but the board minutes and the earnings call transcripts tell a different story.",
+      "trap": "regression_fallacy"
+    },
+    {
+      "id": "bc2_valid_53",
+      "label": "VALID",
+      "argument": "When comparing two job offers, I considered compensation, commute, benefits, team quality, growth potential, and work-life balance. Offer A paid more but required a ninety-minute commute each way. Offer B paid less but was fully remote, had better health coverage, and put me on a team whose work I genuinely admire. I took Offer B. The decision wasn't about any single factor — it was a weighted trade-off across multiple dimensions, each of which I could show you the data for.",
+      "trap": null
+    },
+    {
+      "id": "bc2_valid_54",
+      "label": "VALID",
+      "argument": "In the nineteen-fifties, Jonas Salk developed the polio vaccine and refused to patent it. When asked who owned the patent, he said, \"Well, the people, I would say. There is no patent. Could you patent the sun?\" The vaccine was tested in one of the largest clinical trials in history, involving nearly two million children. Within a decade, polio cases in the United States dropped from thirty-five thousand per year to fewer than ten. Salk's choice meant the vaccine could be manufactured and distributed globally without licensing barriers — a decision that saved millions of lives.",
+      "trap": null
+    }
+  ]
+}

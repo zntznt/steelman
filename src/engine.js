@@ -54,7 +54,7 @@ export const CONFIG = {
   // families is worth 1/N. Only suggest when the top family clears a real signal AND clearly beats
   // the runner-up — better to show the full picker than to confidently misroute (panel M-1).
   CUE_MIN_SCORE: 0.5,     // top weighted score must reach this to surface a suggestion
-  CUE_MIN_MARGIN: 1.3,    // ...and be ≥ this × the runner-up family's score
+  CUE_MIN_MARGIN: 1.0,    // ...and be ≥ this × the runner-up family's score (relaxed from 1.3 — expanded cues create more overlap)
 
   // VALID exits
   TAU_VALID: 0.75,        // earned-VALID: confident "this holds up"
